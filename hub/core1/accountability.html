@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who is accountable? · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Who is accountable?. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-DEC-ACCOUNT" data-page="P-DEC-ACCOUNT" data-source-sections="S17 §5 · G3 §5 · S17 §7" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">Who is accountable?</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Basics</p><a href="modality.html">Shall, Should, and May</a><a href="policy-stack.html">Which document applies?</a><a href="cia.html">Confidentiality, integrity, and availability</a><a href="tier-appc.html">Tier and when Appendix C applies</a><a href="accountability.html" aria-current="page">Who is accountable?</a><a href="org-structure.html">Government and departmental security organisation</a><p class="nav-label">Controls by theme</p><a href="management.html">Management responsibilities and risk</a><a href="hr-security.html">Human resource security and training</a><a href="asset.html">Asset management</a><a href="access-control.html">Access control in daily work</a><a href="privileged.html">Privileged accounts</a><a href="cryptography.html">When cryptography applies</a><a href="physical.html">Physical and environmental security</a><a href="operations.html">Operations, backup, patch, and monitoring</a><a href="communications.html">Communications security</a><a href="sdlc-security.html">Security in acquisition, development, and maintenance</a><a href="outsourcing.html">Outsourcing and suppliers</a><a href="incident.html">Is this an incident, and who do I tell?</a><a href="bcm.html">Continuity and recovery</a><a href="compliance.html">Compliance, assessment, and testing</a><p class="nav-label">By need</p><a href="by-need.html">I need to…</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Who is accountable?</h1>
+<p class="lede">Accountability is a framework, not a single name. Know the DITSO, the security unit, the information owner, and your own line.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-aid-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this decision aid</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<div data-aid-root data-checklist>
+<article class="aid" id="DEC-ACCOUNT-01" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="account training" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCOUNT-01" data-tick="DEC-ACCOUNT-01" aria-label="Optional tick for Who leads IT security accountability in my department?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-ACCOUNT-01</span></div>
+      <h2>Who leads IT security accountability in my department?</h2>
+      <p class="glance">The Head of the B/D appoints a Departmental IT Security Officer. The DITSO steers IT security. Day-to-day work also sits with the IT security management unit, information owners, and administrators.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>New joiners building the who-to-call card, and anyone unsure who accepts a risk.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You are inside a B/D, or you support one. Names come from your unit, not from this hub.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Fill the who-to-call card with the DITSO, the security unit, the ISIRT contact, and your line manager. Leave a blank if you do not know. Do not invent a name.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s05.html">S17 §5</a> <a href="../core4/g3/s05.html">G3 §5</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-framework.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-ACCOUNT-02" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="account" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCOUNT-02" data-tick="DEC-ACCOUNT-02" aria-label="Optional tick for What remains my job if I am not the DITSO?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-ACCOUNT-02</span></div>
+      <h2>What remains my job if I am not the DITSO?</h2>
+      <p class="glance">Every staff member has duties for the access, information, and systems they use. A specialist role adds duties. It does not move your own Shall items onto someone else.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Elevated users, administrators, developers, and management support.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All five roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know which role description is closest to the work you actually do.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Open your role path and the theme decision aid (access, operations, development, incident). Complete the who-to-call card so you know who carries the rest.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s05.html">S17 §5</a> <a href="../core4/g3/s05.html">G3 §5</a> <a href="../core4/s17/s09.html">S17 §9</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-framework.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-ACCOUNT-03" data-modality="shall" data-flag="0" data-roles="4 5 3 2" data-sdlc="01 02 06 08" data-needs="account tier" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCOUNT-03" data-tick="DEC-ACCOUNT-03" aria-label="Optional tick for Who accepts a risk that is still open?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-ACCOUNT-03</span></div>
+      <h2>Who accepts a risk that is still open?</h2>
+      <p class="glance">Someone in management owns the risk and accepts what remains after treatment. An administrator or developer can describe the risk. They do not silently accept it.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Project and operations staff preparing a residual-risk note.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> Management support, security unit, and information owners. Others contribute the facts.</span><span><strong>Stages:</strong> 01 Project initiation, 02 Design, 06 Go-live, 08 Change.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>The risk is described: what can go wrong, and what is already in place.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Write the risk in the department’s own register or paper. Name the owner. Open S17 §7 and G3 §7 before you treat a verbal “it is fine” as acceptance.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s07.html">S17 §7</a> <a href="../core4/g3/s07.html">G3 §7</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-framework.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

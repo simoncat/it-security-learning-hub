@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Management responsibilities and risk · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Management responsibilities and risk. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-DEC-MANAGEMENT" data-page="P-DEC-MANAGEMENT" data-source-sections="S17 §7 · G3 §7" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">Management responsibilities and risk</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Basics</p><a href="modality.html">Shall, Should, and May</a><a href="policy-stack.html">Which document applies?</a><a href="cia.html">Confidentiality, integrity, and availability</a><a href="tier-appc.html">Tier and when Appendix C applies</a><a href="accountability.html">Who is accountable?</a><a href="org-structure.html">Government and departmental security organisation</a><p class="nav-label">Controls by theme</p><a href="management.html" aria-current="page">Management responsibilities and risk</a><a href="hr-security.html">Human resource security and training</a><a href="asset.html">Asset management</a><a href="access-control.html">Access control in daily work</a><a href="privileged.html">Privileged accounts</a><a href="cryptography.html">When cryptography applies</a><a href="physical.html">Physical and environmental security</a><a href="operations.html">Operations, backup, patch, and monitoring</a><a href="communications.html">Communications security</a><a href="sdlc-security.html">Security in acquisition, development, and maintenance</a><a href="outsourcing.html">Outsourcing and suppliers</a><a href="incident.html">Is this an incident, and who do I tell?</a><a href="bcm.html">Continuity and recovery</a><a href="compliance.html">Compliance, assessment, and testing</a><p class="nav-label">By need</p><a href="by-need.html">I need to…</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Management responsibilities and risk</h1>
+<p class="lede">Management names the roles, separates duties that should be separated, funds the work, and classifies systems so the controls match.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-aid-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this decision aid</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<div data-aid-root data-checklist>
+<article class="aid" id="DEC-MGMT-01" data-modality="shall" data-flag="0" data-roles="2 3 4 5" data-sdlc="01 06 08" data-needs="tier account" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MGMT-01" data-tick="DEC-MGMT-01" aria-label="Optional tick for Has this system been given a tier and an owner?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-MGMT-01</span></div>
+      <h2>Has this system been given a tier and an owner?</h2>
+      <p class="glance">Classified protection means every system, including a shared service, gets a tier and controls to match. An owner is part of that, not a later nice-to-have.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Management support and project staff at initiation, and again when the system changes role.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> IT security administrator / unit and Management support lead. System / LAN administrator and Application developer supply facts.</span><span><strong>Stages:</strong> 01 Project initiation, 06 Go-live, 08 Change.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>The system has a name. Shared services are in scope, not exempt.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Ask for the tier and the information owner. If either is missing, record a gap. Do not invent the tier to make a form look finished.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s07.html">S17 §7</a> <a href="../core4/g3/s07.html">G3 §7</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-framework.html">Related quiz</a> · <a href="../core3/qa-tier.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-MGMT-03" data-modality="shall" data-flag="1" data-roles="4 5" data-sdlc="all" data-needs="tier" data-tiers="3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MGMT-03" data-tick="DEC-MGMT-03" aria-label="Optional tick for What extra management control appears at Tier 3?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span> <span class="badge badge-appc">App C</span><span class="id-code">DEC-MGMT-03</span></div>
+      <h2>What extra management control appears at Tier 3?</h2>
+      <p class="glance">Appendix C adds Tier 3 expectations for the risk framework and for keeping risk registers. Tier 3 also inherits Tier 2 Appendix C controls from other themes.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Management support for an essential-service system.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> IT security administrator / unit and Management support.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>The tier is confirmed as Tier 3, or clearly marked as a proposal.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Confirm the row on the App C matrix and in G3 Appendix C. Baseline §7 still applies.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/g3/appendix-c.html">G3 Appendix C</a> <a href="../core4/s17/s07.html">S17 §7</a> <a href="../core4/g3/s07.html">G3 §7</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-app-c.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-MGMT-02" data-modality="should" data-flag="0" data-roles="4 5" data-sdlc="01 02 08" data-needs="tier" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MGMT-02" data-tick="DEC-MGMT-02" aria-label="Optional tick for What should a risk decision look at?">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">DEC-MGMT-02</span></div>
+      <h2>What should a risk decision look at?</h2>
+      <p class="glance">Judge criticality with defence and safety, financial effect, government image, and interdependency, and with scope, severity, and how long the service can be down.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Persons writing a one-page risk note.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> Management support and the security unit.</span><span><strong>Stages:</strong> 01 Project initiation, 02 Design, 08 Change.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You have a factual description of the system. You are not copying a generic sentence.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Use the department’s risk method. Keep the note short enough that the owner can accept or reject the remainder.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s07.html">S17 §7</a> <a href="../core4/g3/s07.html">G3 §7</a> <a href="../core4/s17/s06.html">S17 §6</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-framework.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

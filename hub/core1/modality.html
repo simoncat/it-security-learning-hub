@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shall, Should, and May · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Shall, Should, and May. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-DEC-MOD" data-page="P-DEC-MOD" data-source-sections="S17 §4 · G3 §4" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">Shall, Should, and May</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Basics</p><a href="modality.html" aria-current="page">Shall, Should, and May</a><a href="policy-stack.html">Which document applies?</a><a href="cia.html">Confidentiality, integrity, and availability</a><a href="tier-appc.html">Tier and when Appendix C applies</a><a href="accountability.html">Who is accountable?</a><a href="org-structure.html">Government and departmental security organisation</a><p class="nav-label">Controls by theme</p><a href="management.html">Management responsibilities and risk</a><a href="hr-security.html">Human resource security and training</a><a href="asset.html">Asset management</a><a href="access-control.html">Access control in daily work</a><a href="privileged.html">Privileged accounts</a><a href="cryptography.html">When cryptography applies</a><a href="physical.html">Physical and environmental security</a><a href="operations.html">Operations, backup, patch, and monitoring</a><a href="communications.html">Communications security</a><a href="sdlc-security.html">Security in acquisition, development, and maintenance</a><a href="outsourcing.html">Outsourcing and suppliers</a><a href="incident.html">Is this an incident, and who do I tell?</a><a href="bcm.html">Continuity and recovery</a><a href="compliance.html">Compliance, assessment, and testing</a><p class="nav-label">By need</p><a href="by-need.html">I need to…</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Shall, Should, and May</h1>
+<p class="lede">Read the modality before the control. Shall comes first. You do not have to read every word of S17 and G3.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-aid-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this decision aid</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<div data-aid-root data-checklist>
+<article class="aid" id="DEC-MOD-01" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="modality" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MOD-01" data-tick="DEC-MOD-01" aria-label="Optional tick for Does this line say Shall?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-MOD-01</span></div>
+      <h2>Does this line say Shall?</h2>
+      <p class="glance">Shall is mandatory. You must do it. Put Shall items first in every checklist and do not trade them for a Should.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Anyone deciding whether a control can wait.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You are looking at an S17 or G3 line, or at a learning-aid bullet that cites one.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Mark the line Shall, do it, and keep evidence your B/D already uses. Then open the same-numbered G3 section for how.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s04.html">S17 §4</a> <a href="../core4/g3/s04.html">G3 §4</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-MOD-02" data-modality="should" data-flag="0" data-roles="all" data-sdlc="all" data-needs="modality" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MOD-02" data-tick="DEC-MOD-02" aria-label="Optional tick for What do I do with Should?">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">DEC-MOD-02</span></div>
+      <h2>What do I do with Should?</h2>
+      <p class="glance">Should is best practice. Implement it whenever possible. If you defer it, write why and when you will look again.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Staff choosing what to schedule after the mandatory items.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>The Shall items for the same theme are already identified.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Schedule the Should with the control owner. A deferral needs a reason, not silence.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s04.html">S17 §4</a> <a href="../core4/g3/s04.html">G3 §4</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-MOD-04" data-modality="should" data-flag="0" data-roles="all" data-sdlc="all" data-needs="modality" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MOD-04" data-tick="DEC-MOD-04" aria-label="Optional tick for Do I have to read every word before I act?">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">DEC-MOD-04</span></div>
+      <h2>Do I have to read every word before I act?</h2>
+      <p class="glance">No. Skim the theme, then deep-read Shall lines, rows for your role, and Appendix C only when the system is Tier 2 or Tier 3.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>New joiners and busy current staff.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know the theme (access, operations, incident, and so on).</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Open the decision aid, follow Shall first, then use the source pages for the section you still need to see in the original wording.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s04.html">S17 §4</a> <a href="../core4/g3/s04.html">G3 §4</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-MOD-03" data-modality="may" data-flag="0" data-roles="all" data-sdlc="all" data-needs="modality" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-MOD-03" data-tick="DEC-MOD-03" aria-label="Optional tick for Can I treat May as optional decoration?">
+    <div>
+      <div class="item-meta"><span class="badge badge-may">May</span><span class="id-code">DEC-MOD-03</span></div>
+      <h2>Can I treat May as optional decoration?</h2>
+      <p class="glance">May is a desirable best practice. Use it when it helps. It is not permission to skip a Shall.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Anyone tempted to read May as a waiver.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You already know which lines are Shall.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Apply May where it reduces risk for your system. Do not record a May as if it satisfied a Shall.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s04.html">S17 §4</a> <a href="../core4/g3/s04.html">G3 §4</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "id": "P-QUIZ-R4",
+  "file": "core2/quiz-role-4.html",
+  "title": "IT security administrator / unit self-check",
+  "intro": "Mandate, segregation, reviews, and Tier 3 certification.",
+  "source": "G3 §5.3.1, §5.2.5, §11, §14; App C §5 and §11",
+  "questions": [
+    {
+      "id": "Q-R4-01",
+      "prompt": "The security administrator and the system administrator should be:",
+      "choices": [
+        "Different persons. The security role should not be the same seat as system administration.",
+        "Always the same person, to move faster.",
+        "Rotated hourly with a shared password.",
+        "Outsourced with no local owner."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 states the security administrator should not also be the system administrator. That protects segregation and log integrity.",
+      "modalityTag": "should"
+    },
+    {
+      "id": "Q-R4-02",
+      "prompt": "Audit-log integrity means:",
+      "choices": [
+        "The persons under review should not be able to alter the record unnoticed.",
+        "Logs can be edited to look tidy.",
+        "Logs are optional if the system feels healthy.",
+        "Only successful logins are kept."
+      ],
+      "answerIndex": 0,
+      "rationale": "Security administrators maintain and review logs. Integrity of that record is part of the job.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-R4-03",
+      "prompt": "Joiner-mover-leaver is mainly about:",
+      "choices": [
+        "Granting, changing, and removing access as persons change roles.",
+        "Ordering laptops only.",
+        "A social event.",
+        "Skipping §9 because IT is busy."
+      ],
+      "answerIndex": 0,
+      "rationale": "§9 and §11 meet here. Leavers and transfers are a common gap.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-R4-04",
+      "prompt": "An independent privileged-account audit for Tier 2/3 is:",
+      "choices": [
+        "A check by someone other than the account holder, at least every six months.",
+        "The admin ticking their own spreadsheet.",
+        "Required only for Tier 1 mailboxes.",
+        "A public blog post."
+      ],
+      "answerIndex": 0,
+      "rationale": "App C §11. Independence is the point.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-R4-05",
+      "prompt": "A B/D with Tier 3 systems must have, in the security unit:",
+      "choices": [
+        "At least one member with a recognised IT security certification.",
+        "No training plan.",
+        "Only vendor staff, with no civil-service owner.",
+        "A certification wall and nothing else."
+      ],
+      "answerIndex": 0,
+      "rationale": "App C §5 names examples such as CISA, CISSP, or CISP. The official text is the list to follow.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-R4-06",
+      "prompt": "Departmental threat intelligence routes include:",
+      "choices": [
+        "GIRO and GovCERT.HK, plus your local ISIRT path.",
+        "Only a personal social-media feed.",
+        "Rumours in the lift.",
+        "Waiting for a user to notice a defacement."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §5 describes GIRO and GovCERT.HK. §14.7 is the threat-management theme.",
+      "modalityTag": ""
+    }
+  ]
+}

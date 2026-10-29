@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System / LAN administrator — privileged access, request to review · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="System / LAN administrator — privileged access, request to review. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-WALK-R2" data-page="P-WALK-R2" data-source-sections="G3 §11 · Appendix C §11 and §14" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Walkthroughs</a></li><li aria-current="page">System / LAN administrator — privileged access, request to review</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">On this hub</p><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Decision aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C matrix</a><a href="../gap-template.html">Gap template</a><a href="../cheatsheets/index.html">Cheat sheets</a><a href="index.html">Walkthroughs</a><a href="../governance.html">Governance</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>System / LAN administrator — privileged access, request to review</h1>
+<p class="fine">Source pointers: G3 §11 · Appendix C §11 and §14</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+</div>
+
+<p>Where a step is Should, you may defer it if you record why. Shall steps are the ones the policy treats as mandatory. App C steps apply when the system is Tier 2 or Tier 3.</p>
+<p class="no-print"><button type="button" class="btn btn-primary" data-action="print">Print this walkthrough</button></p>
+<ol class="steps">
+<li class="step">
+  <h3>Step 1. Name one production system</h3>
+  <p>Write the system name and the tier if it has already been confirmed. If not, write “tier not confirmed”.</p>
+  <p class="keep">Artefacts to keep: System name.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 2. Describe the privilege</h3>
+  <p>What is requested, for whom, and why a lesser right is not enough.</p>
+  <p class="keep">Artefacts to keep: The request text.</p>
+  <p class="defer">Shall: least privilege.</p>
+</li>
+<li class="step">
+  <h3>Step 3. Check password and MFA expectations</h3>
+  <p>Note the strong-password rule. If the system is Tier 2 or 3, note MFA for interactive privileged logon where feasible.</p>
+  <p class="keep">Artefacts to keep: A yes/no on MFA, with the reason if it is not feasible.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 4. Name the approver</h3>
+  <p>Who grants, who is informed, and where the ticket will live. Do not grant anything as part of this learning note.</p>
+  <p class="keep">Artefacts to keep: Approver and ticket location.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 5. Decide drill or real work</h3>
+  <p>If this is not an authorised live request, mark the walkthrough “tabletop — not executed”. Execute a grant only when it is your real job and you are allowed to.</p>
+  <p class="keep">Artefacts to keep: The tabletop or the real ticket number.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 6. Diary the independent check</h3>
+  <p>For Tier 2/3, an independent party reviews privileged use at least every six months. Put the next date in your own calendar.</p>
+  <p class="keep">Artefacts to keep: Next review date.</p>
+  <p class="defer">App C Shall when the tier is 2 or 3.</p>
+</li>
+<li class="step">
+  <h3>Step 7. Gather artefacts</h3>
+  <p>Request, approval, ticket, and review date. No passwords in the note.</p>
+  <p class="keep">Artefacts to keep: Those four pointers.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 8. Note a deferral</h3>
+  <p>If a Should item waits (for example a nicer inventory tool), write why and a date to revisit.</p>
+  <p class="keep">Artefacts to keep: The deferral line.</p>
+  
+</li></ol>
+<details>
+  <summary>Alternative exercise</summary>
+  <p>Alternative: one host’s patch or vulnerability item. Record the advisory, the decision, the date, and whether DITSO must be told if it will pass a month.</p>
+</details>
+<p><a href="../path/apply.html">Back to apply and close gaps</a></p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

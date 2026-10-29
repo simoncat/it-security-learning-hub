@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When cryptography applies · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="When cryptography applies. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-DEC-CRYPTO" data-page="P-DEC-CRYPTO" data-source-sections="S17 §12 · G3 §12" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">When cryptography applies</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Basics</p><a href="modality.html">Shall, Should, and May</a><a href="policy-stack.html">Which document applies?</a><a href="cia.html">Confidentiality, integrity, and availability</a><a href="tier-appc.html">Tier and when Appendix C applies</a><a href="accountability.html">Who is accountable?</a><a href="org-structure.html">Government and departmental security organisation</a><p class="nav-label">Controls by theme</p><a href="management.html">Management responsibilities and risk</a><a href="hr-security.html">Human resource security and training</a><a href="asset.html">Asset management</a><a href="access-control.html">Access control in daily work</a><a href="privileged.html">Privileged accounts</a><a href="cryptography.html" aria-current="page">When cryptography applies</a><a href="physical.html">Physical and environmental security</a><a href="operations.html">Operations, backup, patch, and monitoring</a><a href="communications.html">Communications security</a><a href="sdlc-security.html">Security in acquisition, development, and maintenance</a><a href="outsourcing.html">Outsourcing and suppliers</a><a href="incident.html">Is this an incident, and who do I tell?</a><a href="bcm.html">Continuity and recovery</a><a href="compliance.html">Compliance, assessment, and testing</a><p class="nav-label">By need</p><a href="by-need.html">I need to…</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>When cryptography applies</h1>
+<p class="lede">Use cryptography when the classification or the channel requires it. There is no Appendix C block on §12. The baseline still applies.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-aid-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this decision aid</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<div data-aid-root data-checklist>
+<article class="aid" id="DEC-CRYPTO-01" data-modality="shall" data-flag="0" data-roles="2 3 4" data-sdlc="02 04 07" data-needs="crypto email" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-CRYPTO-01" data-tick="DEC-CRYPTO-01" aria-label="Optional tick for Do I need cryptography for this data?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-CRYPTO-01</span></div>
+      <h2>Do I need cryptography for this data?</h2>
+      <p class="glance">Use it when the information is classified, when it crosses a channel you do not control, or when it is stored where unauthorised persons could read the media.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Developers and administrators choosing a channel or a store.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> System / LAN administrator and Application developer, with IT security administrator / unit assuring.</span><span><strong>Stages:</strong> 02 Design, 04 Build/Implementation, 07 Operations.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know the classification and whether the path is trusted.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Protect data in transit and at rest as G3 §12 and your local standard require. Do not invent an algorithm in this hub. Use the standard your B/D or the practice guide names.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s12.html">S17 §12</a> <a href="../core4/g3/s12.html">G3 §12</a></dd></div>
+      </dl>
+      <p class="fine"></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-CRYPTO-02" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="crypto device" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-CRYPTO-02" data-tick="DEC-CRYPTO-02" aria-label="Optional tick for Is unprotected wireless good enough?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-CRYPTO-02</span></div>
+      <h2>Is unprotected wireless good enough?</h2>
+      <p class="glance">No, when government information needs protection. An open wireless network is a common way classified or internal information is exposed.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Anyone connecting a laptop, and administrators who provide wireless.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know you are about to put government information on that network.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Use the approved network. If you are unsure the wireless is approved, do not send the information.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s12.html">S17 §12</a> <a href="../core4/g3/s12.html">G3 §12</a> <a href="../core4/s17/s15.html">S17 §15</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core3/qa-device.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

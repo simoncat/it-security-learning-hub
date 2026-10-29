@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privileged accounts and patch timing · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Privileged accounts and patch timing. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-CHEAT-PRIV" data-page="P-CHEAT-PRIV" data-source-sections="G3 §11 · G3 §14 · Appendix C §11 and §14" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Cheat sheets</a></li><li aria-current="page">Privileged accounts and patch timing</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">On this hub</p><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Decision aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C matrix</a><a href="../gap-template.html">Gap template</a><a href="index.html">Cheat sheets</a><a href="../walkthroughs/index.html">Walkthroughs</a><a href="../governance.html">Governance</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Privileged accounts and patch timing</h1>
+<p class="fine">Source pointers: G3 §11 · G3 §14 · Appendix C §11 and §14</p>
+<p class="no-print"><button type="button" class="btn btn-primary" data-action="print">Print this sheet</button></p>
+<p>One production system. One page. Fill the blanks in pencil or in your own note. Do not paste passwords here.</p>
+<h2>Privileged accounts</h2>
+<ul><li>System name and tier proposal (confirmed tier, if you have it).</li><li>Inventory: account, purpose, named holder, where the password or key is held, last review date.</li><li>Least privilege still applies. Shared admin accounts need a written reason and a control.</li><li>Strong password policy. For Tier 2/3, MFA on interactive privileged logon where it is feasible.</li><li>If technology cannot limit what a privileged account can read, use an administrative procedure such as split knowledge or a sealed envelope held by someone else.</li><li>Independent check of privileged use at least every six months for Tier 2 and Tier 3.</li></ul>
+<h2>Patch and end of support</h2>
+<ul><li>Known vulnerabilities are fixed as soon as possible, typically within a month of the patch.</li><li>If you cannot, document the risk view and tell the DITSO: why, the risk, and the schedule. Update monthly until it is done.</li><li>End of support: a migration plan at least six months before the date, and the security measures in place by that date.</li><li>Tier 3 also needs 24×7 monitoring of a SIEM class. That is not a patch substitute.</li></ul>
+<div class="callout">Artefacts to keep for yourself: the inventory, the last independent-review date, open patch exceptions, and end-of-support dates. This page does not store them.</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

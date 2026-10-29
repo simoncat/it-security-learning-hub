@@ -1,0 +1,77 @@
+{
+  "id": "P-QA-DEVICE",
+  "file": "core3/qa-device.html",
+  "title": "Endpoints, removable media, and remote access",
+  "audience": "Both",
+  "source": "S17 §11 · S17 §13 · S17 §10",
+  "items": [
+    {
+      "id": "QA-DEVICE-01",
+      "question": "May I use a personal USB stick to move a working file between two government PCs?",
+      "answer": "Only if your departmental procedure allows that media for that classification. If it does not, use the approved transfer path. Unknown approval means do not use the stick.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §10",
+        "G3 §10",
+        "S17 §11"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s10.html",
+          "S17 §10"
+        ],
+        [
+          "core4/g3/s10.html",
+          "G3 §10"
+        ]
+      ],
+      "related_dec": "core1/asset.html#DEC-ASSET-03"
+    },
+    {
+      "id": "QA-DEVICE-02",
+      "question": "I am on a café wireless network. Can I open the departmental system if the page uses a password?",
+      "answer": "Use the approved remote method. An open or unknown wireless network is not a safe channel for government information, even when the application itself asks for a password.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §12",
+        "G3 §12",
+        "S17 §11"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s12.html",
+          "S17 §12"
+        ],
+        [
+          "core4/g3/s11.html",
+          "G3 §11"
+        ]
+      ],
+      "related_dec": "core1/cryptography.html#DEC-CRYPTO-02"
+    },
+    {
+      "id": "QA-DEVICE-03",
+      "question": "Should I lock the screen when I step away from a meeting room?",
+      "answer": "Yes. Clear screen applies even in a government building. Lock it every time you leave the seat.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "should",
+      "policy_cite": [
+        "S17 §13",
+        "G3 §13"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s13.html",
+          "S17 §13"
+        ],
+        [
+          "core4/g3/s13.html",
+          "G3 §13"
+        ]
+      ],
+      "related_dec": "core1/physical.html#DEC-PHYS-02"
+    }
+  ]
+}

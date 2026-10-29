@@ -1,0 +1,71 @@
+{
+  "id": "P-QA-OTHER",
+  "file": "core3/qa-other.html",
+  "title": "Other enquiries",
+  "audience": "Both",
+  "source": "S17 §2 · S17 §8 · G3 §4",
+  "items": [
+    {
+      "id": "QA-OTHER-01",
+      "question": "Our team habit is looser than the departmental procedure. Which one wins?",
+      "answer": "The departmental procedure wins over a team habit, and S17 wins where the local procedure is silent or weaker. A local rule may be stricter. It may not weaken a Shall.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §2",
+        "G3 §2",
+        "S17 §8"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s02.html",
+          "S17 §2"
+        ],
+        [
+          "core4/g3/s08.html",
+          "G3 §8"
+        ]
+      ],
+      "related_dec": "core1/policy-stack.html#DEC-STACK-02"
+    },
+    {
+      "id": "QA-OTHER-02",
+      "question": "A line says Should. Can we ignore it because the audit sample did not ask?",
+      "answer": "No. Should means implement whenever possible. An auditor not asking this year is not a reason to drop it. If you defer it, write why.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "should",
+      "policy_cite": [
+        "S17 §4",
+        "G3 §4"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s04.html",
+          "S17 §4"
+        ],
+        [
+          "core4/g3/s04.html",
+          "G3 §4"
+        ]
+      ],
+      "related_dec": "core1/modality.html#DEC-MOD-02"
+    },
+    {
+      "id": "QA-OTHER-03",
+      "question": "Is a tick in this hub proof that our system complies?",
+      "answer": "No. A tick is an optional note in one browser. It is not evidence, not a sign-off, and not a classification.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "may",
+      "policy_cite": [
+        "S17 §4"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s04.html",
+          "S17 §4"
+        ]
+      ],
+      "related_dec": "core1/modality.html#DEC-MOD-04"
+    }
+  ]
+}

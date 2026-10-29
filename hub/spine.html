@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Management spine · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Management spine. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-SPINE" data-page="P-SPINE" data-source-sections="Hub map §3" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="index.html">Home</a><a href="spine.html" aria-current="page">Spine</a><a href="start/new-joiners.html">New joiners</a><a href="start/current-staff.html">Current staff</a><a href="core1/index.html">Aids</a><a href="core2/index.html">Quizzes</a><a href="core3/index.html">Q&amp;A</a><a href="core4/index.html">Source</a><a href="app-c-matrix.html">App C</a><a href="about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Spine</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">On the spine</p><a href="spine.html#layer-1">Layer 1 · CIA</a><a href="spine.html#layer-2">Layer 2 · Policy stack</a><a href="spine.html#layer-3">Layer 3 · SDLC</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Management spine</h1>
+<p class="lede">Three layers. Layer 1 is why controls exist. Layer 2 is which document binds. Layer 3 is where you are in the life of a system. Each control opens a decision aid or a stage pack.</p>
+<section id="layer-1" class="spine-layer" aria-labelledby="layer-1-title">
+  <h2 id="layer-1-title">Layer 1 — Information System Security Objective (CIA)</h2>
+  <div class="spine-nodes">
+<details class="spine-node">
+  <summary>Confidentiality</summary>
+  <p>Only authorised persons and information systems are allowed to know or gain access to the information stored or processed by information systems in any aspect.</p>
+  <p><a href="core1/cia.html#DEC-CIA-01">Open the decision aid</a></p>
+</details>
+<details class="spine-node">
+  <summary>Integrity</summary>
+  <p>Only authorised persons and information systems are allowed to make changes to the information stored or processed by information systems in any aspect.</p>
+  <p><a href="core1/cia.html#DEC-CIA-02">Open the decision aid</a></p>
+</details>
+<details class="spine-node">
+  <summary>Availability (service availability)</summary>
+  <p>Information System is accessible and usable upon demand by authorised persons and information systems.</p>
+  <p><a href="core1/cia.html#DEC-CIA-03">Open the decision aid</a></p>
+</details></div>
+</section>
+<section id="layer-2" class="spine-layer" aria-labelledby="layer-2-title">
+  <h2 id="layer-2-title">Layer 2 — S17, G3, and departmental policy</h2>
+  
+<div class="spine-stack">
+  <a href="core1/policy-stack.html">S17<small>Mandatory minimum requirements</small></a>
+  <span aria-hidden="true">↔</span>
+  <a href="core4/g3/index.html">G3<small>Implementation standards</small></a>
+  <span aria-hidden="true">↔</span>
+  <a href="core1/policy-stack.html#DEC-STACK-02">Departmental policies and procedures<small>Apply after S17 and G3. May be stricter.</small></a>
+</div>
+<ul class="spine-pills">
+  <li><a href="core1/modality.html">Shall · must do</a></li>
+  <li><a href="core1/modality.html#DEC-MOD-02">Should · implement whenever possible</a></li>
+  <li><a href="core1/modality.html#DEC-MOD-03">May · desirable</a></li>
+  <li><a href="core1/tier-appc.html">Tier 1 · Tier 2 · Tier 3</a></li>
+  <li><a href="app-c-matrix.html"><span class="badge badge-appc">App C</span> Tier 2 and Tier 3 · Tier 3 inherits Tier 2</a></li>
+</ul>
+
+</section>
+<section id="layer-3" class="spine-layer" aria-labelledby="layer-3-title">
+  <h2 id="layer-3-title">Layer 3 — nine life-cycle stages</h2>
+  <ol class="spine-sdlc"><li><a href="path/sdlc-01-initiation.html"><span>01</span>Project initiation</a></li><li><a href="path/sdlc-02-design.html"><span>02</span>Design</a></li><li><a href="path/sdlc-03-procurement.html"><span>03</span>Procurement</a></li><li><a href="path/sdlc-04-build.html"><span>04</span>Build/Implementation</a></li><li><a href="path/sdlc-05-test.html"><span>05</span>Testing</a></li><li><a href="path/sdlc-06-go-live.html"><span>06</span>Go-live</a></li><li><a href="path/sdlc-07-operate.html"><span>07</span>Operations</a></li><li><a href="path/sdlc-08-change.html"><span>08</span>Change</a></li><li><a href="path/sdlc-09-retire.html"><span>09</span>Decommissioning</a></li></ol>
+</section>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="about.html">About and versions</a>
+        <a href="governance.html">Content governance</a>
+        <a href="start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/hub.js?v=5"></script>
+</body>
+</html>

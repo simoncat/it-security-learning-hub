@@ -1,0 +1,100 @@
+{
+  "id": "P-QUIZ-APPC",
+  "file": "core2/quiz-app-c.html",
+  "title": "App C and tier self-check",
+  "intro": "Inheritance, which sections carry extra controls, and what you must not decide alone.",
+  "source": "G3 §4.1, §7.2, Appendix C",
+  "questions": [
+    {
+      "id": "Q-AC-01",
+      "prompt": "The inheritance rule is:",
+      "choices": [
+        "Tier 3 includes every Tier 2 Appendix C control, plus the Tier 3-only rows.",
+        "Tier 3 replaces Tier 2 and drops the Tier 2 rows.",
+        "Tier 1 includes Appendix C.",
+        "Pick either Tier 2 or Tier 3 rows, not both."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 Appendix C says the Tier 2 controls shall also be adopted by Tier 3 systems.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-AC-02",
+      "prompt": "Which areas add Tier 3-only organisation, risk, and training controls?",
+      "choices": [
+        "§5, §7, and §9.",
+        "§12 only.",
+        "§3 normative references.",
+        "None. Appendix C is only about passwords."
+      ],
+      "answerIndex": 0,
+      "rationale": "Steering committee and certification are §5. Risk registers are §7. Structured training is §9. They are Tier 3 rows. Other sections still have Tier 2 rows that Tier 3 inherits.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-AC-03",
+      "prompt": "The privileged-account audit and privileged MFA rules are:",
+      "choices": [
+        "Tier 2 controls, so Tier 3 takes them too.",
+        "Tier 3 only, so a Tier 2 system can skip them.",
+        "Optional for Internet-facing systems.",
+        "Replaced by a longer screensaver."
+      ],
+      "answerIndex": 0,
+      "rationale": "They sit in the Tier 2 column of App C §11. Empty Tier 3 cells in that row do not cancel them.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-AC-04",
+      "prompt": "An Internet-facing Tier 2 system needs penetration testing:",
+      "choices": [
+        "At least once a year, and penetration testing is also part of the security risk assessment for Tier 2.",
+        "Never.",
+        "Only after a redesign of the logo.",
+        "Only if the system is also Tier 3."
+      ],
+      "answerIndex": 0,
+      "rationale": "App C §20: pen-test in the SRA for Tier 2, and at least yearly for Internet-facing Tier 2. Tier 3 has a further annual SRA package.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-AC-05",
+      "prompt": "A Tier 3 security risk assessment under App C includes:",
+      "choices": [
+        "At least an annual assessment, with vulnerability scanning, an independent accredited penetration test, and configuration and source review, endorsed by the DITSO.",
+        "A verbal “looks fine”.",
+        "A scan once per decade.",
+        "A test done only by the developer who wrote the code, with no independence."
+      ],
+      "answerIndex": 0,
+      "rationale": "That is the Tier 3 compliance row. Always read the current Appendix C wording before you quote a deadline in a paper.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-AC-06",
+      "prompt": "You think a system might be Tier 2. What do you do?",
+      "choices": [
+        "Propose the tier with impact, interdependency, and essential-service notes, then confirm with the Information Owner or DITSO unit.",
+        "Stamp Tier 3 on the architecture slide yourself.",
+        "Ignore Appendix C until an audit.",
+        "Treat the hub checkbox as the official classification."
+      ],
+      "answerIndex": 0,
+      "rationale": "Classification is a management act under §7. This hub is a learning aid, not the decision.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-AC-07",
+      "prompt": "Which statement about an empty Tier 2 cell is right?",
+      "choices": [
+        "That area has no extra Tier 2 control in Appendix C. Baseline S17/G3 still applies. Tier 3-only rows do not erase Tier 2 rows elsewhere.",
+        "An empty cell means the whole section is optional.",
+        "An empty cell means you can skip Shall.",
+        "An empty cell downgrades the system to Tier 1."
+      ],
+      "answerIndex": 0,
+      "rationale": "Read the matrix by row. Inheritance is across the Tier 2 column, not cancelled by a dash in one cell.",
+      "modalityTag": ""
+    }
+  ]
+}

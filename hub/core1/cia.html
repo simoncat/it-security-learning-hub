@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confidentiality, integrity, and availability · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Confidentiality, integrity, and availability. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+</head>
+<body data-page-id="P-DEC-CIA" data-page="P-DEC-CIA" data-source-sections="S17 §6 · G3 §6" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">Confidentiality, integrity, and availability</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Basics</p><a href="modality.html">Shall, Should, and May</a><a href="policy-stack.html">Which document applies?</a><a href="cia.html" aria-current="page">Confidentiality, integrity, and availability</a><a href="tier-appc.html">Tier and when Appendix C applies</a><a href="accountability.html">Who is accountable?</a><a href="org-structure.html">Government and departmental security organisation</a><p class="nav-label">Controls by theme</p><a href="management.html">Management responsibilities and risk</a><a href="hr-security.html">Human resource security and training</a><a href="asset.html">Asset management</a><a href="access-control.html">Access control in daily work</a><a href="privileged.html">Privileged accounts</a><a href="cryptography.html">When cryptography applies</a><a href="physical.html">Physical and environmental security</a><a href="operations.html">Operations, backup, patch, and monitoring</a><a href="communications.html">Communications security</a><a href="sdlc-security.html">Security in acquisition, development, and maintenance</a><a href="outsourcing.html">Outsourcing and suppliers</a><a href="incident.html">Is this an incident, and who do I tell?</a><a href="bcm.html">Continuity and recovery</a><a href="compliance.html">Compliance, assessment, and testing</a><p class="nav-label">By need</p><a href="by-need.html">I need to…</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Confidentiality, integrity, and availability</h1>
+<p class="lede">Every control serves confidentiality, integrity, or availability. Availability here means service availability: authorised persons can use the service when they need it.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-aid-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this decision aid</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<div data-aid-root data-checklist>
+<article class="aid" id="DEC-CIA-01" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="cia email classify" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-CIA-01" data-tick="DEC-CIA-01" aria-label="Optional tick for Who is allowed to learn this information?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-CIA-01</span></div>
+      <h2>Who is allowed to learn this information?</h2>
+      <p class="glance">Confidentiality fails when someone, or some system, learns information they are not allowed to learn. Limit who can read it, and notice when they do.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Anyone handling records, mail, exports, or screens.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You can name the information and where it sits.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Name the allowed readers. Check access, labels, and the channel you use to send it. Open S17 §6, then G3 §6, if you need the principle in the original wording.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s06.html">S17 §6</a> <a href="../core4/g3/s06.html">G3 §6</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a> · <a href="../core3/qa-email-data.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-CIA-02" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="02 04 05 07 08" data-needs="cia change design" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-CIA-02" data-tick="DEC-CIA-02" aria-label="Optional tick for Who is allowed to change the record or the system setting, and would we notice a bad change?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-CIA-02</span></div>
+      <h2>Who is allowed to change the record or the system setting, and would we notice a bad change?</h2>
+      <p class="glance">Integrity fails when an unauthorised change sticks, or when an authorised change cannot be detected. Controls include access, logging, and checks that the record is the one you think it is.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Developers, administrators, and anyone who approves a change.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> 02 Design, 04 Build/Implementation, 05 Testing, 07 Operations, 08 Change.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You can point at the record or the system setting that must stay trustworthy.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Say who may change it, how the change is approved, and which log would show a bad change. Cite S17 §6 and the control section you then use, often §11, §14, or §16.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s06.html">S17 §6</a> <a href="../core4/g3/s06.html">G3 §6</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-CIA-03" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="01 06 07 09" data-needs="cia backup" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-CIA-03" data-tick="DEC-CIA-03" aria-label="Optional tick for What happens if the service is down?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-CIA-03</span></div>
+      <h2>What happens if the service is down?</h2>
+      <p class="glance">Availability, in this hub, means service availability. Authorised users can use the service when they need it. Backup, capacity, and continuity exist for that outcome.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Service owners, operators, and management support.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> 01 Project initiation, 06 Go-live, 07 Operations, 09 Decommissioning.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know which service, and roughly how long an outage can be tolerated. If you do not, that is the first gap.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Write the service, the tolerance, and where backup or continuity is described. Then open operations (§14) or continuity (§19) rather than staying at the principle.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s06.html">S17 §6</a> <a href="../core4/g3/s06.html">G3 §6</a> <a href="../core4/s17/s14.html">S17 §14</a> <a href="../core4/g3/s19.html">G3 §19</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-foundation.html">Related quiz</a></p>
+    </div>
+  </div>
+</article>
+</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

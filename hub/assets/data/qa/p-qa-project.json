@@ -1,0 +1,77 @@
+{
+  "id": "P-QA-PROJECT",
+  "file": "core3/qa-project.html",
+  "title": "Projects, life cycle, and assessments",
+  "audience": "Current staff",
+  "source": "S17 §16 · S17 §20 · G3 Appendix C",
+  "items": [
+    {
+      "id": "QA-PROJECT-01",
+      "question": "Can we add security requirements after the design is frozen, during user testing?",
+      "answer": "Security requirements belong at initiation and design, while the scope can still change. Finding them at testing means a gap, not a plan. Fix the requirement and the test before go-live if the item is a Shall.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §16",
+        "G3 §16"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s16.html",
+          "S17 §16"
+        ],
+        [
+          "core4/g3/s16.html",
+          "G3 §16"
+        ]
+      ],
+      "related_dec": "core1/sdlc-security.html#DEC-SDLC-01"
+    },
+    {
+      "id": "QA-PROJECT-02",
+      "question": "The system might be Tier 2. Can we go live and classify it later?",
+      "answer": "No. The tier drives which Appendix C controls apply. Confirm it with the owner before you treat go-live as done. Do not stamp the tier yourself to unblock a date.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §7",
+        "G3 §7",
+        "G3 Appendix C"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s07.html",
+          "S17 §7"
+        ],
+        [
+          "core4/g3/appendix-c.html",
+          "G3 Appendix C"
+        ]
+      ],
+      "related_dec": "core1/tier-appc.html#DEC-TIER-01"
+    },
+    {
+      "id": "QA-PROJECT-03",
+      "question": "A critical patch will miss the usual window. Who needs to know?",
+      "answer": "Follow the local vulnerability process. For Tier 2 and Tier 3, Appendix C expects DITSO visibility when a fix slips. Confirm that row in G3 Appendix C rather than quoting a number from memory.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §14",
+        "G3 §14",
+        "G3 Appendix C"
+      ],
+      "core4_links": [
+        [
+          "core4/g3/s14.html",
+          "G3 §14"
+        ],
+        [
+          "core4/g3/appendix-c.html",
+          "G3 Appendix C"
+        ]
+      ],
+      "related_dec": "core1/operations.html#DEC-OPS-02"
+    }
+  ]
+}
