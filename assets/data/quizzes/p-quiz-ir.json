@@ -1,0 +1,87 @@
+{
+  "id": "P-QUIZ-IR",
+  "file": "core2/quiz-incident.html",
+  "title": "Incident Handling",
+  "intro": "Clear the common misconceptions about when to report and who to tell.",
+  "source": "S17 §18 · G3 §18",
+  "questions": [
+    {
+      "id": "Q-IR-01",
+      "prompt": "When should you report a security event?",
+      "choices": [
+        "When harm to confidentiality, integrity, availability, or operations is reasonably apparent. Do not wait until you are certain.",
+        "Only after a full forensic report.",
+        "Only if you can name the attacker.",
+        "Never, if a reboot might hide it."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §18 and G3 §18 expect prompt reporting. Certainty is not the threshold.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-IR-02",
+      "prompt": "Who do you tell first?",
+      "choices": [
+        "Your departmental route: line manager and the incident contact named in the reporting procedure.",
+        "A wide team chat, with the suspicious attachment.",
+        "A personal social-media account.",
+        "No one, until the Director emails you."
+      ],
+      "answerIndex": 0,
+      "rationale": "The departmental ISIRT runs the central clocks once they are aware. You use the local route. Do not invent a phone number.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-IR-03",
+      "prompt": "You clicked a suspicious link and nothing obvious happened. You should:",
+      "choices": [
+        "Report it and say what you clicked.",
+        "Wait a week to see if you feel sure.",
+        "Delete every log so the desk looks tidy, then report.",
+        "Forward the lure to the whole unit."
+      ],
+      "answerIndex": 0,
+      "rationale": "Possible harm is enough to report. Do not destroy the timeline first, and do not spread the lure.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-IR-04",
+      "prompt": "A drill for practice should be:",
+      "choices": [
+        "Labelled as a drill, with fake data, and kept off the real incident path.",
+        "A real phishing message sent to colleagues.",
+        "An unauthorised scan of a production system.",
+        "Posted as if it were a live GIRO report."
+      ],
+      "answerIndex": 0,
+      "rationale": "Practice stays a drill. A real event uses the real procedure.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-IR-05",
+      "prompt": "There is no Appendix C block on incident management. That means:",
+      "choices": [
+        "The S17 §18 and G3 §18 baseline still applies at every tier.",
+        "Tier 2 systems need not report incidents.",
+        "Only Tier 3 systems report incidents.",
+        "Incident reporting is a May."
+      ],
+      "answerIndex": 0,
+      "rationale": "No Appendix C block does not delete the baseline. Reporting remains a Shall.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-IR-06",
+      "prompt": "What belongs in the first note?",
+      "choices": [
+        "What happened, when, which system, and what you do not yet know.",
+        "A guess at the attacker’s name presented as fact.",
+        "Passwords, so the handler can log in as you.",
+        "Nothing. Speech is enough and no one writes it down."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §18 and the local procedure say what to preserve. Unknown is an acceptable fact. Leave secrets out of the note.",
+      "modalityTag": "should"
+    }
+  ]
+}

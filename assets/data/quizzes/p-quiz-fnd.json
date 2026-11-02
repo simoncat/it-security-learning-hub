@@ -1,0 +1,139 @@
+{
+  "id": "P-QUIZ-FND",
+  "file": "core2/quiz-foundation.html",
+  "title": "Foundation self-check",
+  "intro": "Eight or more questions on modalities, contacts, CIA, reporting, and tiers.",
+  "source": "S17/G3 §4.2, §5, §6, §18; G3 §4.1 and Appendix C",
+  "questions": [
+    {
+      "id": "Q-FND-01",
+      "prompt": "In S17 and G3, what does Shall mean?",
+      "choices": [
+        "A mandatory requirement. You must do it.",
+        "A nice idea for a quiet week.",
+        "A suggestion you can ignore if busy.",
+        "A vendor marketing claim."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §4.2: Shall is a mandatory requirement. The same convention is in S17 §4.2.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FND-02",
+      "prompt": "What does Should mean in this hub?",
+      "choices": [
+        "Best practice — implement whenever possible.",
+        "Optional decoration with no expectation.",
+        "A rule that applies only to contractors.",
+        "A synonym of May."
+      ],
+      "answerIndex": 0,
+      "rationale": "Should is a best practice to implement whenever possible. If you defer it, know why.",
+      "modalityTag": "should"
+    },
+    {
+      "id": "Q-FND-03",
+      "prompt": "What does May mean?",
+      "choices": [
+        "A desirable best practice.",
+        "A mandatory control for every Tier 1 system.",
+        "Permission to skip Shall items.",
+        "A temporary waiver from DPO."
+      ],
+      "answerIndex": 0,
+      "rationale": "May is a desirable best practice. It is not a waiver for Shall.",
+      "modalityTag": "may"
+    },
+    {
+      "id": "Q-FND-04",
+      "prompt": "What is the reading order for a control?",
+      "choices": [
+        "S17 first, then the same-number G3 section, then App C only if the system is Tier 2 or Tier 3.",
+        "App C first, then skip S17 if you are busy.",
+        "The practice guide only.",
+        "Whatever is shortest."
+      ],
+      "answerIndex": 0,
+      "rationale": "Policy (what) before guidelines (how). Appendix C is the extra tier layer, not a replacement.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-FND-05",
+      "prompt": "Which stack order matches G3 §2.3?",
+      "choices": [
+        "Security Regulations, then S17, then G3, then practice guides, then local B/D policy.",
+        "Local habit, then a blog, then S17.",
+        "G3 only. S17 is optional.",
+        "Appendix C for every Tier 1 PC."
+      ],
+      "answerIndex": 0,
+      "rationale": "B/Ds comply with the Security Regulations, S17, and G3, and follow practice guides. Local policy can be stricter.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-FND-06",
+      "prompt": "Which trio names the core security objectives?",
+      "choices": [
+        "Confidentiality, integrity, and availability.",
+        "Speed, cost, and novelty.",
+        "Firewall, antivirus, and password length only.",
+        "Classification, colour, and cabinet."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §4.1 and §6 describe confidentiality, integrity, and availability. Controls serve those objectives.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FND-07",
+      "prompt": "A Tier 2 system is best described as:",
+      "choices": [
+        "A system whose failure or disruption would seriously hit government operations, or could cause public turmoil or catastrophe.",
+        "Any laptop.",
+        "Only a system that is air-gapped.",
+        "A system you personally find annoying."
+      ],
+      "answerIndex": 0,
+      "rationale": "That is the sense of the G3 §4.1 Tier 2 definition. Tier 3 is a Tier 2 system tied directly to an essential service. Confirm the tier with the owner. Do not self-finalise it.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-FND-08",
+      "prompt": "When should you report a security event?",
+      "choices": [
+        "When you reasonably see harm to confidentiality, integrity, availability, or operations. Do not wait until you are certain.",
+        "Only after a full forensic report.",
+        "Only if the Director asks first.",
+        "Never, if you can reboot quietly."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §18 expects prompt reporting. The departmental ISIRT, once aware, phones GIRO Standing Office within 60 minutes and sends the preliminary form within 48 hours. Follow your local procedure.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FND-09",
+      "prompt": "Who is the usual departmental lead for IT security accountability?",
+      "choices": [
+        "The Departmental IT Security Officer (DITSO).",
+        "The canteen contractor.",
+        "Whoever last changed the wallpaper.",
+        "GovCERT.HK acting as your line manager."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager as named in the reporting procedure.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-FND-10",
+      "prompt": "Appendix C applies when:",
+      "choices": [
+        "The system is Tier 2 or Tier 3. Tier 3 also takes every Tier 2 App C control.",
+        "The system is any Tier 1 file share.",
+        "You feel like reading extra pages.",
+        "Only during a penetration test week."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 says B/Ds adopt the baseline for ordinary systems and the stricter Appendix C controls for Tier 2 and Tier 3. Tier 3 includes the Tier 2 App C set.",
+      "modalityTag": "appc"
+    }
+  ]
+}

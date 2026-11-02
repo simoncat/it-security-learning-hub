@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>G3 Appendix C · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="G3 Appendix C. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-SRC-G3-APPC" data-page="P-SRC-G3-APPC" data-source-sections="G3 v10.2 Appendix C" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Source</a></li><li><a href="index.html">G3</a></li><li aria-current="page">Appendix C</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Source</p><a href="../index.html">Source home</a><a href="../s17/index.html">S17 contents</a><a href="index.html">G3 contents</a><a href="appendix-c.html" aria-current="page">Appendix C</a></nav>
+    </details>
+    <main id="main">
+      
+<header class="source-head">
+  <p class="kicker">IT Security Guidelines [G3] · Appendix C</p>
+  <h1>G3 Appendix C — Tier 2 and Tier 3</h1>
+  <dl class="source-meta">
+    <div><dt>Document</dt><dd>IT Security Guidelines [G3], Appendix C</dd></div>
+    <div><dt>Version</dt><dd>v10.2 · April 2025 · Digital Policy Office</dd></div>
+    <div><dt>Section</dt><dd>G3 Appendix C</dd></div>
+    <div><dt>Last reviewed</dt><dd>2026-10-26</dd></div>
+    <div><dt>Owner</dt><dd>Hub Content Owner</dd></div>
+  </dl>
+  <p class="fine">Assumed if the PDFs were not re-checked for this build. This page lists the areas. It does not invent clause numbers inside the appendix.</p>
+</header>
+<p id="inheritance" class="callout"><strong>Tier 3 includes Tier 2.</strong> Every Tier 2 Appendix C control also applies to Tier 3.</p>
+<p>The official appendix text stays in the G3 PDF. The matrix is a learning map of those areas. Confirm a row against the PDF before you quote it.</p>
+<table class="matrix"><caption>Appendix C learning map. Tier 3 inherits every Tier 2 control.</caption><thead><tr><th>Area</th><th>Tier 2 (also required for Tier 3)</th><th>Tier 3 only</th></tr></thead><tbody><tr id="area-5"><th scope="row">Organisation (G3 §5)</th><td>—</td><td>A steering committee with senior management and the DITSO, meeting regularly, with outcomes and roles recorded. At least one IT security management unit member holds a recognised certification.</td></tr><tr id="area-7"><th scope="row">Risk (G3 §7)</th><td>—</td><td>Use the IT security risk management framework. Keep risk registers that record the risk, likelihood, severity, mitigation, and monitoring.</td></tr><tr id="area-9"><th scope="row">Human resources (G3 §9)</th><td>—</td><td>A structured training programme for staff. Include vendors, contractors, and service providers where feasible, or put the training duty in the contract.</td></tr><tr id="area-11"><th scope="row">Access (G3 §11)</th><td>An independent privileged-account check at least every six months. Administrative procedures if technology cannot limit privileged data access. Strong password policy, including on systems that could affect the Tier 2 system. MFA for interactive privileged logon where feasible.</td><td>—</td></tr><tr id="area-14"><th scope="row">Operations (G3 §14)</th><td>Local and off-site backup, stored securely away from the equipment. A documented capacity plan. An end-of-support migration plan at least six months ahead. Patch known vulnerabilities as soon as possible, typically within a month; if not, tell the DITSO and update monthly until fixed.</td><td>24×7 security monitoring that correlates multiple sources, of a SIEM class, including continuous detection and response.</td></tr><tr id="area-16"><th scope="row">Development (G3 §16)</th><td>Shift-left, including secure coding and design-stage security reviews. The pre-production security risk assessment checks that review follow-ups were done. Harden before production and use that build as the baseline.</td><td>—</td></tr><tr id="area-19"><th scope="row">Continuity (G3 §19)</th><td>A documented IT contingency plan for disaster or emergency, tested and tied to the business continuity plan.</td><td>Enough resilience to avoid disruption of the essential service, tested so failover works.</td></tr><tr id="area-20"><th scope="row">Compliance (G3 §20)</th><td>Vulnerability scanning at least yearly, before production, and before major change. Penetration testing inside the security risk assessment. Internet-facing Tier 2 systems: penetration testing at least yearly.</td><td>A security risk assessment at least annually and before production or major change, including vulnerability scanning, an independent accredited penetration test, and configuration and source review. The DITSO endorses it.</td></tr></tbody></table>
+<h2>Back to curated pages</h2>
+<ul><li><a href="../../core1/tier-appc.html#DEC-TIER-03">Does Appendix C apply to this system?</a></li><li><a href="../../core1/tier-appc.html#DEC-TIER-04">Does Tier 3 drop the Tier 2 Appendix C controls?</a></li><li><a href="../../core1/management.html#DEC-MGMT-03">What extra management control appears at Tier 3?</a></li><li><a href="../../core1/hr-security.html#DEC-HR-03">Is there an extra training expectation at Tier 3?</a></li><li><a href="../../core1/privileged.html#DEC-PRIV-02">Is MFA required for this privileged logon?</a></li><li><a href="../../core1/privileged.html#DEC-PRIV-03">Who reviews privileged accounts, and how often?</a></li><li><a href="../../core1/operations.html#DEC-OPS-03">Which operations extras apply at Tier 2?</a></li><li><a href="../../core1/operations.html#DEC-OPS-04">What monitoring extra applies only at Tier 3?</a></li><li><a href="../../core1/sdlc-security.html#DEC-SDLC-04">Does Appendix C add acquisition controls at Tier 2?</a></li><li><a href="../../core1/bcm.html#DEC-BCM-02">What does Appendix C add for Tier 2 and Tier 3?</a></li><li><a href="../../core1/compliance.html#DEC-COMPLY-03">What extra assurance applies at Tier 2 and Tier 3?</a></li><li><a href="../../core2/quiz-foundation.html">Foundation self-check</a></li><li><a href="../../core2/quiz-role-1.html">Elevated end user self-check</a></li><li><a href="../../core2/quiz-role-2.html">System / LAN administrator self-check</a></li><li><a href="../../core2/quiz-role-3.html">Application developer self-check</a></li><li><a href="../../core2/quiz-role-4.html">IT security administrator / unit self-check</a></li><li><a href="../../core2/quiz-role-5.html">Management support self-check</a></li><li><a href="../../core2/quiz-app-c.html">App C and tier self-check</a></li></ul>
+<p><a href="../../app-c-matrix.html">Open the filterable matrix</a></p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../../about.html">About and versions</a>
+        <a href="../../governance.html">Content governance</a>
+        <a href="../../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../../assets/js/hub.js?v=5"></script>
+</body>
+</html>

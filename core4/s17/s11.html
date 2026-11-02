@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S17 §11 Access control · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="S17 §11 Access control. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-SRC-S17-11" data-page="P-SRC-S17-11" data-source-sections="S17 v8.2 §11" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Source</a></li><li><a href="index.html">S17</a></li><li aria-current="page">§11</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Source</p><a href="../index.html">Source home</a><a href="index.html">S17 contents</a><a href="../g3/index.html">G3 contents</a><a href="../g3/appendix-c.html">Appendix C</a></nav>
+    </details>
+    <main id="main">
+      
+<header class="source-head">
+  <p class="kicker">Baseline IT Security Policy [S17] · v8.2</p>
+  <h1>S17 §11 — Access control</h1>
+  <dl class="source-meta">
+    <div><dt>Document</dt><dd>Baseline IT Security Policy [S17]</dd></div>
+    <div><dt>Version</dt><dd>v8.2 · April 2025 · Digital Policy Office</dd></div>
+    <div><dt>Section</dt><dd>S17 §11</dd></div>
+    <div><dt>Last reviewed</dt><dd>2026-10-26</dd></div>
+    <div><dt>Owner</dt><dd>Hub Content Owner</dd></div>
+  </dl>
+  <p class="fine">Assumed if the PDFs were not re-checked for this build. Authoritative text remains the official PDF.</p>
+</header>
+<p class="crosswalk">Paired section: <a href="../g3/s11.html">G3 §11</a> · <a href="../g3/appendix-c.html#area-11">G3 Appendix C · §11</a></p>
+<h2>Clause ids in this section</h2><ul><li><a href="#c-11">11 ACCESS CONTROL</a></li><li><a href="#c-11-1">11.1 Business Requirements of Access Control</a></li><li><a href="#c-11-1-1">11.1.1 B/Ds shall enforce the least privilege principle when assigning resources and privilege…</a></li><li><a href="#c-11-1-2">11.1.2 Access to information shall not be allowed unless authorised by the relevant informatio…</a></li><li><a href="#c-11-1-3">11.1.3 Access to information systems containing classified information shall be restricted by …</a></li><li><a href="#c-11-1-4">11.1.4 Access to classified information without appropriate authentication shall not be allowed.</a></li><li><a href="#c-11-2">11.2 User Access Management</a></li><li><a href="#c-11-2-1">11.2.1 Procedures for approving, granting and managing user access, including user registratio…</a></li><li><a href="#c-11-2-2">11.2.2 Data access rights shall be granted to users based on a need-to-know basis.</a></li><li><a href="#c-11-2-3">11.2.3 The use of special privileges shall be restricted and controlled.</a></li><li><a href="#c-11-2-6">11.2.6 Each user identity (user-ID) shall uniquely identify only one user. Shared or group use…</a></li><li><a href="#c-11-3">11.3 User Responsibilities</a></li><li><a href="#c-11-3-1">11.3.1 Users shall be responsible for all activities performed with their user-IDs.</a></li><li><a href="#c-11-4">11.4 System and Application Access Control</a></li><li><a href="#c-11-4-1">11.4.1 Authentication shall be performed in a manner commensurate with the sensitivity of the …</a></li><li><a href="#c-11-4-2">11.4.2 Consecutive unsuccessful log-in trials shall be controlled.</a></li><li><a href="#c-11-4-4">11.4.4 Staff are prohibited from capturing or otherwise obtaining passwords, decryption keys, …</a></li><li><a href="#c-11-4-5">11.4.5 All vendor-supplied default passwords shall be changed before any information system is…</a></li><li><a href="#c-11-4-6">11.4.6 All passwords shall be promptly changed if they are suspected of/are being compromised …</a></li><li><a href="#c-11-5">11.5 Mobile Computing and Remote Access</a></li><li><a href="#c-11-5-2">11.5.2 Security measures shall be in place to prevent unauthorised remote access to government…</a></li><li><a href="#c-11-6">11.6 IoT Devices</a></li><li><a href="#c-11-6-1">11.6.1 B/Ds shall define and implement proper security measures to ensure the security of IoT …</a></li></ul>
+<h2>Back to curated pages</h2><ul><li><a href="../../core1/hr-security.html#DEC-HR-02">A colleague changed jobs or left. What happens to access?</a></li><li><a href="../../core1/access-control.html#DEC-ACCESS-01">Does least privilege apply to this account task?</a></li><li><a href="../../core1/access-control.html#DEC-ACCESS-02">The job changed. Do I remove the old access?</a></li><li><a href="../../core1/access-control.html#DEC-ACCESS-03">Are my own credentials my responsibility?</a></li><li><a href="../../core1/access-control.html#DEC-ACCESS-04">Does remote or mobile access change the rules?</a></li><li><a href="../../core1/privileged.html#DEC-PRIV-01">Do I need a privileged account for this task?</a></li><li><a href="../../core1/privileged.html#DEC-PRIV-02">Is MFA required for this privileged logon?</a></li><li><a href="../../core1/privileged.html#DEC-PRIV-03">Who reviews privileged accounts, and how often?</a></li><li><a href="../../core1/privileged.html#DEC-PRIV-04">Can the team share one administrator password?</a></li><li><a href="../../core1/communications.html#DEC-COMM-02">Does an Internet-facing or wireless service need extra care?</a></li><li><a href="../../core2/quiz-role-1.html">Elevated end user self-check</a></li><li><a href="../../core2/quiz-role-2.html">System / LAN administrator self-check</a></li><li><a href="../../core2/quiz-role-3.html">Application developer self-check</a></li><li><a href="../../core2/quiz-role-4.html">IT security administrator / unit self-check</a></li></ul>
+
+<p class="copy-notice">The section text is from the named official document, April 2025, issued by the Digital Policy Office. This copy is not for sale.</p>
+<p class="copy-notice">copied/distributed with the permission of the Government of the Hong Kong Special Administrative Region of the People's Republic of China. All rights reserved.</p>
+<div class="policy-text"><p id="c-11" class="policy-h">11. ACCESS CONTROL</p>
+<p class="policy-prose">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> prevent unauthorised user access and compromise of information systems and assets and allow only authorised computer resources to connect to the government internal network.</p>
+<p id="c-11-1" class="policy-h">11.1. Business Requirements of Access Control</p>
+<p id="c-11-1-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.1.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> enforce the least privilege principle when assigning resources and privileges of information systems to users.</span></p>
+<p id="c-11-1-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.1.2.</span><span class="clause-body">Access to information <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be allowed unless authorised by the relevant information owners.</span></p>
+<p id="c-11-1-3" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.1.3.</span><span class="clause-body">Access to information systems containing classified information <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be restricted by means of logical access control.</span></p>
+<p id="c-11-1-4" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.1.4.</span><span class="clause-body">Access to classified information without appropriate authentication <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be allowed.</span></p>
+<p id="c-11-2" class="policy-h">11.2. User Access Management</p>
+<p id="c-11-2-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.2.1.</span><span class="clause-body">Procedures for approving, granting and managing user access, including user registration/de-registration, password delivery and password reset, <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be documented.</span></p>
+<p id="c-11-2-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.2.2.</span><span class="clause-body">Data access rights <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be granted to users based on a need-to-know basis.</span></p>
+<p id="c-11-2-3" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.2.3.</span><span class="clause-body">The use of special privileges <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be restricted and controlled.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.2.4.</span><span class="clause-body">User privileges and data access rights <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be clearly defined and reviewed periodically. The review frequency <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be defined and documented. Records for access rights approval and review <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be maintained.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.2.5.</span><span class="clause-body">All user privileges and data access rights <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be revoked after a pre-defined period of inactivity or when no longer required. The period of inactivity and the corresponding review frequency <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be defined and documented.</span></p>
+<p id="c-11-2-6" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.2.6.</span><span class="clause-body">Each user identity (user-ID) <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> uniquely identify only one user. Shared or group user-IDs <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be permitted unless explicitly approved by the DITSO.</span></p>
+<p id="c-11-3" class="policy-h">11.3. User Responsibilities</p>
+<p id="c-11-3-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.3.1.</span><span class="clause-body">Users <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be responsible for all activities performed with their user-IDs.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.3.2.</span><span class="clause-body">Passwords <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be shared or divulged unless necessary (e.g., helpdesk assistance, shared PC and shared files). If passwords must be shared, explicit approval from the DITSO <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be obtained. Besides, the shared passwords <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be changed promptly when the need no longer exists and <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be changed frequently if sharing is required on a regular basis.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.3.3.</span><span class="clause-body">Passwords <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> always be well protected when held in storage. Passwords <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be encrypted when transmitted over an un-trusted communication network. Compensating controls <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be applied to reduce the risk exposure to an acceptable level if encryption is not implementable.</span></p>
+<p id="c-11-4" class="policy-h">11.4. System and Application Access Control</p>
+<p id="c-11-4-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.4.1.</span><span class="clause-body">Authentication <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be performed in a manner commensurate with the sensitivity of the information to be accessed.</span></p>
+<p id="c-11-4-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.4.2.</span><span class="clause-body">Consecutive unsuccessful log-in trials <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be controlled.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.4.3.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> define a strict password policy that details at least minimum password length, initial assignment, restricted words and format, and password life cycle, and include guidelines on suitable systems and user password selection.</span></p>
+<p id="c-11-4-4" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.4.4.</span><span class="clause-body">Staff are prohibited from capturing or otherwise obtaining passwords, decryption keys, or any other access control mechanism which could permit unauthorised access.</span></p>
+<p id="c-11-4-5" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.4.5.</span><span class="clause-body">All vendor-supplied default passwords <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be changed before any information system is put into operation.</span></p>
+<p id="c-11-4-6" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.4.6.</span><span class="clause-body">All passwords <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be promptly changed if they are suspected of/are being compromised or disclosed to vendors for maintenance and support.</span></p>
+<p id="c-11-5" class="policy-h">11.5. Mobile Computing and Remote Access</p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.5.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> define appropriate usage policies and procedures specifying the security requirements when using mobile computing and remote access. Appropriate security measures <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be adopted to avoid unauthorised access to or disclosure of the information stored and processed by these facilities. Authorised users <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be briefed on the security threats and accept their security responsibilities with explicit acknowledgement.</span></p>
+<p id="c-11-5-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.5.2.</span><span class="clause-body">Security measures <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be in place to prevent unauthorised remote access to government information systems and data.</span></p>
+<p id="c-11-6" class="policy-h">11.6. IoT Devices</p>
+<p id="c-11-6-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.6.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> define and implement proper security measures to ensure the security of IoT devices and data is commensurate with the classification of the information.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">11.6.2.</span><span class="clause-body">The security requirements for mobile devices laid out in this document <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be followed similarly for IoT devices unless it is not technically feasible for implementation. Classified information <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be stored or processed in privatelyowned IoT devices.</span></p></div>
+<p class="copy-notice">copied/distributed with the permission of the Government of the Hong Kong Special Administrative Region of the People's Republic of China. All rights reserved.</p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../../about.html">About and versions</a>
+        <a href="../../governance.html">Content governance</a>
+        <a href="../../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../../assets/js/hub.js?v=5"></script>
+</body>
+</html>

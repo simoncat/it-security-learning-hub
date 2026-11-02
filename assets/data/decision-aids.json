@@ -1,0 +1,2899 @@
+[
+  {
+    "page": "P-DEC-MOD",
+    "file": "core1/modality.html",
+    "cards": [
+      {
+        "id": "DEC-MOD-01",
+        "title": "Does this line say Shall?",
+        "one_glance_answer": "Shall indicates a mandatory requirement.",
+        "relevance": "Anyone deciding whether a control can wait.",
+        "applicability_text": "All roles, any system lifecycle, every tier.",
+        "prerequisites": "You are looking at sections or clauses in S17/G3.",
+        "modality": "shall",
+        "implementation_guidance": "Mark the line Shall, do it, and keep records to evidence compliance with security measures. Refer to same-numbered G3 section for implementation.",
+        "policy_cite": [
+          "S17 §4",
+          "G3 §4"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s04.html",
+            "S17 §4"
+          ],
+          [
+            "core4/g3/s04.html",
+            "G3 §4"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "modality"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-MOD-02",
+        "title": "What do I do with Should?",
+        "one_glance_answer": "Should indicates best practice, which should be implemented whenever possible. If you defer it, document the reason for reviewing in future.",
+        "relevance": "Staff choosing what to schedule after the mandatory items.",
+        "applicability_text": "All roles and tiers.",
+        "prerequisites": "The Shall items for the same theme are already identified.",
+        "modality": "should",
+        "implementation_guidance": "Implement the control whenever possible. A deferral needs a reason.",
+        "policy_cite": [
+          "S17 §4",
+          "G3 §4"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s04.html",
+            "S17 §4"
+          ],
+          [
+            "core4/g3/s04.html",
+            "G3 §4"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "modality"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-MOD-03",
+        "title": "Can I treat May as optional requirement?",
+        "one_glance_answer": "May is a desirable best practice. Use it when it helps.",
+        "relevance": "Anyone tempted to read May as a waiver.",
+        "applicability_text": "All roles and tiers.",
+        "prerequisites": "You have already read through those shall and should clauses.",
+        "modality": "may",
+        "implementation_guidance": "Apply May where it reduces risk for your system.",
+        "policy_cite": [
+          "S17 §4",
+          "G3 §4"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s04.html",
+            "S17 §4"
+          ],
+          [
+            "core4/g3/s04.html",
+            "G3 §4"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "modality"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-STACK",
+    "file": "core1/policy-stack.html",
+    "cards": [
+      {
+        "id": "DEC-STACK-01",
+        "title": "What is the relationship of S17 and G3?",
+        "one_glance_answer": "Open S17 for the mandatory minimum (the what). Then open the same-numbered G3 section for the implementation standard (the how).",
+        "relevance": "For staff starting a theme who need to know how S17 and G3 relate.",
+        "applicability_text": "All roles and stages.",
+        "prerequisites": "You have a basic idea of S17/G3 and you are asked to familiarise yourself with them.",
+        "modality": "shall",
+        "implementation_guidance": "Use the policy stack on this page, then the source contents. Practice guides and local procedures come after G3, not instead of it.",
+        "policy_cite": [
+          "S17 §1",
+          "S17 §2",
+          "G3 §1",
+          "G3 §2"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s01.html",
+            "S17 §1"
+          ],
+          [
+            "core4/g3/s01.html",
+            "G3 §1"
+          ],
+          [
+            "core4/s17/s02.html",
+            "S17 §2"
+          ],
+          [
+            "core4/g3/s02.html",
+            "G3 §2"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "stack"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-STACK-02",
+        "title": "Can our departmental procedure be looser than S17?",
+        "one_glance_answer": "No. Departmental policies and procedures are applied after S17 and G3.",
+        "relevance": "When staff are considering updating the Departmental IT Security Policy.",
+        "applicability_text": "All roles. Owner of the Departmental IT Security Policy as well as persons who follow the policies.",
+        "prerequisites": "You have the local procedure and the S17 section it is meant to implement.",
+        "modality": "shall",
+        "implementation_guidance": "Departmental IT Security Policy shall be formulated based on all the security requirements and implementation guidance specified in the Security Regulations and the Government IT Security Policy and Guidelines. B/Ds shall conduct a review of their Departmental IT Security Policies, standards, guidelines periodically.",
+        "policy_cite": [
+          "S17 §2",
+          "G3 §2",
+          "S17 §8",
+          "G3 §8"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s02.html",
+            "S17 §2"
+          ],
+          [
+            "core4/g3/s02.html",
+            "G3 §2"
+          ],
+          [
+            "core4/s17/s08.html",
+            "S17 §8"
+          ],
+          [
+            "core4/g3/s08.html",
+            "G3 §8"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "stack"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-STACK-03",
+        "title": "When should I refer to practice guides?",
+        "one_glance_answer": "Practice guides give technical guidance on specific topic that supplements G3. You may access them via {link}.",
+        "relevance": "For staff who need deeper technical guidance on a particular control area beyond S17/G3 to address and mitigate risk brought by emerging technologies and security threats.",
+        "applicability_text": "All roles, especially project and operations staff.",
+        "prerequisites": "You know which S17/G3 section the guide supports.",
+        "modality": "should",
+        "implementation_guidance": "Read the matching S17 and G3 sections, then refer to the practice guide your section points to.",
+        "policy_cite": [
+          "S17 §2",
+          "G3 §2"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s02.html",
+            "S17 §2"
+          ],
+          [
+            "core4/g3/s02.html",
+            "G3 §2"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "stack"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": [
+          "IT Security Theme Page",
+          "https://itginfo.ccgo.hksarg/content/itsecure/techcorner/practices.shtml"
+        ]
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-CIA",
+    "file": "core1/cia.html",
+    "cards": [
+      {
+        "id": "DEC-CIA-01",
+        "title": "Who is allowed to read this information?",
+        "one_glance_answer": "If a file of staff personal data is posted to a team channel that includes persons who must not see it, confidentiality has failed. Limit who can read the information, and notice when they do.",
+        "relevance": "Anyone handling records, mail, files, or screens.",
+        "applicability_text": "All roles. Strongest when the information is classified or is personal data.",
+        "prerequisites": "You have defined the stakeholders of the system.",
+        "modality": "shall",
+        "implementation_guidance": "For an information system, only authorised users shall be allowed to know or gain access to the information stored or processed by the information system. Data access rights shall be granted to users based on a need-to-know basis. Ensure the least privilege principle is enforced when assigning resources and privileges of information systems to users.",
+        "policy_cite": [
+          "S17 §6",
+          "G3 §6"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s06.html",
+            "S17 §6"
+          ],
+          [
+            "core4/g3/s06.html",
+            "G3 §6"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "cia",
+          "email",
+          "classify"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "core3/qa-email-data.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-CIA-02",
+        "title": "Who is allowed to change the record or the system setting, and would we notice the change?",
+        "one_glance_answer": "Integrity fails when an unauthorised change to data, system configuration or software code occurs, or when an authorised change cannot be detected. Controls include access, logging, cryptography, and verification on records.",
+        "relevance": "Developers, administrators, and anyone who has the authority to approve the changes.",
+        "applicability_text": "All roles. Design, build, test, operations, and change stages.",
+        "prerequisites": "You have defined which kinds of records or system settings must stay trustworthy.",
+        "modality": "shall",
+        "implementation_guidance": "For an information system, only authorised users shall be allowed to make changes, or delete the information stored or processed by the information system.",
+        "policy_cite": [
+          "S17 §6",
+          "G3 §6"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s06.html",
+            "S17 §6"
+          ],
+          [
+            "core4/g3/s06.html",
+            "G3 §6"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "02",
+          "04",
+          "05",
+          "07",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "cia",
+          "change",
+          "design"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-CIA-03",
+        "title": "What happens if the service is down?",
+        "one_glance_answer": "Availability, means service availability. Authorised users can use the service when they need it. Backup, capacity, and continuity exist for that outcome.",
+        "relevance": "Service owners, operators, and management support.",
+        "applicability_text": "All tiers. Tier 2 and Tier 3 expect more, including Appendix C where it adds continuity and operations controls.",
+        "prerequisites": "You know which service, and roughly how long an outage can be tolerated.",
+        "modality": "shall",
+        "implementation_guidance": "Document the service, the tolerance, and where backup, continuity or contingency is described.",
+        "policy_cite": [
+          "S17 §6",
+          "G3 §6",
+          "S17 §14",
+          "G3 §19"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s06.html",
+            "S17 §6"
+          ],
+          [
+            "core4/g3/s06.html",
+            "G3 §6"
+          ],
+          [
+            "core4/s17/s14.html",
+            "S17 §14"
+          ],
+          [
+            "core4/g3/s19.html",
+            "G3 §19"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "01",
+          "06",
+          "07",
+          "09"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "cia",
+          "backup"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-foundation.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-TIER",
+    "file": "core1/tier-appc.html",
+    "cards": [
+      {
+        "id": "DEC-TIER-01",
+        "title": "Can I stamp the tier myself?",
+        "one_glance_answer": "No. Classified protection is a management responsibility. Propose the impact if you are asked, then confirm with the information owner or the DITSO route your B/D uses.",
+        "relevance": "Project staff and administrators who are about to write a tier on a slide.",
+        "applicability_text": "All roles. Project initiation and any later re-classification.",
+        "prerequisites": "You can describe what the system does and what fails if it is lost, changed, or exposed.",
+        "modality": "shall",
+        "implementation_guidance": "Write impact, interdependency, and whether an essential service is involved. Mark the tier unconfirmed until the owner says otherwise. A checkbox in this hub is not a classification.",
+        "policy_cite": [
+          "S17 §7",
+          "G3 §7",
+          "S17 §4",
+          "G3 §4"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s07.html",
+            "S17 §7"
+          ],
+          [
+            "core4/g3/s07.html",
+            "G3 §7"
+          ],
+          [
+            "core4/s17/s04.html",
+            "S17 §4"
+          ],
+          [
+            "core4/g3/s04.html",
+            "G3 §4"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "01",
+          "02",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-TIER-02",
+        "title": "Which tier description am I closest to?",
+        "one_glance_answer": "Tier 1 is the ordinary baseline. Tier 2 is a system whose failure or disruption would seriously affect government operations, or could cause public turmoil or catastrophe. Tier 3 is a Tier 2 system tied directly to an essential service.",
+        "relevance": "Staff preparing a question for the owner, not staff issuing the classification.",
+        "applicability_text": "All roles. Use the official definitions in S17 and G3 §4, not this paraphrase, when you write a paper.",
+        "prerequisites": "You have a named system. You have not yet treated a guess as final.",
+        "modality": "should",
+        "implementation_guidance": "Read S17 §4 and G3 §4 in the source pages. Take the paraphrase only as a prompt for the question you will ask the owner.",
+        "policy_cite": [
+          "S17 §4",
+          "G3 §4"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s04.html",
+            "S17 §4"
+          ],
+          [
+            "core4/g3/s04.html",
+            "G3 §4"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-TIER-03",
+        "title": "Does Appendix C apply to this system?",
+        "one_glance_answer": "Appendix C applies when the system is Tier 2 or Tier 3. It does not apply to an ordinary Tier 1 system. The baseline S17 and G3 sections still apply underneath.",
+        "relevance": "Anyone about to skip, or about to demand, extra controls.",
+        "applicability_text": "Tiers 2 and 3. All roles that operate or assure those systems.",
+        "prerequisites": "The tier is confirmed, or you are explicitly working a proposal and have labelled it as a proposal.",
+        "modality": "shall",
+        "implementation_guidance": "Open the App C matrix, keep every Tier 2 row if the system is Tier 2 or Tier 3, and add Tier 3-only rows only for Tier 3. Confirm the wording in G3 Appendix C.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §4",
+          "G3 §4"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s04.html",
+            "S17 §4"
+          ],
+          [
+            "core4/g3/s04.html",
+            "G3 §4"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "2",
+          "3"
+        ],
+        "needs": [
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-TIER-04",
+        "title": "Does Tier 3 drop the Tier 2 Appendix C controls?",
+        "one_glance_answer": "No. Tier 3 includes Tier 2. Every Tier 2 Appendix C control also applies to Tier 3, and then the Tier 3-only controls apply as well.",
+        "relevance": "Staff reading an empty cell and treating it as an exemption.",
+        "applicability_text": "Tier 3 systems. Security unit and management support in particular.",
+        "prerequisites": "You are looking at the matrix row by row, not at a single empty cell.",
+        "modality": "shall",
+        "implementation_guidance": "On the matrix, read the Tier 2 column as still in force for Tier 3. An empty Tier 3 cell does not cancel a Tier 2 control on that row or on any other row.",
+        "policy_cite": [
+          "G3 Appendix C"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "3"
+        ],
+        "needs": [
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-ACCOUNT",
+    "file": "core1/accountability.html",
+    "cards": [
+      {
+        "id": "DEC-ACCOUNT-01",
+        "title": "Who leads IT security accountability in my department?",
+        "one_glance_answer": "The Head of the B/D appoints a Departmental IT Security Officer. The DITSO steers IT security. Day-to-day work also sits with the IT security management unit, information owners, and administrators.",
+        "relevance": "New joiners learning the reporting procedure, and anyone unsure who accepts a risk.",
+        "applicability_text": "All roles.",
+        "prerequisites": "You are inside a B/D, or you support one. Names come from your unit, not from this hub.",
+        "modality": "shall",
+        "implementation_guidance": "Find the DITSO, the security unit, the ISIRT contact, and your line manager in the departmental reporting procedure. Leave a blank if you do not know. Do not invent a name.",
+        "policy_cite": [
+          "S17 §5",
+          "G3 §5"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s05.html",
+            "S17 §5"
+          ],
+          [
+            "core4/g3/s05.html",
+            "G3 §5"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "account",
+          "training"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ACCOUNT-02",
+        "title": "What remains my job if I am not the DITSO?",
+        "one_glance_answer": "Every staff member has duties for the access, information, and systems they use. A specialist role adds duties. It does not move your own Shall items onto someone else.",
+        "relevance": "Elevated users, administrators, developers, and management support.",
+        "applicability_text": "All five roles. See the role path after this card.",
+        "prerequisites": "You know which role description is closest to the work you actually do.",
+        "modality": "shall",
+        "implementation_guidance": "Open your role path and the theme decision aid (access, operations, development, incident). Check the reporting procedure so you know who carries the rest.",
+        "policy_cite": [
+          "S17 §5",
+          "G3 §5",
+          "S17 §9"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s05.html",
+            "S17 §5"
+          ],
+          [
+            "core4/g3/s05.html",
+            "G3 §5"
+          ],
+          [
+            "core4/s17/s09.html",
+            "S17 §9"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "account"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ACCOUNT-03",
+        "title": "Who accepts a risk that is still open?",
+        "one_glance_answer": "Someone in management owns the risk and accepts what remains after treatment. An administrator or developer can describe the risk. They do not silently accept it.",
+        "relevance": "Project and operations staff preparing a residual-risk note.",
+        "applicability_text": "Management support, security unit, and information owners. Others contribute the facts.",
+        "prerequisites": "The risk is described: what can go wrong, and what is already in place.",
+        "modality": "shall",
+        "implementation_guidance": "Write the risk in the department’s own register or paper. Name the owner. Open S17 §7 and G3 §7 before you treat a verbal “it is fine” as acceptance.",
+        "policy_cite": [
+          "S17 §7",
+          "G3 §7"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s07.html",
+            "S17 §7"
+          ],
+          [
+            "core4/g3/s07.html",
+            "G3 §7"
+          ]
+        ],
+        "roles": [
+          "4",
+          "5",
+          "3",
+          "2"
+        ],
+        "sdlc": [
+          "01",
+          "02",
+          "06",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "account",
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-ORG",
+    "file": "core1/org-structure.html",
+    "cards": [
+      {
+        "id": "DEC-ORG-01",
+        "title": "Which names sit above my department?",
+        "one_glance_answer": "Government arrangements include bodies such as the information security management committee structure, the IT security working group, GIRO, and GovCERT.HK. Your procedure says which of them you contact, and when.",
+        "relevance": "New joiners who see an acronym and do not know if it is their first phone call.",
+        "applicability_text": "All roles. Incident handling is the usual moment these names matter.",
+        "prerequisites": "You have your departmental incident procedure, or you know it is missing.",
+        "modality": "should",
+        "implementation_guidance": "Skim S17 §5 and G3 §5 in the source pages. Note only the contacts your reporting procedure names.",
+        "policy_cite": [
+          "S17 §5",
+          "G3 §5"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s05.html",
+            "S17 §5"
+          ],
+          [
+            "core4/g3/s05.html",
+            "G3 §5"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "account",
+          "incident"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ORG-02",
+        "title": "Who is inside the bureau or department?",
+        "one_glance_answer": "Expect a DITSO, a departmental security officer for classified material, an ISIRT commander, an IT security management unit, information owners, administrators, and users. Titles in your B/D may differ. The duties still need an owner.",
+        "relevance": "New joiners drawing the local picture.",
+        "applicability_text": "All roles.",
+        "prerequisites": "You can ask one person in the security unit or your line manager.",
+        "modality": "shall",
+        "implementation_guidance": "Make a short list of roles and names. Where a seat is vacant, that vacancy is a gap for management, not a reason to skip the control.",
+        "policy_cite": [
+          "S17 §5",
+          "G3 §5"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s05.html",
+            "S17 §5"
+          ],
+          [
+            "core4/g3/s05.html",
+            "G3 §5"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "account"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-MANAGEMENT",
+    "file": "core1/management.html",
+    "cards": [
+      {
+        "id": "DEC-MGMT-01",
+        "title": "Has this system been given a tier and an owner?",
+        "one_glance_answer": "Classified protection means every system, including a shared service, gets a tier and controls to match. An owner is part of that, not a later nice-to-have.",
+        "relevance": "Management support and project staff at initiation, and again when the system changes role.",
+        "applicability_text": "Roles 4 and 5 lead. Roles 2 and 3 supply facts. All tiers.",
+        "prerequisites": "The system has a name. Shared services are in scope, not exempt.",
+        "modality": "shall",
+        "implementation_guidance": "Ask for the tier and the information owner. If either is missing, record a gap. Do not invent the tier to make a form look finished.",
+        "policy_cite": [
+          "S17 §7",
+          "G3 §7"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s07.html",
+            "S17 §7"
+          ],
+          [
+            "core4/g3/s07.html",
+            "G3 §7"
+          ]
+        ],
+        "roles": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "01",
+          "06",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "tier",
+          "account"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-MGMT-02",
+        "title": "What should a risk decision look at?",
+        "one_glance_answer": "Judge criticality with defence and safety, financial effect, government image, and interdependency, and with scope, severity, and how long the service can be down.",
+        "relevance": "Persons writing a one-page risk note.",
+        "applicability_text": "Management support and the security unit. Any stage where scope changes.",
+        "prerequisites": "You have a factual description of the system. You are not copying a generic sentence.",
+        "modality": "should",
+        "implementation_guidance": "Use the department’s risk method. Keep the note short enough that the owner can accept or reject the remainder.",
+        "policy_cite": [
+          "S17 §7",
+          "G3 §7",
+          "S17 §6"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s07.html",
+            "S17 §7"
+          ],
+          [
+            "core4/g3/s07.html",
+            "G3 §7"
+          ]
+        ],
+        "roles": [
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "01",
+          "02",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-MGMT-03",
+        "title": "What extra management control appears at Tier 3?",
+        "one_glance_answer": "Appendix C adds Tier 3 expectations for the risk framework and for keeping risk registers. Tier 3 also inherits Tier 2 Appendix C controls from other themes.",
+        "relevance": "Management support for an essential-service system.",
+        "applicability_text": "Tier 3 only for this extra. Roles 4 and 5.",
+        "prerequisites": "The tier is confirmed as Tier 3, or clearly marked as a proposal.",
+        "modality": "shall",
+        "implementation_guidance": "Confirm the row on the App C matrix and in G3 Appendix C. Baseline §7 still applies.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §7",
+          "G3 §7"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s07.html",
+            "S17 §7"
+          ],
+          [
+            "core4/g3/s07.html",
+            "G3 §7"
+          ]
+        ],
+        "roles": [
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "3"
+        ],
+        "needs": [
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-HR",
+    "file": "core1/hr-security.html",
+    "cards": [
+      {
+        "id": "DEC-HR-01",
+        "title": "What should a new joiner be shown?",
+        "one_glance_answer": "Duties, the local policy, how to report an incident, and the access they actually need. This hub is a learning aid. It does not replace that local induction.",
+        "relevance": "New joiners and the persons who induct them.",
+        "applicability_text": "All roles. Strongest at joining and when duties change.",
+        "prerequisites": "A local policy and a reporting procedure exist, or their absence is already a gap.",
+        "modality": "shall",
+        "implementation_guidance": "Walk the new-joiners path, then the role path that matches the job. Record training the way your B/D already records it.",
+        "policy_cite": [
+          "S17 §9",
+          "G3 §9"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s09.html",
+            "S17 §9"
+          ],
+          [
+            "core4/g3/s09.html",
+            "G3 §9"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "training"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-framework.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-HR-02",
+        "title": "A colleague changed jobs or left. What happens to access?",
+        "one_glance_answer": "Access that no longer matches the job is removed or reduced. That includes privileged access. Do it when the job changes, not at the next annual clean-up.",
+        "relevance": "Supervisors, administrators, and the security unit.",
+        "applicability_text": "Roles 1, 2, and 4. Any stage, and especially operations.",
+        "prerequisites": "You know the person no longer needs the old right, and you have a request path that is not a shared password.",
+        "modality": "shall",
+        "implementation_guidance": "Use the joiner-mover-leaver path your unit already runs. Pair this with the access-control decision aid. Do not keep an account “just in case”.",
+        "policy_cite": [
+          "S17 §9",
+          "G3 §9",
+          "S17 §11",
+          "G3 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s09.html",
+            "S17 §9"
+          ],
+          [
+            "core4/g3/s09.html",
+            "G3 §9"
+          ],
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "1",
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "07",
+          "08",
+          "09"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "training",
+          "access"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-HR-03",
+        "title": "Is there an extra training expectation at Tier 3?",
+        "one_glance_answer": "Appendix C adds a Tier 3 training expectation, including vendors where that is feasible, or a contract that makes the vendor train its own staff.",
+        "relevance": "Security unit and contract managers for Tier 3 systems.",
+        "applicability_text": "Tier 3. Roles 4 and 5, and role 3 when the vendor builds the system.",
+        "prerequisites": "The system is Tier 3 and vendors have a role in running or changing it.",
+        "modality": "shall",
+        "implementation_guidance": "Check the contract and the training record against G3 Appendix C. Do not assume a poster meets the row.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §9",
+          "G3 §9"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s09.html",
+            "S17 §9"
+          ],
+          [
+            "core4/g3/s09.html",
+            "G3 §9"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "3"
+        ],
+        "needs": [
+          "training",
+          "vendor"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-ASSET",
+    "file": "core1/asset.html",
+    "cards": [
+      {
+        "id": "DEC-ASSET-01",
+        "title": "Does this asset need an owner?",
+        "one_glance_answer": "Yes. Information and the systems that hold it need an owner so classification, access, and disposal have someone to decide.",
+        "relevance": "Administrators and project staff adding a system, share, or dataset.",
+        "applicability_text": "All roles that create or run assets. All tiers. There is no Appendix C block on §10.",
+        "prerequisites": "You can describe the asset. An owner is a role, not a shared mailbox with no person.",
+        "modality": "shall",
+        "implementation_guidance": "Record the owner in the inventory your B/D uses. If the inventory has no row, the missing row is the gap.",
+        "policy_cite": [
+          "S17 §10",
+          "G3 §10"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s10.html",
+            "S17 §10"
+          ],
+          [
+            "core4/g3/s10.html",
+            "G3 §10"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "01",
+          "04",
+          "07",
+          "09"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "classify",
+          "retire"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ASSET-02",
+        "title": "Do I label this before I send or store it?",
+        "one_glance_answer": "Classify and label information so the handler knows the protection. An unlabelled extract is how classified information walks out in ordinary mail.",
+        "relevance": "Anyone who copies data into mail, a drive, or a ticket.",
+        "applicability_text": "All roles, especially elevated users.",
+        "prerequisites": "You know the classification rules your B/D uses under the Security Regulations. This hub does not restate those labels.",
+        "modality": "shall",
+        "implementation_guidance": "Apply the local classification and labelling rules, then choose a channel that is allowed for that label. See the email Q&A.",
+        "policy_cite": [
+          "S17 §10",
+          "G3 §10",
+          "S17 §15"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s10.html",
+            "S17 §10"
+          ],
+          [
+            "core4/g3/s10.html",
+            "G3 §10"
+          ],
+          [
+            "core4/s17/s15.html",
+            "S17 §15"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "classify",
+          "email"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-email-data.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ASSET-03",
+        "title": "Someone is leaving, or a disk is being reused. What must happen first?",
+        "one_glance_answer": "Assets are returned when the person leaves. Information is erased before media is reused or discarded, to the standard your procedure sets for that classification.",
+        "relevance": "Administrators and the persons who collect equipment.",
+        "applicability_text": "Roles 1, 2, and 4. Decommissioning and operations.",
+        "prerequisites": "You have the media or the equipment, and you know its classification. If you do not, stop and ask.",
+        "modality": "shall",
+        "implementation_guidance": "Follow the local disposal procedure. Do not rely on a file delete. Record what was sanitised if the procedure asks for a record.",
+        "policy_cite": [
+          "S17 §10",
+          "G3 §10"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s10.html",
+            "S17 §10"
+          ],
+          [
+            "core4/g3/s10.html",
+            "G3 §10"
+          ]
+        ],
+        "roles": [
+          "1",
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "07",
+          "09"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "retire",
+          "device"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-ACCESS",
+    "file": "core1/access-control.html",
+    "cards": [
+      {
+        "id": "DEC-ACCESS-01",
+        "title": "Does least privilege apply to this account task?",
+        "one_glance_answer": "Yes. Give the least access that still lets the job be done. Extra rights are a Shall problem, not a convenience.",
+        "relevance": "Anyone requesting, approving, or using an account.",
+        "applicability_text": "All roles. All tiers. Tier 2 and Tier 3 add Appendix C controls on top.",
+        "prerequisites": "You can name the person, the system, and the task. A shared unnamed account is already the wrong shape.",
+        "modality": "shall",
+        "implementation_guidance": "Write the task, then the smallest right that covers it. Approve through the local process. Open S17 §11 and G3 §11 before you copy a teammate’s rights.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "access"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-role-1.html",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ACCESS-02",
+        "title": "The job changed. Do I remove the old access?",
+        "one_glance_answer": "Yes. Remove or reduce access that the new job does not need. Do this when the job changes or ends.",
+        "relevance": "Supervisors and account administrators.",
+        "applicability_text": "Roles 1, 2, and 4. Operations and change.",
+        "prerequisites": "You know the old right and the new job. You have a removal path.",
+        "modality": "shall",
+        "implementation_guidance": "Remove the right, keep the ticket your process expects, and check privileged rights with the privileged-account aid if any were involved.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11",
+          "S17 §9"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "1",
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "07",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "access",
+          "training"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ACCESS-03",
+        "title": "Are my own credentials my responsibility?",
+        "one_glance_answer": "Yes. You protect your own authenticator and password. You do not share them, and you do not ask someone else to sign in as you.",
+        "relevance": "Every user, including elevated users.",
+        "applicability_text": "All roles and tiers.",
+        "prerequisites": "You have an individual account.",
+        "modality": "shall",
+        "implementation_guidance": "Follow the local credential rules in G3 §11 and your departmental procedure. Report a suspected compromise as an incident, not as a quiet password change only.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11",
+          "S17 §18"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ],
+          [
+            "core4/s17/s18.html",
+            "S17 §18"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "access",
+          "device"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-ACCESS-04",
+        "title": "Does remote or mobile access change the rules?",
+        "one_glance_answer": "No. Least privilege and the classification of the data still apply. The channel has to be one your procedure allows.",
+        "relevance": "Staff working away from the office, and administrators who enable that access.",
+        "applicability_text": "All roles. Roles 2 and 4 design the channel.",
+        "prerequisites": "You know whether the information may leave the office network.",
+        "modality": "should",
+        "implementation_guidance": "Use the approved remote method. Do not invent a tunnel, a personal file share, or an unmanaged device for government information. See the device Q&A.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "device",
+          "access"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-device.html",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-PRIV",
+    "file": "core1/privileged.html",
+    "cards": [
+      {
+        "id": "DEC-PRIV-01",
+        "title": "Do I need a privileged account for this task?",
+        "one_glance_answer": "Only if a lesser right cannot do the task. Privileged use is named, justified, and time-bounded where your process allows.",
+        "relevance": "Administrators and anyone who has collected standing admin rights.",
+        "applicability_text": "Roles 1, 2, and 4. All tiers for the baseline. Appendix C adds more at Tier 2 and Tier 3.",
+        "prerequisites": "You can describe the task without using the words “just in case”.",
+        "modality": "shall",
+        "implementation_guidance": "Prefer a separate privileged account from daily mail and browsing. Record the grant. Remove it when the task ends.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "1",
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "privileged",
+          "access"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-role-2.html",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-PRIV-02",
+        "title": "Is MFA required for this privileged logon?",
+        "one_glance_answer": "For Tier 2 and Tier 3, Appendix C expects MFA for interactive privileged logon where it is feasible. If it is not feasible, the reason needs to be explicit and owned, not assumed.",
+        "relevance": "Administrators of Tier 2 and Tier 3 systems.",
+        "applicability_text": "Tiers 2 and 3. Roles 2 and 4.",
+        "prerequisites": "The tier is confirmed. You know whether the logon is interactive.",
+        "modality": "shall",
+        "implementation_guidance": "Check G3 Appendix C before you quote the control in a design. Baseline credential rules in G3 §11 still apply at Tier 1.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §11",
+          "G3 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "2",
+          "3"
+        ],
+        "needs": [
+          "mfa",
+          "privileged"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-PRIV-03",
+        "title": "Who reviews privileged accounts, and how often?",
+        "one_glance_answer": "On every tier, administrative privileges and data access rights, including temporary access, shall be reviewed regularly so unnecessary or excessive rights can be removed. G3’s example is at least once a year, preferably twice, and the frequency shall be defined and documented. A check of high-privilege account use should be done by an independent party. Tier 2 and Tier 3 also take an Appendix C independent check at least every six months, by someone other than the person whose use is under review.",
+        "relevance": "Security unit and system administrators on every tier.",
+        "applicability_text": "System / LAN administrator and IT security administrator / unit. These roles apply on every tier.",
+        "prerequisites": "You know which accounts hold administrative privileges or data access rights. Confirm the tier before you apply the six-month Appendix C check.",
+        "modality": "shall",
+        "implementation_guidance": "Define and document the review frequency, then remove rights that are unnecessary or excessive. For Tier 2 and Tier 3, keep the Appendix C independent check at least every six months. Record findings on the gap template when this is your job.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11",
+          "G3 Appendix C"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ],
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "07"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "privileged"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-PRIV-04",
+        "title": "Can the team share one administrator password?",
+        "one_glance_answer": "No. Shared administrator passwords hide who did what. Issue individual privileged accounts, or the approved equivalent your process uses that still identifies the person.",
+        "relevance": "Any team that keeps a password in a ticket or a safe.",
+        "applicability_text": "Roles 2 and 4. All tiers.",
+        "prerequisites": "You are about to grant admin rights.",
+        "modality": "shall",
+        "implementation_guidance": "Replace the shared secret with named accounts. Treat a long-lived shared password as a gap.",
+        "policy_cite": [
+          "S17 §11",
+          "G3 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s11.html",
+            "S17 §11"
+          ],
+          [
+            "core4/g3/s11.html",
+            "G3 §11"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "privileged"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-CRYPTO",
+    "file": "core1/cryptography.html",
+    "cards": [
+      {
+        "id": "DEC-CRYPTO-01",
+        "title": "Do I need cryptography for this data?",
+        "one_glance_answer": "Use it when the information is classified, when it crosses a channel you do not control, or when it is stored where unauthorised persons could read the media.",
+        "relevance": "Developers and administrators choosing a channel or a store.",
+        "applicability_text": "Roles 2 and 3, with role 4 assuring. All tiers.",
+        "prerequisites": "You know the classification and whether the path is trusted.",
+        "modality": "shall",
+        "implementation_guidance": "Protect data in transit and at rest as G3 §12 and your local standard require. Do not invent an algorithm in this hub. Use the standard your B/D or the practice guide names.",
+        "policy_cite": [
+          "S17 §12",
+          "G3 §12"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s12.html",
+            "S17 §12"
+          ],
+          [
+            "core4/g3/s12.html",
+            "G3 §12"
+          ]
+        ],
+        "roles": [
+          "2",
+          "3",
+          "4"
+        ],
+        "sdlc": [
+          "02",
+          "04",
+          "07"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "crypto",
+          "email"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-CRYPTO-02",
+        "title": "Is unprotected wireless good enough?",
+        "one_glance_answer": "No, when government information needs protection. An open wireless network is a common way classified or internal information is exposed.",
+        "relevance": "Anyone connecting a laptop, and administrators who provide wireless.",
+        "applicability_text": "All roles. All tiers.",
+        "prerequisites": "You know you are about to put government information on that network.",
+        "modality": "shall",
+        "implementation_guidance": "Use the approved network. If you are unsure the wireless is approved, do not send the information.",
+        "policy_cite": [
+          "S17 §12",
+          "G3 §12",
+          "S17 §15"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s12.html",
+            "S17 §12"
+          ],
+          [
+            "core4/g3/s12.html",
+            "G3 §12"
+          ],
+          [
+            "core4/s17/s15.html",
+            "S17 §15"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "crypto",
+          "device"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-device.html",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-PHYS",
+    "file": "core1/physical.html",
+    "cards": [
+      {
+        "id": "DEC-PHYS-01",
+        "title": "Does physical security apply to equipment I use?",
+        "one_glance_answer": "Yes. Equipment that holds government information is protected against theft and casual viewing, including in an office you think of as safe.",
+        "relevance": "All staff who have a screen, a laptop, or a server room badge.",
+        "applicability_text": "All roles and tiers.",
+        "prerequisites": "You can point at the equipment.",
+        "modality": "shall",
+        "implementation_guidance": "Follow the local secure-area rules. Visitors and unattended equipment are part of S17 §13 and G3 §13, not a separate topic.",
+        "policy_cite": [
+          "S17 §13",
+          "G3 §13"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s13.html",
+            "S17 §13"
+          ],
+          [
+            "core4/g3/s13.html",
+            "G3 §13"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "device"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-PHYS-02",
+        "title": "Do clear desk and clear screen apply to me?",
+        "one_glance_answer": "Yes. Lock the screen when you leave it. Put classified material away rather than leaving it in view or in an open pile.",
+        "relevance": "Every person with a desk or a laptop.",
+        "applicability_text": "All roles, especially elevated users.",
+        "prerequisites": "You handle information that is not public.",
+        "modality": "should",
+        "implementation_guidance": "Make the lock automatic if the desktop policy allows. Clear desk is a habit plus the local rule, not a poster.",
+        "policy_cite": [
+          "S17 §13",
+          "G3 §13"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s13.html",
+            "S17 §13"
+          ],
+          [
+            "core4/g3/s13.html",
+            "G3 §13"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "device",
+          "classify"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-OPS",
+    "file": "core1/operations.html",
+    "cards": [
+      {
+        "id": "DEC-OPS-01",
+        "title": "Do I need a backup I can actually restore?",
+        "one_glance_answer": "Yes when the service must be recoverable. A copy you have never restored is a hope, not a backup.",
+        "relevance": "System administrators and service owners.",
+        "applicability_text": "Role 2 leads. All tiers for the baseline. Tier 2 and Tier 3 add Appendix C expectations such as off-site backup.",
+        "prerequisites": "You know which service and which data must come back.",
+        "modality": "shall",
+        "implementation_guidance": "Follow G3 §14 and the local backup standard. For Tier 2 or Tier 3, check the Appendix C operations rows before you sign off.",
+        "policy_cite": [
+          "S17 §14",
+          "G3 §14"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s14.html",
+            "S17 §14"
+          ],
+          [
+            "core4/g3/s14.html",
+            "G3 §14"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "06",
+          "07"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "backup"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-role-2.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-OPS-02",
+        "title": "A vulnerability or a missing patch is open. What is the Shall?",
+        "one_glance_answer": "Known vulnerabilities are handled through the departmental process: patch, mitigate, or accept with an owner. Silent delay is not a process.",
+        "relevance": "Administrators and the security unit.",
+        "applicability_text": "Roles 2 and 4. Operations and change.",
+        "prerequisites": "You have an advisory or a scan result, and a system it applies to.",
+        "modality": "shall",
+        "implementation_guidance": "Use the local patch process. If the system is Tier 2 or Tier 3, Appendix C expects timely patching and visibility to the DITSO when a fix slips. Confirm that row in G3 Appendix C.",
+        "policy_cite": [
+          "S17 §14",
+          "G3 §14"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s14.html",
+            "S17 §14"
+          ],
+          [
+            "core4/g3/s14.html",
+            "G3 §14"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "07",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "patch"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-OPS-03",
+        "title": "Which operations extras apply at Tier 2?",
+        "one_glance_answer": "Appendix C adds Tier 2 operations controls, including off-site backup, capacity planning, an end-of-support plan ahead of the deadline, and patching with DITSO visibility if the fix slips. Tier 3 inherits these.",
+        "relevance": "Administrators of Tier 2 and Tier 3 systems.",
+        "applicability_text": "Tiers 2 and 3. Roles 2 and 4.",
+        "prerequisites": "The tier is confirmed.",
+        "modality": "shall",
+        "implementation_guidance": "Walk the App C matrix row for operations. Do not treat this card as a substitute for the appendix wording.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §14",
+          "G3 §14"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s14.html",
+            "S17 §14"
+          ],
+          [
+            "core4/g3/s14.html",
+            "G3 §14"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "07"
+        ],
+        "tiers": [
+          "2",
+          "3"
+        ],
+        "needs": [
+          "patch",
+          "backup"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-OPS-04",
+        "title": "What monitoring extra applies only at Tier 3?",
+        "one_glance_answer": "Appendix C adds Tier 3 monitoring of a security-monitoring class, drawing on more than one source, around the clock. This is on top of the Tier 2 operations controls, which still apply.",
+        "relevance": "Security unit for an essential-service system.",
+        "applicability_text": "Tier 3. Roles 2 and 4.",
+        "prerequisites": "The system is confirmed Tier 3.",
+        "modality": "shall",
+        "implementation_guidance": "Confirm the monitoring row in G3 Appendix C and name the service that provides it. A daytime mailbox is not the same control.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "G3 §14"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/g3/s14.html",
+            "G3 §14"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "3"
+        ],
+        "needs": [
+          "patch"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-COMM",
+    "file": "core1/communications.html",
+    "cards": [
+      {
+        "id": "DEC-COMM-01",
+        "title": "May I send this information on this channel?",
+        "one_glance_answer": "Only if the channel is allowed for that classification. Mail, messaging, and file transfer do not become safe because they are convenient.",
+        "relevance": "Every person who sends government information, and administrators who provide the channel.",
+        "applicability_text": "All roles and tiers.",
+        "prerequisites": "You know the classification, or you have stopped to ask.",
+        "modality": "shall",
+        "implementation_guidance": "Use the approved channel and the required marking. Open S17 §15 and G3 §15 if the local procedure is unclear, then ask the security unit rather than guessing.",
+        "policy_cite": [
+          "S17 §15",
+          "G3 §15",
+          "S17 §10"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s15.html",
+            "S17 §15"
+          ],
+          [
+            "core4/g3/s15.html",
+            "G3 §15"
+          ],
+          [
+            "core4/s17/s10.html",
+            "S17 §10"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "email",
+          "classify"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-email-data.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-COMM-02",
+        "title": "Does an Internet-facing or wireless service need extra care?",
+        "one_glance_answer": "Yes. Segmentation, gateways, and wireless are part of communications security. Exposure is designed, not discovered after go-live.",
+        "relevance": "Administrators and developers of network services.",
+        "applicability_text": "Roles 2 and 3. Design, build, and operations.",
+        "prerequisites": "You can draw where the service sits relative to the Internet and to internal users.",
+        "modality": "shall",
+        "implementation_guidance": "Put the control in the design: gateway, segmentation, and the administrative path. Pair with access control for admin logon.",
+        "policy_cite": [
+          "S17 §15",
+          "G3 §15",
+          "S17 §11"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s15.html",
+            "S17 §15"
+          ],
+          [
+            "core4/g3/s15.html",
+            "G3 §15"
+          ]
+        ],
+        "roles": [
+          "2",
+          "3",
+          "4"
+        ],
+        "sdlc": [
+          "02",
+          "04",
+          "07"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "design",
+          "device"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-SDLC",
+    "file": "core1/sdlc-security.html",
+    "cards": [
+      {
+        "id": "DEC-SDLC-01",
+        "title": "When do security requirements start?",
+        "one_glance_answer": "At initiation and design, not at the week of go-live. Security-by-design means the requirement is written while the scope can still change.",
+        "relevance": "Project managers, developers, and the security unit.",
+        "applicability_text": "Roles 3, 4, and 5. Project initiation and design.",
+        "prerequisites": "There is a named change or a new system. “Make it secure” is not yet a requirement.",
+        "modality": "shall",
+        "implementation_guidance": "Write requirements that name confidentiality, integrity, or availability. Open S17 §16 and G3 §16, and the stage pack for the life-cycle step you are in.",
+        "policy_cite": [
+          "S17 §16",
+          "G3 §16",
+          "S17 §6"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s16.html",
+            "S17 §16"
+          ],
+          [
+            "core4/g3/s16.html",
+            "G3 §16"
+          ],
+          [
+            "core4/s17/s06.html",
+            "S17 §6"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "01",
+          "02"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "design"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-sdlc.html",
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-SDLC-02",
+        "title": "What should a design note contain?",
+        "one_glance_answer": "Where the control lives: authentication, authorisation, cryptography, logging, or the network path. One clear paragraph beats a slogan.",
+        "relevance": "Developers and reviewers.",
+        "applicability_text": "Role 3, with role 4 reviewing. Design and build.",
+        "prerequisites": "A security requirement already exists.",
+        "modality": "should",
+        "implementation_guidance": "Tie the note to the requirement and to a test that fails if the control is absent. Keep secrets out of source.",
+        "policy_cite": [
+          "S17 §16",
+          "G3 §16"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s16.html",
+            "S17 §16"
+          ],
+          [
+            "core4/g3/s16.html",
+            "G3 §16"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4"
+        ],
+        "sdlc": [
+          "02",
+          "04",
+          "05"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "design"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-sdlc.html",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-SDLC-03",
+        "title": "What actions should be taken before system live-run?",
+        "one_glance_answer": "System live-run and production rollout are the same gate. Before that gate, a security risk assessment shall be completed for the information system. If the system involves personal data, a privacy impact assessment shall be completed as well. The same assessments shall be done before a major enhancement or change. A self-assessment checklist does not replace them.",
+        "relevance": "The security unit and the project team preparing a system for production.",
+        "applicability_text": "IT security administrator / unit and Management support, with System / LAN administrator and Application developer supporting the review.",
+        "prerequisites": "You have a system that is planned to launch in production, and whether it stores or processes personal data.",
+        "modality": "shall",
+        "implementation_guidance": "Commission the security risk assessment, and the privacy impact assessment where personal data is involved, before system live-run. Use a qualified expert who is independent of the area under review. Agree the scope, method, and report format first, include an on-site inspection and interviews, and keep the assessment record. Put risks that are not yet fully treated into the risk register. Open G3 §20 and S17 §20.",
+        "policy_cite": [
+          "S17 §20",
+          "G3 §20"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s20.html",
+            "S17 §20"
+          ],
+          [
+            "core4/g3/s20.html",
+            "G3 §20"
+          ]
+        ],
+        "roles": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "06",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "sra"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-sdlc.html",
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-SDLC-04",
+        "title": "Does Appendix C add acquisition controls at Tier 2?",
+        "one_glance_answer": "Yes. Appendix C adds Tier 2 controls on system acquisition and development. Tier 3 inherits them. Confirm the row before you treat a design review as optional.",
+        "relevance": "Delivery teams for Tier 2 and Tier 3 systems.",
+        "applicability_text": "Tiers 2 and 3. Roles 3 and 4.",
+        "prerequisites": "The tier is confirmed or explicitly proposed.",
+        "modality": "shall",
+        "implementation_guidance": "Open the App C matrix at the acquisition row and G3 Appendix C. Keep the baseline §16 work either way.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §16",
+          "G3 §16"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s16.html",
+            "S17 §16"
+          ],
+          [
+            "core4/g3/s16.html",
+            "G3 §16"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4"
+        ],
+        "sdlc": [
+          "02",
+          "04",
+          "05"
+        ],
+        "tiers": [
+          "2",
+          "3"
+        ],
+        "needs": [
+          "design",
+          "sra"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-OUTSRC",
+    "file": "core1/outsourcing.html",
+    "cards": [
+      {
+        "id": "DEC-OUTSRC-01",
+        "title": "If a vendor runs it, do our Shall items disappear?",
+        "one_glance_answer": "No. The B/D remains responsible for government information. The contract has to make the supplier’s part explicit, and you still own the part that stays with you.",
+        "relevance": "Contract managers, project staff, and administrators of hosted systems.",
+        "applicability_text": "Roles 2, 3, 4, and 5. Procurement and operations.",
+        "prerequisites": "A supplier, cloud service, or contractor is in the path.",
+        "modality": "shall",
+        "implementation_guidance": "Write the split: what the supplier does, what the B/D still does, and how you will know. Open S17 §17 and G3 §17 before tender award, not after an incident.",
+        "policy_cite": [
+          "S17 §17",
+          "G3 §17"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s17.html",
+            "S17 §17"
+          ],
+          [
+            "core4/g3/s17.html",
+            "G3 §17"
+          ]
+        ],
+        "roles": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "03",
+          "07"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "vendor",
+          "procure"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-vendor.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-OUTSRC-02",
+        "title": "What should I ask before I send data to a supplier?",
+        "one_glance_answer": "Where it will be, who can see it, how incidents are reported, and how it comes back or is destroyed at the end.",
+        "relevance": "Project staff and information owners.",
+        "applicability_text": "Roles 3, 4, and 5. Procurement and decommissioning.",
+        "prerequisites": "You know the classification of the data.",
+        "modality": "should",
+        "implementation_guidance": "Use the local outsourcing checklist if you have one. If you do not, the questions above are the minimum conversation with the security unit.",
+        "policy_cite": [
+          "S17 §17",
+          "G3 §17",
+          "S17 §10"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s17.html",
+            "S17 §17"
+          ],
+          [
+            "core4/g3/s17.html",
+            "G3 §17"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "03",
+          "09"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "vendor"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "core3/qa-vendor.html",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-IR",
+    "file": "core1/incident.html",
+    "cards": [
+      {
+        "id": "DEC-IR-01",
+        "title": "Is this something I should report?",
+        "one_glance_answer": "Report when you reasonably see harm, or a real chance of harm, to confidentiality, integrity, service availability, or operations. Certainty is not the threshold.",
+        "relevance": "Every staff member.",
+        "applicability_text": "All roles and tiers. There is no Appendix C block on §18.",
+        "prerequisites": "You can say what you saw, when, and which system. Unknown is an acceptable fact.",
+        "modality": "shall",
+        "implementation_guidance": "Tell your line manager and the departmental incident contact named in the reporting procedure. Follow that procedure. Open S17 §18 and G3 §18 for the duty, not for a script you invent.",
+        "policy_cite": [
+          "S17 §18",
+          "G3 §18"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s18.html",
+            "S17 §18"
+          ],
+          [
+            "core4/g3/s18.html",
+            "G3 §18"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "incident"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-incident.html",
+        "related_qa": "core3/qa-incident.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-IR-02",
+        "title": "Who do I call first?",
+        "one_glance_answer": "Your departmental reporting route: the line manager and the ISIRT or security-unit contact named in the reporting procedure. Once that team is aware, central reporting clocks belong to them. Do not phone around at random.",
+        "relevance": "The person who found the problem.",
+        "applicability_text": "All roles.",
+        "prerequisites": "The reporting procedure should contain comprehensive contact information, such as telephone numbers (office hours, non-office hours and mobile), email addresses, and fax numbers.",
+        "modality": "shall",
+        "implementation_guidance": "Open the departmental reporting procedure and use the named point of contact. Follow the defined steps. Keep the first report short: what happened, when, and which system. Disclose incident details only on a need-to-know basis. Outside office hours, use the non-office-hour contacts in the procedure. Open G3 §18.",
+        "policy_cite": [
+          "S17 §18",
+          "G3 §18",
+          "S17 §5"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s18.html",
+            "S17 §18"
+          ],
+          [
+            "core4/g3/s18.html",
+            "G3 §18"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "incident"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-incident.html",
+        "related_qa": "core3/qa-incident.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-IR-03",
+        "title": "What do I preserve?",
+        "one_glance_answer": "Preserve what the local procedure tells you to preserve: what happened, when, which system, and what you already changed. Do not clean up in a way that destroys the timeline.",
+        "relevance": "The person on the scene, then the incident team.",
+        "applicability_text": "All roles. Administrators preserve technical detail. Others preserve the story and the artefacts they hold.",
+        "prerequisites": "You have reported, or you are reporting now. Preservation does not wait for a perfect write-up.",
+        "modality": "should",
+        "implementation_guidance": "Follow G3 §18 and the local incident procedure. Keep passwords and unnecessary personal data out of your note.",
+        "policy_cite": [
+          "S17 §18",
+          "G3 §18"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s18.html",
+            "S17 §18"
+          ],
+          [
+            "core4/g3/s18.html",
+            "G3 §18"
+          ]
+        ],
+        "roles": [
+          "all"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "incident"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-incident.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-BCM",
+    "file": "core1/bcm.html",
+    "cards": [
+      {
+        "id": "DEC-BCM-01",
+        "title": "Does continuity planning apply to this service?",
+        "one_glance_answer": "If the service matters to the B/D’s work, it needs a planned way to continue or recover. The depth follows the tier and the business need.",
+        "relevance": "Service owners and management support.",
+        "applicability_text": "Roles 2, 4, and 5. Operations, and initiation when the service is first named.",
+        "prerequisites": "You know the service and roughly how long it can be down.",
+        "modality": "shall",
+        "implementation_guidance": "Point at the business continuity arrangement and the IT part of it. Open S17 §19 and G3 §19. Backup under §14 is related and is not the whole answer.",
+        "policy_cite": [
+          "S17 §19",
+          "G3 §19",
+          "S17 §14"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s19.html",
+            "S17 §19"
+          ],
+          [
+            "core4/g3/s19.html",
+            "G3 §19"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "01",
+          "07"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "backup"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-BCM-02",
+        "title": "What does Appendix C add for Tier 2 and Tier 3?",
+        "one_glance_answer": "Tier 2 adds a documented, tested IT contingency tied to the business continuity plan. Tier 3 adds resilience for the essential service, tested so failover works. Tier 3 also keeps the Tier 2 control.",
+        "relevance": "Owners of Tier 2 and Tier 3 services.",
+        "applicability_text": "Tiers 2 and 3. Roles 2, 4, and 5.",
+        "prerequisites": "The tier is confirmed.",
+        "modality": "shall",
+        "implementation_guidance": "Confirm the continuity rows in G3 Appendix C. A document that has never been tested does not meet a testing expectation.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §19",
+          "G3 §19"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s19.html",
+            "S17 §19"
+          ],
+          [
+            "core4/g3/s19.html",
+            "G3 §19"
+          ]
+        ],
+        "roles": [
+          "2",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "all"
+        ],
+        "tiers": [
+          "2",
+          "3"
+        ],
+        "needs": [
+          "backup",
+          "tier"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "",
+        "glance_link": null
+      }
+    ]
+  },
+  {
+    "page": "P-DEC-COMPLY",
+    "file": "core1/compliance.html",
+    "cards": [
+      {
+        "id": "DEC-COMPLY-01",
+        "title": "Do legal and personal-data duties sit in IT security?",
+        "one_glance_answer": "Yes. Identifying legal, regulatory, and contractual duties, including personal data, is part of compliance. IT security does not replace the personal-data regime. It has to work with it.",
+        "relevance": "Project owners and the security unit.",
+        "applicability_text": "Roles 3, 4, and 5. All tiers.",
+        "prerequisites": "You know whether the system handles personal data or another regulated set.",
+        "modality": "shall",
+        "implementation_guidance": "Name the duties with the owner who already advises the B/D. Open S17 §20 and G3 §20. Do not invent a filing or a legal conclusion here.",
+        "policy_cite": [
+          "S17 §20",
+          "G3 §20"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s20.html",
+            "S17 §20"
+          ],
+          [
+            "core4/g3/s20.html",
+            "G3 §20"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "01",
+          "02",
+          "05"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "sra",
+          "classify"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "",
+        "related_qa": "",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-COMPLY-02",
+        "title": "When do assessment and testing show up?",
+        "one_glance_answer": "Security risk assessment, audit, and technical review are how you learn whether controls work. They belong before production and when the system changes in a major way, not only after an incident.",
+        "relevance": "Project and security staff.",
+        "applicability_text": "Roles 3 and 4. Testing, go-live, and change.",
+        "prerequisites": "There is a system and a change worth assessing. The tier changes how heavy the Appendix C package is.",
+        "modality": "shall",
+        "implementation_guidance": "Book the assessment through the local route. Use the testing stage pack. For Tier 2 or Tier 3, read the Appendix C compliance rows before you set the scope.",
+        "policy_cite": [
+          "S17 §20",
+          "G3 §20",
+          "S17 §16"
+        ],
+        "core4_links": [
+          [
+            "core4/s17/s20.html",
+            "S17 §20"
+          ],
+          [
+            "core4/g3/s20.html",
+            "G3 §20"
+          ]
+        ],
+        "roles": [
+          "3",
+          "4",
+          "5"
+        ],
+        "sdlc": [
+          "05",
+          "06",
+          "08"
+        ],
+        "tiers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "needs": [
+          "sra"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": false,
+        "related_quiz": "core2/quiz-sdlc.html",
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
+      },
+      {
+        "id": "DEC-COMPLY-03",
+        "title": "What extra assurance applies at Tier 2 and Tier 3?",
+        "one_glance_answer": "Appendix C adds vulnerability scanning and penetration testing expectations for Tier 2, including Internet-facing systems, and a heavier annual package for Tier 3. Tier 3 inherits the Tier 2 rows.",
+        "relevance": "Security unit scoping an assessment.",
+        "applicability_text": "Tiers 2 and 3. Role 4 leads.",
+        "prerequisites": "The tier and whether the system is Internet-facing are known.",
+        "modality": "shall",
+        "implementation_guidance": "Read the compliance rows in G3 Appendix C before you quote a frequency in a paper. This card is a pointer, not the appendix.",
+        "policy_cite": [
+          "G3 Appendix C",
+          "S17 §20",
+          "G3 §20"
+        ],
+        "core4_links": [
+          [
+            "core4/g3/appendix-c.html",
+            "G3 Appendix C"
+          ],
+          [
+            "core4/s17/s20.html",
+            "S17 §20"
+          ],
+          [
+            "core4/g3/s20.html",
+            "G3 §20"
+          ]
+        ],
+        "roles": [
+          "4",
+          "5",
+          "3"
+        ],
+        "sdlc": [
+          "05",
+          "08"
+        ],
+        "tiers": [
+          "2",
+          "3"
+        ],
+        "needs": [
+          "sra"
+        ],
+        "systems": "Information systems and data assets in scope of S17",
+        "app_c_flag": true,
+        "related_quiz": "core2/quiz-app-c.html",
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
+      }
+    ]
+  }
+]

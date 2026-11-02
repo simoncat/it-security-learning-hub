@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fundamentals path · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Fundamentals path. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-PATH-FND" data-page="P-PATH-FND" data-source-sections="S17/G3 §1–§11, §14, §18–§20" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="../start/new-joiners.html">New joiners</a></li><li aria-current="page">Fundamentals</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Audiences</p><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="foundation.html" aria-current="page">Fundamentals path</a><p class="nav-label">Roles</p><a href="role-1.html">Elevated end user</a><a href="role-2.html">System / LAN administrator</a><a href="role-3.html">Application developer</a><a href="role-4.html">IT security administrator / unit</a><a href="role-5.html">Management support</a><p class="nav-label">SDLC stages</p><a href="sdlc-01-initiation.html">01 Project initiation</a><a href="sdlc-02-design.html">02 Design</a><a href="sdlc-03-procurement.html">03 Procurement</a><a href="sdlc-04-build.html">04 Build/Implementation</a><a href="sdlc-05-test.html">05 Testing</a><a href="sdlc-06-go-live.html">06 Go-live</a><a href="sdlc-07-operate.html">07 Operations</a><a href="sdlc-08-change.html">08 Change</a><a href="sdlc-09-retire.html">09 Decommissioning</a><p class="nav-label">Close gaps</p><a href="apply.html">Apply and close gaps</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Fundamentals path</h1>
+<p class="lede">New joiners work through this after the short phase list. Current staff can use it as a refresh. Themes replace a day count. Shall comes first inside each theme.</p>
+<p data-context-banner class="context-banner">Reading order: S17, then G3, then Appendix C only for Tier 2 or Tier 3.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C if the system is Tier 2 or Tier 3.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-ghost" data-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-action="expand" data-open="true">Expand sections</button>
+  <button type="button" class="btn btn-ghost" data-action="expand" data-open="false">Collapse sections</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this foundation</button>
+  <button type="button" class="btn btn-ghost" data-action="clear-ticks">Clear ticks in this browser</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<p data-progress-readout></p>
+
+<div class="track-split">
+  <article class="track-card track-a"><h3>New joiners</h3><p>Do every theme. Start from the <a href="../start/new-joiners.html">new-joiners phases</a> if you want the short path first.</p></article>
+  <article class="track-card track-b"><h3>Current staff</h3><p>Use the themes marked “if gap”. For a live task, the <a href="../start/current-staff.html">role, stage, and need filter</a> is faster.</p></article>
+</div>
+<div data-checklist>
+  
+<details class="day" open data-pace="both" id="what-why-who">
+  <summary>
+    <span class="day-kicker">What / why / who</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D1-01" data-id="F-D1-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D1-01" data-tick="F-D1-01" aria-describedby="note-F-D1-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D1-01</span></div>
+      <label for="tick-F-D1-01">Read S17 §1–2 and G3 §1–2 (purpose, scope, applicability).</label>
+      <p class="item-note" id="note-F-D1-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s01.html">S17 §1</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s01.html">G3 §1</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D1-02" data-id="F-D1-02" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D1-02" data-tick="F-D1-02" aria-describedby="note-F-D1-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D1-02</span></div>
+      <label for="tick-F-D1-02">Note the stack: Security Regulations, then S17, then G3, then practice guides, then local B/D policy.</label>
+      <p class="item-note" id="note-F-D1-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s02.html">G3 §2</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D1-03" data-id="F-D1-03" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D1-03" data-tick="F-D1-03" aria-describedby="note-F-D1-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D1-03</span></div>
+      <label for="tick-F-D1-03">Identify contacts: DITSO, IT Security Management Unit, ISIRT Commander, and your line manager.</label>
+      <p class="item-note" id="note-F-D1-03">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D1-04" data-id="F-D1-04" data-modality="shall" data-flag="0" data-pace="a-required">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D1-04" data-tick="F-D1-04" aria-describedby="note-F-D1-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D1-04</span></div>
+      <label for="tick-F-D1-04">Locate the local IT security policy and end-user instructions. G3 Appendix A is only a sample shape.</label>
+      <p class="item-note" id="note-F-D1-04">New joiners: required</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s08.html">G3 §8</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D1-05" data-id="F-D1-05" data-modality="shall" data-flag="0" data-pace="b-required">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D1-05" data-tick="F-D1-05" aria-describedby="note-F-D1-05">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D1-05</span></div>
+      <label for="tick-F-D1-05">Confirm the current local policy links, including version and date.</label>
+      <p class="item-note" id="note-F-D1-05">Current staff: required</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s08.html">G3 §8</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="conventions-and-organisation">
+  <summary>
+    <span class="day-kicker">Conventions and organisation</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D2-01" data-id="F-D2-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D2-01" data-tick="F-D2-01" aria-describedby="note-F-D2-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D2-01</span></div>
+      <label for="tick-F-D2-01">Memorise the modality words: Shall, Should, and May (S17/G3 §4.2).</label>
+      <p class="item-note" id="note-F-D2-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s04.html">S17 §4</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s04.html">G3 §4</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D2-02" data-id="F-D2-02" data-modality="should" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D2-02" data-tick="F-D2-02" aria-describedby="note-F-D2-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">F-D2-02</span></div>
+      <label for="tick-F-D2-02">Skim S17/G3 §5: ISMC, ITSWG, GIRO, GovCERT.HK, and your departmental structure.</label>
+      <p class="item-note" id="note-F-D2-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s05.html">S17 §5</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D2-03" data-id="F-D2-03" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D2-03" data-tick="F-D2-03" aria-describedby="note-F-D2-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D2-03</span></div>
+      <label for="tick-F-D2-03">Find your role in G3 §5.2–5.3 and tick the duties that apply to you.</label>
+      <p class="item-note" id="note-F-D2-03">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D2-04" data-id="F-D2-04" data-modality="shall" data-flag="0" data-pace="a-required">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D2-04" data-tick="F-D2-04" aria-describedby="note-F-D2-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D2-04</span></div>
+      <label for="tick-F-D2-04">Find the DITSO, security unit, ISIRT contact, and line manager in the reporting procedure.</label>
+      <p class="item-note" id="note-F-D2-04">New joiners: required.</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s18.html">G3 §18</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="core-principles">
+  <summary>
+    <span class="day-kicker">Core principles</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D3-01" data-id="F-D3-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D3-01" data-tick="F-D3-01" aria-describedby="note-F-D3-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D3-01</span></div>
+      <label for="tick-F-D3-01">Read S17/G3 §6: CIA, risk-based decisions, security-by-design, and prevent / detect / respond / recover.</label>
+      <p class="item-note" id="note-F-D3-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s06.html">S17 §6</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s06.html">G3 §6</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D3-02" data-id="F-D3-02" data-modality="should" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D3-02" data-tick="F-D3-02" aria-describedby="note-F-D3-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">F-D3-02</span></div>
+      <label for="tick-F-D3-02">Write one sentence each for confidentiality, integrity, and availability on a system you use.</label>
+      <p class="item-note" id="note-F-D3-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s06.html">G3 §6</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D3-04" data-id="F-D3-04" data-modality="should" data-flag="0" data-pace="b-focus">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D3-04" data-tick="F-D3-04" aria-describedby="note-F-D3-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">F-D3-04</span></div>
+      <label for="tick-F-D3-04">List two or three pain points (audit, near-miss, or App C doubts) to carry into the role path.</label>
+      <p class="item-note" id="note-F-D3-04">Current staff</p>
+      
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="b-gap" id="management-policy-persons">
+  <summary>
+    <span class="day-kicker">Management, policy, persons</span>
+    <span class="day-title"></span>
+    <span class="pace-chip">Current staff: if gap</span>
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D4-01" data-id="F-D4-01" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D4-01" data-tick="F-D4-01" aria-describedby="note-F-D4-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D4-01</span></div>
+      <label for="tick-F-D4-01">S17/G3 §7 management responsibilities, including the overview of risk and classified protection.</label>
+      <p class="item-note" id="note-F-D4-01">New joiners: all. Current staff: if gap.</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s07.html">S17 §7</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s07.html">G3 §7</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D4-02" data-id="F-D4-02" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D4-02" data-tick="F-D4-02" aria-describedby="note-F-D4-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D4-02</span></div>
+      <label for="tick-F-D4-02">S17/G3 §8 IT security policies. Departmental policy aligns with S17 and G3.</label>
+      <p class="item-note" id="note-F-D4-02">New joiners: all. Current staff: if gap.</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s08.html">S17 §8</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s08.html">G3 §8</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D4-03" data-id="F-D4-03" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D4-03" data-tick="F-D4-03" aria-describedby="note-F-D4-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D4-03</span></div>
+      <label for="tick-F-D4-03">S17/G3 §9 human resource security: joiners, leavers, and awareness.</label>
+      <p class="item-note" id="note-F-D4-03">New joiners: read carefully. Current staff: if gap.</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s09.html">S17 §9</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s09.html">G3 §9</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D4-04" data-id="F-D4-04" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D4-04" data-tick="F-D4-04" aria-describedby="note-F-D4-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D4-04</span></div>
+      <label for="tick-F-D4-04">Know your B/D security awareness and training requirement.</label>
+      <p class="item-note" id="note-F-D4-04">Current staff: if this day is a gap.</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s09.html">G3 §9</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="b-gap" id="assets-and-access">
+  <summary>
+    <span class="day-kicker">Assets and access</span>
+    <span class="day-title"></span>
+    <span class="pace-chip">Current staff: if gap</span>
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D5-01" data-id="F-D5-01" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D5-01" data-tick="F-D5-01" aria-describedby="note-F-D5-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D5-01</span></div>
+      <label for="tick-F-D5-01">S17/G3 §10 asset management: ownership, classification, and media.</label>
+      <p class="item-note" id="note-F-D5-01">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s10.html">S17 §10</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s10.html">G3 §10</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D5-02" data-id="F-D5-02" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D5-02" data-tick="F-D5-02" aria-describedby="note-F-D5-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D5-02</span></div>
+      <label for="tick-F-D5-02">S17/G3 §11 access control at a high level: least privilege, passwords, mobile and remote access, IoT.</label>
+      <p class="item-note" id="note-F-D5-02">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s11.html">S17 §11</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s11.html">G3 §11</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D5-03" data-id="F-D5-03" data-modality="should" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D5-03" data-tick="F-D5-03" aria-describedby="note-F-D5-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">F-D5-03</span></div>
+      <label for="tick-F-D5-03">Practice: list assets you handle and their classification. Ask the Information Owner if you are unsure.</label>
+      <p class="item-note" id="note-F-D5-03">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s10.html">G3 §10</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="b-gap" id="operations-lite-incidents-continuity">
+  <summary>
+    <span class="day-kicker">Operations lite, incidents, continuity</span>
+    <span class="day-title"></span>
+    <span class="pace-chip">Current staff: if gap</span>
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D6-01" data-id="F-D6-01" data-modality="should" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D6-01" data-tick="F-D6-01" aria-describedby="note-F-D6-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">F-D6-01</span></div>
+      <label for="tick-F-D6-01">Skim S17/G3 §14 (malware, backup, logging, vulnerabilities, threats). Depth comes in the role path.</label>
+      <p class="item-note" id="note-F-D6-01">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s14.html">S17 §14</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s14.html">G3 §14</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D6-02" data-id="F-D6-02" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D6-02" data-tick="F-D6-02" aria-describedby="note-F-D6-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D6-02</span></div>
+      <label for="tick-F-D6-02">S17/G3 §18 incident management: how to report. Do not wait until you are sure.</label>
+      <p class="item-note" id="note-F-D6-02">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s18.html">S17 §18</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s18.html">G3 §18</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D6-03" data-id="F-D6-03" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D6-03" data-tick="F-D6-03" aria-describedby="note-F-D6-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D6-03</span></div>
+      <label for="tick-F-D6-03">S17/G3 §19 continuity: plans exist. Note where your B/D keeps them.</label>
+      <p class="item-note" id="note-F-D6-03">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s19.html">S17 §19</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s19.html">G3 §19</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D6-04" data-id="F-D6-04" data-modality="shall" data-flag="0" data-pace="a-required">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D6-04" data-tick="F-D6-04" aria-describedby="note-F-D6-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D6-04</span></div>
+      <label for="tick-F-D6-04">Confirm the ISIRT and incident contacts in the reporting procedure, including after-hours numbers.</label>
+      <p class="item-note" id="note-F-D6-04">New joiners</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s18.html">G3 §18</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="b-gap" id="compliance-tier-and-wrap">
+  <summary>
+    <span class="day-kicker">Compliance, tier, and wrap</span>
+    <span class="day-title"></span>
+    <span class="pace-chip">Current staff: if gap</span>
+  </summary>
+  <div class="day-body">
+    
+    <ul class="items">
+<li class="item" id="F-D7-01" data-id="F-D7-01" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D7-01" data-tick="F-D7-01" aria-describedby="note-F-D7-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D7-01</span></div>
+      <label for="tick-F-D7-01">S17/G3 §20 compliance: security risk assessment, audit, and technical review, at awareness level.</label>
+      <p class="item-note" id="note-F-D7-01">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s20.html">S17 §20</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s20.html">G3 §20</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D7-02" data-id="F-D7-02" data-modality="shall" data-flag="0" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D7-02" data-tick="F-D7-02" aria-describedby="note-F-D7-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-D7-02</span></div>
+      <label for="tick-F-D7-02">Learn Tier 1, Tier 2, and Tier 3 (G3 §4.1). Tier 2 and Tier 3 also take Appendix C.</label>
+      <p class="item-note" id="note-F-D7-02">New joiners: do this · Current staff: only if it is a gap</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s04.html">G3 §4</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-4">App C §4</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D7-03" data-id="F-D7-03" data-modality="shall" data-flag="1" data-pace="b-gap">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D7-03" data-tick="F-D7-03" aria-describedby="note-F-D7-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span> <span class="badge badge-appc">App C</span><span class="id-code">F-D7-03</span></div>
+      <label for="tick-F-D7-03">Note which of your systems might be Tier 2 or Tier 3. Confirm that on the tier-mapping block. Do not self-finalise the tier.</label>
+      <p class="item-note" id="note-F-D7-03">App C may apply.</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s04.html">G3 §4</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-7">App C §7</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="F-D7-05" data-id="F-D7-05" data-modality="should" data-flag="0" data-pace="b-focus">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-D7-05" data-tick="F-D7-05" aria-describedby="note-F-D7-05">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">F-D7-05</span></div>
+      <label for="tick-F-D7-05">Foundation refresh done. Continue the role path with your gap list.</label>
+      <p class="item-note" id="note-F-D7-05">Current staff</p>
+      
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+  <h2>Foundation exit check</h2>
+  <p>You can explain the path when you can do these four things. They are a self-check, not a form anyone files.</p>
+  <ul class="items">
+<li class="item" id="F-EXIT-01" data-id="F-EXIT-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-EXIT-01" data-tick="F-EXIT-01" aria-describedby="note-F-EXIT-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-EXIT-01</span></div>
+      <label for="tick-F-EXIT-01">Explain Shall, Should, and May in your own words.</label>
+      <p class="item-note" id="note-F-EXIT-01">Exit check</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s04.html">G3 §4</a></p>
+    </div>
+  </div>
+</li>
+
+<li class="item" id="F-EXIT-02" data-id="F-EXIT-02" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-EXIT-02" data-tick="F-EXIT-02" aria-describedby="note-F-EXIT-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-EXIT-02</span></div>
+      <label for="tick-F-EXIT-02">Name your security contacts (DITSO, security unit, ISIRT, line manager).</label>
+      <p class="item-note" id="note-F-EXIT-02">Exit check</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a></p>
+    </div>
+  </div>
+</li>
+
+<li class="item" id="F-EXIT-03" data-id="F-EXIT-03" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-EXIT-03" data-tick="F-EXIT-03" aria-describedby="note-F-EXIT-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-EXIT-03</span></div>
+      <label for="tick-F-EXIT-03">Say how you would report an incident without waiting to be certain.</label>
+      <p class="item-note" id="note-F-EXIT-03">Exit check</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s18.html">G3 §18</a></p>
+    </div>
+  </div>
+</li>
+
+<li class="item" id="F-EXIT-04" data-id="F-EXIT-04" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-F-EXIT-04" data-tick="F-EXIT-04" aria-describedby="note-F-EXIT-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">F-EXIT-04</span></div>
+      <label for="tick-F-EXIT-04">State whether Tier 2/3 and App C might apply to a system you use.</label>
+      <p class="item-note" id="note-F-EXIT-04">Exit check</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s04.html">G3 §4</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-4">App C §4</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+</div>
+<p><a href="../core2/quiz-foundation.html">Fundamentals quiz</a> · <a href="../start/new-joiners.html">New-joiners phases</a></p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

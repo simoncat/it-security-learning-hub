@@ -1,0 +1,937 @@
+[
+  {
+    "id": "P-QUIZ-FND",
+    "file": "core2/quiz-foundation.html",
+    "title": "Foundation self-check",
+    "intro": "Eight or more questions on modalities, contacts, CIA, reporting, and tiers.",
+    "source": "S17/G3 §4.2, §5, §6, §18; G3 §4.1 and Appendix C",
+    "questions": [
+      {
+        "id": "Q-FND-01",
+        "prompt": "In S17 and G3, what does Shall mean?",
+        "choices": [
+          "A mandatory requirement. You must do it.",
+          "A nice idea for a quiet week.",
+          "A suggestion you can ignore if busy.",
+          "A vendor marketing claim."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §4.2: Shall is a mandatory requirement. The same convention is in S17 §4.2.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FND-02",
+        "prompt": "What does Should mean in this hub?",
+        "choices": [
+          "Best practice — implement whenever possible.",
+          "Optional decoration with no expectation.",
+          "A rule that applies only to contractors.",
+          "A synonym of May."
+        ],
+        "answerIndex": 0,
+        "rationale": "Should is a best practice to implement whenever possible. If you defer it, know why.",
+        "modalityTag": "should"
+      },
+      {
+        "id": "Q-FND-03",
+        "prompt": "What does May mean?",
+        "choices": [
+          "A desirable best practice.",
+          "A mandatory control for every Tier 1 system.",
+          "Permission to skip Shall items.",
+          "A temporary waiver from DPO."
+        ],
+        "answerIndex": 0,
+        "rationale": "May is a desirable best practice. It is not a waiver for Shall.",
+        "modalityTag": "may"
+      },
+      {
+        "id": "Q-FND-04",
+        "prompt": "What is the reading order for a control?",
+        "choices": [
+          "S17 first, then the same-number G3 section, then App C only if the system is Tier 2 or Tier 3.",
+          "App C first, then skip S17 if you are busy.",
+          "The practice guide only.",
+          "Whatever is shortest."
+        ],
+        "answerIndex": 0,
+        "rationale": "Policy (what) before guidelines (how). Appendix C is the extra tier layer, not a replacement.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-FND-05",
+        "prompt": "Which stack order matches G3 §2.3?",
+        "choices": [
+          "Security Regulations, then S17, then G3, then practice guides, then local B/D policy.",
+          "Local habit, then a blog, then S17.",
+          "G3 only. S17 is optional.",
+          "Appendix C for every Tier 1 PC."
+        ],
+        "answerIndex": 0,
+        "rationale": "B/Ds comply with the Security Regulations, S17, and G3, and follow practice guides. Local policy can be stricter.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-FND-06",
+        "prompt": "Which trio names the core security objectives?",
+        "choices": [
+          "Confidentiality, integrity, and availability.",
+          "Speed, cost, and novelty.",
+          "Firewall, antivirus, and password length only.",
+          "Classification, colour, and cabinet."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §4.1 and §6 describe confidentiality, integrity, and availability. Controls serve those objectives.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FND-07",
+        "prompt": "A Tier 2 system is best described as:",
+        "choices": [
+          "A system whose failure or disruption would seriously hit government operations, or could cause public turmoil or catastrophe.",
+          "Any laptop.",
+          "Only a system that is air-gapped.",
+          "A system you personally find annoying."
+        ],
+        "answerIndex": 0,
+        "rationale": "That is the sense of the G3 §4.1 Tier 2 definition. Tier 3 is a Tier 2 system tied directly to an essential service. Confirm the tier with the owner. Do not self-finalise it.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-FND-08",
+        "prompt": "When should you report a security event?",
+        "choices": [
+          "When you reasonably see harm to confidentiality, integrity, availability, or operations. Do not wait until you are certain.",
+          "Only after a full forensic report.",
+          "Only if the Director asks first.",
+          "Never, if you can reboot quietly."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §18 expects prompt reporting. The departmental ISIRT, once aware, phones GIRO Standing Office within 60 minutes and sends the preliminary form within 48 hours. Follow your local procedure.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FND-09",
+        "prompt": "Who is the usual departmental lead for IT security accountability?",
+        "choices": [
+          "The Departmental IT Security Officer (DITSO).",
+          "The canteen contractor.",
+          "Whoever last changed the wallpaper.",
+          "GovCERT.HK acting as your line manager."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager as named in the reporting procedure.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-FND-10",
+        "prompt": "Appendix C applies when:",
+        "choices": [
+          "The system is Tier 2 or Tier 3. Tier 3 also takes every Tier 2 App C control.",
+          "The system is any Tier 1 file share.",
+          "You feel like reading extra pages.",
+          "Only during a penetration test week."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 says B/Ds adopt the baseline for ordinary systems and the stricter Appendix C controls for Tier 2 and Tier 3. Tier 3 includes the Tier 2 App C set.",
+        "modalityTag": "appc"
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-FRAME",
+    "file": "core2/quiz-framework.html",
+    "title": "Organisation Structure and Accountability",
+    "intro": "Organisation, accountability, and management responsibilities.",
+    "source": "S17 §5 · S17 §7 · G3 §5 · G3 §7 · G3 §8",
+    "questions": [
+      {
+        "id": "Q-FRAME-01",
+        "prompt": "Who is the usual departmental lead for IT security accountability?",
+        "choices": [
+          "The Departmental IT Security Officer appointed by the Head of the B/D.",
+          "Whoever last opened the firewall ticket.",
+          "A supplier’s service desk, by default.",
+          "This learning hub."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §5 and G3 §5 describe the DITSO. You still need the security unit, the ISIRT contact, and your line manager.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FRAME-02",
+        "prompt": "A developer can describe a residual risk. Who accepts what remains?",
+        "choices": [
+          "The management owner, through the department’s own route.",
+          "The developer, by merging the code.",
+          "The learning-hub checkbox.",
+          "No one, if the slide says low."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §7 and G3 §7 put risk ownership with management. Describing a risk is not the same as accepting it.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FRAME-03",
+        "prompt": "Classified protection means:",
+        "choices": [
+          "Every system, including a shared service, gets a tier and controls to match.",
+          "Only Internet-facing systems are in scope.",
+          "Tier labels are optional decorations.",
+          "The project manager picks Tier 1 to save time."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §7 treats classification as a management responsibility. Do not finalise a tier to suit a date.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FRAME-04",
+        "prompt": "Departmental policy may be:",
+        "choices": [
+          "Stricter than S17 and G3, and shall not be weaker.",
+          "A replacement for S17 if the director prefers it.",
+          "Optional reading for administrators.",
+          "The only document a new joiner needs."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §2 and §8 put local policy after the baseline. Local text does not cancel a Shall.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FRAME-05",
+        "prompt": "Which pair is the right reading order for a theme?",
+        "choices": [
+          "S17 first, then the same-theme G3 section.",
+          "A blog, then the local habit.",
+          "Appendix C for every Tier 1 PC.",
+          "G3 only, because it is longer."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 is the mandatory minimum. G3 is the implementation standard for the same theme.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-FRAME-06",
+        "prompt": "Your own user duties disappear when a security unit exists.",
+        "choices": [
+          "False. The unit adds specialist duties. Your own Shall items remain.",
+          "True. Users only need the poster.",
+          "True for developers, false for everyone else.",
+          "True once you have attended one briefing."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §5 and §9 expect every staff member to know their duties. A specialist team does not absorb them.",
+        "modalityTag": "shall"
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-R1",
+    "file": "core2/quiz-role-1.html",
+    "title": "Elevated end user self-check",
+    "intro": "User and elevated-duty checks, plus one App C point.",
+    "source": "G3 §5.3.5, §10, §11, §13, §15, §18; App C §11",
+    "questions": [
+      {
+        "id": "Q-R1-01",
+        "prompt": "An elevated account you no longer need should be:",
+        "choices": [
+          "Removed or reduced. Access stays justified.",
+          "Kept because it was hard to get.",
+          "Shared with the whole team for convenience.",
+          "Written on a sticky note under the keyboard."
+        ],
+        "answerIndex": 0,
+        "rationale": "Least privilege and removal of access are §11 duties. Elevated use may also be audited.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R1-02",
+        "prompt": "The access-control principle to remember first is:",
+        "choices": [
+          "Least privilege.",
+          "Everyone gets admin on Fridays.",
+          "Longer passwords replace all other controls.",
+          "Classification labels are optional on RESTRICTED documents."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §11.1 starts from least privilege. Labels and handling still matter under §10.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R1-03",
+        "prompt": "Clear desk and clear screen sit mainly in:",
+        "choices": [
+          "S17/G3 §13 physical and environmental security.",
+          "Appendix D filing codes.",
+          "The canteen roster.",
+          "Section 3 normative references only."
+        ],
+        "answerIndex": 0,
+        "rationale": "§13 covers secure areas and equipment habits, including clear desk and clear screen.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R1-04",
+        "prompt": "Classified material you need to send should be:",
+        "choices": [
+          "Marked and sent on the channel local rules allow, with encryption when the rule requires it.",
+          "Attached to a personal webmail account.",
+          "Posted in a team chat with no label.",
+          "Copied onto an unlabelled USB “just for the meeting”."
+        ],
+        "answerIndex": 0,
+        "rationale": "§15.2 and §12 govern transfer and cryptography. Follow the local rule if it is stricter.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R1-05",
+        "prompt": "A suspicious message was opened. Your first learning point is:",
+        "choices": [
+          "Report through the departmental path. Do not wait for a private investigation to finish.",
+          "Delete it and hope.",
+          "Forward it to friends so they can test the link.",
+          "Post screenshots on social media."
+        ],
+        "answerIndex": 0,
+        "rationale": "§18: report. A tabletop is for practice. A real event uses the live ISIRT path.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R1-06",
+        "prompt": "You administer a task next to a Tier 2 system. Which App C theme applies?",
+        "choices": [
+          "Independent checks of privileged accounts at least every six months, and MFA for interactive privileged logon where feasible.",
+          "No extra control, because App C is only for websites.",
+          "A public bug-bounty in your own name.",
+          "Skipping passwords because MFA exists somewhere else."
+        ],
+        "answerIndex": 0,
+        "rationale": "Those are App C §11 controls for Tier 2, and Tier 3 inherits them. Confirm the tier with the owner.",
+        "modalityTag": "appc"
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-R2",
+    "file": "core2/quiz-role-2.html",
+    "title": "System / LAN administrator self-check",
+    "intro": "Privileged operations, patching, backup, and Tier 3 monitoring.",
+    "source": "G3 §11, §14, §15; App C §11 and §14",
+    "questions": [
+      {
+        "id": "Q-R2-01",
+        "prompt": "A privileged-account inventory is for:",
+        "choices": [
+          "Knowing which powerful accounts exist, why, and who can use them.",
+          "A list of favourite passwords in a shared spreadsheet.",
+          "Replacing change control.",
+          "Publishing admin names on the intranet homepage."
+        ],
+        "answerIndex": 0,
+        "rationale": "You cannot review what you have not listed. Pair the inventory with least privilege.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R2-02",
+        "prompt": "For a Tier 2 system, how often does App C expect an independent privileged-account check?",
+        "choices": [
+          "At least every six months.",
+          "Every five years.",
+          "Only after an incident becomes public.",
+          "Never, if the same admin reviews their own logins."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §11: an independent party checks privileged use at least every six months. Tier 3 inherits this.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R2-03",
+        "prompt": "A known vulnerability has a patch. App C’s usual timing is:",
+        "choices": [
+          "As soon as possible, typically within a month. If it slips, tell the DITSO and keep updating them monthly until it is fixed.",
+          "Whenever the next hardware refresh happens.",
+          "Only if a newspaper asks.",
+          "Within one month, with no need to tell anyone if you miss it."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §14 requires a documented risk view and DITSO visibility when mitigation exceeds a month.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R2-04",
+        "prompt": "Tier 2 backup under App C includes:",
+        "choices": [
+          "Local and off-site copies, with the off-site copy kept somewhere secure and remote from the equipment.",
+          "One copy on the same disk array.",
+          "A screenshot of the backup software.",
+          "Backups only after a disaster."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §14 requires local and off-site backup for Tier 2, inherited by Tier 3.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R2-05",
+        "prompt": "End-of-support software on a Tier 2 system needs:",
+        "choices": [
+          "A migration plan at least six months before end of support, and the security measures in place by that date.",
+          "A note that you will look at it someday.",
+          "Nothing, if the vendor still answers email.",
+          "An immediate public disclosure of the version."
+        ],
+        "answerIndex": 0,
+        "rationale": "That is the App C §14 end-of-support expectation.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R2-06",
+        "prompt": "Tier 3 monitoring, beyond the Tier 2 operations controls, means:",
+        "choices": [
+          "24×7 security surveillance that can correlate multiple sources, of a SIEM class.",
+          "A daily glance at one antivirus console.",
+          "Monitoring only during office hours.",
+          "Disabling logs to save disk."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §14 Tier 3 row: 24×7 monitoring and SIEM-class correlation. Tier 2 controls still apply as well.",
+        "modalityTag": "appc"
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-R3",
+    "file": "core2/quiz-role-3.html",
+    "title": "Application developer self-check",
+    "intro": "Security in the life cycle, test data, and App C §16.",
+    "source": "G3 §16, §11, §12, §14; App C §16",
+    "questions": [
+      {
+        "id": "Q-R3-01",
+        "prompt": "Security-by-design means:",
+        "choices": [
+          "Security requirements are in the life cycle from the start, not bolted on at go-live.",
+          "A penetration test the night before launch is enough.",
+          "Developers skip §16 if a framework is popular.",
+          "Production data is the safest test data."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §6 and §16.1: security is introduced through the development process to avoid late rework.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R3-02",
+        "prompt": "For a Tier 2 build, App C §16 expects the pre-production security risk assessment to:",
+        "choices": [
+          "Check that design-review follow-ups were actually implemented before production.",
+          "Replace source control.",
+          "Be skipped if the sprint is late.",
+          "Be done only by the marketing team."
+        ],
+        "answerIndex": 0,
+        "rationale": "Shift-left plus that verification is an App C §16 Shall for Tier 2, inherited by Tier 3.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R3-03",
+        "prompt": "Hardening before production is used as:",
+        "choices": [
+          "The baseline for later changes.",
+          "A one-off screenshot nobody keeps.",
+          "A reason to disable logging.",
+          "Optional for Internet-facing systems."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §16: harden before rollout, then treat that hardened state as the baseline.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R3-04",
+        "prompt": "Production-like test data should be:",
+        "choices": [
+          "Protected, and anonymised where the rule requires it.",
+          "Copied to a laptop for the weekend.",
+          "Emailed to the whole project alias.",
+          "Left in a public bucket so testers can find it."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §16.3 is about protecting test data that resembles production.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R3-05",
+        "prompt": "Where segregation is required, development admin and production admin should be:",
+        "choices": [
+          "Different. Do not reuse production privileges for everyday development.",
+          "The same shared account, to save time.",
+          "Stored in the README.",
+          "Granted to every contractor by default."
+        ],
+        "answerIndex": 0,
+        "rationale": "Segregation of duties is a management and build-process expectation. See G3 §7 and §16.2.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R3-06",
+        "prompt": "Application secrets belong:",
+        "choices": [
+          "In a controlled secret store, not in source code.",
+          "In a comment at the top of the main file.",
+          "In the ticket title.",
+          "In a screenshot in chat."
+        ],
+        "answerIndex": 0,
+        "rationale": "Secrets in source fail both access control and integrity expectations. Treat this as a Shall habit.",
+        "modalityTag": ""
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-R4",
+    "file": "core2/quiz-role-4.html",
+    "title": "IT security administrator / unit self-check",
+    "intro": "Mandate, segregation, reviews, and Tier 3 certification.",
+    "source": "G3 §5.3.1, §5.2.5, §11, §14; App C §5 and §11",
+    "questions": [
+      {
+        "id": "Q-R4-01",
+        "prompt": "The security administrator and the system administrator should be:",
+        "choices": [
+          "Different persons. The security role should not be the same seat as system administration.",
+          "Always the same person, to move faster.",
+          "Rotated hourly with a shared password.",
+          "Outsourced with no local owner."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 states the security administrator should not also be the system administrator. That protects segregation and log integrity.",
+        "modalityTag": "should"
+      },
+      {
+        "id": "Q-R4-02",
+        "prompt": "Audit-log integrity means:",
+        "choices": [
+          "The persons under review should not be able to alter the record unnoticed.",
+          "Logs can be edited to look tidy.",
+          "Logs are optional if the system feels healthy.",
+          "Only successful logins are kept."
+        ],
+        "answerIndex": 0,
+        "rationale": "Security administrators maintain and review logs. Integrity of that record is part of the job.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R4-03",
+        "prompt": "Joiner-mover-leaver is mainly about:",
+        "choices": [
+          "Granting, changing, and removing access as persons change roles.",
+          "Ordering laptops only.",
+          "A social event.",
+          "Skipping §9 because IT is busy."
+        ],
+        "answerIndex": 0,
+        "rationale": "§9 and §11 meet here. Leavers and transfers are a common gap.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R4-04",
+        "prompt": "An independent privileged-account audit for Tier 2/3 is:",
+        "choices": [
+          "A check by someone other than the account holder, at least every six months.",
+          "The admin ticking their own spreadsheet.",
+          "Required only for Tier 1 mailboxes.",
+          "A public blog post."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §11. Independence is the point.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R4-05",
+        "prompt": "A B/D with Tier 3 systems must have, in the security unit:",
+        "choices": [
+          "At least one member with a recognised IT security certification.",
+          "No training plan.",
+          "Only vendor staff, with no civil-service owner.",
+          "A certification wall and nothing else."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §5 names examples such as CISA, CISSP, or CISP. The official text is the list to follow.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R4-06",
+        "prompt": "Departmental threat intelligence routes include:",
+        "choices": [
+          "GIRO and GovCERT.HK, plus your local ISIRT path.",
+          "Only a personal social-media feed.",
+          "Rumours in the lift.",
+          "Waiting for a user to notice a defacement."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §5 describes GIRO and GovCERT.HK. §14.7 is the threat-management theme.",
+        "modalityTag": ""
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-R5",
+    "file": "core2/quiz-role-5.html",
+    "title": "Management support self-check",
+    "intro": "Oversight questions. You are not being trained as the packet analyst.",
+    "source": "G3 §5.2, §7, §18, §20; App C §5 and §7",
+    "questions": [
+      {
+        "id": "Q-R5-01",
+        "prompt": "The DITSO’s accountability is described in:",
+        "choices": [
+          "G3 §5.2.1 (and the matching S17 section).",
+          "The printer manual.",
+          "Appendix A sample end-user text only.",
+          "A project codename."
+        ],
+        "answerIndex": 0,
+        "rationale": "Start oversight reading at the DITSO role, then the steering committee in §5.2.2.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-R5-02",
+        "prompt": "A B/D that runs Tier 3 systems shall have:",
+        "choices": [
+          "An information security steering committee with senior management and the DITSO, meeting regularly, with outcomes recorded.",
+          "A committee only if the budget is leftover.",
+          "No documented roles.",
+          "A chat channel instead of any record."
+        ],
+        "answerIndex": 0,
+        "rationale": "That is the App C §5 Tier 3 organisation control. Tier 2 does not add this particular row, but other Tier 2 App C controls still apply if you also have Tier 2 systems.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R5-03",
+        "prompt": "Tier 3 risk registers should at least record:",
+        "choices": [
+          "The risk, likelihood, severity, mitigation, and the monitoring required.",
+          "Only the system’s nickname.",
+          "A single colour with no owner.",
+          "Vendor slogans."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §7 requires the risk-management framework and risk registers for Tier 3 systems.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-R5-04",
+        "prompt": "Who finalises a Tier 2 or Tier 3 classification?",
+        "choices": [
+          "The Information Owner or DITSO unit confirms it. You do not self-finalise it.",
+          "Any developer on the day of go-live.",
+          "The hub’s checkbox.",
+          "A quiz score."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §7 requires classification across the life cycle, aligned to the business. This hub only helps you prepare the question.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-R5-05",
+        "prompt": "A good management question on §11 and §14 is:",
+        "choices": [
+          "Ask the unit for a red/amber/green view of privileged reviews, patch delays, and open assurance items.",
+          "Ask for a packet capture in the steering paper.",
+          "Ask everyone to share their password to prove access works.",
+          "Skip App C because it is an appendix."
+        ],
+        "answerIndex": 0,
+        "rationale": "Management support is oversight. Evidence can be a status view. The unit keeps the technical artefacts.",
+        "modalityTag": "should"
+      },
+      {
+        "id": "Q-R5-06",
+        "prompt": "Appendix D is relevant when:",
+        "choices": [
+          "The system is Tier 2 or Tier 3 and a submission is part of assurance.",
+          "You want a shorter password.",
+          "The system is a personal phone with no government data.",
+          "You are writing a lunch menu."
+        ],
+        "answerIndex": 0,
+        "rationale": "Know that Appendix D submissions exist for Tier 2/3 and who in your B/D files them. Do not invent a filing from this hub.",
+        "modalityTag": ""
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-APPC",
+    "file": "core2/quiz-app-c.html",
+    "title": "App C and tier self-check",
+    "intro": "Inheritance, which sections carry extra controls, and what you must not decide alone.",
+    "source": "G3 §4.1, §7.2, Appendix C",
+    "questions": [
+      {
+        "id": "Q-AC-01",
+        "prompt": "The inheritance rule is:",
+        "choices": [
+          "Tier 3 includes every Tier 2 Appendix C control, plus the Tier 3-only rows.",
+          "Tier 3 replaces Tier 2 and drops the Tier 2 rows.",
+          "Tier 1 includes Appendix C.",
+          "Pick either Tier 2 or Tier 3 rows, not both."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 Appendix C says the Tier 2 controls shall also be adopted by Tier 3 systems.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-AC-02",
+        "prompt": "Which areas add Tier 3-only organisation, risk, and training controls?",
+        "choices": [
+          "§5, §7, and §9.",
+          "§12 only.",
+          "§3 normative references.",
+          "None. Appendix C is only about passwords."
+        ],
+        "answerIndex": 0,
+        "rationale": "Steering committee and certification are §5. Risk registers are §7. Structured training is §9. They are Tier 3 rows. Other sections still have Tier 2 rows that Tier 3 inherits.",
+        "modalityTag": ""
+      },
+      {
+        "id": "Q-AC-03",
+        "prompt": "The privileged-account audit and privileged MFA rules are:",
+        "choices": [
+          "Tier 2 controls, so Tier 3 takes them too.",
+          "Tier 3 only, so a Tier 2 system can skip them.",
+          "Optional for Internet-facing systems.",
+          "Replaced by a longer screensaver."
+        ],
+        "answerIndex": 0,
+        "rationale": "They sit in the Tier 2 column of App C §11. Empty Tier 3 cells in that row do not cancel them.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-AC-04",
+        "prompt": "An Internet-facing Tier 2 system needs penetration testing:",
+        "choices": [
+          "At least once a year, and penetration testing is also part of the security risk assessment for Tier 2.",
+          "Never.",
+          "Only after a redesign of the logo.",
+          "Only if the system is also Tier 3."
+        ],
+        "answerIndex": 0,
+        "rationale": "App C §20: pen-test in the SRA for Tier 2, and at least yearly for Internet-facing Tier 2. Tier 3 has a further annual SRA package.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-AC-05",
+        "prompt": "A Tier 3 security risk assessment under App C includes:",
+        "choices": [
+          "At least an annual assessment, with vulnerability scanning, an independent accredited penetration test, and configuration and source review, endorsed by the DITSO.",
+          "A verbal “looks fine”.",
+          "A scan once per decade.",
+          "A test done only by the developer who wrote the code, with no independence."
+        ],
+        "answerIndex": 0,
+        "rationale": "That is the Tier 3 compliance row. Always read the current Appendix C wording before you quote a deadline in a paper.",
+        "modalityTag": "appc"
+      },
+      {
+        "id": "Q-AC-06",
+        "prompt": "You think a system might be Tier 2. What do you do?",
+        "choices": [
+          "Propose the tier with impact, interdependency, and essential-service notes, then confirm with the Information Owner or DITSO unit.",
+          "Stamp Tier 3 on the architecture slide yourself.",
+          "Ignore Appendix C until an audit.",
+          "Treat the hub checkbox as the official classification."
+        ],
+        "answerIndex": 0,
+        "rationale": "Classification is a management act under §7. This hub is a learning aid, not the decision.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-AC-07",
+        "prompt": "Which statement about an empty Tier 2 cell is right?",
+        "choices": [
+          "That area has no extra Tier 2 control in Appendix C. Baseline S17/G3 still applies. Tier 3-only rows do not erase Tier 2 rows elsewhere.",
+          "An empty cell means the whole section is optional.",
+          "An empty cell means you can skip Shall.",
+          "An empty cell downgrades the system to Tier 1."
+        ],
+        "answerIndex": 0,
+        "rationale": "Read the matrix by row. Inheritance is across the Tier 2 column, not cancelled by a dash in one cell.",
+        "modalityTag": ""
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-SDLC",
+    "file": "core2/quiz-sdlc.html",
+    "title": "Security across the life cycle",
+    "intro": "Nine stages, from project initiation to decommissioning. Section-level themes only.",
+    "source": "S17 §6 · S17 §7 · S17 §16 · S17 §17 · S17 §20",
+    "questions": [
+      {
+        "id": "Q-SDLC-01",
+        "prompt": "When should the first security requirements be written?",
+        "choices": [
+          "At project initiation and design, while the scope can still change.",
+          "The week the system goes live.",
+          "After the first incident.",
+          "Only if an auditor asks."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §16 and G3 §16 put security into acquisition and development. S17 §6 calls this security-by-design.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-SDLC-02",
+        "prompt": "A supplier will run the system. When do outsourcing duties start?",
+        "choices": [
+          "At procurement, in the agreement, not after an incident.",
+          "When the supplier volunteers a slide.",
+          "They do not start. Certification replaces the contract.",
+          "At decommissioning only."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §17 and G3 §17 keep the B/D responsible. The contract has to say what the supplier still owes.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-SDLC-03",
+        "prompt": "Which statement about go-live is right?",
+        "choices": [
+          "Open Shall gaps need an owner, and the incident route has to be known.",
+          "A successful demo closes every Shall.",
+          "Tier can be chosen after go-live to reduce work.",
+          "Backup can be designed the following quarter."
+        ],
+        "answerIndex": 0,
+        "rationale": "Go-live checks the §14 and §16 baseline and §18 readiness. An unowned Shall gap is not accepted by silence.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-SDLC-04",
+        "prompt": "A major change to a live system should prompt you to ask:",
+        "choices": [
+          "Whether requirements, the tier, or the security risk assessment need to be reopened.",
+          "Only whether the colour of the logo changed.",
+          "Nothing, if the change is by a vendor.",
+          "Whether you can skip access control this once."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §14, §16, and §20 treat change as a point where assurance can be needed again.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-SDLC-05",
+        "prompt": "Decommissioning includes:",
+        "choices": [
+          "Removing access and sanitising or returning media and supplier-held data.",
+          "Turning the server off and hoping the backups expire.",
+          "Keeping privileged accounts for nostalgia.",
+          "Posting the data to a personal drive first."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §10, §11, and §17 cover disposal, access removal, and the end of a supplier’s copy.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-SDLC-06",
+        "prompt": "The nine stages in this hub run in which order?",
+        "choices": [
+          "Initiation, design, procurement, build, testing, go-live, operations, change, decommissioning.",
+          "Go-live, then requirements, then a tier sticker.",
+          "Procurement, then incident response, then design.",
+          "There is no order. Pick the shortest page."
+        ],
+        "answerIndex": 0,
+        "rationale": "The hub uses those nine names so current staff can filter by the stage they are actually in.",
+        "modalityTag": "should"
+      }
+    ]
+  },
+  {
+    "id": "P-QUIZ-IR",
+    "file": "core2/quiz-incident.html",
+    "title": "Incident Handling",
+    "intro": "Clear the common misconceptions about when to report and who to tell.",
+    "source": "S17 §18 · G3 §18",
+    "questions": [
+      {
+        "id": "Q-IR-01",
+        "prompt": "When should you report a security event?",
+        "choices": [
+          "When harm to confidentiality, integrity, availability, or operations is reasonably apparent. Do not wait until you are certain.",
+          "Only after a full forensic report.",
+          "Only if you can name the attacker.",
+          "Never, if a reboot might hide it."
+        ],
+        "answerIndex": 0,
+        "rationale": "S17 §18 and G3 §18 expect prompt reporting. Certainty is not the threshold.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-IR-02",
+        "prompt": "Who do you tell first?",
+        "choices": [
+          "Your departmental route: line manager and the incident contact named in the reporting procedure.",
+          "A wide team chat, with the suspicious attachment.",
+          "A personal social-media account.",
+          "No one, until the Director emails you."
+        ],
+        "answerIndex": 0,
+        "rationale": "The departmental ISIRT runs the central clocks once they are aware. You use the local route. Do not invent a phone number.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-IR-03",
+        "prompt": "You clicked a suspicious link and nothing obvious happened. You should:",
+        "choices": [
+          "Report it and say what you clicked.",
+          "Wait a week to see if you feel sure.",
+          "Delete every log so the desk looks tidy, then report.",
+          "Forward the lure to the whole unit."
+        ],
+        "answerIndex": 0,
+        "rationale": "Possible harm is enough to report. Do not destroy the timeline first, and do not spread the lure.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-IR-04",
+        "prompt": "A drill for practice should be:",
+        "choices": [
+          "Labelled as a drill, with fake data, and kept off the real incident path.",
+          "A real phishing message sent to colleagues.",
+          "An unauthorised scan of a production system.",
+          "Posted as if it were a live GIRO report."
+        ],
+        "answerIndex": 0,
+        "rationale": "Practice stays a drill. A real event uses the real procedure.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-IR-05",
+        "prompt": "There is no Appendix C block on incident management. That means:",
+        "choices": [
+          "The S17 §18 and G3 §18 baseline still applies at every tier.",
+          "Tier 2 systems need not report incidents.",
+          "Only Tier 3 systems report incidents.",
+          "Incident reporting is a May."
+        ],
+        "answerIndex": 0,
+        "rationale": "No Appendix C block does not delete the baseline. Reporting remains a Shall.",
+        "modalityTag": "shall"
+      },
+      {
+        "id": "Q-IR-06",
+        "prompt": "What belongs in the first note?",
+        "choices": [
+          "What happened, when, which system, and what you do not yet know.",
+          "A guess at the attacker’s name presented as fact.",
+          "Passwords, so the handler can log in as you.",
+          "Nothing. Speech is enough and no one writes it down."
+        ],
+        "answerIndex": 0,
+        "rationale": "G3 §18 and the local procedure say what to preserve. Unknown is an acceptable fact. Leave secrets out of the note.",
+        "modalityTag": "should"
+      }
+    ]
+  }
+]

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S17 §14 Operations security · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="S17 §14 Operations security. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-SRC-S17-14" data-page="P-SRC-S17-14" data-source-sections="S17 v8.2 §14" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Source</a></li><li><a href="index.html">S17</a></li><li aria-current="page">§14</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Source</p><a href="../index.html">Source home</a><a href="index.html">S17 contents</a><a href="../g3/index.html">G3 contents</a><a href="../g3/appendix-c.html">Appendix C</a></nav>
+    </details>
+    <main id="main">
+      
+<header class="source-head">
+  <p class="kicker">Baseline IT Security Policy [S17] · v8.2</p>
+  <h1>S17 §14 — Operations security</h1>
+  <dl class="source-meta">
+    <div><dt>Document</dt><dd>Baseline IT Security Policy [S17]</dd></div>
+    <div><dt>Version</dt><dd>v8.2 · April 2025 · Digital Policy Office</dd></div>
+    <div><dt>Section</dt><dd>S17 §14</dd></div>
+    <div><dt>Last reviewed</dt><dd>2026-10-26</dd></div>
+    <div><dt>Owner</dt><dd>Hub Content Owner</dd></div>
+  </dl>
+  <p class="fine">Assumed if the PDFs were not re-checked for this build. Authoritative text remains the official PDF.</p>
+</header>
+<p class="crosswalk">Paired section: <a href="../g3/s14.html">G3 §14</a> · <a href="../g3/appendix-c.html#area-14">G3 Appendix C · §14</a></p>
+<h2>Clause ids in this section</h2><ul><li><a href="#c-14">14 OPERATIONS SECURITY</a></li><li><a href="#c-14-1">14.1 Operational Procedures and Responsibilities</a></li><li><a href="#c-14-1-1">14.1.1 B/Ds shall manage information systems using the principle of least functionality with a…</a></li><li><a href="#c-14-1-2">14.1.2 Changes affecting existing security protection mechanisms shall be carefully considered.</a></li><li><a href="#c-14-1-3">14.1.3 Operational and administrative procedures for information systems shall be properly doc…</a></li><li><a href="#c-14-2">14.2 Protection from Malware</a></li><li><a href="#c-14-2-3">14.2.3 Storage media and files from unknown source or origin shall not be used unless the stor…</a></li><li><a href="#c-14-2-4">14.2.4 Users shall not intentionally write, generate, copy, propagate, execute or involve in i…</a></li><li><a href="#c-14-2-5">14.2.5 Computers and networks shall only run software that comes from trustworthy sources.</a></li><li><a href="#c-14-2-6">14.2.6 B/Ds should consider the value versus inconvenience of implementing technologies to blo…</a></li><li><a href="#c-14-2-7">14.2.7 All software and files downloaded from the Internet shall be screened and verified with…</a></li><li><a href="#c-14-2-8">14.2.8 Staff should not execute mobile code or software downloaded from the Internet unless th…</a></li><li><a href="#c-14-3">14.3 Backup</a></li><li><a href="#c-14-3-1">14.3.1 Backups shall be carried out at regular intervals.</a></li><li><a href="#c-14-3-2">14.3.2 B/Ds shall establish and implement backup and recovery policies for their information s…</a></li><li><a href="#c-14-3-4">14.3.4 Backup media should also be protected against unauthorised access, misuse or corruption.</a></li><li><a href="#c-14-4">14.4 Logging</a></li><li><a href="#c-14-4-2">14.4.2 Any log kept shall provide sufficient information to support comprehensive audits of th…</a></li><li><a href="#c-14-4-4">14.4.4 Logs shall not be used to profile the activity of a particular user unless it relates t…</a></li><li><a href="#c-14-4-5">14.4.5 The clocks of information systems shall be synchronised to a trusted time source.</a></li><li><a href="#c-14-5">14.5 Control of Operational Environment</a></li><li><a href="#c-14-5-1">14.5.1 Installation of all computer equipment and software shall be done under control and audit.</a></li><li><a href="#c-14-5-2">14.5.2 Changes to information systems shall be controlled by the use of change control procedu…</a></li><li><a href="#c-14-6">14.6 Technical Vulnerability Management</a></li><li><a href="#c-14-6-1">14.6.1 B/Ds shall implement vulnerability management processes, which include identifying, eva…</a></li><li><a href="#c-14-6-4">14.6.4 Before security patches are applied, proper risk evaluation and testing should be condu…</a></li><li><a href="#c-14-6-5">14.6.5 No unauthorised application software shall be loaded onto a government information syst…</a></li><li><a href="#c-14-7">14.7 IT Security Threat Management</a></li></ul>
+<h2>Back to curated pages</h2><ul><li><a href="../../core1/cia.html#DEC-CIA-03">What happens if the service is down?</a></li><li><a href="../../core1/operations.html#DEC-OPS-01">Do I need a backup I can actually restore?</a></li><li><a href="../../core1/operations.html#DEC-OPS-02">A vulnerability or a missing patch is open. What is the Shall?</a></li><li><a href="../../core1/operations.html#DEC-OPS-03">Which operations extras apply at Tier 2?</a></li><li><a href="../../core1/bcm.html#DEC-BCM-01">Does continuity planning apply to this service?</a></li><li><a href="../../core2/quiz-role-2.html">System / LAN administrator self-check</a></li><li><a href="../../core2/quiz-role-3.html">Application developer self-check</a></li><li><a href="../../core2/quiz-role-4.html">IT security administrator / unit self-check</a></li></ul>
+
+<p class="copy-notice">The section text is from the named official document, April 2025, issued by the Digital Policy Office. This copy is not for sale.</p>
+<p class="copy-notice">copied/distributed with the permission of the Government of the Hong Kong Special Administrative Region of the People's Republic of China. All rights reserved.</p>
+<div class="policy-text"><p id="c-14" class="policy-h">14. OPERATIONS SECURITY</p>
+<p class="policy-prose">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> ensure secure operations of information systems, protect the information systems from malware, log IT processes and events, monitor suspicious activities, and prevent exploitation of technical vulnerabilities.</p>
+<p id="c-14-1" class="policy-h">14.1. Operational Procedures and Responsibilities</p>
+<p id="c-14-1-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.1.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> manage information systems using the principle of least functionality with all unnecessary services or components removed or restricted.</span></p>
+<p id="c-14-1-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.1.2.</span><span class="clause-body">Changes affecting existing security protection mechanisms <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be carefully considered.</span></p>
+<p id="c-14-1-3" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.1.3.</span><span class="clause-body">Operational and administrative procedures for information systems <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be properly documented, followed, and reviewed periodically.</span></p>
+<p id="c-14-2" class="policy-h">14.2. Protection from Malware</p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.1.</span><span class="clause-body">Anti-malware protection <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be enabled on all local area network servers, personal computers, mobile devices, and computers connecting to the government internal network via a remote access channel.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.2.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> protect their information systems from malware. Malware definitions, as well as their detection and repair engines, <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be updated regularly and whenever necessary.</span></p>
+<p id="c-14-2-3" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.3.</span><span class="clause-body">Storage media and files from unknown source or origin <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be used unless the storage media and files have been checked and cleaned for malware.</span></p>
+<p id="c-14-2-4" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.4.</span><span class="clause-body">Users <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not intentionally write, generate, copy, propagate, execute or involve in introducing malware.</span></p>
+<p id="c-14-2-5" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.5.</span><span class="clause-body">Computers and networks <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> only run software that comes from trustworthy sources.</span></p>
+<p id="c-14-2-6" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.6.</span><span class="clause-body">B/Ds <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> consider the value versus inconvenience of implementing technologies to block non-business websites.</span></p>
+<p id="c-14-2-7" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.7.</span><span class="clause-body">All software and files downloaded from the Internet <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be screened and verified with an anti-malware solution.</span></p>
+<p id="c-14-2-8" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.2.8.</span><span class="clause-body">Staff <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> not execute mobile code or software downloaded from the Internet unless the code is from a known and trusted source.</span></p>
+<p id="c-14-3" class="policy-h">14.3. Backup</p>
+<p id="c-14-3-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.3.1.</span><span class="clause-body">Backups <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be carried out at regular intervals.</span></p>
+<p id="c-14-3-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.3.2.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> establish and implement backup and recovery policies for their information systems.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.3.3.</span><span class="clause-body">Backup activities <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be reviewed regularly. Backup restoration tests <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be conducted regularly. The frequency of backup reviews and restoration tests <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be defined and documented.</span></p>
+<p id="c-14-3-4" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.3.4.</span><span class="clause-body">Backup media <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> also be protected against unauthorised access, misuse or corruption.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.3.5.</span><span class="clause-body">Backup media containing business essential and/or crucial information <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be sited at a safe distance from the main site in order to avoid damage arising from a disaster at the main site. A copy which is disconnected from information systems <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be stored in order to avoid corruption of backup data when an information system is compromised.</span></p>
+<p id="c-14-4" class="policy-h">14.4. Logging</p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.4.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> define and document policies relating to the logging of activities of information systems under their control (including the retention period) according to the business needs and data classification.</span></p>
+<p id="c-14-4-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.4.2.</span><span class="clause-body">Any log kept <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> provide sufficient information to support comprehensive audits of the effectiveness of and compliance with security measures.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.4.3.</span><span class="clause-body">Logs <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be retained for a period commensurate with their usefulness as an audit tool. During this period, such logs <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be secured such that they cannot be modified and can only be read by authorised persons.</span></p>
+<p id="c-14-4-4" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.4.4.</span><span class="clause-body">Logs <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be used to profile the activity of a particular user unless it relates to a necessary audit activity as approved by a directorate officer.</span></p>
+<p id="c-14-4-5" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.4.5.</span><span class="clause-body">The clocks of information systems <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be synchronised to a trusted time source.</span></p>
+<p id="c-14-5" class="policy-h">14.5. Control of Operational Environment</p>
+<p id="c-14-5-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.5.1.</span><span class="clause-body">Installation of all computer equipment and software <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be done under control and audit.</span></p>
+<p id="c-14-5-2" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.5.2.</span><span class="clause-body">Changes to information systems <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be controlled by the use of change control procedures. Change records <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be maintained to keep track of the applied changes.</span></p>
+<p id="c-14-6" class="policy-h">14.6. Technical Vulnerability Management</p>
+<p id="c-14-6-1" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.6.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> implement vulnerability management processes, which include identifying, evaluating, mitigating, and tracking of vulnerabilities of their information systems.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.6.2.</span><span class="clause-body">Depending on the risk level, B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> determine the appropriate patch management strategy, including patch checking and patching frequency for their information systems. B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> adopt a risk-based approach to determine the patching schedule of each vulnerability by considering its potential impact and the possibility of being exploited. All servers and related devices deployed in Internetfacing information systems <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be subject to stringent patch management.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.6.3.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> protect their information systems from known vulnerabilities by applying the latest security patches recommended by the product vendors according to the patch management strategy or implementing other compensating security measures.</span></p>
+<p id="c-14-6-4" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.6.4.</span><span class="clause-body">Before security patches are applied, proper risk evaluation and testing <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be conducted to minimise the undesirable effects on the information systems.</span></p>
+<p id="c-14-6-5" class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.6.5.</span><span class="clause-body">No unauthorised application software <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be loaded onto a government information system without prior approval from the officer as designated by the B/D.</span></p>
+<p id="c-14-7" class="policy-h">14.7. IT Security Threat Management</p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.7.1.</span><span class="clause-body">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> establish a threat identification, detection and monitoring mechanism and review the mechanism regularly to ensure its effectiveness concerning the nature of information systems and technology advancements.</span></p>
+<p class="policy-clause" data-mark="clause" data-depth="3"><span class="clause-no">14.7.2.</span><span class="clause-body">Regular checking on log records, especially on system/application where classified information is processed/stored, <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be performed, not only on the completeness but also the integrity of the log records. All system and application errors which are suspected to be triggered as a result of security breaches <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be reported and logged.</span></p></div>
+<p class="copy-notice">copied/distributed with the permission of the Government of the Hong Kong Special Administrative Region of the People's Republic of China. All rights reserved.</p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../../about.html">About and versions</a>
+        <a href="../../governance.html">Content governance</a>
+        <a href="../../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../../assets/js/hub.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,2326 @@
+{
+  "version": "0.1-MVP",
+  "alignedTo": {
+    "s17": "8.2",
+    "g3": "10.2",
+    "lastReviewed": "2026-10-26",
+    "assumed": true
+  },
+  "foundation": {
+    "exit": [
+      "Explain Shall, Should, and May in your own words.",
+      "Name your security contacts (DITSO, security unit, ISIRT, line manager).",
+      "Say how you would report an incident without waiting to be certain.",
+      "State whether Tier 2/3 and App C might apply to a system you use."
+    ],
+    "days": [
+      {
+        "label": "Day 1",
+        "title": "What / why / who",
+        "pace": "both",
+        "items": [
+          {
+            "id": "F-D1-01",
+            "text": "Read S17 §1–2 and G3 §1–2 (purpose, scope, applicability).",
+            "modality": "shall",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§1"
+              ],
+              [
+                "G3",
+                "§1"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D1-02",
+            "text": "Note the stack: Security Regulations, then S17, then G3, then practice guides, then local B/D policy.",
+            "modality": "shall",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§2"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D1-03",
+            "text": "Identify contacts: DITSO, IT Security Management Unit, ISIRT Commander, and your line manager.",
+            "modality": "shall",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§5"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D1-04",
+            "text": "Locate the local IT security policy and end-user instructions. G3 Appendix A is only a sample shape.",
+            "modality": "shall",
+            "pace": "a-required",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§8"
+              ]
+            ],
+            "note": "New joiners: required"
+          },
+          {
+            "id": "F-D1-05",
+            "text": "Confirm the current local policy links, including version and date.",
+            "modality": "shall",
+            "pace": "b-required",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§8"
+              ]
+            ],
+            "note": "Current staff: required"
+          }
+        ]
+      },
+      {
+        "label": "Day 2",
+        "title": "Conventions and organisation",
+        "pace": "both",
+        "items": [
+          {
+            "id": "F-D2-01",
+            "text": "Memorise the modality words: Shall, Should, and May (S17/G3 §4.2).",
+            "modality": "shall",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§4"
+              ],
+              [
+                "G3",
+                "§4"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D2-02",
+            "text": "Skim S17/G3 §5: ISMC, ITSWG, GIRO, GovCERT.HK, and your departmental structure.",
+            "modality": "should",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§5"
+              ],
+              [
+                "G3",
+                "§5"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D2-03",
+            "text": "Find your role in G3 §5.2–5.3 and tick the duties that apply to you.",
+            "modality": "shall",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§5"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D2-04",
+            "text": "Find the DITSO, security unit, ISIRT contact, and line manager in the reporting procedure.",
+            "modality": "shall",
+            "pace": "a-required",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§5"
+              ],
+              [
+                "G3",
+                "§18"
+              ]
+            ],
+            "note": "New joiners: required."
+          }
+        ]
+      },
+      {
+        "label": "Day 3",
+        "title": "Core principles",
+        "pace": "both",
+        "items": [
+          {
+            "id": "F-D3-01",
+            "text": "Read S17/G3 §6: CIA, risk-based decisions, security-by-design, and prevent / detect / respond / recover.",
+            "modality": "shall",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§6"
+              ],
+              [
+                "G3",
+                "§6"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D3-02",
+            "text": "Write one sentence each for confidentiality, integrity, and availability on a system you use.",
+            "modality": "should",
+            "pace": "both",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§6"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D3-04",
+            "text": "List two or three pain points (audit, near-miss, or App C doubts) to carry into the role path.",
+            "modality": "should",
+            "pace": "b-focus",
+            "flag": false,
+            "refs": [],
+            "note": "Current staff"
+          }
+        ]
+      },
+      {
+        "label": "Day 4",
+        "title": "Management, policy, persons",
+        "pace": "b-gap",
+        "items": [
+          {
+            "id": "F-D4-01",
+            "text": "S17/G3 §7 management responsibilities, including the overview of risk and classified protection.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§7"
+              ],
+              [
+                "G3",
+                "§7"
+              ]
+            ],
+            "note": "New joiners: all. Current staff: if gap."
+          },
+          {
+            "id": "F-D4-02",
+            "text": "S17/G3 §8 IT security policies. Departmental policy aligns with S17 and G3.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§8"
+              ],
+              [
+                "G3",
+                "§8"
+              ]
+            ],
+            "note": "New joiners: all. Current staff: if gap."
+          },
+          {
+            "id": "F-D4-03",
+            "text": "S17/G3 §9 human resource security: joiners, leavers, and awareness.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§9"
+              ],
+              [
+                "G3",
+                "§9"
+              ]
+            ],
+            "note": "New joiners: read carefully. Current staff: if gap."
+          },
+          {
+            "id": "F-D4-04",
+            "text": "Know your B/D security awareness and training requirement.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§9"
+              ]
+            ],
+            "note": "Current staff: if this day is a gap."
+          }
+        ]
+      },
+      {
+        "label": "Day 5",
+        "title": "Assets and access",
+        "pace": "b-gap",
+        "items": [
+          {
+            "id": "F-D5-01",
+            "text": "S17/G3 §10 asset management: ownership, classification, and media.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§10"
+              ],
+              [
+                "G3",
+                "§10"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D5-02",
+            "text": "S17/G3 §11 access control at a high level: least privilege, passwords, mobile and remote access, IoT.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§11"
+              ],
+              [
+                "G3",
+                "§11"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D5-03",
+            "text": "Practice: list assets you handle and their classification. Ask the Information Owner if you are unsure.",
+            "modality": "should",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§10"
+              ]
+            ],
+            "note": ""
+          }
+        ]
+      },
+      {
+        "label": "Day 6",
+        "title": "Operations lite, incidents, continuity",
+        "pace": "b-gap",
+        "items": [
+          {
+            "id": "F-D6-01",
+            "text": "Skim S17/G3 §14 (malware, backup, logging, vulnerabilities, threats). Depth comes in the role path.",
+            "modality": "should",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§14"
+              ],
+              [
+                "G3",
+                "§14"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D6-02",
+            "text": "S17/G3 §18 incident management: how to report. Do not wait until you are sure.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§18"
+              ],
+              [
+                "G3",
+                "§18"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D6-03",
+            "text": "S17/G3 §19 continuity: plans exist. Note where your B/D keeps them.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§19"
+              ],
+              [
+                "G3",
+                "§19"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D6-04",
+            "text": "Confirm the ISIRT and incident contacts in the reporting procedure, including after-hours numbers.",
+            "modality": "shall",
+            "pace": "a-required",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§18"
+              ]
+            ],
+            "note": "New joiners"
+          }
+        ]
+      },
+      {
+        "label": "Day 7",
+        "title": "Compliance, tier, and wrap",
+        "pace": "b-gap",
+        "items": [
+          {
+            "id": "F-D7-01",
+            "text": "S17/G3 §20 compliance: security risk assessment, audit, and technical review, at awareness level.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "S17",
+                "§20"
+              ],
+              [
+                "G3",
+                "§20"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D7-02",
+            "text": "Learn Tier 1, Tier 2, and Tier 3 (G3 §4.1). Tier 2 and Tier 3 also take Appendix C.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": false,
+            "refs": [
+              [
+                "G3",
+                "§4"
+              ],
+              [
+                "App C",
+                "§4"
+              ]
+            ],
+            "note": ""
+          },
+          {
+            "id": "F-D7-03",
+            "text": "Note which of your systems might be Tier 2 or Tier 3. Confirm that on the tier-mapping block. Do not self-finalise the tier.",
+            "modality": "shall",
+            "pace": "b-gap",
+            "flag": true,
+            "refs": [
+              [
+                "G3",
+                "§4"
+              ],
+              [
+                "App C",
+                "§7"
+              ]
+            ],
+            "note": "App C may apply."
+          },
+          {
+            "id": "F-D7-05",
+            "text": "Foundation refresh done. Continue the role path with your gap list.",
+            "modality": "should",
+            "pace": "b-focus",
+            "flag": false,
+            "refs": [],
+            "note": "Current staff"
+          }
+        ]
+      }
+    ]
+  },
+  "roles": [
+    {
+      "n": "1",
+      "title": "Elevated end user / general IT with elevated duties",
+      "anchor": "G3 §5 theme, plus admin tasks you actually hold",
+      "quick": "One-page personal SOP: login, classify, share, report.",
+      "walk": "Tabletop a security event on the ISIRT path, or a joiner/leaver check for an elevated account.",
+      "clusters": [
+        {
+          "days": "Days 8–9",
+          "focus": "Access and user duties",
+          "order": "S17 §11 → G3 §11",
+          "items": [
+            {
+              "id": "R1-D89-01",
+              "text": "Read S17, then G3 §11: user responsibilities, passwords, and mobile or remote access.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D89-02",
+              "text": "Confirm elevated accounts are still justified, and that MFA is used where it is required.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D89-03",
+              "text": "Review the local acceptable-use rules and end-user instructions.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§8"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 10–11",
+          "focus": "Assets and handling",
+          "order": "S17 §10 → G3 §10",
+          "items": [
+            {
+              "id": "R1-D1011-01",
+              "text": "Read S17/G3 §10 on assets you create or handle.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§10"
+                ],
+                [
+                  "G3",
+                  "§10"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1011-02",
+              "text": "Apply classification labels on documents you create.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§10"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1011-03",
+              "text": "Follow media, USB, and disposal rules.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§10"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 12–13",
+          "focus": "Cryptography and physical security, light pass",
+          "order": "S17 §12 → G3 §12, then S17 §13 → G3 §13",
+          "items": [
+            {
+              "id": "R1-D1213-01",
+              "text": "High-level pass of S17/G3 §12: when encryption is required.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§12"
+                ],
+                [
+                  "G3",
+                  "§12"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1213-02",
+              "text": "S17/G3 §13: clear desk, clear screen, and secure areas.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§13"
+                ],
+                [
+                  "G3",
+                  "§13"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 14–15",
+          "focus": "Operations hygiene and malware",
+          "order": "S17 §14 → G3 §14",
+          "items": [
+            {
+              "id": "R1-D1415-01",
+              "text": "S17/G3 §14.2–14.4 themes: malware, backup, and logging, at user level.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§14"
+                ],
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1415-02",
+              "text": "Act on patch prompts, suspicious mail, and USB discipline.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1415-03",
+              "text": "Know the backup expectation for data you own.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 16–17",
+          "focus": "Communications",
+          "order": "S17 §15 → G3 §15",
+          "items": [
+            {
+              "id": "R1-D1617-01",
+              "text": "S17/G3 §15.2: classified transfer, email, and external parties.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§15"
+                ],
+                [
+                  "G3",
+                  "§15"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1617-02",
+              "text": "Practice: encrypt, mark, and choose the channel the way local rules require.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§15"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 18–19",
+          "focus": "Incidents and an HR refresh",
+          "order": "S17 §18 → G3 §18, and §9 if you supervise others",
+          "items": [
+            {
+              "id": "R1-D1819-01",
+              "text": "Dry-run S17/G3 §18 reporting. Use a tabletop, not a fabricated live incident.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§18"
+                ],
+                [
+                  "G3",
+                  "§18"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D1819-02",
+              "text": "If you supervise temps or contractors, refresh §9 on leavers and transfers.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§9"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 20–21",
+          "focus": "Compliance and wrap",
+          "order": "S17 §20 → G3 §20 → App C access control if Tier 2/3",
+          "items": [
+            {
+              "id": "R1-D2021-01",
+              "text": "Elevated access may be audited (§20, and App C access checks where Tier 2 applies).",
+              "modality": "may",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ],
+                [
+                  "App C",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R1-D2021-02",
+              "text": "If you are admin-adjacent to a Tier 2 or Tier 3 system, read the App C access-control bullets.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§11"
+                ]
+              ],
+              "note": "App C"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "System / LAN administrator",
+      "anchor": "G3 §5 theme",
+      "quick": "Privileged-account and patch-SLA one-pager for one production system.",
+      "walk": "Patch or vulnerability handling for one host, or privileged access from request to grant to review.",
+      "clusters": [
+        {
+          "days": "Days 8–10",
+          "focus": "Access and privileged operations",
+          "order": "S17 §11 → G3 §11 → App C §11 if Tier 2/3",
+          "items": [
+            {
+              "id": "R2-D810-01",
+              "text": "Read S17, then G3 §11 in full for administration, not only end-user duties.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D810-02",
+              "text": "Build or refresh the privileged-account inventory for systems you run.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D810-03",
+              "text": "Apply the strong-password expectation and MFA where it is required.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D810-04",
+              "text": "App C §11: an independent privileged-account check at least every six months, and MFA for interactive privileged logon where feasible.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§11"
+                ]
+              ],
+              "note": "Tier 2, and therefore also Tier 3."
+            }
+          ]
+        },
+        {
+          "days": "Days 11–13",
+          "focus": "Operations security",
+          "order": "S17 §14 → G3 §14 → App C §14 if Tier 2/3",
+          "items": [
+            {
+              "id": "R2-D1113-01",
+              "text": "Read S17, then G3 §14.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§14"
+                ],
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-02",
+              "text": "Malware protection on servers, not only on workstations.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-03",
+              "text": "Backups: local and off-site.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-04",
+              "text": "Logging that you can actually use in an incident.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-05",
+              "text": "Hardening and change control.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-06",
+              "text": "Patch and vulnerability process, including who is told if a fix slips.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-07",
+              "text": "App C §14: off-site backup, a capacity plan, an end-of-support migration plan at least six months ahead, and patching typically within a month, with DITSO visibility if it slips.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1113-08",
+              "text": "Tier 3 only: 24×7 monitoring of a SIEM class, drawing on more than one source.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§14"
+                ]
+              ],
+              "note": "Tier 3 only, on top of the Tier 2 App C controls."
+            }
+          ]
+        },
+        {
+          "days": "Days 14–16",
+          "focus": "Network and communications",
+          "order": "S17 §15 → G3 §15, with G3 §11.5 for admin access",
+          "items": [
+            {
+              "id": "R2-D1416-01",
+              "text": "Read S17, then G3 §15.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§15"
+                ],
+                [
+                  "G3",
+                  "§15"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1416-02",
+              "text": "Segmentation, gateway, wireless, and Internet-facing exposure.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§15"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1416-03",
+              "text": "Admin jump hosts and remote desktop inside the rules of G3 §11.5.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 17–18",
+          "focus": "Physical security and cryptography",
+          "order": "S17 §13 → G3 §13, and S17 §12 → G3 §12",
+          "items": [
+            {
+              "id": "R2-D1718-01",
+              "text": "S17/G3 §13: equipment and secure areas you rely on.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§13"
+                ],
+                [
+                  "G3",
+                  "§13"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D1718-02",
+              "text": "S17/G3 §12: cryptography in transit and at rest for data you administer.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§12"
+                ],
+                [
+                  "G3",
+                  "§12"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 19–20",
+          "focus": "Outsourcing and cloud",
+          "order": "S17 §17 → G3 §17",
+          "items": [
+            {
+              "id": "R2-D1920-01",
+              "text": "If a vendor runs the system or it sits in a cloud, read S17/G3 §17.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§17"
+                ],
+                [
+                  "G3",
+                  "§17"
+                ]
+              ],
+              "note": "Skip the deep read only when no provider is in the path. Record that."
+            },
+            {
+              "id": "R2-D1920-02",
+              "text": "Write the shared-responsibility split in one paragraph: what you still own, and what the provider owns.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§17"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Day 21",
+          "focus": "Incidents, continuity, compliance",
+          "order": "S17 §18 → §19 → §20, then App C §19–20 if Tier 2/3",
+          "items": [
+            {
+              "id": "R2-D21-01",
+              "text": "§18 runbook: how this system is reported and who is on the 7×24 path.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§18"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D21-02",
+              "text": "§19 contingency touchpoints for the system.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§19"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D21-03",
+              "text": "§20 vulnerability-scan and penetration-test cadence.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D21-04",
+              "text": "App C §19–20 for Tier 2/3: tested contingency, and the scan and pen-test expectations.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§19"
+                ],
+                [
+                  "App C",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R2-D21-06",
+              "text": "Current staff: map each App C control you touch to evidence or a gap.",
+              "modality": "shall",
+              "pace": "b-focus",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Application developer / maintenance",
+      "anchor": "G3 §5 and §16 themes",
+      "quick": "Put a security-requirements checklist into your SDLC template.",
+      "walk": "Security requirement, then a design note, then a test case. Or a test-data protection check.",
+      "clusters": [
+        {
+          "days": "Days 8–10",
+          "focus": "Security requirements and design",
+          "order": "S17 §16 → G3 §16.1 → App C §16 if Tier 2/3",
+          "items": [
+            {
+              "id": "R3-D810-01",
+              "text": "S17 then G3 §16.1: security-by-design, specifications, secure coding, and testing.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§16"
+                ],
+                [
+                  "G3",
+                  "§16"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D810-02",
+              "text": "App C §16: shift-left, a pre-production security risk assessment that checks design-review follow-ups, and hardening before the production baseline.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§16"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 11–12",
+          "focus": "Development and support processes",
+          "order": "G3 §16.2",
+          "items": [
+            {
+              "id": "R3-D1112-01",
+              "text": "G3 §16.2: secure environment, source control, change control, and integrity.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§16"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D1112-02",
+              "text": "Segregation: development administration is not production administration where that split is required.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§16"
+                ],
+                [
+                  "G3",
+                  "§7"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 13–14",
+          "focus": "Test data",
+          "order": "G3 §16.3",
+          "items": [
+            {
+              "id": "R3-D1314-01",
+              "text": "G3 §16.3: protect production-like data and anonymise it where the rule requires.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§16"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 15–16",
+          "focus": "Access and cryptography in applications",
+          "order": "S17 §11.4 → G3 §11.4, and S17 §12 → G3 §12",
+          "items": [
+            {
+              "id": "R3-D1516-01",
+              "text": "S17/G3 §11.4 application access control.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D1516-02",
+              "text": "§12 cryptography at rest and in transit.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§12"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D1516-03",
+              "text": "Session handling, authentication, authorisation, and secrets. Secrets do not live in source.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§16"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 17–18",
+          "focus": "Operations handoff and vulnerabilities",
+          "order": "G3 §14.6 and §14.4",
+          "items": [
+            {
+              "id": "R3-D1718-01",
+              "text": "§14.6 technical vulnerabilities for your stack, including libraries.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D1718-02",
+              "text": "Logging under §14.4: what the app must emit for an incident.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 19–20",
+          "focus": "Outsourcing, libraries, and APIs",
+          "order": "S17 §17 → G3 §17",
+          "items": [
+            {
+              "id": "R3-D1920-01",
+              "text": "§17 if the product is SaaS or built by a contractor.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§17"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D1920-02",
+              "text": "Know that contracts carry security clauses. Point to the owner of those clauses.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§17"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Day 21",
+          "focus": "Incidents, compliance, App C",
+          "order": "S17 §18 → G3 §18, then §20, then App C if Tier 2/3",
+          "items": [
+            {
+              "id": "R3-D21-01",
+              "text": "§18: what a secure-coding incident teaches, and how you would report one.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§18"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D21-02",
+              "text": "§20: security risk assessment, penetration test, and code review in the assurance path.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R3-D21-03",
+              "text": "Tier 2/3: walk the App C development and compliance rows for your system.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§16"
+                ],
+                [
+                  "App C",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "IT security administrator / unit",
+      "anchor": "G3 §5 theme",
+      "quick": "A living dashboard: privileged-review dates, patch-SLA breaches, open SRA items, and App C evidence links.",
+      "walk": "A privileged-account review sample, or an alert-to-triage-to-escalate drill.",
+      "clusters": [
+        {
+          "days": "Days 8–9",
+          "focus": "Mandate and segregation",
+          "order": "G3 §5.3.1 and §5.2.5",
+          "items": [
+            {
+              "id": "R4-D89-01",
+              "text": "Read the mandate in G3 §5.3.1 and the security-unit role in §5.2.5.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§5"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D89-02",
+              "text": "The security administrator should not be the same person as the system administrator.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§5"
+                ],
+                [
+                  "G3",
+                  "§7"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D89-03",
+              "text": "Protect audit-log integrity. Reviewers should not be able to quietly rewrite the record.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 10–12",
+          "focus": "Access-control operations",
+          "order": "S17 §11 → G3 §11 → App C §11 if Tier 2/3",
+          "items": [
+            {
+              "id": "R4-D1012-01",
+              "text": "S17/G3 §11 end to end, from join to review to removal.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D1012-02",
+              "text": "Privilege reviews and joiner-mover-leaver.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§9"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D1012-03",
+              "text": "App C §11: independent privileged-account audits for Tier 2 and Tier 3.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§11"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 13–15",
+          "focus": "Operations oversight",
+          "order": "S17 §14 → G3 §14.2, 14.4, 14.6, 14.7 → App C §14 for Tier 3",
+          "items": [
+            {
+              "id": "R4-D1315-01",
+              "text": "S17/G3 §14.2, 14.4, 14.6, and 14.7: malware, logging, vulnerabilities, and threats.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D1315-02",
+              "text": "Patch governance: what “typically within a month” means, and when DITSO must see a delay.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§14"
+                ],
+                [
+                  "App C",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D1315-03",
+              "text": "Threat intelligence through GIRO and GovCERT.HK.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§5"
+                ],
+                [
+                  "G3",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D1315-04",
+              "text": "Tier 3 monitoring under App C §14: 24×7, multi-source, SIEM-class.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 16–17",
+          "focus": "Network and cryptography assurance",
+          "order": "S17 §15 → G3 §15, and S17 §12 → G3 §12",
+          "items": [
+            {
+              "id": "R4-D1617-01",
+              "text": "Review §15 and §12 with LAN administrators. Keep the segregation of duties intact.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§15"
+                ],
+                [
+                  "G3",
+                  "§12"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 18–19",
+          "focus": "Incident and continuity support",
+          "order": "S17 §18 → G3 §18, and S17 §19 → G3 §19",
+          "items": [
+            {
+              "id": "R4-D1819-01",
+              "text": "§18 with the ISIRT: your part of detection, escalation, and the record.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§18"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D1819-02",
+              "text": "§19: the security inputs a continuity plan needs.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§19"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 20–21",
+          "focus": "Compliance engine",
+          "order": "S17 §20 → G3 §20 → App C §5 and §20, and App D when Tier 2/3",
+          "items": [
+            {
+              "id": "R4-D2021-01",
+              "text": "§20: security risk assessment, audit, and technical compliance.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R4-D2021-02",
+              "text": "G3 Appendix D when the system is Tier 2 or Tier 3. Learn what is submitted; do not invent a filing.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ]
+              ],
+              "note": "Applies when the tier is 2 or 3."
+            },
+            {
+              "id": "R4-D2021-03",
+              "text": "App C §5: a Tier 3 security unit has at least one member with a recognised certification.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§5"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "Management support (DITSO support)",
+      "anchor": "G3 §5 and §7 themes",
+      "quick": "A one-page B/D security governance map.",
+      "effort": "About 45–60 minutes a day. Oversight fluency, not deep admin how-to.",
+      "walk": "A management paper: draft tier inventory, top three risks, and an App C red/amber/green view.",
+      "clusters": [
+        {
+          "days": "Days 8–9",
+          "focus": "Accountability and governance",
+          "order": "S17 §5 → G3 §5.2 → App C §5 for Tier 3",
+          "items": [
+            {
+              "id": "R5-D89-01",
+              "text": "S17/G3 §5.2.1: what the DITSO is accountable for.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "S17",
+                  "§5"
+                ],
+                [
+                  "G3",
+                  "§5"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D89-02",
+              "text": "§5.2.2 information security steering committee.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§5"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D89-03",
+              "text": "App C §5: a B/D with Tier 3 systems shall have a steering committee, and at least one certified member in the security unit.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§5"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 10–11",
+          "focus": "Risk and classified protection",
+          "order": "S17 §7 → G3 §7 → App B, and App C §7 for Tier 3",
+          "items": [
+            {
+              "id": "R5-D1011-01",
+              "text": "§7 risk management and who owns the tier decision.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§7"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D1011-02",
+              "text": "Use G3 Appendix B as guidance when someone proposes a tier. You still confirm with the owner.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§7"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D1011-03",
+              "text": "Tier 3 risk registers under App C §7: risks, likelihood, severity, mitigation, and monitoring.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§7"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 12–13",
+          "focus": "Policy and persons",
+          "order": "S17 §8 → G3 §8, and S17 §9 → G3 §9 → App C §9 for Tier 3",
+          "items": [
+            {
+              "id": "R5-D1213-01",
+              "text": "§8: is departmental policy current and aligned?",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§8"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D1213-02",
+              "text": "§9 training and awareness coverage.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§9"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D1213-03",
+              "text": "App C §9: Tier 3 structured training, including vendors where feasible, or a contractual training duty.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "App C",
+                  "§9"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 14–15",
+          "focus": "What good looks like",
+          "order": "Executive skim of §11 and §14, plus App C",
+          "items": [
+            {
+              "id": "R5-D1415-01",
+              "text": "Executive skim of §11 and §14 plus App C. Ask the unit for a red/amber/green view, not for packet captures.",
+              "modality": "should",
+              "pace": "both",
+              "flag": true,
+              "refs": [
+                [
+                  "G3",
+                  "§11"
+                ],
+                [
+                  "G3",
+                  "§14"
+                ],
+                [
+                  "App C",
+                  "§14"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 16–17",
+          "focus": "Incident and continuity governance",
+          "order": "S17 §18 → G3 §18, and S17 §19 → G3 §19",
+          "items": [
+            {
+              "id": "R5-D1617-01",
+              "text": "§18 reporting path toward the Director and GIRO. Know who speaks externally.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§18"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D1617-02",
+              "text": "§19: plans are tested, not only filed.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§19"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 18–19",
+          "focus": "Assurance",
+          "order": "S17 §20 → G3 §20, and Appendix D for Tier 2/3",
+          "items": [
+            {
+              "id": "R5-D1819-01",
+              "text": "§20 security risk assessment and audit cadence.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D1819-02",
+              "text": "Appendix D submissions for Tier 2 and Tier 3. Know that they exist and who files them.",
+              "modality": "shall",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§20"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        },
+        {
+          "days": "Days 20–21",
+          "focus": "Resource and culture",
+          "order": "Close the oversight pass",
+          "items": [
+            {
+              "id": "R5-D2021-01",
+              "text": "Check awareness coverage: who has not had the required training.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§9"
+                ]
+              ],
+              "note": ""
+            },
+            {
+              "id": "R5-D2021-02",
+              "text": "One decision to prepare: fund or fix the top residual risk. Bring evidence, not a slogan.",
+              "modality": "should",
+              "pace": "both",
+              "flag": false,
+              "refs": [
+                [
+                  "G3",
+                  "§7"
+                ]
+              ],
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "apply": [
+    {
+      "label": "the tier-mapping block",
+      "title": "Map systems to a tier",
+      "pace": "both",
+      "items": [
+        {
+          "id": "A-D22-01",
+          "text": "List the systems and services you own, administer, develop, or heavily use.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": ""
+        },
+        {
+          "id": "A-D22-02",
+          "text": "Propose Tier 1, 2, or 3 using G3 §4.1 and Appendix B: impact, interdependency, and essential services.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [
+            [
+              "G3",
+              "§4"
+            ],
+            [
+              "G3",
+              "§7"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "id": "A-D22-03",
+          "text": "Confirm the proposal with the Information Owner or the DITSO unit. Do not self-finalise Tier 2 or Tier 3.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [
+            [
+              "G3",
+              "§7"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "id": "A-D22-04",
+          "text": "Mark every Tier 2 or Tier 3 row: App C applies. Tier 3 includes every Tier 2 App C control, plus the Tier 3-only rows.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": true,
+          "refs": [
+            [
+              "App C",
+              "§4"
+            ]
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "label": "Days 25–27",
+      "title": "App C and local-policy gap pass",
+      "pace": "both",
+      "items": [
+        {
+          "id": "A-D25-01",
+          "text": "If any system is Tier 2 or 3, walk G3 Appendix C for the sections you touch: §5, 7, 9, 11, 14, 16, 19, and 20.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": true,
+          "refs": [
+            [
+              "App C",
+              "§11"
+            ]
+          ],
+          "note": "Open the App C matrix."
+        },
+        {
+          "id": "A-D25-02",
+          "text": "Fill a gap table: Control, Evidence, Gap, Owner, Due.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [
+            [
+              "G3",
+              "§20"
+            ]
+          ],
+          "note": "Use the gap template."
+        },
+        {
+          "id": "A-D25-03",
+          "text": "Re-read the local B/D policy and note any rule that is stricter than S17/G3.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [
+            [
+              "G3",
+              "§8"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "id": "A-D25-04",
+          "text": "Attach audit or security-risk-assessment finding identifiers you already have.",
+          "modality": "should",
+          "pace": "b-focus",
+          "flag": false,
+          "refs": [],
+          "note": "Current staff"
+        },
+        {
+          "id": "A-D25-05",
+          "text": "If nothing is Tier 2 or 3: do the local-policy pass and a Tier 1 self-check on one system.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "label": "Days 28–29",
+      "title": "One walkthrough",
+      "pace": "both",
+      "items": [
+        {
+          "id": "A-D28-01",
+          "text": "Document the steps and the artefacts you kept. An informal note is enough. This hub does not collect it.",
+          "modality": "should",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": ""
+        },
+        {
+          "id": "A-D28-02",
+          "text": "Note any Shall you met and any Should you deferred, and why.",
+          "modality": "shall",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "label": "Day 30",
+      "title": "Close-out",
+      "pace": "both",
+      "items": [
+        {
+          "id": "A-D30-01",
+          "text": "Optional: tick foundation, role, and apply self-progress, or note deferrals with dates.",
+          "modality": "may",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": "Self-ticks only."
+        },
+        {
+          "id": "A-D30-02",
+          "text": "Keep for yourself: the tier-list draft, the App C gap table if you have one, the walkthrough note, and the contacts from the reporting procedure.",
+          "modality": "should",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": ""
+        },
+        {
+          "id": "A-D30-04",
+          "text": "Current staff: you may share the gap table with your line manager or security unit so remediation owners can be booked.",
+          "modality": "may",
+          "pace": "b-focus",
+          "flag": false,
+          "refs": [],
+          "note": "Optional handoff. Not a mandatory acknowledgement."
+        },
+        {
+          "id": "A-D30-05",
+          "text": "Optional: skim one practice guide for your role on ITG InfoStation.",
+          "modality": "may",
+          "pace": "both",
+          "flag": false,
+          "refs": [],
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

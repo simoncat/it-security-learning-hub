@@ -1,0 +1,71 @@
+{
+  "id": "P-QA-TIER",
+  "file": "core3/qa-tier.html",
+  "title": "Tier and Appendix C",
+  "audience": "Current staff",
+  "source": "S17 §4 · S17 §7 · G3 Appendix C",
+  "items": [
+    {
+      "id": "QA-TIER-01",
+      "question": "We are Tier 3, and one Appendix C cell for Tier 3 is empty. Can we drop that control?",
+      "answer": "No. Tier 3 inherits every Tier 2 Appendix C control. An empty Tier 3 cell does not cancel the Tier 2 column.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "G3 Appendix C"
+      ],
+      "core4_links": [
+        [
+          "core4/g3/appendix-c.html",
+          "G3 Appendix C"
+        ]
+      ],
+      "related_dec": "core1/tier-appc.html#DEC-TIER-04"
+    },
+    {
+      "id": "QA-TIER-02",
+      "question": "Can the project manager set the system to Tier 1 to avoid the extra controls?",
+      "answer": "No. The tier follows the impact, including whether an essential service is involved. It is confirmed by the management route, not chosen to reduce work.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §7",
+        "G3 §7",
+        "S17 §4"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s07.html",
+          "S17 §7"
+        ],
+        [
+          "core4/g3/s04.html",
+          "G3 §4"
+        ]
+      ],
+      "related_dec": "core1/tier-appc.html#DEC-TIER-01"
+    },
+    {
+      "id": "QA-TIER-03",
+      "question": "Our system is Tier 1. Should we still read Appendix C?",
+      "answer": "You should know it exists so you recognise a tier change. You implement Appendix C when the system is Tier 2 or Tier 3. Tier 1 still implements the S17 and G3 baseline.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "should",
+      "policy_cite": [
+        "G3 Appendix C",
+        "S17 §4"
+      ],
+      "core4_links": [
+        [
+          "core4/g3/appendix-c.html",
+          "G3 Appendix C"
+        ],
+        [
+          "core4/s17/s04.html",
+          "S17 §4"
+        ]
+      ],
+      "related_dec": "core1/tier-appc.html#DEC-TIER-03"
+    }
+  ]
+}

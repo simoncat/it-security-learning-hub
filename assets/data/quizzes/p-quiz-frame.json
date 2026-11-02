@@ -1,0 +1,87 @@
+{
+  "id": "P-QUIZ-FRAME",
+  "file": "core2/quiz-framework.html",
+  "title": "Organisation Structure and Accountability",
+  "intro": "Organisation, accountability, and management responsibilities.",
+  "source": "S17 §5 · S17 §7 · G3 §5 · G3 §7 · G3 §8",
+  "questions": [
+    {
+      "id": "Q-FRAME-01",
+      "prompt": "Who is the usual departmental lead for IT security accountability?",
+      "choices": [
+        "The Departmental IT Security Officer appointed by the Head of the B/D.",
+        "Whoever last opened the firewall ticket.",
+        "A supplier’s service desk, by default.",
+        "This learning hub."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §5 and G3 §5 describe the DITSO. You still need the security unit, the ISIRT contact, and your line manager.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FRAME-02",
+      "prompt": "A developer can describe a residual risk. Who accepts what remains?",
+      "choices": [
+        "The management owner, through the department’s own route.",
+        "The developer, by merging the code.",
+        "The learning-hub checkbox.",
+        "No one, if the slide says low."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §7 and G3 §7 put risk ownership with management. Describing a risk is not the same as accepting it.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FRAME-03",
+      "prompt": "Classified protection means:",
+      "choices": [
+        "Every system, including a shared service, gets a tier and controls to match.",
+        "Only Internet-facing systems are in scope.",
+        "Tier labels are optional decorations.",
+        "The project manager picks Tier 1 to save time."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §7 treats classification as a management responsibility. Do not finalise a tier to suit a date.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FRAME-04",
+      "prompt": "Departmental policy may be:",
+      "choices": [
+        "Stricter than S17 and G3, and shall not be weaker.",
+        "A replacement for S17 if the director prefers it.",
+        "Optional reading for administrators.",
+        "The only document a new joiner needs."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §2 and §8 put local policy after the baseline. Local text does not cancel a Shall.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FRAME-05",
+      "prompt": "Which pair is the right reading order for a theme?",
+      "choices": [
+        "S17 first, then the same-theme G3 section.",
+        "A blog, then the local habit.",
+        "Appendix C for every Tier 1 PC.",
+        "G3 only, because it is longer."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 is the mandatory minimum. G3 is the implementation standard for the same theme.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-FRAME-06",
+      "prompt": "Your own user duties disappear when a security unit exists.",
+      "choices": [
+        "False. The unit adds specialist duties. Your own Shall items remain.",
+        "True. Users only need the poster.",
+        "True for developers, false for everyone else.",
+        "True once you have attended one briefing."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §5 and §9 expect every staff member to know their duties. A specialist team does not absorb them.",
+      "modalityTag": "shall"
+    }
+  ]
+}

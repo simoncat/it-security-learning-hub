@@ -1,0 +1,622 @@
+[
+  {
+    "href": "index.html",
+    "title": "Home",
+    "id": "P-HOME"
+  },
+  {
+    "href": "spine.html",
+    "title": "Policy and System Lifecycle Overview",
+    "id": "P-SPINE"
+  },
+  {
+    "href": "start/new-joiners.html",
+    "title": "New joiners",
+    "id": "P-START-NEW"
+  },
+  {
+    "href": "start/current-staff.html",
+    "title": "Current staff",
+    "id": "P-START-CURRENT"
+  },
+  {
+    "href": "about.html",
+    "title": "About",
+    "id": "P-ABOUT"
+  },
+  {
+    "href": "governance.html",
+    "title": "Governance",
+    "id": "P-GOV"
+  },
+  {
+    "href": "core1/index.html",
+    "title": "Decision aids",
+    "id": "P-CORE1-INDEX"
+  },
+  {
+    "href": "core1/by-need.html",
+    "title": "I need to…",
+    "id": "P-DEC-NEED-INDEX"
+  },
+  {
+    "href": "core1/modality.html",
+    "title": "Shall, Should, and May",
+    "id": "P-DEC-MOD"
+  },
+  {
+    "href": "core1/policy-stack.html",
+    "title": "Which document applies?",
+    "id": "P-DEC-STACK"
+  },
+  {
+    "href": "core1/cia.html",
+    "title": "Confidentiality, integrity, and availability",
+    "id": "P-DEC-CIA"
+  },
+  {
+    "href": "core1/tier-appc.html",
+    "title": "Tier and when Appendix C applies",
+    "id": "P-DEC-TIER"
+  },
+  {
+    "href": "core1/accountability.html",
+    "title": "Who is accountable?",
+    "id": "P-DEC-ACCOUNT"
+  },
+  {
+    "href": "core1/org-structure.html",
+    "title": "Government and departmental security organisation",
+    "id": "P-DEC-ORG"
+  },
+  {
+    "href": "core1/management.html",
+    "title": "Management responsibilities and risk",
+    "id": "P-DEC-MANAGEMENT"
+  },
+  {
+    "href": "core1/hr-security.html",
+    "title": "Human resource security and training",
+    "id": "P-DEC-HR"
+  },
+  {
+    "href": "core1/asset.html",
+    "title": "Asset management",
+    "id": "P-DEC-ASSET"
+  },
+  {
+    "href": "core1/access-control.html",
+    "title": "Access control in daily work",
+    "id": "P-DEC-ACCESS"
+  },
+  {
+    "href": "core1/privileged.html",
+    "title": "Privileged accounts",
+    "id": "P-DEC-PRIV"
+  },
+  {
+    "href": "core1/cryptography.html",
+    "title": "When cryptography applies",
+    "id": "P-DEC-CRYPTO"
+  },
+  {
+    "href": "core1/physical.html",
+    "title": "Physical and environmental security",
+    "id": "P-DEC-PHYS"
+  },
+  {
+    "href": "core1/operations.html",
+    "title": "Operations, backup, patch, and monitoring",
+    "id": "P-DEC-OPS"
+  },
+  {
+    "href": "core1/communications.html",
+    "title": "Communications security",
+    "id": "P-DEC-COMM"
+  },
+  {
+    "href": "core1/sdlc-security.html",
+    "title": "Security in acquisition, development, and maintenance",
+    "id": "P-DEC-SDLC"
+  },
+  {
+    "href": "core1/outsourcing.html",
+    "title": "Outsourcing and suppliers",
+    "id": "P-DEC-OUTSRC"
+  },
+  {
+    "href": "core1/incident.html",
+    "title": "Is this an incident, and who do I tell?",
+    "id": "P-DEC-IR"
+  },
+  {
+    "href": "core1/bcm.html",
+    "title": "Continuity and recovery",
+    "id": "P-DEC-BCM"
+  },
+  {
+    "href": "core1/compliance.html",
+    "title": "Compliance, assessment, and testing",
+    "id": "P-DEC-COMPLY"
+  },
+  {
+    "href": "core2/index.html",
+    "title": "Quizzes",
+    "id": "P-CORE2-INDEX"
+  },
+  {
+    "href": "core2/quiz-foundation.html",
+    "title": "Foundation self-check",
+    "id": "P-QUIZ-FND"
+  },
+  {
+    "href": "core2/quiz-framework.html",
+    "title": "Organisation Structure and Accountability",
+    "id": "P-QUIZ-FRAME"
+  },
+  {
+    "href": "core2/quiz-role-1.html",
+    "title": "Elevated end user self-check",
+    "id": "P-QUIZ-R1"
+  },
+  {
+    "href": "core2/quiz-role-2.html",
+    "title": "System / LAN administrator self-check",
+    "id": "P-QUIZ-R2"
+  },
+  {
+    "href": "core2/quiz-role-3.html",
+    "title": "Application developer self-check",
+    "id": "P-QUIZ-R3"
+  },
+  {
+    "href": "core2/quiz-role-4.html",
+    "title": "IT security administrator / unit self-check",
+    "id": "P-QUIZ-R4"
+  },
+  {
+    "href": "core2/quiz-role-5.html",
+    "title": "Management support self-check",
+    "id": "P-QUIZ-R5"
+  },
+  {
+    "href": "core2/quiz-app-c.html",
+    "title": "App C and tier self-check",
+    "id": "P-QUIZ-APPC"
+  },
+  {
+    "href": "core2/quiz-sdlc.html",
+    "title": "Security across the life cycle",
+    "id": "P-QUIZ-SDLC"
+  },
+  {
+    "href": "core2/quiz-incident.html",
+    "title": "Incident Handling",
+    "id": "P-QUIZ-IR"
+  },
+  {
+    "href": "core3/index.html",
+    "title": "Enquiry Q&amp;A",
+    "id": "P-CORE3-INDEX"
+  },
+  {
+    "href": "core3/qa-access.html",
+    "title": "Access, passwords, and privileged use",
+    "id": "P-QA-ACCESS"
+  },
+  {
+    "href": "core3/qa-email-data.html",
+    "title": "Email, data handling, and classification",
+    "id": "P-QA-EMAIL"
+  },
+  {
+    "href": "core3/qa-device.html",
+    "title": "Endpoints, removable media, and remote access",
+    "id": "P-QA-DEVICE"
+  },
+  {
+    "href": "core3/qa-vendor.html",
+    "title": "Vendors, outsourcing, and cloud",
+    "id": "P-QA-VENDOR"
+  },
+  {
+    "href": "core3/qa-project.html",
+    "title": "Projects, life cycle, and assessments",
+    "id": "P-QA-PROJECT"
+  },
+  {
+    "href": "core3/qa-incident.html",
+    "title": "Is this an incident?",
+    "id": "P-QA-IR"
+  },
+  {
+    "href": "core3/qa-tier.html",
+    "title": "Tier and Appendix C",
+    "id": "P-QA-TIER"
+  },
+  {
+    "href": "core3/qa-other.html",
+    "title": "Other enquiries",
+    "id": "P-QA-OTHER"
+  },
+  {
+    "href": "core4/index.html",
+    "title": "Source lookup",
+    "id": "P-CORE4-INDEX"
+  },
+  {
+    "href": "core4/s17/index.html",
+    "title": "S17 contents",
+    "id": "P-SRC-S17-TOC"
+  },
+  {
+    "href": "core4/g3/index.html",
+    "title": "G3 contents",
+    "id": "P-SRC-G3-TOC"
+  },
+  {
+    "href": "core4/s17/s01.html",
+    "title": "S17 §1 Purpose",
+    "id": "P-SRC-S17-01"
+  },
+  {
+    "href": "core4/g3/s01.html",
+    "title": "G3 §1 Purpose",
+    "id": "P-SRC-G3-01"
+  },
+  {
+    "href": "core4/s17/s02.html",
+    "title": "S17 §2 Scope",
+    "id": "P-SRC-S17-02"
+  },
+  {
+    "href": "core4/g3/s02.html",
+    "title": "G3 §2 Scope",
+    "id": "P-SRC-G3-02"
+  },
+  {
+    "href": "core4/s17/s03.html",
+    "title": "S17 §3 Normative references",
+    "id": "P-SRC-S17-03"
+  },
+  {
+    "href": "core4/g3/s03.html",
+    "title": "G3 §3 Normative references",
+    "id": "P-SRC-G3-03"
+  },
+  {
+    "href": "core4/s17/s04.html",
+    "title": "S17 §4 Definitions and conventions",
+    "id": "P-SRC-S17-04"
+  },
+  {
+    "href": "core4/g3/s04.html",
+    "title": "G3 §4 Definitions and conventions",
+    "id": "P-SRC-G3-04"
+  },
+  {
+    "href": "core4/s17/s05.html",
+    "title": "S17 §5 Organisation",
+    "id": "P-SRC-S17-05"
+  },
+  {
+    "href": "core4/g3/s05.html",
+    "title": "G3 §5 Organisation",
+    "id": "P-SRC-G3-05"
+  },
+  {
+    "href": "core4/s17/s06.html",
+    "title": "S17 §6 Core security principles",
+    "id": "P-SRC-S17-06"
+  },
+  {
+    "href": "core4/g3/s06.html",
+    "title": "G3 §6 Core security principles",
+    "id": "P-SRC-G3-06"
+  },
+  {
+    "href": "core4/s17/s07.html",
+    "title": "S17 §7 Management responsibilities",
+    "id": "P-SRC-S17-07"
+  },
+  {
+    "href": "core4/g3/s07.html",
+    "title": "G3 §7 Management responsibilities",
+    "id": "P-SRC-G3-07"
+  },
+  {
+    "href": "core4/s17/s08.html",
+    "title": "S17 §8 IT security policies",
+    "id": "P-SRC-S17-08"
+  },
+  {
+    "href": "core4/g3/s08.html",
+    "title": "G3 §8 IT security policies",
+    "id": "P-SRC-G3-08"
+  },
+  {
+    "href": "core4/s17/s09.html",
+    "title": "S17 §9 Human resource security",
+    "id": "P-SRC-S17-09"
+  },
+  {
+    "href": "core4/g3/s09.html",
+    "title": "G3 §9 Human resource security",
+    "id": "P-SRC-G3-09"
+  },
+  {
+    "href": "core4/s17/s10.html",
+    "title": "S17 §10 Asset management",
+    "id": "P-SRC-S17-10"
+  },
+  {
+    "href": "core4/g3/s10.html",
+    "title": "G3 §10 Asset management",
+    "id": "P-SRC-G3-10"
+  },
+  {
+    "href": "core4/s17/s11.html",
+    "title": "S17 §11 Access control",
+    "id": "P-SRC-S17-11"
+  },
+  {
+    "href": "core4/g3/s11.html",
+    "title": "G3 §11 Access control",
+    "id": "P-SRC-G3-11"
+  },
+  {
+    "href": "core4/s17/s12.html",
+    "title": "S17 §12 Cryptography",
+    "id": "P-SRC-S17-12"
+  },
+  {
+    "href": "core4/g3/s12.html",
+    "title": "G3 §12 Cryptography",
+    "id": "P-SRC-G3-12"
+  },
+  {
+    "href": "core4/s17/s13.html",
+    "title": "S17 §13 Physical and environmental security",
+    "id": "P-SRC-S17-13"
+  },
+  {
+    "href": "core4/g3/s13.html",
+    "title": "G3 §13 Physical and environmental security",
+    "id": "P-SRC-G3-13"
+  },
+  {
+    "href": "core4/s17/s14.html",
+    "title": "S17 §14 Operations security",
+    "id": "P-SRC-S17-14"
+  },
+  {
+    "href": "core4/g3/s14.html",
+    "title": "G3 §14 Operations security",
+    "id": "P-SRC-G3-14"
+  },
+  {
+    "href": "core4/s17/s15.html",
+    "title": "S17 §15 Communications security",
+    "id": "P-SRC-S17-15"
+  },
+  {
+    "href": "core4/g3/s15.html",
+    "title": "G3 §15 Communications security",
+    "id": "P-SRC-G3-15"
+  },
+  {
+    "href": "core4/s17/s16.html",
+    "title": "S17 §16 System acquisition, development and maintenance",
+    "id": "P-SRC-S17-16"
+  },
+  {
+    "href": "core4/g3/s16.html",
+    "title": "G3 §16 System acquisition, development and maintenance",
+    "id": "P-SRC-G3-16"
+  },
+  {
+    "href": "core4/s17/s17.html",
+    "title": "S17 §17 Outsourcing security",
+    "id": "P-SRC-S17-17"
+  },
+  {
+    "href": "core4/g3/s17.html",
+    "title": "G3 §17 Outsourcing security",
+    "id": "P-SRC-G3-17"
+  },
+  {
+    "href": "core4/s17/s18.html",
+    "title": "S17 §18 Security incident management",
+    "id": "P-SRC-S17-18"
+  },
+  {
+    "href": "core4/g3/s18.html",
+    "title": "G3 §18 Security incident management",
+    "id": "P-SRC-G3-18"
+  },
+  {
+    "href": "core4/s17/s19.html",
+    "title": "S17 §19 Continuity",
+    "id": "P-SRC-S17-19"
+  },
+  {
+    "href": "core4/g3/s19.html",
+    "title": "G3 §19 Continuity",
+    "id": "P-SRC-G3-19"
+  },
+  {
+    "href": "core4/s17/s20.html",
+    "title": "S17 §20 Compliance",
+    "id": "P-SRC-S17-20"
+  },
+  {
+    "href": "core4/g3/s20.html",
+    "title": "G3 §20 Compliance",
+    "id": "P-SRC-G3-20"
+  },
+  {
+    "href": "core4/g3/appendix-c.html",
+    "title": "G3 Appendix C",
+    "id": "P-SRC-G3-APPC"
+  },
+  {
+    "href": "path/foundation.html",
+    "title": "Fundamentals path",
+    "id": "P-PATH-FND"
+  },
+  {
+    "href": "path/role-1.html",
+    "title": "Elevated end user / general IT with elevated duties",
+    "id": "P-PATH-R1"
+  },
+  {
+    "href": "path/role-2.html",
+    "title": "System / LAN administrator",
+    "id": "P-PATH-R2"
+  },
+  {
+    "href": "path/role-3.html",
+    "title": "Application developer / maintenance",
+    "id": "P-PATH-R3"
+  },
+  {
+    "href": "path/role-4.html",
+    "title": "IT security administrator / unit",
+    "id": "P-PATH-R4"
+  },
+  {
+    "href": "path/role-5.html",
+    "title": "Management support (DITSO support)",
+    "id": "P-PATH-R5"
+  },
+  {
+    "href": "path/sdlc-01-initiation.html",
+    "title": "Project initiation",
+    "id": "P-PATH-SDLC-01"
+  },
+  {
+    "href": "path/sdlc-02-design.html",
+    "title": "Design",
+    "id": "P-PATH-SDLC-02"
+  },
+  {
+    "href": "path/sdlc-03-procurement.html",
+    "title": "Procurement",
+    "id": "P-PATH-SDLC-03"
+  },
+  {
+    "href": "path/sdlc-04-build.html",
+    "title": "Build/Implementation",
+    "id": "P-PATH-SDLC-04"
+  },
+  {
+    "href": "path/sdlc-05-test.html",
+    "title": "Testing",
+    "id": "P-PATH-SDLC-05"
+  },
+  {
+    "href": "path/sdlc-06-go-live.html",
+    "title": "Go-live",
+    "id": "P-PATH-SDLC-06"
+  },
+  {
+    "href": "path/sdlc-07-operate.html",
+    "title": "Operations",
+    "id": "P-PATH-SDLC-07"
+  },
+  {
+    "href": "path/sdlc-08-change.html",
+    "title": "Change",
+    "id": "P-PATH-SDLC-08"
+  },
+  {
+    "href": "path/sdlc-09-retire.html",
+    "title": "Decommissioning",
+    "id": "P-PATH-SDLC-09"
+  },
+  {
+    "href": "path/apply.html",
+    "title": "Apply and close gaps",
+    "id": "P-PATH-APPLY"
+  },
+  {
+    "href": "app-c-matrix.html",
+    "title": "App C matrix",
+    "id": "P-APPC"
+  },
+  {
+    "href": "gap-template.html",
+    "title": "Gap template",
+    "id": "P-GAP"
+  },
+  {
+    "href": "cheatsheets/index.html",
+    "title": "Cheat sheets",
+    "id": "P-CHEAT-INDEX"
+  },
+  {
+    "href": "cheatsheets/modality.html",
+    "title": "Shall, Should, May, and the reading flow",
+    "id": "P-CHEAT-MOD"
+  },
+  {
+    "href": "cheatsheets/cia.html",
+    "title": "CIA, risk, and security-by-design",
+    "id": "P-CHEAT-CIA"
+  },
+  {
+    "href": "cheatsheets/tier.html",
+    "title": "Tier 1, 2, and 3",
+    "id": "P-CHEAT-TIER"
+  },
+  {
+    "href": "cheatsheets/incident.html",
+    "title": "Incident report path",
+    "id": "P-CHEAT-IR"
+  },
+  {
+    "href": "cheatsheets/privileged.html",
+    "title": "Privileged accounts and patch timing",
+    "id": "P-CHEAT-PRIV"
+  },
+  {
+    "href": "cheatsheets/sdlc.html",
+    "title": "Nine-stage security checklist",
+    "id": "P-CHEAT-SDLC"
+  },
+  {
+    "href": "walkthroughs/index.html",
+    "title": "Walkthroughs",
+    "id": "P-WALK-INDEX"
+  },
+  {
+    "href": "walkthroughs/role-1.html",
+    "title": "Elevated end user — report-path tabletop",
+    "id": "P-WALK-R1"
+  },
+  {
+    "href": "walkthroughs/role-2.html",
+    "title": "System / LAN administrator — privileged access, request to review",
+    "id": "P-WALK-R2"
+  },
+  {
+    "href": "walkthroughs/role-3.html",
+    "title": "Application developer — requirement, design note, test",
+    "id": "P-WALK-R3"
+  },
+  {
+    "href": "walkthroughs/role-4.html",
+    "title": "IT security administrator / unit — privileged-account review sample",
+    "id": "P-WALK-R4"
+  },
+  {
+    "href": "walkthroughs/role-5.html",
+    "title": "Management support — one-page management brief",
+    "id": "P-WALK-R5"
+  },
+  {
+    "href": "walkthroughs/sdlc-secure.html",
+    "title": "Secure life-cycle walkthrough",
+    "id": "P-WALK-SDLC"
+  }
+]

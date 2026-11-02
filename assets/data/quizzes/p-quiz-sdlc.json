@@ -1,0 +1,87 @@
+{
+  "id": "P-QUIZ-SDLC",
+  "file": "core2/quiz-sdlc.html",
+  "title": "Security across the life cycle",
+  "intro": "Nine stages, from project initiation to decommissioning. Section-level themes only.",
+  "source": "S17 §6 · S17 §7 · S17 §16 · S17 §17 · S17 §20",
+  "questions": [
+    {
+      "id": "Q-SDLC-01",
+      "prompt": "When should the first security requirements be written?",
+      "choices": [
+        "At project initiation and design, while the scope can still change.",
+        "The week the system goes live.",
+        "After the first incident.",
+        "Only if an auditor asks."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §16 and G3 §16 put security into acquisition and development. S17 §6 calls this security-by-design.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-SDLC-02",
+      "prompt": "A supplier will run the system. When do outsourcing duties start?",
+      "choices": [
+        "At procurement, in the agreement, not after an incident.",
+        "When the supplier volunteers a slide.",
+        "They do not start. Certification replaces the contract.",
+        "At decommissioning only."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §17 and G3 §17 keep the B/D responsible. The contract has to say what the supplier still owes.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-SDLC-03",
+      "prompt": "Which statement about go-live is right?",
+      "choices": [
+        "Open Shall gaps need an owner, and the incident route has to be known.",
+        "A successful demo closes every Shall.",
+        "Tier can be chosen after go-live to reduce work.",
+        "Backup can be designed the following quarter."
+      ],
+      "answerIndex": 0,
+      "rationale": "Go-live checks the §14 and §16 baseline and §18 readiness. An unowned Shall gap is not accepted by silence.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-SDLC-04",
+      "prompt": "A major change to a live system should prompt you to ask:",
+      "choices": [
+        "Whether requirements, the tier, or the security risk assessment need to be reopened.",
+        "Only whether the colour of the logo changed.",
+        "Nothing, if the change is by a vendor.",
+        "Whether you can skip access control this once."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §14, §16, and §20 treat change as a point where assurance can be needed again.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-SDLC-05",
+      "prompt": "Decommissioning includes:",
+      "choices": [
+        "Removing access and sanitising or returning media and supplier-held data.",
+        "Turning the server off and hoping the backups expire.",
+        "Keeping privileged accounts for nostalgia.",
+        "Posting the data to a personal drive first."
+      ],
+      "answerIndex": 0,
+      "rationale": "S17 §10, §11, and §17 cover disposal, access removal, and the end of a supplier’s copy.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-SDLC-06",
+      "prompt": "The nine stages in this hub run in which order?",
+      "choices": [
+        "Initiation, design, procurement, build, testing, go-live, operations, change, decommissioning.",
+        "Go-live, then requirements, then a tier sticker.",
+        "Procurement, then incident response, then design.",
+        "There is no order. Pick the shortest page."
+      ],
+      "answerIndex": 0,
+      "rationale": "The hub uses those nine names so current staff can filter by the stage they are actually in.",
+      "modalityTag": "should"
+    }
+  ]
+}

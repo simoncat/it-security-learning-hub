@@ -1,0 +1,75 @@
+{
+  "id": "P-QA-IR",
+  "file": "core3/qa-incident.html",
+  "title": "Is this an incident?",
+  "audience": "Both",
+  "source": "S17 §18 · G3 §18",
+  "items": [
+    {
+      "id": "QA-IR-01",
+      "question": "I clicked a suspicious link but nothing obvious happened. Do I wait to see if I am sure?",
+      "answer": "No. Report when harm is reasonably possible. Tell your line and the departmental incident contact, and say what you clicked. Do not wait for proof.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §18",
+        "G3 §18"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s18.html",
+          "S17 §18"
+        ],
+        [
+          "core4/g3/s18.html",
+          "G3 §18"
+        ]
+      ],
+      "related_dec": "core1/incident.html#DEC-IR-01"
+    },
+    {
+      "id": "QA-IR-02",
+      "question": "Should I post the suspicious message in the team chat so others can check it?",
+      "answer": "No. Keep the detail to the incident route. Wide sharing spreads the lure and any data in it. Your incident contact will say what others need to know.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §18",
+        "G3 §18"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s18.html",
+          "S17 §18"
+        ],
+        [
+          "core4/g3/s18.html",
+          "G3 §18"
+        ]
+      ],
+      "related_dec": "core1/incident.html#DEC-IR-02"
+    },
+    {
+      "id": "QA-IR-03",
+      "question": "May I delete the mail and reimage the PC before I call anyone, so the desk looks tidy?",
+      "answer": "Do not destroy the timeline before the incident route has told you to. Report first. Preserve what the local procedure says to preserve.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "should",
+      "policy_cite": [
+        "S17 §18",
+        "G3 §18"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s18.html",
+          "S17 §18"
+        ],
+        [
+          "core4/g3/s18.html",
+          "G3 §18"
+        ]
+      ],
+      "related_dec": "core1/incident.html#DEC-IR-03"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foundation self-check · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Foundation self-check. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-QUIZ-FND" data-page="P-QUIZ-FND" data-source-sections="S17/G3 §4.2, §5, §6, §18; G3 §4.1 and Appendix C" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="index.html" aria-current="page">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Quizzes</a></li><li aria-current="page">Foundation self-check</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Quizzes</p><a href="index.html">All quizzes</a><a href="quiz-foundation.html" aria-current="page">Foundation self-check</a><a href="quiz-framework.html">Organisation Structure and Accountability</a><a href="quiz-role-1.html">Elevated end user self-check</a><a href="quiz-role-2.html">System / LAN administrator self-check</a><a href="quiz-role-3.html">Application developer self-check</a><a href="quiz-role-4.html">IT security administrator / unit self-check</a><a href="quiz-role-5.html">Management support self-check</a><a href="quiz-app-c.html">App C and tier self-check</a><a href="quiz-sdlc.html">Security across the life cycle</a><a href="quiz-incident.html">Incident Handling</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Foundation self-check</h1>
+<p>Eight or more questions on modalities, contacts, CIA, reporting, and tiers.</p>
+<p class="fine">Source pointers: S17/G3 §4.2, §5, §6, §18; G3 §4.1 and Appendix C</p>
+<div id="quiz-root"></div>
+<script type="application/json" id="quiz-data">{"questions": [{"id": "Q-FND-01", "prompt": "In S17 and G3, what does Shall mean?", "choices": ["A mandatory requirement. You must do it.", "A nice idea for a quiet week.", "A suggestion you can ignore if busy.", "A vendor marketing claim."], "answerIndex": 0, "rationale": "G3 §4.2: Shall is a mandatory requirement. The same convention is in S17 §4.2.", "modalityTag": "shall"}, {"id": "Q-FND-02", "prompt": "What does Should mean in this hub?", "choices": ["Best practice — implement whenever possible.", "Optional decoration with no expectation.", "A rule that applies only to contractors.", "A synonym of May."], "answerIndex": 0, "rationale": "Should is a best practice to implement whenever possible. If you defer it, know why.", "modalityTag": "should"}, {"id": "Q-FND-03", "prompt": "What does May mean?", "choices": ["A desirable best practice.", "A mandatory control for every Tier 1 system.", "Permission to skip Shall items.", "A temporary waiver from DPO."], "answerIndex": 0, "rationale": "May is a desirable best practice. It is not a waiver for Shall.", "modalityTag": "may"}, {"id": "Q-FND-04", "prompt": "What is the reading order for a control?", "choices": ["S17 first, then the same-number G3 section, then App C only if the system is Tier 2 or Tier 3.", "App C first, then skip S17 if you are busy.", "The practice guide only.", "Whatever is shortest."], "answerIndex": 0, "rationale": "Policy (what) before guidelines (how). Appendix C is the extra tier layer, not a replacement.", "modalityTag": ""}, {"id": "Q-FND-05", "prompt": "Which stack order matches G3 §2.3?", "choices": ["Security Regulations, then S17, then G3, then practice guides, then local B/D policy.", "Local habit, then a blog, then S17.", "G3 only. S17 is optional.", "Appendix C for every Tier 1 PC."], "answerIndex": 0, "rationale": "B/Ds comply with the Security Regulations, S17, and G3, and follow practice guides. Local policy can be stricter.", "modalityTag": ""}, {"id": "Q-FND-06", "prompt": "Which trio names the core security objectives?", "choices": ["Confidentiality, integrity, and availability.", "Speed, cost, and novelty.", "Firewall, antivirus, and password length only.", "Classification, colour, and cabinet."], "answerIndex": 0, "rationale": "G3 §4.1 and §6 describe confidentiality, integrity, and availability. Controls serve those objectives.", "modalityTag": "shall"}, {"id": "Q-FND-07", "prompt": "A Tier 2 system is best described as:", "choices": ["A system whose failure or disruption would seriously hit government operations, or could cause public turmoil or catastrophe.", "Any laptop.", "Only a system that is air-gapped.", "A system you personally find annoying."], "answerIndex": 0, "rationale": "That is the sense of the G3 §4.1 Tier 2 definition. Tier 3 is a Tier 2 system tied directly to an essential service. Confirm the tier with the owner. Do not self-finalise it.", "modalityTag": ""}, {"id": "Q-FND-08", "prompt": "When should you report a security event?", "choices": ["When you reasonably see harm to confidentiality, integrity, availability, or operations. Do not wait until you are certain.", "Only after a full forensic report.", "Only if the Director asks first.", "Never, if you can reboot quietly."], "answerIndex": 0, "rationale": "G3 §18 expects prompt reporting. The departmental ISIRT, once aware, phones GIRO Standing Office within 60 minutes and sends the preliminary form within 48 hours. Follow your local procedure.", "modalityTag": "shall"}, {"id": "Q-FND-09", "prompt": "Who is the usual departmental lead for IT security accountability?", "choices": ["The Departmental IT Security Officer (DITSO).", "The canteen contractor.", "Whoever last changed the wallpaper.", "GovCERT.HK acting as your line manager."], "answerIndex": 0, "rationale": "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager as named in the reporting procedure.", "modalityTag": ""}, {"id": "Q-FND-10", "prompt": "Appendix C applies when:", "choices": ["The system is Tier 2 or Tier 3. Tier 3 also takes every Tier 2 App C control.", "The system is any Tier 1 file share.", "You feel like reading extra pages.", "Only during a penetration test week."], "answerIndex": 0, "rationale": "G3 says B/Ds adopt the baseline for ordinary systems and the stricter Appendix C controls for Tier 2 and Tier 3. Tier 3 includes the Tier 2 App C set.", "modalityTag": "appc"}]}</script>
+<noscript><p>This self-check needs JavaScript in the browser. The questions are not sent anywhere.</p></noscript>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+<script src="../assets/js/quiz.js?v=5"></script>
+</body>
+</html>

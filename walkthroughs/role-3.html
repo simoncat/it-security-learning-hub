@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application developer — requirement, design note, test · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Application developer — requirement, design note, test. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-WALK-R3" data-page="P-WALK-R3" data-source-sections="G3 §16 · Appendix C §16" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Walkthroughs</a></li><li aria-current="page">Application developer — requirement, design note, test</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">On this hub</p><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Decision aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C matrix</a><a href="../gap-template.html">Gap template</a><a href="../cheatsheets/index.html">Cheat sheets</a><a href="index.html">Walkthroughs</a><a href="../governance.html">Governance</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Application developer — requirement, design note, test</h1>
+<p class="fine">Source pointers: G3 §16 · Appendix C §16</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C if the system is Tier 2 or Tier 3.</p>
+</div>
+
+<p>Where a step is Should, you may defer it if you record why. Shall steps are the ones the policy treats as mandatory. App C steps apply when the system is Tier 2 or Tier 3.</p>
+<p class="no-print"><button type="button" class="btn btn-primary" data-action="print">Print this walkthrough</button></p>
+<ol class="steps">
+<li class="step">
+  <h3>Step 1. Pick one change</h3>
+  <p>A small feature you know. If you use a real backlog item, do not paste secrets or personal data into the note.</p>
+  <p class="keep">Artefacts to keep: Change name.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 2. Write one security requirement</h3>
+  <p>Tie it to confidentiality, integrity, or availability. “Make it secure” is not a requirement.</p>
+  <p class="keep">Artefacts to keep: The requirement sentence.</p>
+  <p class="defer">Shall: security-by-design.</p>
+</li>
+<li class="step">
+  <h3>Step 3. Add a design note</h3>
+  <p>Where the control lives: authentication, authorisation, session, cryptography, or logging. One paragraph.</p>
+  <p class="keep">Artefacts to keep: The design note.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 4. Write a test</h3>
+  <p>A test that fails if the requirement is absent. Include the negative case, such as a user who should not see the record.</p>
+  <p class="keep">Artefacts to keep: The test case.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 5. Say where secrets go</h3>
+  <p>Name the secret store. State that the value is not in source.</p>
+  <p class="keep">Artefacts to keep: The store name.</p>
+  
+</li>
+<li class="step">
+  <h3>Step 6. Test data</h3>
+  <p>State whether the test uses production-like data and how it is protected or anonymised.</p>
+  <p class="keep">Artefacts to keep: One line on test data.</p>
+  <p class="defer">Shall when the data is production-like.</p>
+</li>
+<li class="step">
+  <h3>Step 7. Tier 2/3 extras</h3>
+  <p>If the system might be Tier 2 or 3, note shift-left, the pre-production security risk assessment checking design-review follow-ups, and hardening as the production baseline.</p>
+  <p class="keep">Artefacts to keep: A question for the assessment owner.</p>
+  <p class="defer">App C Shall once the tier is confirmed.</p>
+</li>
+<li class="step">
+  <h3>Step 8. Hand-off</h3>
+  <p>What operations need from you: log events, and who patches the libraries.</p>
+  <p class="keep">Artefacts to keep: Two bullets for operations.</p>
+  
+</li></ol>
+<details>
+  <summary>Alternative exercise</summary>
+  <p>Alternative: a test-data check. Where did the data come from, is it anonymised, who can read the test store, and when is it deleted?</p>
+</details>
+<p><a href="../path/apply.html">Back to apply and close gaps</a></p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

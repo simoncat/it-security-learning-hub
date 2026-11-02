@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>G3 §12 Cryptography · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="G3 §12 Cryptography. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-SRC-G3-12" data-page="P-SRC-G3-12" data-source-sections="G3 v10.2 §12" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Source</a></li><li><a href="index.html">G3</a></li><li aria-current="page">§12</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Source</p><a href="../index.html">Source home</a><a href="../s17/index.html">S17 contents</a><a href="index.html">G3 contents</a><a href="appendix-c.html">Appendix C</a></nav>
+    </details>
+    <main id="main">
+      
+<header class="source-head">
+  <p class="kicker">IT Security Guidelines [G3] · v10.2</p>
+  <h1>G3 §12 — Cryptography</h1>
+  <dl class="source-meta">
+    <div><dt>Document</dt><dd>IT Security Guidelines [G3]</dd></div>
+    <div><dt>Version</dt><dd>v10.2 · April 2025 · Digital Policy Office</dd></div>
+    <div><dt>Section</dt><dd>G3 §12</dd></div>
+    <div><dt>Last reviewed</dt><dd>2026-10-26</dd></div>
+    <div><dt>Owner</dt><dd>Hub Content Owner</dd></div>
+  </dl>
+  <p class="fine">Assumed if the PDFs were not re-checked for this build. Authoritative text remains the official PDF.</p>
+</header>
+<p class="crosswalk">Paired section: <a href="../s17/s12.html">S17 §12</a></p>
+<h2>Clause ids in this section</h2><ul><li><a href="#c-12">12 CRYPTOGRAPHY</a></li><li><a href="#c-12-1">12.1 Cryptographic Controls</a></li></ul>
+<h2>Back to curated pages</h2><ul><li><a href="../../core1/cryptography.html#DEC-CRYPTO-01">Do I need cryptography for this data?</a></li><li><a href="../../core1/cryptography.html#DEC-CRYPTO-02">Is unprotected wireless good enough?</a></li><li><a href="../../core2/quiz-role-3.html">Application developer self-check</a></li></ul>
+
+<p class="copy-notice">The section text is from the named official document, April 2025, issued by the Digital Policy Office. This copy is not for sale.</p>
+<p class="copy-notice">copied/distributed with the permission of the Government of the Hong Kong Special Administrative Region of the People's Republic of China. All rights reserved.</p>
+<div class="policy-text"><p id="c-12" class="policy-h">12. CRYPTOGRAPHY</p>
+<p class="policy-prose">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> ensure proper and effective use of cryptography to protect the confidentiality, authenticity and integrity of information.</p>
+<p id="c-12-1" class="policy-h">12.1 Cryptographic Controls</p>
+<p class="policy-clause policy-h" data-mark="alpha"><span class="clause-no">(a)</span><span class="clause-body">Data Encryption</span></p>
+<p class="policy-prose policy-follow" data-follow="alpha">Encryption techniques are used to protect the data and enforce confidentiality during transmission and storage. Many schemes exist for the encryption of files, such as using the program’s own encryption feature, external hardware device, secret key encryption, and public key encryption.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">The primary use of an application’s password-protection feature is to provide protection on the file and prevent unauthorised access. Users <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> encrypt the file instead of using only a password in order to protect the information for confidentiality as appropriate. When a password is used, it is also important to follow the practices in password selection and handling described in Section 11.4(b) Password Policy and 11.4(c) Password Selection.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">B/Ds <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> comply with the government security requirements in relation to the use of encryption for the protection of classified data.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">User passwords used for authentication or administration <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be hashed or encrypted in storage. For hashing algorithms, at least Secure Hash Algorithm 2 (SHA-2) or the equivalent <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be used. Subject to operational needs, SM3 can also be used for hashing algorithms. SHA-1 <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be used unless it is for legacy systems. If encryption is used, keys used for performing encryption (symmetric key only) or decryption <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be kept secret and <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> not be disclosed to unauthorised users.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">B/Ds are encouraged to conduct their own research and evaluation in selecting the most suitable solutions that meet their business requirements. The theme page “Catalogue of IT Security Solutions” provides some encryption solutions for reference by B/Ds. It <span class="modal modal-may" title="May — desirable best practice">may</span> serve as a starting point for users looking for relevant security solutions. You <span class="modal modal-may" title="May — desirable best practice">may</span> access the theme page via the following URL:</p>
+<p class="policy-clause" data-mark="bullet" data-nest="alpha"><span class="clause-no">•</span><span class="clause-body">Catalogue of IT Security Solutions Available at ITG InfoStation (https://itginfo.ccgo.hksarg/content/coss)</span></p>
+<p class="policy-clause policy-h" data-mark="alpha"><span class="clause-no">(b)</span><span class="clause-body">Cryptographic Key Management</span></p>
+<p class="policy-prose policy-follow" data-follow="alpha">The term ‘key’ here refers to a code that is used with respect to classified information for authentication, decryption or generation of a digital signature. This code is usually generated by mathematical algorithms. These kinds of algorithms are often called “cryptographic algorithms”; the generated keys are called “cryptographic keys”.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">For information classified as CONFIDENTIAL or above, the symmetric encryption key length <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be at least 128-bit for the AES encryption or equivalent. Subject to operational needs, the requirement can also be met by SM4. Whereas the asymmetric encryption key length <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be at least 2048-bit for the RSA encryption. Alternatively, the requirement can be met by Elliptic Curve Cryptography (ECC) encryption with a key length of at least 224-bit or equivalent, as well as SM2 subject to operational needs. For RESTRICTED information, the above key length <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> also be adopted. B/Ds <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> have a plan to upgrade their existing systems containing RESTRICTED information to meet the key length requirements and review the plan regularly to ensure the upgrade is implemented in accordance with the pre-defined schedule.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">For keys that are used for the processing of information classified CONFIDENTIAL or above, they <span class="modal modal-shall" title="Shall — mandatory — must do">shall</span> be stored separately from the corresponding encrypted information. These keys <span class="modal modal-may" title="May — desirable best practice">may</span> be stored inside chips of smart cards, tokens, disks, etc., and are used for authentication and/or decrypting information. It is very important to ensure the protection and management of keys. Furthermore, it is dangerous to distribute the decryption key along with the encrypted file during file distribution since one <span class="modal modal-may" title="May — desirable best practice">may</span> obtain the decryption key and easily open the file.</p>
+<p class="policy-prose policy-follow" data-follow="alpha">Key management <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be documented and performed properly in accordance with:</p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(i)</span><span class="clause-body">Key generation</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">Equipment used to generate keys <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be physically protected.</span></p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(ii)</span><span class="clause-body">Key storage</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">The master cryptographic key <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be stored securely, such as by placing it within a hardware security module or a trusted platform module, and <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> not leave the security storage for the master key’s service life.</span></p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(iii)</span><span class="clause-body">Key recovery</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">Assess the need to have a recoverable key. If considered necessary, cryptographic keys <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be recoverable by authorised personnel only.</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">The key recovery password <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be protected by at least two levels of independent access controls and limited to personnel authorised for the task of information recovery.</span></p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(iv)</span><span class="clause-body">Key backup</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">The cryptographic key <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be backed up with proper protection.</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">A documented process <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be established to access the backed up keys.</span></p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(v)</span><span class="clause-body">Key transfer</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">Cryptographic keys <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> never be transported together with the data or media containing encrypted data.</span></p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(vi)</span><span class="clause-body">Retirement of key</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">Activation and deactivation dates for the cryptographic key <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be defined to reduce the likelihood of key compromise arising from security threats, including brute-force attacks, personnel turnover, open office environment, etc.</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">Processes for key revocation and replacement <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be established.</span></p>
+<p class="policy-clause policy-h" data-mark="roman"><span class="clause-no">(vii)</span><span class="clause-body">Logging transactions</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">All access to the key recovery passwords <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be recorded in an audit trail.</span></p>
+<p class="policy-clause" data-mark="bullet" data-nest="roman"><span class="clause-no">•</span><span class="clause-body">All access to the backed up key <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be recorded in an audit trail.</span></p>
+<p class="policy-prose policy-follow" data-follow="roman">With different implementations of encryption technology, a key <span class="modal modal-may" title="May — desirable best practice">may</span> be used to encrypt and decrypt data (sometimes called data encryption key) and is further protected by another key (called key encryption key). As such, the ultimate key encryption key <span class="modal modal-should" title="Should — best practice — implement whenever possible">should</span> be protected in accordance with relevant government security requirements.</p></div>
+<p class="copy-notice">copied/distributed with the permission of the Government of the Hong Kong Special Administrative Region of the People's Republic of China. All rights reserved.</p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../../about.html">About and versions</a>
+        <a href="../../governance.html">Content governance</a>
+        <a href="../../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../../assets/js/hub.js?v=5"></script>
+</body>
+</html>

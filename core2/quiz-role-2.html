@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System / LAN administrator self-check · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="System / LAN administrator self-check. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-QUIZ-R2" data-page="P-QUIZ-R2" data-source-sections="G3 §11, §14, §15; App C §11 and §14" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="index.html" aria-current="page">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Quizzes</a></li><li aria-current="page">System / LAN administrator self-check</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Quizzes</p><a href="index.html">All quizzes</a><a href="quiz-foundation.html">Foundation self-check</a><a href="quiz-framework.html">Organisation Structure and Accountability</a><a href="quiz-role-1.html">Elevated end user self-check</a><a href="quiz-role-2.html" aria-current="page">System / LAN administrator self-check</a><a href="quiz-role-3.html">Application developer self-check</a><a href="quiz-role-4.html">IT security administrator / unit self-check</a><a href="quiz-role-5.html">Management support self-check</a><a href="quiz-app-c.html">App C and tier self-check</a><a href="quiz-sdlc.html">Security across the life cycle</a><a href="quiz-incident.html">Incident Handling</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>System / LAN administrator self-check</h1>
+<p>Privileged operations, patching, backup, and Tier 3 monitoring.</p>
+<p class="fine">Source pointers: G3 §11, §14, §15; App C §11 and §14</p>
+<div id="quiz-root"></div>
+<script type="application/json" id="quiz-data">{"questions": [{"id": "Q-R2-01", "prompt": "A privileged-account inventory is for:", "choices": ["Knowing which powerful accounts exist, why, and who can use them.", "A list of favourite passwords in a shared spreadsheet.", "Replacing change control.", "Publishing admin names on the intranet homepage."], "answerIndex": 0, "rationale": "You cannot review what you have not listed. Pair the inventory with least privilege.", "modalityTag": ""}, {"id": "Q-R2-02", "prompt": "For a Tier 2 system, how often does App C expect an independent privileged-account check?", "choices": ["At least every six months.", "Every five years.", "Only after an incident becomes public.", "Never, if the same admin reviews their own logins."], "answerIndex": 0, "rationale": "App C §11: an independent party checks privileged use at least every six months. Tier 3 inherits this.", "modalityTag": "appc"}, {"id": "Q-R2-03", "prompt": "A known vulnerability has a patch. App C’s usual timing is:", "choices": ["As soon as possible, typically within a month. If it slips, tell the DITSO and keep updating them monthly until it is fixed.", "Whenever the next hardware refresh happens.", "Only if a newspaper asks.", "Within one month, with no need to tell anyone if you miss it."], "answerIndex": 0, "rationale": "App C §14 requires a documented risk view and DITSO visibility when mitigation exceeds a month.", "modalityTag": "shall"}, {"id": "Q-R2-04", "prompt": "Tier 2 backup under App C includes:", "choices": ["Local and off-site copies, with the off-site copy kept somewhere secure and remote from the equipment.", "One copy on the same disk array.", "A screenshot of the backup software.", "Backups only after a disaster."], "answerIndex": 0, "rationale": "App C §14 requires local and off-site backup for Tier 2, inherited by Tier 3.", "modalityTag": "appc"}, {"id": "Q-R2-05", "prompt": "End-of-support software on a Tier 2 system needs:", "choices": ["A migration plan at least six months before end of support, and the security measures in place by that date.", "A note that you will look at it someday.", "Nothing, if the vendor still answers email.", "An immediate public disclosure of the version."], "answerIndex": 0, "rationale": "That is the App C §14 end-of-support expectation.", "modalityTag": "appc"}, {"id": "Q-R2-06", "prompt": "Tier 3 monitoring, beyond the Tier 2 operations controls, means:", "choices": ["24×7 security surveillance that can correlate multiple sources, of a SIEM class.", "A daily glance at one antivirus console.", "Monitoring only during office hours.", "Disabling logs to save disk."], "answerIndex": 0, "rationale": "App C §14 Tier 3 row: 24×7 monitoring and SIEM-class correlation. Tier 2 controls still apply as well.", "modalityTag": "appc"}]}</script>
+<noscript><p>This self-check needs JavaScript in the browser. The questions are not sent anywhere.</p></noscript>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+<script src="../assets/js/quiz.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "id": "P-QUIZ-R3",
+  "file": "core2/quiz-role-3.html",
+  "title": "Application developer self-check",
+  "intro": "Security in the life cycle, test data, and App C §16.",
+  "source": "G3 §16, §11, §12, §14; App C §16",
+  "questions": [
+    {
+      "id": "Q-R3-01",
+      "prompt": "Security-by-design means:",
+      "choices": [
+        "Security requirements are in the life cycle from the start, not bolted on at go-live.",
+        "A penetration test the night before launch is enough.",
+        "Developers skip §16 if a framework is popular.",
+        "Production data is the safest test data."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §6 and §16.1: security is introduced through the development process to avoid late rework.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-R3-02",
+      "prompt": "For a Tier 2 build, App C §16 expects the pre-production security risk assessment to:",
+      "choices": [
+        "Check that design-review follow-ups were actually implemented before production.",
+        "Replace source control.",
+        "Be skipped if the sprint is late.",
+        "Be done only by the marketing team."
+      ],
+      "answerIndex": 0,
+      "rationale": "Shift-left plus that verification is an App C §16 Shall for Tier 2, inherited by Tier 3.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-R3-03",
+      "prompt": "Hardening before production is used as:",
+      "choices": [
+        "The baseline for later changes.",
+        "A one-off screenshot nobody keeps.",
+        "A reason to disable logging.",
+        "Optional for Internet-facing systems."
+      ],
+      "answerIndex": 0,
+      "rationale": "App C §16: harden before rollout, then treat that hardened state as the baseline.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-R3-04",
+      "prompt": "Production-like test data should be:",
+      "choices": [
+        "Protected, and anonymised where the rule requires it.",
+        "Copied to a laptop for the weekend.",
+        "Emailed to the whole project alias.",
+        "Left in a public bucket so testers can find it."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §16.3 is about protecting test data that resembles production.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-R3-05",
+      "prompt": "Where segregation is required, development admin and production admin should be:",
+      "choices": [
+        "Different. Do not reuse production privileges for everyday development.",
+        "The same shared account, to save time.",
+        "Stored in the README.",
+        "Granted to every contractor by default."
+      ],
+      "answerIndex": 0,
+      "rationale": "Segregation of duties is a management and build-process expectation. See G3 §7 and §16.2.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-R3-06",
+      "prompt": "Application secrets belong:",
+      "choices": [
+        "In a controlled secret store, not in source code.",
+        "In a comment at the top of the main file.",
+        "In the ticket title.",
+        "In a screenshot in chat."
+      ],
+      "answerIndex": 0,
+      "rationale": "Secrets in source fail both access control and integrity expectations. Treat this as a Shall habit.",
+      "modalityTag": ""
+    }
+  ]
+}

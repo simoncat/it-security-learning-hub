@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access control in daily work · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="Access control in daily work. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-DEC-ACCESS" data-page="P-DEC-ACCESS" data-source-sections="S17 §11 · G3 §11" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">Access control in daily work</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Basics</p><a href="modality.html">Shall, Should, and May</a><a href="policy-stack.html">Which document applies?</a><a href="cia.html">Confidentiality, integrity, and availability</a><a href="tier-appc.html">Tier and when Appendix C applies</a><a href="accountability.html">Who is accountable?</a><a href="org-structure.html">Government and departmental security organisation</a><p class="nav-label">Controls by theme</p><a href="management.html">Management responsibilities and risk</a><a href="hr-security.html">Human resource security and training</a><a href="asset.html">Asset management</a><a href="access-control.html" aria-current="page">Access control in daily work</a><a href="privileged.html">Privileged accounts</a><a href="cryptography.html">When cryptography applies</a><a href="physical.html">Physical and environmental security</a><a href="operations.html">Operations, backup, patch, and monitoring</a><a href="communications.html">Communications security</a><a href="sdlc-security.html">Security in acquisition, development, and maintenance</a><a href="outsourcing.html">Outsourcing and suppliers</a><a href="incident.html">Is this an incident, and who do I tell?</a><a href="bcm.html">Continuity and recovery</a><a href="compliance.html">Compliance, assessment, and testing</a><p class="nav-label">By need</p><a href="by-need.html">I need to…</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>Access control in daily work</h1>
+<p class="lede">Start from least privilege. This page answers whether an access task applies to you, what must already be true, and where G3 and Appendix C take you next.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C if the system is Tier 2 or Tier 3.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-aid-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-aid-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this decision aid</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<div data-aid-root data-checklist>
+<article class="aid" id="DEC-ACCESS-01" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="access" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCESS-01" data-tick="DEC-ACCESS-01" aria-label="Optional tick for Does least privilege apply to this account task?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-ACCESS-01</span></div>
+      <h2>Does least privilege apply to this account task?</h2>
+      <p class="glance">Yes. Give the least access that still lets the job be done. Extra rights are a Shall problem, not a convenience.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Anyone requesting, approving, or using an account.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You can name the person, the system, and the task. A shared unnamed account is already the wrong shape.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Write the task, then the smallest right that covers it. Approve through the local process. Open S17 §11 and G3 §11 before you copy a teammate’s rights.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s11.html">S17 §11</a> <a href="../core4/g3/s11.html">G3 §11</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core2/quiz-role-1.html">Related quiz</a> · <a href="../core3/qa-access.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-ACCESS-02" data-modality="shall" data-flag="0" data-roles="1 2 4" data-sdlc="07 08" data-needs="access training" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCESS-02" data-tick="DEC-ACCESS-02" aria-label="Optional tick for The job changed. Do I remove the old access?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-ACCESS-02</span></div>
+      <h2>The job changed. Do I remove the old access?</h2>
+      <p class="glance">Yes. Remove or reduce access that the new job does not need. Do this when the job changes or ends.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Supervisors and account administrators.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> Elevated end user, System / LAN administrator, and IT security administrator / unit.</span><span><strong>Stages:</strong> 07 Operations, 08 Change.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know the old right and the new job. You have a removal path.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Remove the right, keep the ticket your process expects, and check privileged rights with the privileged-account aid if any were involved.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s11.html">S17 §11</a> <a href="../core4/g3/s11.html">G3 §11</a> <a href="../core4/s17/s09.html">S17 §9</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core3/qa-access.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-ACCESS-03" data-modality="shall" data-flag="0" data-roles="all" data-sdlc="all" data-needs="access device" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCESS-03" data-tick="DEC-ACCESS-03" aria-label="Optional tick for Are my own credentials my responsibility?">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-ACCESS-03</span></div>
+      <h2>Are my own credentials my responsibility?</h2>
+      <p class="glance">Yes. You protect your own authenticator and password. You do not share them, and you do not ask someone else to sign in as you.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Every user, including elevated users.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You have an individual account.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Follow the local credential rules in G3 §11 and your departmental procedure. Report a suspected compromise as an incident, not as a quiet password change only.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s11.html">S17 §11</a> <a href="../core4/g3/s11.html">G3 §11</a> <a href="../core4/s17/s18.html">S17 §18</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core3/qa-access.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+
+<article class="aid" id="DEC-ACCESS-04" data-modality="should" data-flag="0" data-roles="all" data-sdlc="all" data-needs="device access" data-tiers="1 2 3">
+  <div class="item-row">
+    <input type="checkbox" id="tick-DEC-ACCESS-04" data-tick="DEC-ACCESS-04" aria-label="Optional tick for Does remote or mobile access change the rules?">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">DEC-ACCESS-04</span></div>
+      <h2>Does remote or mobile access change the rules?</h2>
+      <p class="glance">No. Least privilege and the classification of the data still apply. The channel has to be one your procedure allows.</p>
+      <dl class="aid-fields">
+        <div><dt>Relevance</dt><dd>Staff working away from the office, and administrators who enable that access.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> All roles. System / LAN administrator and IT security administrator / unit design the channel.</span><span><strong>Stages:</strong> Any stage.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You know whether the information may leave the office network.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Use the approved remote method. Do not invent a tunnel, a personal file share, or an unmanaged device for government information. See the device Q&amp;A.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s11.html">S17 §11</a> <a href="../core4/g3/s11.html">G3 §11</a></dd></div>
+      </dl>
+      <p class="fine"><a href="../core3/qa-device.html">Related enquiry pack</a></p>
+    </div>
+  </div>
+</article>
+</div>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>

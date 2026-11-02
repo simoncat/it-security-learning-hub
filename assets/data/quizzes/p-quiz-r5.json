@@ -1,0 +1,87 @@
+{
+  "id": "P-QUIZ-R5",
+  "file": "core2/quiz-role-5.html",
+  "title": "Management support self-check",
+  "intro": "Oversight questions. You are not being trained as the packet analyst.",
+  "source": "G3 §5.2, §7, §18, §20; App C §5 and §7",
+  "questions": [
+    {
+      "id": "Q-R5-01",
+      "prompt": "The DITSO’s accountability is described in:",
+      "choices": [
+        "G3 §5.2.1 (and the matching S17 section).",
+        "The printer manual.",
+        "Appendix A sample end-user text only.",
+        "A project codename."
+      ],
+      "answerIndex": 0,
+      "rationale": "Start oversight reading at the DITSO role, then the steering committee in §5.2.2.",
+      "modalityTag": "shall"
+    },
+    {
+      "id": "Q-R5-02",
+      "prompt": "A B/D that runs Tier 3 systems shall have:",
+      "choices": [
+        "An information security steering committee with senior management and the DITSO, meeting regularly, with outcomes recorded.",
+        "A committee only if the budget is leftover.",
+        "No documented roles.",
+        "A chat channel instead of any record."
+      ],
+      "answerIndex": 0,
+      "rationale": "That is the App C §5 Tier 3 organisation control. Tier 2 does not add this particular row, but other Tier 2 App C controls still apply if you also have Tier 2 systems.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-R5-03",
+      "prompt": "Tier 3 risk registers should at least record:",
+      "choices": [
+        "The risk, likelihood, severity, mitigation, and the monitoring required.",
+        "Only the system’s nickname.",
+        "A single colour with no owner.",
+        "Vendor slogans."
+      ],
+      "answerIndex": 0,
+      "rationale": "App C §7 requires the risk-management framework and risk registers for Tier 3 systems.",
+      "modalityTag": "appc"
+    },
+    {
+      "id": "Q-R5-04",
+      "prompt": "Who finalises a Tier 2 or Tier 3 classification?",
+      "choices": [
+        "The Information Owner or DITSO unit confirms it. You do not self-finalise it.",
+        "Any developer on the day of go-live.",
+        "The hub’s checkbox.",
+        "A quiz score."
+      ],
+      "answerIndex": 0,
+      "rationale": "G3 §7 requires classification across the life cycle, aligned to the business. This hub only helps you prepare the question.",
+      "modalityTag": ""
+    },
+    {
+      "id": "Q-R5-05",
+      "prompt": "A good management question on §11 and §14 is:",
+      "choices": [
+        "Ask the unit for a red/amber/green view of privileged reviews, patch delays, and open assurance items.",
+        "Ask for a packet capture in the steering paper.",
+        "Ask everyone to share their password to prove access works.",
+        "Skip App C because it is an appendix."
+      ],
+      "answerIndex": 0,
+      "rationale": "Management support is oversight. Evidence can be a status view. The unit keeps the technical artefacts.",
+      "modalityTag": "should"
+    },
+    {
+      "id": "Q-R5-06",
+      "prompt": "Appendix D is relevant when:",
+      "choices": [
+        "The system is Tier 2 or Tier 3 and a submission is part of assurance.",
+        "You want a shorter password.",
+        "The system is a personal phone with no government data.",
+        "You are writing a lunch menu."
+      ],
+      "answerIndex": 0,
+      "rationale": "Know that Appendix D submissions exist for Tier 2/3 and who in your B/D files them. Do not invent a filing from this hub.",
+      "modalityTag": ""
+    }
+  ]
+}

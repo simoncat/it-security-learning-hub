@@ -1,0 +1,77 @@
+{
+  "id": "P-QA-VENDOR",
+  "file": "core3/qa-vendor.html",
+  "title": "Vendors, outsourcing, and cloud",
+  "audience": "Current staff",
+  "source": "S17 §17 · G3 §17",
+  "items": [
+    {
+      "id": "QA-VENDOR-01",
+      "question": "The supplier says they are certified, so do we still have to write security into the contract?",
+      "answer": "Yes. Certification does not move the B/D’s Shall items onto the supplier. The contract still has to say what they do, what you still do, and how incidents are reported.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §17",
+        "G3 §17"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s17.html",
+          "S17 §17"
+        ],
+        [
+          "core4/g3/s17.html",
+          "G3 §17"
+        ]
+      ],
+      "related_dec": "core1/outsourcing.html#DEC-OUTSRC-01"
+    },
+    {
+      "id": "QA-VENDOR-02",
+      "question": "May the vendor keep a copy of our data after the contract ends, for their own analytics?",
+      "answer": "Not unless the agreement and the information owner allow that specific use. End of contract is when return or destruction is confirmed, not assumed.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §17",
+        "G3 §17",
+        "S17 §10"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s17.html",
+          "S17 §17"
+        ],
+        [
+          "core4/g3/s17.html",
+          "G3 §17"
+        ]
+      ],
+      "related_dec": "core1/outsourcing.html#DEC-OUTSRC-02"
+    },
+    {
+      "id": "QA-VENDOR-03",
+      "question": "Should a cloud design still name our administrator and our logs?",
+      "answer": "Yes. Shared responsibility still leaves the B/D with access control, oversight, and incident reporting. Write the split before go-live.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "should",
+      "policy_cite": [
+        "S17 §17",
+        "G3 §17",
+        "S17 §11"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s17.html",
+          "S17 §17"
+        ],
+        [
+          "core4/g3/s11.html",
+          "G3 §11"
+        ]
+      ],
+      "related_dec": "core1/outsourcing.html#DEC-OUTSRC-01"
+    }
+  ]
+}

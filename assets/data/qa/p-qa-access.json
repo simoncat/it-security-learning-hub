@@ -1,0 +1,76 @@
+{
+  "id": "P-QA-ACCESS",
+  "file": "core3/qa-access.html",
+  "title": "Access, passwords, and privileged use",
+  "audience": "Current staff",
+  "source": "S17 §11 · G3 §11 · G3 Appendix C",
+  "items": [
+    {
+      "id": "QA-ACCESS-01",
+      "question": "Can I keep a colleague’s access until the project ends, even though they moved team?",
+      "answer": "No. Access that no longer matches the job is removed or reduced when the job changes. Extend it only through a new request that names the task.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §11",
+        "G3 §11",
+        "S17 §9"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s11.html",
+          "S17 §11"
+        ],
+        [
+          "core4/g3/s11.html",
+          "G3 §11"
+        ]
+      ],
+      "related_dec": "core1/access-control.html#DEC-ACCESS-02"
+    },
+    {
+      "id": "QA-ACCESS-02",
+      "question": "The whole team uses one administrator password stored in our chat. Is that acceptable if we trust each other?",
+      "answer": "No. Privileged access has to identify the person. Replace the shared password with named privileged accounts and stop posting secrets in chat.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §11",
+        "G3 §11"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s11.html",
+          "S17 §11"
+        ],
+        [
+          "core4/g3/s11.html",
+          "G3 §11"
+        ]
+      ],
+      "related_dec": "core1/privileged.html#DEC-PRIV-04"
+    },
+    {
+      "id": "QA-ACCESS-03",
+      "question": "Our Tier 2 system has no MFA on the interactive admin logon because it would slow us down. Can we skip it?",
+      "answer": "Appendix C expects MFA for interactive privileged logon on Tier 2 and Tier 3 where it is feasible. Inconvenience is not the same as infeasible. If it truly cannot be done, record the reason and the owner, and confirm the row in G3 Appendix C.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "G3 Appendix C",
+        "G3 §11"
+      ],
+      "core4_links": [
+        [
+          "core4/g3/appendix-c.html",
+          "G3 Appendix C"
+        ],
+        [
+          "core4/g3/s11.html",
+          "G3 §11"
+        ]
+      ],
+      "related_dec": "core1/privileged.html#DEC-PRIV-02"
+    }
+  ]
+}

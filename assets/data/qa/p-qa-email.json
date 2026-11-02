@@ -1,0 +1,81 @@
+{
+  "id": "P-QA-EMAIL",
+  "file": "core3/qa-email-data.html",
+  "title": "Email, data handling, and classification",
+  "audience": "Both",
+  "source": "S17 §10 · S17 §15 · G3 §15",
+  "items": [
+    {
+      "id": "QA-EMAIL-01",
+      "question": "May I send an extract of internal records to my personal mailbox so I can work at home?",
+      "answer": "No. Use the channel your procedure allows for that classification. A personal mailbox is not an approved store for government information.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §15",
+        "G3 §15",
+        "S17 §10"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s15.html",
+          "S17 §15"
+        ],
+        [
+          "core4/g3/s15.html",
+          "G3 §15"
+        ],
+        [
+          "core4/s17/s10.html",
+          "S17 §10"
+        ]
+      ],
+      "related_dec": "core1/communications.html#DEC-COMM-01"
+    },
+    {
+      "id": "QA-EMAIL-02",
+      "question": "The spreadsheet is not marked. Can I treat it as unclassified and forward it?",
+      "answer": "No. Find the classification before you send it. An unmarked file is a reason to stop, not a reason to assume it is public.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "shall",
+      "policy_cite": [
+        "S17 §10",
+        "G3 §10"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s10.html",
+          "S17 §10"
+        ],
+        [
+          "core4/g3/s10.html",
+          "G3 §10"
+        ]
+      ],
+      "related_dec": "core1/asset.html#DEC-ASSET-02"
+    },
+    {
+      "id": "QA-EMAIL-03",
+      "question": "Should I encrypt a message that leaves the government mail system?",
+      "answer": "When the classification or the channel requires protection, yes. Use the method your B/D standard names. This hub does not pick an algorithm for you.",
+      "source_note": "Derived from departmental enquiry records (anonymised). Placeholder until the IT Security Unit supplies the real record.",
+      "modality": "should",
+      "policy_cite": [
+        "S17 §12",
+        "G3 §12",
+        "S17 §15"
+      ],
+      "core4_links": [
+        [
+          "core4/s17/s12.html",
+          "S17 §12"
+        ],
+        [
+          "core4/g3/s12.html",
+          "G3 §12"
+        ]
+      ],
+      "related_dec": "core1/cryptography.html#DEC-CRYPTO-01"
+    }
+  ]
+}

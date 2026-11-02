@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT security administrator / unit · HKSARG IT Security Learning Hub</title>
+  <meta name="description" content="IT security administrator / unit. Static learning aid for S17 v8.2 and G3 v10.2.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
+</head>
+<body data-page-id="P-PATH-R4" data-page="P-PATH-R4" data-source-sections="G3 §5 theme" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">GS</span>
+        <span>
+          <strong>HKSARG IT Security Learning Hub</strong>
+          <small>S17 + G3</small>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
+  <nav class="topnav" aria-label="Primary">
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="../core1/index.html">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+  </nav>
+  <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="../start/current-staff.html">Current staff</a></li><li aria-current="page">IT security administrator / unit</li></ol></nav>
+  <div class="shell">
+    <details class="sidenav" open>
+      <summary>On this hub</summary>
+      <nav aria-label="Section"><p class="nav-label">Audiences</p><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="foundation.html">Fundamentals path</a><p class="nav-label">Roles</p><a href="role-1.html">Elevated end user</a><a href="role-2.html">System / LAN administrator</a><a href="role-3.html">Application developer</a><a href="role-4.html" aria-current="page">IT security administrator / unit</a><a href="role-5.html">Management support</a><p class="nav-label">SDLC stages</p><a href="sdlc-01-initiation.html">01 Project initiation</a><a href="sdlc-02-design.html">02 Design</a><a href="sdlc-03-procurement.html">03 Procurement</a><a href="sdlc-04-build.html">04 Build/Implementation</a><a href="sdlc-05-test.html">05 Testing</a><a href="sdlc-06-go-live.html">06 Go-live</a><a href="sdlc-07-operate.html">07 Operations</a><a href="sdlc-08-change.html">08 Change</a><a href="sdlc-09-retire.html">09 Decommissioning</a><p class="nav-label">Close gaps</p><a href="apply.html">Apply and close gaps</a></nav>
+    </details>
+    <main id="main">
+      
+<h1>IT security administrator / unit</h1>
+<p class="lede">Anchor: G3 §5 theme. New joiners use this as the bridge out of fundamentals. Current staff use it to see the Shall items for this job. It is not a calendar.</p>
+
+<p data-context-banner class="context-banner">Shall first. Appendix C rows apply only when the system is Tier 2 or Tier 3, and Tier 3 inherits Tier 2.</p>
+
+<div class="callout callout-read">
+  <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C if the system is Tier 2 or Tier 3.</p>
+</div>
+
+
+<details class="legend-bar" open>
+  <summary>Legend</summary>
+  <div class="legend-row">
+    <span><span class="badge badge-shall">Shall</span> mandatory — must do</span>
+    <span><span class="badge badge-should">Should</span> best practice — implement whenever possible</span>
+    <span><span class="badge badge-may">May</span> desirable best practice</span>
+    <span><span class="badge badge-appc">App C</span> extra controls for Tier 2 or Tier 3. Tier 3 includes every Tier 2 control.</span>
+    <span class="plain">Checkbox = optional self-progress tick. Stored only in this browser.</span>
+  </div>
+</details>
+
+
+<div class="toolbar no-print">
+  <button type="button" class="btn btn-ghost" data-filter="all" aria-pressed="true">All items</button>
+  <button type="button" class="btn btn-ghost" data-filter="flag" aria-pressed="false">Show only App C items</button>
+  <button type="button" class="btn btn-ghost" data-filter="shall" aria-pressed="false">Shall only</button>
+  <button type="button" class="btn btn-ghost" data-action="expand" data-open="true">Expand sections</button>
+  <button type="button" class="btn btn-ghost" data-action="expand" data-open="false">Collapse sections</button>
+  <button type="button" class="btn btn-primary" data-action="print">Print this role path</button>
+  <button type="button" class="btn btn-ghost" data-action="clear-ticks">Clear ticks in this browser</button>
+</div>
+<p class="storage-note">Optional self-progress. Stored only in this browser.</p>
+<p data-progress-readout></p>
+
+<div class="quick"><strong>Quick win.</strong> A living dashboard: privileged-review dates, patch-SLA breaches, open SRA items, and App C evidence links.</div>
+<div data-checklist>
+<details class="day" open data-pace="both" id="mandate-and-segregation">
+  <summary>
+    <span class="day-kicker">Mandate and segregation</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    <p class="order-line">Order: G3 §5.3.1 and §5.2.5</p>
+    <ul class="items">
+<li class="item" id="R4-D89-01" data-id="R4-D89-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D89-01" data-tick="R4-D89-01" aria-describedby="note-R4-D89-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D89-01</span></div>
+      <label for="tick-R4-D89-01">Read the mandate in G3 §5.3.1 and the security-unit role in §5.2.5.</label>
+      <p class="item-note" id="note-R4-D89-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D89-02" data-id="R4-D89-02" data-modality="should" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D89-02" data-tick="R4-D89-02" aria-describedby="note-R4-D89-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-should">Should</span><span class="id-code">R4-D89-02</span></div>
+      <label for="tick-R4-D89-02">The security administrator should not be the same person as the system administrator.</label>
+      <p class="item-note" id="note-R4-D89-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s07.html">G3 §7</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D89-03" data-id="R4-D89-03" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D89-03" data-tick="R4-D89-03" aria-describedby="note-R4-D89-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D89-03</span></div>
+      <label for="tick-R4-D89-03">Protect audit-log integrity. Reviewers should not be able to quietly rewrite the record.</label>
+      <p class="item-note" id="note-R4-D89-03">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s14.html">G3 §14</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="access-control-operations">
+  <summary>
+    <span class="day-kicker">Access-control operations</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    <p class="order-line">Order: S17 §11 → G3 §11 → App C §11 if Tier 2/3</p>
+    <ul class="items">
+<li class="item" id="R4-D1012-01" data-id="R4-D1012-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1012-01" data-tick="R4-D1012-01" aria-describedby="note-R4-D1012-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1012-01</span></div>
+      <label for="tick-R4-D1012-01">S17/G3 §11 end to end, from join to review to removal.</label>
+      <p class="item-note" id="note-R4-D1012-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-s17" href="../core4/s17/s11.html">S17 §11</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s11.html">G3 §11</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D1012-02" data-id="R4-D1012-02" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1012-02" data-tick="R4-D1012-02" aria-describedby="note-R4-D1012-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1012-02</span></div>
+      <label for="tick-R4-D1012-02">Privilege reviews and joiner-mover-leaver.</label>
+      <p class="item-note" id="note-R4-D1012-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s11.html">G3 §11</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s09.html">G3 §9</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D1012-03" data-id="R4-D1012-03" data-modality="shall" data-flag="1" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1012-03" data-tick="R4-D1012-03" aria-describedby="note-R4-D1012-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span> <span class="badge badge-appc">App C</span><span class="id-code">R4-D1012-03</span></div>
+      <label for="tick-R4-D1012-03">App C §11: independent privileged-account audits for Tier 2 and Tier 3.</label>
+      <p class="item-note" id="note-R4-D1012-03">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-11">App C §11</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="operations-oversight">
+  <summary>
+    <span class="day-kicker">Operations oversight</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    <p class="order-line">Order: S17 §14 → G3 §14.2, 14.4, 14.6, 14.7 → App C §14 for Tier 3</p>
+    <ul class="items">
+<li class="item" id="R4-D1315-01" data-id="R4-D1315-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1315-01" data-tick="R4-D1315-01" aria-describedby="note-R4-D1315-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1315-01</span></div>
+      <label for="tick-R4-D1315-01">S17/G3 §14.2, 14.4, 14.6, and 14.7: malware, logging, vulnerabilities, and threats.</label>
+      <p class="item-note" id="note-R4-D1315-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s14.html">G3 §14</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D1315-02" data-id="R4-D1315-02" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1315-02" data-tick="R4-D1315-02" aria-describedby="note-R4-D1315-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1315-02</span></div>
+      <label for="tick-R4-D1315-02">Patch governance: what “typically within a month” means, and when DITSO must see a delay.</label>
+      <p class="item-note" id="note-R4-D1315-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s14.html">G3 §14</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-14">App C §14</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D1315-03" data-id="R4-D1315-03" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1315-03" data-tick="R4-D1315-03" aria-describedby="note-R4-D1315-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1315-03</span></div>
+      <label for="tick-R4-D1315-03">Threat intelligence through GIRO and GovCERT.HK.</label>
+      <p class="item-note" id="note-R4-D1315-03">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s05.html">G3 §5</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s14.html">G3 §14</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D1315-04" data-id="R4-D1315-04" data-modality="shall" data-flag="1" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1315-04" data-tick="R4-D1315-04" aria-describedby="note-R4-D1315-04">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span> <span class="badge badge-appc">App C</span><span class="id-code">R4-D1315-04</span></div>
+      <label for="tick-R4-D1315-04">Tier 3 monitoring under App C §14: 24×7, multi-source, SIEM-class.</label>
+      <p class="item-note" id="note-R4-D1315-04">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-14">App C §14</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="network-and-cryptography-assurance">
+  <summary>
+    <span class="day-kicker">Network and cryptography assurance</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    <p class="order-line">Order: S17 §15 → G3 §15, and S17 §12 → G3 §12</p>
+    <ul class="items">
+<li class="item" id="R4-D1617-01" data-id="R4-D1617-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1617-01" data-tick="R4-D1617-01" aria-describedby="note-R4-D1617-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1617-01</span></div>
+      <label for="tick-R4-D1617-01">Review §15 and §12 with LAN administrators. Keep the segregation of duties intact.</label>
+      <p class="item-note" id="note-R4-D1617-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s15.html">G3 §15</a><span class="chip-arrow" aria-hidden="true">→</span><a class="chip chip-g3" href="../core4/g3/s12.html">G3 §12</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="incident-and-continuity-support">
+  <summary>
+    <span class="day-kicker">Incident and continuity support</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    <p class="order-line">Order: S17 §18 → G3 §18, and S17 §19 → G3 §19</p>
+    <ul class="items">
+<li class="item" id="R4-D1819-01" data-id="R4-D1819-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1819-01" data-tick="R4-D1819-01" aria-describedby="note-R4-D1819-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1819-01</span></div>
+      <label for="tick-R4-D1819-01">§18 with the ISIRT: your part of detection, escalation, and the record.</label>
+      <p class="item-note" id="note-R4-D1819-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s18.html">G3 §18</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D1819-02" data-id="R4-D1819-02" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D1819-02" data-tick="R4-D1819-02" aria-describedby="note-R4-D1819-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D1819-02</span></div>
+      <label for="tick-R4-D1819-02">§19: the security inputs a continuity plan needs.</label>
+      <p class="item-note" id="note-R4-D1819-02">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s19.html">G3 §19</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+
+
+<details class="day" open data-pace="both" id="compliance-engine">
+  <summary>
+    <span class="day-kicker">Compliance engine</span>
+    <span class="day-title"></span>
+    
+  </summary>
+  <div class="day-body">
+    <p class="order-line">Order: S17 §20 → G3 §20 → App C §5 and §20, and App D when Tier 2/3</p>
+    <ul class="items">
+<li class="item" id="R4-D2021-01" data-id="R4-D2021-01" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D2021-01" data-tick="R4-D2021-01" aria-describedby="note-R4-D2021-01">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D2021-01</span></div>
+      <label for="tick-R4-D2021-01">§20: security risk assessment, audit, and technical compliance.</label>
+      <p class="item-note" id="note-R4-D2021-01">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s20.html">G3 §20</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D2021-02" data-id="R4-D2021-02" data-modality="shall" data-flag="0" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D2021-02" data-tick="R4-D2021-02" aria-describedby="note-R4-D2021-02">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">R4-D2021-02</span></div>
+      <label for="tick-R4-D2021-02">G3 Appendix D when the system is Tier 2 or Tier 3. Learn what is submitted; do not invent a filing.</label>
+      <p class="item-note" id="note-R4-D2021-02">Applies when the tier is 2 or 3.</p>
+      <p class="refs"><a class="chip chip-g3" href="../core4/g3/s20.html">G3 §20</a></p>
+    </div>
+  </div>
+</li>
+
+
+<li class="item" id="R4-D2021-03" data-id="R4-D2021-03" data-modality="shall" data-flag="1" data-pace="both">
+  <div class="item-row">
+    <input type="checkbox" id="tick-R4-D2021-03" data-tick="R4-D2021-03" aria-describedby="note-R4-D2021-03">
+    <div>
+      <div class="item-meta"><span class="badge badge-shall">Shall</span> <span class="badge badge-appc">App C</span><span class="id-code">R4-D2021-03</span></div>
+      <label for="tick-R4-D2021-03">App C §5: a Tier 3 security unit has at least one member with a recognised certification.</label>
+      <p class="item-note" id="note-R4-D2021-03">New joiners and current staff</p>
+      <p class="refs"><a class="chip chip-appc" href="../core4/g3/appendix-c.html#area-5">App C §5</a></p>
+    </div>
+  </div>
+</li>
+</ul>
+  </div>
+</details>
+</div>
+<p>Suggested walkthrough: A privileged-account review sample, or an alert-to-triage-to-escalate drill. <a href="../walkthroughs/role-4.html">Open the step cards</a>.</p>
+<p><a href="../core2/quiz-role-4.html">Self-check</a> · <a href="apply.html">Apply and close gaps</a> · <a href="../app-c-matrix.html">App C matrix</a> · <a href="../walkthroughs/role-4.html">Walkthrough</a></p>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>
+      <nav aria-label="Footer">
+        <a href="../about.html">About and versions</a>
+        <a href="../governance.html">Content governance</a>
+        <a href="../start/new-joiners.html">New joiners</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../assets/js/hub.js?v=5"></script>
+</body>
+</html>
