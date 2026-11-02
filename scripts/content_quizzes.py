@@ -70,7 +70,7 @@ QUIZZES = [
                 "The canteen contractor.",
                 "Whoever last changed the wallpaper.",
                 "GovCERT.HK acting as your line manager.",
-            ], 0, "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager on the who-to-call card."),
+            ], 0, "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager as named in the reporting procedure."),
             Q("Q-FND-10", "Appendix C applies when:", [
                 "The system is Tier 2 or Tier 3. Tier 3 also takes every Tier 2 App C control.",
                 "The system is any Tier 1 file share.",
@@ -82,7 +82,7 @@ QUIZZES = [
     {
         "id": "P-QUIZ-FRAME",
         "file": "core2/quiz-framework.html",
-        "title": "Framework and accountability",
+        "title": "Organisation Structure and Accountability",
         "intro": "Organisation, accountability, and management responsibilities.",
         "source": "S17 §5 · S17 §7 · G3 §5 · G3 §7 · G3 §8",
         "questions": [
@@ -448,7 +448,7 @@ QUIZZES = [
     {
         "id": "P-QUIZ-IR",
         "file": "core2/quiz-incident.html",
-        "title": "Incident reporting",
+        "title": "Incident Handling",
         "intro": "Clear the common misconceptions about when to report and who to tell.",
         "source": "S17 §18 · G3 §18",
         "questions": [
@@ -459,7 +459,7 @@ QUIZZES = [
                 "Never, if a reboot might hide it.",
             ], 0, "S17 §18 and G3 §18 expect prompt reporting. Certainty is not the threshold.", "shall"),
             Q("Q-IR-02", "Who do you tell first?", [
-                "Your departmental route: line manager and the incident contact on the who-to-call card.",
+                "Your departmental route: line manager and the incident contact named in the reporting procedure.",
                 "A wide team chat, with the suspicious attachment.",
                 "A personal social-media account.",
                 "No one, until the Director emails you.",

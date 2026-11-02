@@ -6,12 +6,12 @@
       {
         "id": "DEC-MOD-01",
         "title": "Does this line say Shall?",
-        "one_glance_answer": "Shall is mandatory. You must do it. Put Shall items first in every checklist and do not trade them for a Should.",
+        "one_glance_answer": "Shall indicates a mandatory requirement.",
         "relevance": "Anyone deciding whether a control can wait.",
-        "applicability_text": "All roles, any life-cycle stage, every tier.",
-        "prerequisites": "You are looking at an S17 or G3 line, or at a learning-aid bullet that cites one.",
+        "applicability_text": "All roles, any system lifecycle, every tier.",
+        "prerequisites": "You are looking at sections or clauses in S17/G3.",
         "modality": "shall",
-        "implementation_guidance": "Mark the line Shall, do it, and keep evidence your B/D already uses. Then open the same-numbered G3 section for how.",
+        "implementation_guidance": "Mark the line Shall, do it, and keep records to evidence compliance with security measures. Refer to same-numbered G3 section for implementation.",
         "policy_cite": [
           "S17 §4",
           "G3 §4"
@@ -43,17 +43,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-MOD-02",
         "title": "What do I do with Should?",
-        "one_glance_answer": "Should is best practice. Implement it whenever possible. If you defer it, write why and when you will look again.",
+        "one_glance_answer": "Should indicates best practice, which should be implemented whenever possible. If you defer it, document the reason for reviewing in future.",
         "relevance": "Staff choosing what to schedule after the mandatory items.",
         "applicability_text": "All roles and tiers.",
         "prerequisites": "The Shall items for the same theme are already identified.",
         "modality": "should",
-        "implementation_guidance": "Schedule the Should with the control owner. A deferral needs a reason, not silence.",
+        "implementation_guidance": "Implement the control whenever possible. A deferral needs a reason.",
         "policy_cite": [
           "S17 §4",
           "G3 §4"
@@ -85,17 +86,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-MOD-03",
-        "title": "Can I treat May as optional decoration?",
-        "one_glance_answer": "May is a desirable best practice. Use it when it helps. It is not permission to skip a Shall.",
+        "title": "Can I treat May as optional requirement?",
+        "one_glance_answer": "May is a desirable best practice. Use it when it helps.",
         "relevance": "Anyone tempted to read May as a waiver.",
         "applicability_text": "All roles and tiers.",
-        "prerequisites": "You already know which lines are Shall.",
+        "prerequisites": "You have already read through those shall and should clauses.",
         "modality": "may",
-        "implementation_guidance": "Apply May where it reduces risk for your system. Do not record a May as if it satisfied a Shall.",
+        "implementation_guidance": "Apply May where it reduces risk for your system.",
         "policy_cite": [
           "S17 §4",
           "G3 §4"
@@ -127,49 +129,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
-      },
-      {
-        "id": "DEC-MOD-04",
-        "title": "Do I have to read every word before I act?",
-        "one_glance_answer": "No. Skim the theme, then deep-read Shall lines, rows for your role, and Appendix C only when the system is Tier 2 or Tier 3.",
-        "relevance": "New joiners and busy current staff.",
-        "applicability_text": "All roles. Reading order is S17, then the same-theme G3 section, then App C if the tier requires it.",
-        "prerequisites": "You know the theme (access, operations, incident, and so on).",
-        "modality": "should",
-        "implementation_guidance": "Open the decision aid, follow Shall first, then use the source pages for the section you still need to see in the original wording.",
-        "policy_cite": [
-          "S17 §4",
-          "G3 §4"
-        ],
-        "core4_links": [
-          [
-            "core4/s17/s04.html",
-            "S17 §4"
-          ],
-          [
-            "core4/g3/s04.html",
-            "G3 §4"
-          ]
-        ],
-        "roles": [
-          "all"
-        ],
-        "sdlc": [
-          "all"
-        ],
-        "tiers": [
-          "1",
-          "2",
-          "3"
-        ],
-        "needs": [
-          "modality"
-        ],
-        "systems": "Information systems and data assets in scope of S17",
-        "app_c_flag": false,
-        "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -179,11 +140,11 @@
     "cards": [
       {
         "id": "DEC-STACK-01",
-        "title": "Which document do I open first?",
+        "title": "What is the relationship of S17 and G3?",
         "one_glance_answer": "Open S17 for the mandatory minimum (the what). Then open the same-numbered G3 section for the implementation standard (the how).",
-        "relevance": "Anyone starting a theme or arguing from the wrong document.",
+        "relevance": "For staff starting a theme who need to know how S17 and G3 relate.",
         "applicability_text": "All roles and stages.",
-        "prerequisites": "You know the theme well enough to pick a section, even if you have not read it yet.",
+        "prerequisites": "You have a basic idea of S17/G3 and you are asked to familiarise yourself with them.",
         "modality": "shall",
         "implementation_guidance": "Use the policy stack on this page, then the source contents. Practice guides and local procedures come after G3, not instead of it.",
         "policy_cite": [
@@ -227,17 +188,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-STACK-02",
         "title": "Can our departmental procedure be looser than S17?",
-        "one_glance_answer": "No. Departmental policies and procedures are applied after S17 and G3. They may be stricter. They shall not undercut a Shall.",
-        "relevance": "Staff comparing a local habit with the baseline.",
-        "applicability_text": "All roles. Local policy owners as well as persons who follow the procedure.",
+        "one_glance_answer": "No. Departmental policies and procedures are applied after S17 and G3.",
+        "relevance": "When staff are considering updating the Departmental IT Security Policy.",
+        "applicability_text": "All roles. Owner of the Departmental IT Security Policy as well as persons who follow the policies.",
         "prerequisites": "You have the local procedure and the S17 section it is meant to implement.",
         "modality": "shall",
-        "implementation_guidance": "Where the local text is silent or weaker, follow S17 and G3 and tell the policy owner. Record the gap on the gap template if it is a live system.",
+        "implementation_guidance": "Departmental IT Security Policy shall be formulated based on all the security requirements and implementation guidance specified in the Security Regulations and the Government IT Security Policy and Guidelines. B/Ds shall conduct a review of their Departmental IT Security Policies, standards, guidelines periodically.",
         "policy_cite": [
           "S17 §2",
           "G3 §2",
@@ -279,17 +241,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-STACK-03",
-        "title": "Where do practice guides sit?",
-        "one_glance_answer": "Practice guides add implementation detail for topical issues. They support G3. They do not replace S17.",
-        "relevance": "Staff who were handed a practice guide and nothing else.",
+        "title": "When should I refer to practice guides?",
+        "one_glance_answer": "Practice guides give technical guidance on specific topic that supplements G3. You may access them via {link}.",
+        "relevance": "For staff who need deeper technical guidance on a particular control area beyond S17/G3 to address and mitigate risk brought by emerging technologies and security threats.",
         "applicability_text": "All roles, especially project and operations staff.",
         "prerequisites": "You know which S17/G3 section the guide supports.",
         "modality": "should",
-        "implementation_guidance": "Read the matching S17 and G3 sections, then the practice guide your unit points to. This hub does not copy the guides.",
+        "implementation_guidance": "Read the matching S17 and G3 sections, then refer to the practice guide your section points to.",
         "policy_cite": [
           "S17 §2",
           "G3 §2"
@@ -321,7 +284,11 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": [
+          "IT Security Theme Page",
+          "https://itginfo.ccgo.hksarg/content/itsecure/techcorner/practices.shtml"
+        ]
       }
     ]
   },
@@ -331,13 +298,13 @@
     "cards": [
       {
         "id": "DEC-CIA-01",
-        "title": "Who is allowed to learn this information?",
-        "one_glance_answer": "Confidentiality fails when someone, or some system, learns information they are not allowed to learn. Limit who can read it, and notice when they do.",
-        "relevance": "Anyone handling records, mail, exports, or screens.",
+        "title": "Who is allowed to read this information?",
+        "one_glance_answer": "If a file of staff personal data is posted to a team channel that includes persons who must not see it, confidentiality has failed. Limit who can read the information, and notice when they do.",
+        "relevance": "Anyone handling records, mail, files, or screens.",
         "applicability_text": "All roles. Strongest when the information is classified or is personal data.",
-        "prerequisites": "You can name the information and where it sits.",
+        "prerequisites": "You have defined the stakeholders of the system.",
         "modality": "shall",
-        "implementation_guidance": "Name the allowed readers. Check access, labels, and the channel you use to send it. Open S17 §6, then G3 §6, if you need the principle in the original wording.",
+        "implementation_guidance": "For an information system, only authorised users shall be allowed to know or gain access to the information stored or processed by the information system. Data access rights shall be granted to users based on a need-to-know basis. Ensure the least privilege principle is enforced when assigning resources and privileges of information systems to users.",
         "policy_cite": [
           "S17 §6",
           "G3 §6"
@@ -371,17 +338,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": "core3/qa-email-data.html"
+        "related_qa": "core3/qa-email-data.html",
+        "glance_link": null
       },
       {
         "id": "DEC-CIA-02",
-        "title": "Who is allowed to change the record or the system setting, and would we notice a bad change?",
-        "one_glance_answer": "Integrity fails when an unauthorised change sticks, or when an authorised change cannot be detected. Controls include access, logging, and checks that the record is the one you think it is.",
-        "relevance": "Developers, administrators, and anyone who approves a change.",
+        "title": "Who is allowed to change the record or the system setting, and would we notice the change?",
+        "one_glance_answer": "Integrity fails when an unauthorised change to data, system configuration or software code occurs, or when an authorised change cannot be detected. Controls include access, logging, cryptography, and verification on records.",
+        "relevance": "Developers, administrators, and anyone who has the authority to approve the changes.",
         "applicability_text": "All roles. Design, build, test, operations, and change stages.",
-        "prerequisites": "You can point at the record or the system setting that must stay trustworthy.",
+        "prerequisites": "You have defined which kinds of records or system settings must stay trustworthy.",
         "modality": "shall",
-        "implementation_guidance": "Say who may change it, how the change is approved, and which log would show a bad change. Cite S17 §6 and the control section you then use, often §11, §14, or §16.",
+        "implementation_guidance": "For an information system, only authorised users shall be allowed to make changes, or delete the information stored or processed by the information system.",
         "policy_cite": [
           "S17 §6",
           "G3 §6"
@@ -419,17 +387,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-CIA-03",
         "title": "What happens if the service is down?",
-        "one_glance_answer": "Availability, in this hub, means service availability. Authorised users can use the service when they need it. Backup, capacity, and continuity exist for that outcome.",
+        "one_glance_answer": "Availability, means service availability. Authorised users can use the service when they need it. Backup, capacity, and continuity exist for that outcome.",
         "relevance": "Service owners, operators, and management support.",
         "applicability_text": "All tiers. Tier 2 and Tier 3 expect more, including Appendix C where it adds continuity and operations controls.",
-        "prerequisites": "You know which service, and roughly how long an outage can be tolerated. If you do not, that is the first gap.",
+        "prerequisites": "You know which service, and roughly how long an outage can be tolerated.",
         "modality": "shall",
-        "implementation_guidance": "Write the service, the tolerance, and where backup or continuity is described. Then open operations (§14) or continuity (§19) rather than staying at the principle.",
+        "implementation_guidance": "Document the service, the tolerance, and where backup, continuity or contingency is described.",
         "policy_cite": [
           "S17 §6",
           "G3 §6",
@@ -475,7 +444,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-foundation.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -535,7 +505,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": "core3/qa-tier.html"
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
       },
       {
         "id": "DEC-TIER-02",
@@ -577,7 +548,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": "core3/qa-tier.html"
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
       },
       {
         "id": "DEC-TIER-03",
@@ -623,7 +595,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": "core3/qa-tier.html"
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
       },
       {
         "id": "DEC-TIER-04",
@@ -658,7 +631,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -670,11 +644,11 @@
         "id": "DEC-ACCOUNT-01",
         "title": "Who leads IT security accountability in my department?",
         "one_glance_answer": "The Head of the B/D appoints a Departmental IT Security Officer. The DITSO steers IT security. Day-to-day work also sits with the IT security management unit, information owners, and administrators.",
-        "relevance": "New joiners building the who-to-call card, and anyone unsure who accepts a risk.",
+        "relevance": "New joiners learning the reporting procedure, and anyone unsure who accepts a risk.",
         "applicability_text": "All roles.",
         "prerequisites": "You are inside a B/D, or you support one. Names come from your unit, not from this hub.",
         "modality": "shall",
-        "implementation_guidance": "Fill the who-to-call card with the DITSO, the security unit, the ISIRT contact, and your line manager. Leave a blank if you do not know. Do not invent a name.",
+        "implementation_guidance": "Find the DITSO, the security unit, the ISIRT contact, and your line manager in the departmental reporting procedure. Leave a blank if you do not know. Do not invent a name.",
         "policy_cite": [
           "S17 §5",
           "G3 §5"
@@ -707,7 +681,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-ACCOUNT-02",
@@ -717,7 +692,7 @@
         "applicability_text": "All five roles. See the role path after this card.",
         "prerequisites": "You know which role description is closest to the work you actually do.",
         "modality": "shall",
-        "implementation_guidance": "Open your role path and the theme decision aid (access, operations, development, incident). Complete the who-to-call card so you know who carries the rest.",
+        "implementation_guidance": "Open your role path and the theme decision aid (access, operations, development, incident). Check the reporting procedure so you know who carries the rest.",
         "policy_cite": [
           "S17 §5",
           "G3 §5",
@@ -754,7 +729,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-ACCOUNT-03",
@@ -803,7 +779,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -819,7 +796,7 @@
         "applicability_text": "All roles. Incident handling is the usual moment these names matter.",
         "prerequisites": "You have your departmental incident procedure, or you know it is missing.",
         "modality": "should",
-        "implementation_guidance": "Skim S17 §5 and G3 §5 in the source pages. Write only the contacts your procedure names onto the who-to-call card.",
+        "implementation_guidance": "Skim S17 §5 and G3 §5 in the source pages. Note only the contacts your reporting procedure names.",
         "policy_cite": [
           "S17 §5",
           "G3 §5"
@@ -852,7 +829,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-ORG-02",
@@ -894,7 +872,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -948,7 +927,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": "core3/qa-tier.html"
+        "related_qa": "core3/qa-tier.html",
+        "glance_link": null
       },
       {
         "id": "DEC-MGMT-02",
@@ -994,7 +974,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-MGMT-03",
@@ -1040,7 +1021,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -1054,7 +1036,7 @@
         "one_glance_answer": "Duties, the local policy, how to report an incident, and the access they actually need. This hub is a learning aid. It does not replace that local induction.",
         "relevance": "New joiners and the persons who induct them.",
         "applicability_text": "All roles. Strongest at joining and when duties change.",
-        "prerequisites": "A local policy and a who-to-call route exist, or their absence is already a gap.",
+        "prerequisites": "A local policy and a reporting procedure exist, or their absence is already a gap.",
         "modality": "shall",
         "implementation_guidance": "Walk the new-joiners path, then the role path that matches the job. Record training the way your B/D already records it.",
         "policy_cite": [
@@ -1088,7 +1070,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-framework.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-HR-02",
@@ -1145,7 +1128,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       },
       {
         "id": "DEC-HR-03",
@@ -1193,7 +1177,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -1245,7 +1230,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-ASSET-02",
@@ -1293,7 +1279,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-email-data.html"
+        "related_qa": "core3/qa-email-data.html",
+        "glance_link": null
       },
       {
         "id": "DEC-ASSET-03",
@@ -1339,7 +1326,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -1387,7 +1375,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-role-1.html",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       },
       {
         "id": "DEC-ACCESS-02",
@@ -1434,7 +1423,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       },
       {
         "id": "DEC-ACCESS-03",
@@ -1482,7 +1472,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       },
       {
         "id": "DEC-ACCESS-04",
@@ -1525,7 +1516,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-device.html"
+        "related_qa": "core3/qa-device.html",
+        "glance_link": null
       }
     ]
   },
@@ -1576,7 +1568,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-role-2.html",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       },
       {
         "id": "DEC-PRIV-02",
@@ -1624,7 +1617,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       },
       {
         "id": "DEC-PRIV-03",
@@ -1672,7 +1666,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-PRIV-04",
@@ -1715,7 +1710,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-access.html"
+        "related_qa": "core3/qa-access.html",
+        "glance_link": null
       }
     ]
   },
@@ -1768,7 +1764,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-CRYPTO-02",
@@ -1816,7 +1813,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-device.html"
+        "related_qa": "core3/qa-device.html",
+        "glance_link": null
       }
     ]
   },
@@ -1864,7 +1862,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-PHYS-02",
@@ -1907,7 +1906,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -1958,7 +1958,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-role-2.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-OPS-02",
@@ -2002,7 +2003,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-project.html"
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
       },
       {
         "id": "DEC-OPS-03",
@@ -2050,7 +2052,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-OPS-04",
@@ -2091,7 +2094,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -2145,7 +2149,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-email-data.html"
+        "related_qa": "core3/qa-email-data.html",
+        "glance_link": null
       },
       {
         "id": "DEC-COMM-02",
@@ -2193,7 +2198,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -2249,7 +2255,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-sdlc.html",
-        "related_qa": "core3/qa-project.html"
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
       },
       {
         "id": "DEC-SDLC-02",
@@ -2294,34 +2301,30 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-sdlc.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-SDLC-03",
-        "title": "What must be true before go-live?",
-        "one_glance_answer": "The security requirements have been checked, the build matches the intended baseline, and outstanding Shall gaps have an owner. A demo is not acceptance.",
-        "relevance": "Project and operations staff at go-live.",
-        "applicability_text": "Roles 2, 3, 4, and 5. Testing and go-live.",
-        "prerequisites": "There is a list of security requirements and a test result, even if the result is “not done”.",
+        "title": "What actions should be taken before system live-run?",
+        "one_glance_answer": "System live-run and production rollout are the same gate. Before that gate, a security risk assessment shall be completed for the information system. If the system involves personal data, a privacy impact assessment shall be completed as well. The same assessments shall be done before a major enhancement or change. A self-assessment checklist does not replace them.",
+        "relevance": "The security unit and the project team preparing a system for production.",
+        "applicability_text": "IT security administrator / unit and Management support, with System / LAN administrator and Application developer supporting the review.",
+        "prerequisites": "You have a system that is planned to launch in production, and whether it stores or processes personal data.",
         "modality": "shall",
-        "implementation_guidance": "Use the testing and go-live stage packs. If the system is Tier 2 or Tier 3, also check the compliance aid for assessment and testing expectations.",
+        "implementation_guidance": "Commission the security risk assessment, and the privacy impact assessment where personal data is involved, before system live-run. Use a qualified expert who is independent of the area under review. Agree the scope, method, and report format first, include an on-site inspection and interviews, and keep the assessment record. Put risks that are not yet fully treated into the risk register. Open G3 §20 and S17 §20.",
         "policy_cite": [
-          "S17 §16",
-          "G3 §16",
-          "S17 §20"
+          "S17 §20",
+          "G3 §20"
         ],
         "core4_links": [
           [
-            "core4/s17/s16.html",
-            "S17 §16"
-          ],
-          [
-            "core4/g3/s16.html",
-            "G3 §16"
-          ],
-          [
             "core4/s17/s20.html",
             "S17 §20"
+          ],
+          [
+            "core4/g3/s20.html",
+            "G3 §20"
           ]
         ],
         "roles": [
@@ -2331,8 +2334,8 @@
           "5"
         ],
         "sdlc": [
-          "05",
-          "06"
+          "06",
+          "08"
         ],
         "tiers": [
           "1",
@@ -2340,13 +2343,13 @@
           "3"
         ],
         "needs": [
-          "sra",
-          "design"
+          "sra"
         ],
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-sdlc.html",
-        "related_qa": "core3/qa-project.html"
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
       },
       {
         "id": "DEC-SDLC-04",
@@ -2396,7 +2399,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -2449,7 +2453,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-vendor.html"
+        "related_qa": "core3/qa-vendor.html",
+        "glance_link": null
       },
       {
         "id": "DEC-OUTSRC-02",
@@ -2495,7 +2500,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": "core3/qa-vendor.html"
+        "related_qa": "core3/qa-vendor.html",
+        "glance_link": null
       }
     ]
   },
@@ -2511,7 +2517,7 @@
         "applicability_text": "All roles and tiers. There is no Appendix C block on §18.",
         "prerequisites": "You can say what you saw, when, and which system. Unknown is an acceptable fact.",
         "modality": "shall",
-        "implementation_guidance": "Tell your line and the departmental incident contact on your who-to-call card. Follow the local procedure. Open S17 §18 and G3 §18 for the duty, not for a script you invent.",
+        "implementation_guidance": "Tell your line manager and the departmental incident contact named in the reporting procedure. Follow that procedure. Open S17 §18 and G3 §18 for the duty, not for a script you invent.",
         "policy_cite": [
           "S17 §18",
           "G3 §18"
@@ -2543,17 +2549,18 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-incident.html",
-        "related_qa": "core3/qa-incident.html"
+        "related_qa": "core3/qa-incident.html",
+        "glance_link": null
       },
       {
         "id": "DEC-IR-02",
         "title": "Who do I call first?",
-        "one_glance_answer": "Your departmental route: line manager and the ISIRT or security-unit contact on the who-to-call card. Central reporting clocks belong to that team once they are aware. You do not phone around at random.",
+        "one_glance_answer": "Your departmental reporting route: the line manager and the ISIRT or security-unit contact named in the reporting procedure. Once that team is aware, central reporting clocks belong to them. Do not phone around at random.",
         "relevance": "The person who found the problem.",
         "applicability_text": "All roles.",
-        "prerequisites": "The who-to-call card has a name or a duty number. If it is blank, tell your line manager and say the card is blank.",
+        "prerequisites": "The reporting procedure should contain comprehensive contact information, such as telephone numbers (office hours, non-office hours and mobile), email addresses, and fax numbers.",
         "modality": "shall",
-        "implementation_guidance": "Use the card. Keep the facts short. Do not post details in a wide chat. The incident walkthrough is a drill pattern, not a live report.",
+        "implementation_guidance": "Open the departmental reporting procedure and use the named point of contact. Follow the defined steps. Keep the first report short: what happened, when, and which system. Disclose incident details only on a need-to-know basis. Outside office hours, use the non-office-hour contacts in the procedure. Open G3 §18.",
         "policy_cite": [
           "S17 §18",
           "G3 §18",
@@ -2586,7 +2593,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-incident.html",
-        "related_qa": "core3/qa-incident.html"
+        "related_qa": "core3/qa-incident.html",
+        "glance_link": null
       },
       {
         "id": "DEC-IR-03",
@@ -2628,7 +2636,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-incident.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -2680,7 +2689,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-BCM-02",
@@ -2729,7 +2739,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       }
     ]
   },
@@ -2782,7 +2793,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "",
-        "related_qa": ""
+        "related_qa": "",
+        "glance_link": null
       },
       {
         "id": "DEC-COMPLY-02",
@@ -2829,7 +2841,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": false,
         "related_quiz": "core2/quiz-sdlc.html",
-        "related_qa": "core3/qa-project.html"
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
       },
       {
         "id": "DEC-COMPLY-03",
@@ -2878,7 +2891,8 @@
         "systems": "Information systems and data assets in scope of S17",
         "app_c_flag": true,
         "related_quiz": "core2/quiz-app-c.html",
-        "related_qa": "core3/qa-project.html"
+        "related_qa": "core3/qa-project.html",
+        "glance_link": null
       }
     ]
   }

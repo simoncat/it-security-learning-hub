@@ -116,22 +116,35 @@ CHEATS = [
         "title": "Shall, Should, May, and the reading flow",
         "source": "S17 §4.2 · G3 §4.2 · G3 §2.3",
         "blocks": [
-            {"type": "p", "text": "Print this page. It is a one-page reminder, not a copy of the policy."},
             {"type": "table", "headers": ["Word", "Meaning", "What you do"], "rows": [
-                ["Shall", "Mandatory requirement. Must do.", "Deep-read these lines. They are not optional."],
-                ["Should", "Best practice. Implement whenever possible.", "Do it unless you can say why not."],
-                ["May", "Desirable best practice.", "Use it when it helps. It does not cancel a Shall."],
+                ["Shall", "Mandatory requirement. Must do.", "Adhere to these lines. They are not optional."],
+                ["Should", "Best practice. Implement whenever possible.", "Do it unless you document with a reason."],
+                ["May", "Desirable best practice.", "Use it when it helps."],
             ]},
             {"type": "h2", "text": "Reading flow"},
-            {"type": "ol", "items": [
-                "Security Regulations set the government security floor.",
-                "S17 states the IT security policy: the what.",
-                "G3 states the guidelines: the how, in the same section numbers.",
-                "Practice guides add procedure. They live on ITG InfoStation.",
-                "Local B/D policy can be stricter.",
-                "Appendix C adds controls only for Tier 2 and Tier 3. Tier 3 includes every Tier 2 App C control.",
+            {"type": "flow", "steps": [
+                (
+                    "Security Regulations [RESTRICTED]",
+                    "Authorised by Security Bureau. Provide directives on what documents, material and information need to be classified and to ensure that they are given an adequate level of protection in relation to the conduct of government business.",
+                ),
+                (
+                    "Baseline IT security policy (S17) : the what",
+                    "A top-level directive statement that sets the minimum standards of a security specification for all B/Ds. It states what aspects are of paramount importance to a B/D. Thus, the Baseline IT Security Policy can be treated as basic rules which shall be observed as mandatory while there can still be other desirable measures to enhance security.",
+                ),
+                (
+                    "IT Security Guidelines (G3) : the how",
+                    "Elaborates on the policy requirements and sets the implementation standard on the security requirements specified in the Baseline IT Security Policy. B/Ds shall comply with the IT Security Guidelines for effective implementation of the security requirements.",
+                ),
+                (
+                    "Appendix C of G3 : tighten controls",
+                    "For Tier 2 and Tier 3 systems.",
+                ),
+                ("Departmental IT Policies, Procedures and Guidelines", ""),
+                (
+                    "Practice guides",
+                    "Provide guidance notes on specific security areas to help B/Ds address and mitigate risks brought by emerging technologies and security threats.",
+                ),
             ]},
-            {"type": "callout", "text": "Not every-word. Skim the section, then deep-read Shall lines, role-critical rows, and App C when the tier requires it."},
         ],
     },
     {
@@ -198,7 +211,7 @@ CHEATS = [
             {"type": "p", "text": "An information security incident is an event you are reasonably sure has harmed confidentiality, integrity, or availability, or has compromised operations. You do not need a finished investigation to report."},
             {"type": "h2", "text": "Who, in order"},
             {"type": "ol", "items": [
-                "You, as soon as you see it: line manager and the departmental ISIRT contact on your who-to-call card. Use the after-hours number if the office is shut.",
+                "You, as soon as you see it: line manager and the departmental ISIRT contact named in the reporting procedure. Use the after-hours number if the office is shut.",
                 "Departmental ISIRT: phone GIRO Standing Office within 60 minutes of becoming aware, then send the preliminary reporting form within 48 hours.",
                 "ISIRT Commander: the person who may share, or authorise sharing, outside the handling team.",
                 "If critical e-government services, significant implications, or media interest are involved, share scope, impact, containment, and the line-to-take with GIRO Standing Office as those facts exist.",
@@ -247,7 +260,7 @@ CHEATS = [
         "title": "Nine-stage security checklist",
         "source": "S17 §7 · S17 §16 · S17 §17 · S17 §14 · S17 §18 · S17 §20 · S17 §10",
         "blocks": [
-            {"type": "p", "text": "One line per stage. Open the stage pack for the checklist. Shall first. Appendix C only if the system is Tier 2 or Tier 3."},
+            {"type": "p", "text": "One line per stage. Open the stage pack for the checklist. Shall first. Appendix C if the system is Tier 2 or Tier 3."},
             {"type": "table", "headers": ["Stage", "Ask this first"], "rows": [
                 ["01 Project initiation", "Who owns it, what information, what tier intent?"],
                 ["02 Design", "Where do access, cryptography, and logging live?"],
@@ -275,7 +288,7 @@ WALKS = [
         "steps": [
             {"title": "Label it a drill", "text": "Pick a plausible story, such as a colleague opening a suspicious message. Write DRILL on the note. Do not use a real person’s mail or a live attachment.", "keep": "A one-line scenario.", "defer": "Shall: do not turn a drill into a real incident report."},
             {"title": "Write the facts you would report", "text": "What happened, when, which system, and whether classified information or personal data might be involved. Unknown is an acceptable answer.", "keep": "A five-line fact note.", "defer": ""},
-            {"title": "Name who you would call", "text": "Name the line manager, the ISIRT contact, and the after-hours number. If you do not know one, that is a gap to fill with your unit, not to invent.", "keep": "The names, or a list of blanks.", "defer": ""},
+            {"title": "Name who you would call", "text": "From the reporting procedure, name the line manager, the ISIRT contact, and the after-hours number. If you do not know one, that is a gap to fill with your unit, not to invent.", "keep": "The names, or a list of blanks.", "defer": ""},
             {"title": "Walk the departmental steps on paper", "text": "Follow the published local procedure. Remember G3 §18: report once harm is reasonably apparent. The ISIRT’s clock toward GIRO is theirs to run.", "keep": "The step list from the local procedure.", "defer": "Shall: use the real path for a real event."},
             {"title": "Note who may speak outside the team", "text": "Sharing beyond the handlers is for the ISIRT Commander to authorise. Your drill note should say you would not post details in a wide chat.", "keep": "One sentence on sharing.", "defer": ""},
             {"title": "List the artefacts a real event would keep", "text": "Timeline, who was told, form or ticket reference, and what was preserved. For the drill, keep only the informal note.", "keep": "The informal drill note.", "defer": "Should: a personal copy. Do not build a second official record."},

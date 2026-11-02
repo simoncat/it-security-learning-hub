@@ -1,7 +1,7 @@
 {
   "id": "P-QUIZ-IR",
   "file": "core2/quiz-incident.html",
-  "title": "Incident reporting",
+  "title": "Incident Handling",
   "intro": "Clear the common misconceptions about when to report and who to tell.",
   "source": "S17 §18 · G3 §18",
   "questions": [
@@ -22,7 +22,7 @@
       "id": "Q-IR-02",
       "prompt": "Who do you tell first?",
       "choices": [
-        "Your departmental route: line manager and the incident contact on the who-to-call card.",
+        "Your departmental route: line manager and the incident contact named in the reporting procedure.",
         "A wide team chat, with the suspicious attachment.",
         "A personal social-media account.",
         "No one, until the Director emails you."

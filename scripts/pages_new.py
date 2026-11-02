@@ -87,14 +87,14 @@ def side_groups(rel):
             ("Close gaps", [("path/apply.html", "Apply and close gaps")]),
         ]
     if rel == "spine.html":
-        return [("On the spine", [
+        return [("On this page", [
             ("spine.html#layer-1", "Layer 1 · CIA"),
             ("spine.html#layer-2", "Layer 2 · Policy stack"),
             ("spine.html#layer-3", "Layer 3 · SDLC"),
         ])]
     return [("On this hub", [
         ("index.html", "Home"),
-        ("spine.html", "Spine"),
+        ("spine.html", "Overview"),
         ("start/new-joiners.html", "New joiners"),
         ("start/current-staff.html", "Current staff"),
         ("core1/index.html", "Decision aids"),
@@ -256,11 +256,11 @@ def home_page(h, esc, legend, guide):
   </a>
   <a class="audience audience-now" href="{h("start/current-staff.html")}">
     <span class="audience-k">Current staff</span>
-    <span class="audience-d">Filter by role, life-cycle stage, and the job in front of you.</span>
+    <span class="audience-d">Filter by role, system lifecycle, and the job in front of you.</span>
   </a>
   <a class="audience audience-spine" href="{h("spine.html")}">
-    <span class="audience-k">Spine</span>
-    <span class="audience-d">CIA, then S17, G3, and departmental policy, then nine life-cycle stages.</span>
+    <span class="audience-k">Policy and System Lifecycle Overview</span>
+    <span class="audience-d">CIA, then S17, G3, and departmental policy, then the system lifecycle.</span>
   </a>
 </div>
 <h2>Aids, quizzes, Q&amp;A, and source</h2>
@@ -286,34 +286,33 @@ def home_page(h, esc, legend, guide):
 
 def new_joiners_page(h, esc, legend, guide):
     phases = [
-        ("NJ0", "Orient", "How to use the hub, the legend, and spine layers 1 and 2.", [
-            ("spine.html", "Spine"),
-            ("cheatsheets/modality.html", "Modality cheat sheet"),
+        ("NJ0", "Overview", "High-level overview of IT Security, documents and System Lifecycle.", [
+            ("spine.html", "Policy and System Lifecycle Overview"),
         ]),
-        ("NJ1", "Fundamentals", "CIA, modalities, and the policy stack.", [
-            ("core1/cia.html", "CIA"),
-            ("core1/modality.html", "Shall, Should, May"),
-            ("core1/policy-stack.html", "Policy stack"),
-            ("core2/quiz-foundation.html", "Fundamentals quiz"),
+        ("NJ1", "Government IT Security Documents", "Introduction of IT Security Documents in the Government.", [
+            ("core1/cia.html", "Confidentiality, integrity, and availability"),
+            ("cheatsheets/modality.html", "Shall, Should, May, and the reading flow"),
+            ("core1/policy-stack.html", "IT Security Documents"),
+            ("core2/quiz-foundation.html", "Quiz on Fundamental IT Security concepts in the Government"),
         ]),
-        ("NJ2", "Framework and accountability", "Organisation, who is accountable, and management responsibilities.", [
+        ("NJ2", "Organisation Structure and Accountability", "Organisation, who is accountable, and management responsibilities.", [
             ("core1/org-structure.html", "Organisation"),
             ("core1/accountability.html", "Accountability"),
             ("core1/management.html", "Management and risk"),
             ("core2/quiz-framework.html", "Framework quiz"),
         ]),
-        ("NJ3", "Daily hygiene", "How to report, access basics, and awareness.", [
-            ("core1/incident.html", "Incidents"),
+        ("NJ3", "Operational Safeguards and Incident Handling", "How to report, access basics, and awareness.", [
             ("core1/access-control.html", "Access"),
             ("core1/hr-security.html", "Persons and training"),
+            ("core1/incident.html", "Incidents"),
             ("cheatsheets/incident.html", "Incident cheat sheet"),
         ]),
-        ("NJ4", "Tier awareness", "Tier 1, 2, and 3, and when Appendix C appears.", [
+        ("NJ4", "Tiered Security Controls", "Tier 1, 2, and 3, and when Appendix C appears.", [
             ("core1/tier-appc.html", "Tier and App C"),
             ("app-c-matrix.html", "App C matrix (skim)"),
             ("core2/quiz-app-c.html", "App C quiz"),
         ]),
-        ("NJ5", "Role bridge", "Pick the role closest to the work you will do, then one walkthrough.", [
+        ("NJ5", "Role", "Pick the role closest to the work you will do, then one walkthrough.", [
             (f"path/role-{n}.html", label) for n, label in ROLES
         ]),
         ("NJ6", "Consolidate", "A quiz battery, then a first look at the source text.", [
@@ -342,7 +341,7 @@ def new_joiners_page(h, esc, legend, guide):
 </li>""")
     return f"""
 <h1>New joiners</h1>
-<p class="lede">Start with fundamentals, then framework and accountability. A tick is stored only in this browser.</p>
+<p class="lede">Start with an overview, then framework and accountability.</p>
 {guide}
 {legend}
 <p class="storage-note">Optional self-progress. Stored only in this browser.</p>
@@ -354,7 +353,7 @@ def new_joiners_page(h, esc, legend, guide):
 def current_staff_page(h, esc, legend, guide, payload):
     return f"""
 <h1>Current staff</h1>
-<p class="lede">Filter by role, life-cycle stage, and the need in front of you. Matches are decision aids, the stage pack, enquiry answers, and the source section they cite.</p>
+<p class="lede">Filter by role, system lifecycle, and the need in front of you. Matches are decision aids, the stage pack, enquiry answers, and the source section they cite.</p>
 {guide}
 {legend}
 {launcher_form(h, include_tier=True)}
@@ -405,7 +404,7 @@ def spine_page(h, esc):
             f'<li><a href="{h(stage["file"])}"><span>{esc(stage["code"])}</span>{esc(stage["name"])}</a></li>'
         )
     return f"""
-<h1>Management spine</h1>
+<h1>Policy and System Lifecycle Overview</h1>
 <p class="lede">Three layers. Layer 1 is why controls exist. Layer 2 is which document binds. Layer 3 is where you are in the life of a system. Each control opens a decision aid or a stage pack.</p>
 <section id="layer-1" class="spine-layer" aria-labelledby="layer-1-title">
   <h2 id="layer-1-title">Layer 1 — Information System Security Objective (CIA)</h2>
@@ -416,7 +415,7 @@ def spine_page(h, esc):
   {layer2}
 </section>
 <section id="layer-3" class="spine-layer" aria-labelledby="layer-3-title">
-  <h2 id="layer-3-title">Layer 3 — nine life-cycle stages</h2>
+  <h2 id="layer-3-title">Layer 3 — system lifecycle</h2>
   <ol class="spine-sdlc">{''.join(stages)}</ol>
 </section>
 """
@@ -456,7 +455,7 @@ def role_line(card):
         cleaned = re.sub(r"(?i)\btiers?\s+\d+(?:\s*,\s*\d+)*(?:\s*,?\s*and\s+\d+)?\b", "", cleaned)
         cleaned = re.sub(r"(?i)\btier\s+\d+\b", "", cleaned)
         cleaned = re.sub(r"(?i)\bthese roles apply\b", "", cleaned)
-        cleaned = re.sub(r"(?i),?\s*\bany life-cycle stage\b", "", cleaned)
+        cleaned = re.sub(r"(?i),?\s*\bany (?:life-cycle stage|system lifecycle)\b", "", cleaned)
         cleaned = re.sub(r"(?i)\s+\band\s+stages\b", "", cleaned)
         cleaned = re.sub(r"\s{2,}", " ", cleaned)
         cleaned = re.sub(r"\s+([,.])", r"\1", cleaned)
@@ -479,6 +478,20 @@ def aid_applicability_html(esc, card):
     return "".join(f"<span><strong>{label}:</strong> {esc(value)}.</span>" for label, value in rows)
 
 
+def aid_glance_html(esc, card):
+    """Plain glance text, with an optional external {link} placeholder."""
+    text = card["one_glance_answer"]
+    link = card.get("glance_link")
+    if not link:
+        return esc(text)
+    label, url = link
+    anchor = f'<a href="{esc(url)}" rel="noopener noreferrer">{esc(label)}</a>'
+    if "{link}" in text:
+        parts = text.split("{link}")
+        return esc(parts[0]) + anchor + esc("".join(parts[1:]))
+    return esc(text) + " " + anchor
+
+
 def aid_article(h, esc, card):
     links = " ".join(f'<a href="{h(href)}">{esc(label)}</a>' for href, label in source_links(card["policy_cite"]))
     extra = []
@@ -498,7 +511,7 @@ def aid_article(h, esc, card):
     <div>
       <div class="item-meta">{badge}<span class="id-code">{esc(card["id"])}</span></div>
       <h2>{esc(card["title"])}</h2>
-      <p class="glance">{esc(card["one_glance_answer"])}</p>
+      <p class="glance">{aid_glance_html(esc, card)}</p>
       <dl class="aid-fields">
         <div><dt>Relevance</dt><dd>{esc(card["relevance"])}</dd></div>
         <div><dt>Applicability</dt><dd class="aid-lines">{aid_applicability_html(esc, card)}</dd></div>
@@ -784,7 +797,7 @@ def about_page(esc, version, disclaimer):
 <h2>How to use it</h2>
 <ol>
   <li>New joiners follow fundamentals, then framework and accountability.</li>
-  <li>Current staff filter by role, life-cycle stage, and need.</li>
+  <li>Current staff filter by role, system lifecycle, and need.</li>
   <li>Read a decision aid before the long text. Open the source pages when you need the section itself.</li>
   <li>Order is S17, then G3, then Appendix C only for Tier 2 or Tier 3. Shall first. Not every word.</li>
 </ol>
@@ -794,7 +807,7 @@ def about_page(esc, version, disclaimer):
   <li>S17 v8.2 and G3 v10.2, April 2025. Assumed if the PDFs were not re-checked for this build.</li>
 </ul>
 <h2>Accessibility</h2>
-<p>The target is WCAG 2.1 AA: text contrast, visible focus, a logical heading order, and keyboard access to the spine, filters, and quizzes. Pages are English only.</p>
+<p>The target is WCAG 2.1 AA: text contrast, visible focus, a logical heading order, and keyboard access to the overview, filters, and quizzes. Pages are English only.</p>
 <h2>What this hub will not do</h2>
 <ul>
   <li>No login, no staff roster, and no completion record on a server.</li>
@@ -833,8 +846,8 @@ def gov_page(h):
   <caption>Date, policy versions, summary, editor</caption>
   <thead><tr><th>Date</th><th>S17 / G3</th><th>Summary</th><th>Editor</th></tr></thead>
   <tbody>
-    <tr><td>2026-10-23</td><td>S17 v8.2 / G3 v10.2 (April 2025)</td><td>First static hub. Checklists, quizzes, Appendix C matrix, who-to-call card, and gap table.</td><td>Initial build. Content Owner to confirm the named editor.</td></tr>
-    <tr><td>2026-10-26</td><td>S17 v8.2 / G3 v10.2 (assumed if PDFs not re-checked)</td><td>Hub v0.1-MVP. Aids, quizzes, Q&amp;A, and source, plus the spine, new-joiners path, and current-staff filters by role, stage, and need. Source holds section text. Q&amp;A is still placeholder enquiry text.</td><td>Rebuild against the site map. Content Owner to confirm the named editor.</td></tr>
+    <tr><td>2026-10-23</td><td>S17 v8.2 / G3 v10.2 (April 2025)</td><td>First static hub. Checklists, quizzes, Appendix C matrix, and gap table.</td><td>Initial build. Content Owner to confirm the named editor.</td></tr>
+    <tr><td>2026-10-26</td><td>S17 v8.2 / G3 v10.2 (assumed if PDFs not re-checked)</td><td>Hub v0.1-MVP. Aids, quizzes, Q&amp;A, and source, plus the Policy and System Lifecycle Overview, new-joiners path, and current-staff filters by role, stage, and need. Source holds section text. Q&amp;A is still placeholder enquiry text.</td><td>Rebuild against the site map. Content Owner to confirm the named editor.</td></tr>
   </tbody>
 </table>
 <p>Pages carry <code>data-source-sections</code>, <code>data-last-reviewed</code>, and <code>data-owner-role</code> for this maintenance loop. Learner ticks stay in the browser.</p>

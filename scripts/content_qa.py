@@ -305,7 +305,7 @@ PACKS = [
                 "may",
                 ["S17 §4"],
                 [("core4/s17/s04.html", "S17 §4")],
-                "core1/modality.html#DEC-MOD-04",
+                "core1/modality.html#DEC-MOD-01",
             ),
         ],
     },

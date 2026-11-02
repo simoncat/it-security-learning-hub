@@ -152,7 +152,7 @@
           },
           {
             "id": "F-D2-04",
-            "text": "Write a one-page who-to-call card.",
+            "text": "Find the DITSO, security unit, ISIRT contact, and line manager in the reporting procedure.",
             "modality": "shall",
             "pace": "a-required",
             "flag": false,
@@ -160,6 +160,10 @@
               [
                 "G3",
                 "§5"
+              ],
+              [
+                "G3",
+                "§18"
               ]
             ],
             "note": "New joiners: required."
@@ -407,7 +411,7 @@
           },
           {
             "id": "F-D6-04",
-            "text": "Save ISIRT and incident contacts on your who-to-call card.",
+            "text": "Confirm the ISIRT and incident contacts in the reporting procedure, including after-hours numbers.",
             "modality": "shall",
             "pace": "a-required",
             "flag": false,
@@ -2291,7 +2295,7 @@
         },
         {
           "id": "A-D30-02",
-          "text": "Keep for yourself: the tier-list draft, the App C gap table if you have one, the walkthrough note, and the who-to-call card.",
+          "text": "Keep for yourself: the tier-list draft, the App C gap table if you have one, the walkthrough note, and the contacts from the reporting procedure.",
           "modality": "should",
           "pace": "both",
           "flag": false,

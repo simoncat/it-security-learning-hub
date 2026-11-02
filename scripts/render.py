@@ -52,7 +52,7 @@ CURRENT = "index.html"
 
 TOP = [
     ("index.html", "Home"),
-    ("spine.html", "Spine"),
+    ("spine.html", "Overview"),
     ("start/new-joiners.html", "New joiners"),
     ("start/current-staff.html", "Current staff"),
     ("core1/index.html", "Aids"),
@@ -130,7 +130,7 @@ def read_guide():
     return """
 <div class="callout callout-read">
   <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
-  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C if the system is Tier 2 or Tier 3.</p>
 </div>
 """
 
@@ -249,6 +249,16 @@ def blocks_html(blocks):
         elif kind == "ol":
             lis = "".join(f"<li>{esc(item)}</li>" for item in block["items"])
             out.append(f"<ol>{lis}</ol>")
+        elif kind == "flow":
+            steps = []
+            for index, step in enumerate(block["steps"], start=1):
+                title, detail = step
+                detail_html = f"<span>{esc(detail)}</span>" if detail else ""
+                steps.append(
+                    f'<li><span class="read-flow-step">{index}</span>'
+                    f"<div><strong>{esc(title)}</strong>{detail_html}</div></li>"
+                )
+            out.append(f'<ol class="read-flow" aria-label="Reading flow">{"".join(steps)}</ol>')
         elif kind == "table":
             head = "".join(f"<th>{esc(cell)}</th>" for cell in block["headers"])
             rows = []
@@ -271,7 +281,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=19"
+    css = href("assets/css/hub.css") + "?v=20"
     js = href("assets/js/hub.js")
     top_links = []
     for target, label in TOP:
@@ -567,7 +577,6 @@ def cheat_page(cheat):
     return f"""
 <h1>{esc(cheat["title"])}</h1>
 <p class="fine">Source pointers: {esc(cheat["source"])}</p>
-<p class="no-print"><button type="button" class="btn btn-primary" data-action="print">Print this sheet</button></p>
 {blocks_html(cheat["blocks"])}
 """
 
@@ -1129,7 +1138,7 @@ def main():
 
     home = [("index.html", "Home")]
     emit("index.html", "Home", "P-HOME", home, "Hub map §2", home_main)
-    emit("spine.html", "Management spine", "P-SPINE", home + [("spine.html", "Spine")], "Hub map §3", lambda: spine_page(href, esc))
+    emit("spine.html", "Policy and System Lifecycle Overview", "P-SPINE", home + [("spine.html", "Policy and System Lifecycle Overview")], "Hub map §3", lambda: spine_page(href, esc))
     emit(
         "start/new-joiners.html",
         "New joiners",

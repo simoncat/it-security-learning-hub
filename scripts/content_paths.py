@@ -48,7 +48,7 @@ FOUNDATION = {
                 I("F-D2-01", "Memorise the modality words: Shall, Should, and May (S17/G3 §4.2).", "shall", refs=[("S17", "§4"), ("G3", "§4")]),
                 I("F-D2-02", "Skim S17/G3 §5: ISMC, ITSWG, GIRO, GovCERT.HK, and your departmental structure.", "should", refs=[("S17", "§5"), ("G3", "§5")]),
                 I("F-D2-03", "Find your role in G3 §5.2–5.3 and tick the duties that apply to you.", "shall", refs=[("G3", "§5")]),
-                I("F-D2-04", "Write a one-page who-to-call card.", "shall", "a-required", refs=[("G3", "§5")], note="New joiners: required."),
+                I("F-D2-04", "Find the DITSO, security unit, ISIRT contact, and line manager in the reporting procedure.", "shall", "a-required", refs=[("G3", "§5"), ("G3", "§18")], note="New joiners: required."),
             ],
         },
         {
@@ -90,7 +90,7 @@ FOUNDATION = {
                 I("F-D6-01", "Skim S17/G3 §14 (malware, backup, logging, vulnerabilities, threats). Depth comes in the role path.", "should", "b-gap", refs=[("S17", "§14"), ("G3", "§14")]),
                 I("F-D6-02", "S17/G3 §18 incident management: how to report. Do not wait until you are sure.", "shall", "b-gap", refs=[("S17", "§18"), ("G3", "§18")]),
                 I("F-D6-03", "S17/G3 §19 continuity: plans exist. Note where your B/D keeps them.", "shall", "b-gap", refs=[("S17", "§19"), ("G3", "§19")]),
-                I("F-D6-04", "Save ISIRT and incident contacts on your who-to-call card.", "shall", "a-required", refs=[("G3", "§18")], note="New joiners"),
+                I("F-D6-04", "Confirm the ISIRT and incident contacts in the reporting procedure, including after-hours numbers.", "shall", "a-required", refs=[("G3", "§18")], note="New joiners"),
             ],
         },
         {
@@ -514,7 +514,7 @@ APPLY = [
         "pace": "both",
         "items": [
             I("A-D30-01", "Optional: tick foundation, role, and apply self-progress, or note deferrals with dates.", "may", note="Self-ticks only."),
-            I("A-D30-02", "Keep for yourself: the tier-list draft, the App C gap table if you have one, the walkthrough note, and the who-to-call card.", "should"),
+            I("A-D30-02", "Keep for yourself: the tier-list draft, the App C gap table if you have one, the walkthrough note, and the contacts from the reporting procedure.", "should"),
             I("A-D30-04", "Current staff: you may share the gap table with your line manager or security unit so remediation owners can be booked.", "may", "b-focus", note="Optional handoff. Not a mandatory acknowledgement."),
             I("A-D30-05", "Optional: skim one practice guide for your role on ITG InfoStation.", "may"),
         ],

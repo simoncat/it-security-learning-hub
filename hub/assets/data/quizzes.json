@@ -120,7 +120,7 @@
           "GovCERT.HK acting as your line manager."
         ],
         "answerIndex": 0,
-        "rationale": "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager on the who-to-call card.",
+        "rationale": "G3 §5.2.1 describes the DITSO. You still need the security unit, the ISIRT Commander, and your line manager as named in the reporting procedure.",
         "modalityTag": ""
       },
       {
@@ -141,7 +141,7 @@
   {
     "id": "P-QUIZ-FRAME",
     "file": "core2/quiz-framework.html",
-    "title": "Framework and accountability",
+    "title": "Organisation Structure and Accountability",
     "intro": "Organisation, accountability, and management responsibilities.",
     "source": "S17 §5 · S17 §7 · G3 §5 · G3 §7 · G3 §8",
     "questions": [
@@ -850,7 +850,7 @@
   {
     "id": "P-QUIZ-IR",
     "file": "core2/quiz-incident.html",
-    "title": "Incident reporting",
+    "title": "Incident Handling",
     "intro": "Clear the common misconceptions about when to report and who to tell.",
     "source": "S17 §18 · G3 §18",
     "questions": [
@@ -871,7 +871,7 @@
         "id": "Q-IR-02",
         "prompt": "Who do you tell first?",
         "choices": [
-          "Your departmental route: line manager and the incident contact on the who-to-call card.",
+          "Your departmental route: line manager and the incident contact named in the reporting procedure.",
           "A wide team chat, with the suspicious attachment.",
           "A personal social-media account.",
           "No one, until the Director emails you."

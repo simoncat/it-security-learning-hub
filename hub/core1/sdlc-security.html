@@ -6,7 +6,7 @@
   <title>Security in acquisition, development, and maintenance · HKSARG IT Security Learning Hub</title>
   <meta name="description" content="Security in acquisition, development, and maintenance. Static learning aid for S17 v8.2 and G3 v10.2.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="../assets/css/hub.css?v=19">
+  <link rel="stylesheet" href="../assets/css/hub.css?v=20">
 </head>
 <body data-page-id="P-DEC-SDLC" data-page="P-DEC-SDLC" data-source-sections="S17 §16 · G3 §16 · G3 Appendix C" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
   <a class="skip" href="#main">Skip to content</a>
@@ -23,7 +23,7 @@
   </header>
   <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
   <nav class="topnav" aria-label="Primary">
-    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Spine</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
+    <div class="topnav-inner"><a href="../index.html">Home</a><a href="../spine.html">Overview</a><a href="../start/new-joiners.html">New joiners</a><a href="../start/current-staff.html">Current staff</a><a href="index.html" aria-current="page">Aids</a><a href="../core2/index.html">Quizzes</a><a href="../core3/index.html">Q&amp;A</a><a href="../core4/index.html">Source</a><a href="../app-c-matrix.html">App C</a><a href="../about.html">About</a></div>
   </nav>
   <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Aids</a></li><li aria-current="page">Security in acquisition, development, and maintenance</li></ol></nav>
   <div class="shell">
@@ -38,7 +38,7 @@
 
 <div class="callout callout-read">
   <strong>Not every-word — S17 first, then G3; deep-read Shall and App C; Should = implement whenever possible.</strong>
-  <p>Reading order: S17, then the same-theme G3 section, then Appendix C only if the system is Tier 2 or Tier 3. Open the source pages for the original wording.</p>
+  <p>Reading order: S17, then the same-theme G3 section, then Appendix C if the system is Tier 2 or Tier 3.</p>
 </div>
 
 
@@ -80,19 +80,19 @@
   </div>
 </article>
 
-<article class="aid" id="DEC-SDLC-03" data-modality="shall" data-flag="0" data-roles="2 3 4 5" data-sdlc="05 06" data-needs="sra design" data-tiers="1 2 3">
+<article class="aid" id="DEC-SDLC-03" data-modality="shall" data-flag="0" data-roles="2 3 4 5" data-sdlc="06 08" data-needs="sra" data-tiers="1 2 3">
   <div class="item-row">
-    <input type="checkbox" id="tick-DEC-SDLC-03" data-tick="DEC-SDLC-03" aria-label="Optional tick for What must be true before go-live?">
+    <input type="checkbox" id="tick-DEC-SDLC-03" data-tick="DEC-SDLC-03" aria-label="Optional tick for What actions should be taken before system live-run?">
     <div>
       <div class="item-meta"><span class="badge badge-shall">Shall</span><span class="id-code">DEC-SDLC-03</span></div>
-      <h2>What must be true before go-live?</h2>
-      <p class="glance">The security requirements have been checked, the build matches the intended baseline, and outstanding Shall gaps have an owner. A demo is not acceptance.</p>
+      <h2>What actions should be taken before system live-run?</h2>
+      <p class="glance">System live-run and production rollout are the same gate. Before that gate, a security risk assessment shall be completed for the information system. If the system involves personal data, a privacy impact assessment shall be completed as well. The same assessments shall be done before a major enhancement or change. A self-assessment checklist does not replace them.</p>
       <dl class="aid-fields">
-        <div><dt>Relevance</dt><dd>Project and operations staff at go-live.</dd></div>
-        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> System / LAN administrator, Application developer, IT security administrator / unit, and Management support.</span><span><strong>Stages:</strong> 05 Testing, 06 Go-live.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
-        <div><dt>Prerequisites</dt><dd>There is a list of security requirements and a test result, even if the result is “not done”.</dd></div>
-        <div><dt>Implementation guidance</dt><dd>Use the testing and go-live stage packs. If the system is Tier 2 or Tier 3, also check the compliance aid for assessment and testing expectations.</dd></div>
-        <div><dt>Source</dt><dd><a href="../core4/s17/s16.html">S17 §16</a> <a href="../core4/g3/s16.html">G3 §16</a> <a href="../core4/s17/s20.html">S17 §20</a></dd></div>
+        <div><dt>Relevance</dt><dd>The security unit and the project team preparing a system for production.</dd></div>
+        <div><dt>Applicability</dt><dd class="aid-lines"><span><strong>Roles:</strong> IT security administrator / unit and Management support, with System / LAN administrator and Application developer supporting the review.</span><span><strong>Stages:</strong> 06 Go-live, 08 Change.</span><span><strong>Tiers:</strong> Tier 1, Tier 2, Tier 3.</span></dd></div>
+        <div><dt>Prerequisites</dt><dd>You have a system that is planned to launch in production, and whether it stores or processes personal data.</dd></div>
+        <div><dt>Implementation guidance</dt><dd>Commission the security risk assessment, and the privacy impact assessment where personal data is involved, before system live-run. Use a qualified expert who is independent of the area under review. Agree the scope, method, and report format first, include an on-site inspection and interviews, and keep the assessment record. Put risks that are not yet fully treated into the risk register. Open G3 §20 and S17 §20.</dd></div>
+        <div><dt>Source</dt><dd><a href="../core4/s17/s20.html">S17 §20</a> <a href="../core4/g3/s20.html">G3 §20</a></dd></div>
       </dl>
       <p class="fine"><a href="../core2/quiz-sdlc.html">Related quiz</a> · <a href="../core3/qa-project.html">Related enquiry pack</a></p>
     </div>
