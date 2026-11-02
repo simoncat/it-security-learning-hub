@@ -6,7 +6,7 @@
   <title>S17 contents · HKSARG IT Security Learning Hub</title>
   <meta name="description" content="S17 contents. Static learning aid for S17 v8.2 and G3 v10.2.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="../../assets/css/hub.css?v=20">
+  <link rel="stylesheet" href="../../assets/css/hub.css?v=22">
 </head>
 <body data-page-id="P-SRC-S17-TOC" data-page="P-SRC-S17-TOC" data-source-sections="S17 v8.2" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner">
   <a class="skip" href="#main">Skip to content</a>
@@ -23,7 +23,21 @@
   </header>
   <div class="version" role="note">Hub v0.1-MVP · Content aligned to S17 v8.2 / G3 v10.2 · Last reviewed: 2026-10-26</div>
   <nav class="topnav" aria-label="Primary">
-    <div class="topnav-inner"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../about.html">About</a></div>
+    <div class="topnav-inner">
+      <div class="topnav-links"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../about.html">About</a></div>
+      <div class="topnav-search no-print">
+        <form class="source-search source-search-header" role="search" data-source-search data-root="../../" action="../index.html" method="get">
+          <label for="header-source-query">
+            <span class="visually-hidden">Search the wording in S17 and G3</span>
+            <input id="header-source-query" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="Search S17 / G3">
+          </label>
+        </form>
+        <div class="topnav-search-panel" data-source-search-panel hidden>
+          <p class="fine" data-source-search-status aria-live="polite"></p>
+          <ul class="result-list" data-source-search-results></ul>
+        </div>
+      </div>
+    </div>
   </nav>
   <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Source</a></li><li aria-current="page">S17</li></ol></nav>
   <div class="shell">
@@ -36,15 +50,16 @@
 <h1>Baseline IT Security Policy [S17]</h1>
 <p class="lede">v8.2. April 2025. Digital Policy Office. Last reviewed 2026-10-26.</p>
 
-<form class="source-search no-print" role="search" data-source-search data-root="../../">
+<div class="source-search-block no-print">
+<form class="source-search" role="search" data-source-search data-root="../../" action="../index.html" method="get">
   <label for="source-query">Search the wording in S17 and G3
     <input id="source-query" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="A word or an exact phrase">
   </label>
-  <button type="submit" class="btn btn-primary">Search</button>
 </form>
 <p class="fine">A single word matches that word. More than one word matches the exact phrase. Listed abbreviations and their full names are searched together. Choose a section to open it.</p>
-<p id="source-search-status" class="fine" aria-live="polite"></p>
-<ul id="source-search-results" class="result-list"></ul>
+<p class="fine" data-source-search-status aria-live="polite"></p>
+<ul class="result-list" data-source-search-results></ul>
+</div>
 
 <ol class="toc"><li><a href="s01.html">§1 Purpose</a></li><li><a href="s02.html">§2 Scope</a></li><li><a href="s03.html">§3 Normative references</a></li><li><a href="s04.html">§4 Definitions and conventions</a></li><li><a href="s05.html">§5 Organisation</a></li><li><a href="s06.html">§6 Core security principles</a></li><li><a href="s07.html">§7 Management responsibilities</a></li><li><a href="s08.html">§8 IT security policies</a></li><li><a href="s09.html">§9 Human resource security</a></li><li><a href="s10.html">§10 Asset management</a></li><li><a href="s11.html">§11 Access control</a></li><li><a href="s12.html">§12 Cryptography</a></li><li><a href="s13.html">§13 Physical and environmental security</a></li><li><a href="s14.html">§14 Operations security</a></li><li><a href="s15.html">§15 Communications security</a></li><li><a href="s16.html">§16 System acquisition, development and maintenance</a></li><li><a href="s17.html">§17 Outsourcing security</a></li><li><a href="s18.html">§18 Security incident management</a></li><li><a href="s19.html">§19 Continuity</a></li><li><a href="s20.html">§20 Compliance</a></li></ol>
 <p><a href="../g3/index.html">G3 contents</a> · <a href="../g3/appendix-c.html">Appendix C</a></p>
@@ -63,6 +78,6 @@
   </footer>
   <script src="../../assets/js/hub.js?v=5"></script>
 <script src="../../assets/js/source-search-data.js?v=5"></script>
-<script src="../../assets/js/source-search.js?v=5"></script>
+<script src="../../assets/js/source-search.js?v=8"></script>
 </body>
 </html>
