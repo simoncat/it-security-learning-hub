@@ -281,7 +281,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=20"
+    css = href("assets/css/hub.css") + "?v=22"
     js = href("assets/js/hub.js")
     top_links = []
     for target, label in TOP:
@@ -303,8 +303,14 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
             crumb_bits.append(f"<li aria-current=\"page\">{esc(label)}</li>")
         else:
             crumb_bits.append(f'<li><a href="{href(target)}">{esc(label)}</a></li>')
+    home = href("index.html")
+    search_root = "" if home == "index.html" else home[: -len("index.html")]
     scripts = f'<script src="{js}?v=5"></script>'
+    scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
+    scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=8"></script>'
     for extra in extra_scripts or []:
+        if extra in ("assets/js/source-search-data.js", "assets/js/source-search.js"):
+            continue
         scripts += f'\n<script src="{href(extra)}?v=5"></script>'
     icon = (
         "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
@@ -326,7 +332,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast">
     <div class="mast-inner">
-      <a class="brand" href="{href("index.html")}">
+      <a class="brand" href="{home}">
         <span class="brand-mark" aria-hidden="true">GS</span>
         <span>
           <strong>HKSARG IT Security Learning Hub</strong>
@@ -337,7 +343,21 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
   </header>
   <div class="version" role="note">{esc(VERSION)}</div>
   <nav class="topnav" aria-label="Primary">
-    <div class="topnav-inner">{''.join(top_links)}</div>
+    <div class="topnav-inner">
+      <div class="topnav-links">{''.join(top_links)}</div>
+      <div class="topnav-search no-print">
+        <form class="source-search source-search-header" role="search" data-source-search data-root="{search_root}" action="{href("core4/index.html")}" method="get">
+          <label for="header-source-query">
+            <span class="visually-hidden">Search the wording in S17 and G3</span>
+            <input id="header-source-query" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="Search S17 / G3">
+          </label>
+        </form>
+        <div class="topnav-search-panel" data-source-search-panel hidden>
+          <p class="fine" data-source-search-status aria-live="polite"></p>
+          <ul class="result-list" data-source-search-results></ul>
+        </div>
+      </div>
+    </div>
   </nav>
   <nav class="crumb" aria-label="Breadcrumb"><ol>{''.join(crumb_bits)}</ol></nav>
   <div class="shell">

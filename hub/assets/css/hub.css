@@ -104,6 +104,17 @@ a:hover { text-decoration: none; }
   padding: 0.4rem 1rem;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .topnav {
   background: #fff;
   border-bottom: 1px solid var(--line);
@@ -117,7 +128,15 @@ a:hover { text-decoration: none; }
   padding: 0.35rem 1rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  align-items: center;
+}
+.topnav-links {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.25rem 0.15rem;
+  flex: 1 1 14rem;
+  min-width: 0;
 }
 .topnav a {
   color: var(--navy);
@@ -132,6 +151,45 @@ a:hover { text-decoration: none; }
   background: var(--navy);
   color: #fff;
 }
+.topnav-search {
+  position: relative;
+  flex: 1 1 15rem;
+  max-width: 22rem;
+  margin-left: auto;
+}
+.topnav-search .source-search {
+  margin: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.topnav-search .source-search label {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-weight: 600;
+}
+.topnav-search .source-search input[type="search"] {
+  width: 100%;
+  min-width: 0;
+  padding: 0.38rem 0.5rem;
+}
+.topnav-search-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.3rem);
+  width: min(28rem, calc(100vw - 1.5rem));
+  max-height: min(70vh, 24rem);
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
+  padding: 0.55rem 0.65rem;
+  z-index: 20;
+}
+.topnav-search-panel[hidden] { display: none !important; }
+.topnav-search-panel .fine { margin: 0 0 0.35rem; }
 
 .crumb {
   max-width: var(--max);
@@ -938,6 +996,8 @@ tr[id] { scroll-margin-top: 8rem; }
   .shell { display: block; }
   .sidenav { position: static; margin-bottom: 0.8rem; }
   .mast-inner { flex-direction: column; align-items: flex-start; }
+  .topnav-search { max-width: none; margin-left: 0; flex-basis: 100%; }
+  .topnav-search-panel { left: 0; right: 0; width: auto; }
   .legend-bar { top: 0; }
   .return-float {
     left: 0.75rem;
@@ -1046,6 +1106,7 @@ tr[id] { scroll-margin-top: 8rem; }
 .result-group { margin: 0.8rem 0 1rem; }
 .result-list { list-style: none; padding: 0; margin: 0; }
 .result-list li { margin: 0.35rem 0; }
+.source-search-block { margin: 0.2rem 0 0.85rem; }
 .source-search {
   display: flex;
   flex-wrap: wrap;

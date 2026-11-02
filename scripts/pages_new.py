@@ -643,15 +643,16 @@ def source_search_box(h):
     home = h("index.html")
     root = "" if home == "index.html" else home[: -len("index.html")]
     return f"""
-<form class="source-search no-print" role="search" data-source-search data-root="{root}">
+<div class="source-search-block no-print">
+<form class="source-search" role="search" data-source-search data-root="{root}" action="{h("core4/index.html")}" method="get">
   <label for="source-query">Search the wording in S17 and G3
     <input id="source-query" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="A word or an exact phrase">
   </label>
-  <button type="submit" class="btn btn-primary">Search</button>
 </form>
 <p class="fine">A single word matches that word. More than one word matches the exact phrase. Listed abbreviations and their full names are searched together. Choose a section to open it.</p>
-<p id="source-search-status" class="fine" aria-live="polite"></p>
-<ul id="source-search-results" class="result-list"></ul>
+<p class="fine" data-source-search-status aria-live="polite"></p>
+<ul class="result-list" data-source-search-results></ul>
+</div>
 """
 
 
