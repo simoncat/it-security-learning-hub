@@ -1,30 +1,68 @@
 (function () {
+  var MAX_QUERY = 200;
+
   function parseQuery(query) {
-    var raw = query.trim();
+    var raw = String(query || "").trim().slice(0, MAX_QUERY);
     var quoted = /^["“”'].+["“”']$/.test(raw);
-    var q = raw.replace(/^["“”']+|["“”']+$/g, "").replace(/\s+/g, " ").trim();
+    var q = raw.replace(/^["“”']+|["“”']+$/g, "").replace(/\s+/g, " ").trim().slice(0, MAX_QUERY);
     return { q: q, quoted: quoted };
+  }
+
+  function safeResultHref(root, href, query) {
+    var path = String(href || "");
+    if (path !== "core4/index.html" &&
+        !/^core4\/(?:s17|g3)\/(?:index|appendix-c|s\d{2})\.html$/.test(path)) {
+      return "";
+    }
+    var candidate = String(root || "") + path + "?find=" + encodeURIComponent(String(query || "").slice(0, MAX_QUERY));
+    if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(candidate) || candidate.indexOf("//") === 0) return "";
+    try {
+      var url = new URL(candidate, location.href);
+      if (url.protocol !== "http:" && url.protocol !== "https:" && url.protocol !== "file:") return "";
+      if (url.protocol === "file:") return candidate;
+      if (url.origin !== location.origin) return "";
+      return url.pathname + url.search + url.hash;
+    } catch (err) {
+      return "";
+    }
   }
 
   function escapeReg(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
-  function locateForm(hay, q) {
-    if (!q || q.length < 2) return null;
+  function locateAllForms(hay, q) {
+    if (!q || q.length < 2) return [];
+    var out = [];
     if (/\s/.test(q)) {
-      var at = hay.toLowerCase().indexOf(q.toLowerCase());
-      if (at < 0) return null;
-      return { hay: hay, at: at, length: q.length, query: hay.slice(at, at + q.length) };
+      var lower = hay.toLowerCase();
+      var needle = q.toLowerCase();
+      var from = 0;
+      while (from <= lower.length - needle.length) {
+        var at = lower.indexOf(needle, from);
+        if (at < 0) break;
+        out.push({
+          hay: hay,
+          at: at,
+          length: q.length,
+          query: hay.slice(at, at + q.length)
+        });
+        from = at + Math.max(1, needle.length);
+      }
+      return out;
     }
-    var match = new RegExp("(^|[^A-Za-z0-9/.])(" + escapeReg(q) + ")(?![A-Za-z0-9/.])", "i").exec(hay);
-    if (!match) return null;
-    return {
-      hay: hay,
-      at: match.index + match[1].length,
-      length: match[2].length,
-      query: match[2]
-    };
+    var re = new RegExp("(^|[^A-Za-z0-9/.])(" + escapeReg(q) + ")(?![A-Za-z0-9/.])", "gi");
+    var match;
+    while ((match = re.exec(hay)) !== null) {
+      out.push({
+        hay: hay,
+        at: match.index + match[1].length,
+        length: match[2].length,
+        query: match[2]
+      });
+      if (!match[0].length) re.lastIndex += 1;
+    }
+    return out;
   }
 
   function groupFor(q) {
@@ -38,19 +76,26 @@
     return null;
   }
 
-  function matchSection(text, parsed) {
+  function matchSectionAll(text, parsed) {
     var hay = text.replace(/\s+/g, " ").trim();
-    var direct = locateForm(hay, parsed.q);
-    if (direct) return { found: direct, via: "" };
-    if (parsed.quoted) return null;
+    var directs = locateAllForms(hay, parsed.q);
+    if (directs.length) {
+      return directs.map(function (found) {
+        return { found: found, via: "" };
+      });
+    }
+    if (parsed.quoted) return [];
     var group = groupFor(parsed.q);
-    if (!group) return null;
+    if (!group) return [];
     for (var i = 0; i < group.length; i++) {
       if (group[i].toLowerCase() === parsed.q.toLowerCase()) continue;
-      var found = locateForm(hay, group[i]);
-      if (found) return { found: found, via: parsed.q };
+      var founds = locateAllForms(hay, group[i]);
+      if (!founds.length) continue;
+      return founds.map(function (found) {
+        return { found: found, via: parsed.q };
+      });
     }
-    return null;
+    return [];
   }
 
   function snippet(found) {
@@ -72,8 +117,10 @@
     if (!input || !status || !list) return;
     var root = form.getAttribute("data-root") || "";
 
-    function resultHref(row, query) {
-      return root + row.href + "?find=" + encodeURIComponent(query);
+    function resultHref(row, query, occ) {
+      var href = safeResultHref(root, row && row.href, query);
+      if (!href || !occ || occ < 2) return href;
+      return href + (href.indexOf("?") >= 0 ? "&" : "?") + "n=" + encodeURIComponent(String(occ));
     }
 
     function setPanel(open) {
@@ -98,30 +145,42 @@
         return [];
       }
       var hits = [];
+      var sectionIds = {};
       window.SOURCE_INDEX.forEach(function (row, index) {
-        var hit = matchSection(row.text, parsed);
-        if (!hit) return;
-        hit.row = row;
-        hit.index = index;
-        hits.push(hit);
+        var matches = matchSectionAll(row.text, parsed);
+        matches.forEach(function (hit, matchIndex) {
+          hit.row = row;
+          hit.index = index;
+          hit.occ = matchIndex + 1;
+          hit.occTotal = matches.length;
+          hits.push(hit);
+        });
+        if (matches.length) sectionIds[row.doc + ":" + row.id] = true;
       });
       hits.sort(function (a, b) {
         if (!a.via !== !b.via) return a.via ? 1 : -1;
-        return a.index - b.index;
+        if (a.index !== b.index) return a.index - b.index;
+        return a.occ - b.occ;
       });
       if (!hits.length) {
         status.textContent = "No section contains that " + (/\s/.test(parsed.q) ? "phrase." : "word.");
         setPanel(true);
         return hits;
       }
-      status.textContent = hits.length + (hits.length === 1 ? " section." : " sections.");
+      var sectionCount = Object.keys(sectionIds).length;
+      status.textContent =
+        hits.length + (hits.length === 1 ? " match" : " matches") +
+        " in " + sectionCount + (sectionCount === 1 ? " section." : " sections.");
       hits.forEach(function (hit) {
         var item = document.createElement("li");
         var link = document.createElement("a");
         link.className = "source-hit";
-        link.href = resultHref(hit.row, hit.found.query);
+        var href = resultHref(hit.row, hit.found.query, hit.occ);
+        if (!href) return;
+        link.href = href;
         var title = document.createElement("strong");
         title.textContent = hit.row.doc + " §" + hit.row.number + " — " + hit.row.title;
+        if (hit.occTotal > 1) title.textContent += " (match " + hit.occ + " of " + hit.occTotal + ")";
         var text = document.createElement("span");
         var parts = snippet(hit.found);
         var mark = document.createElement("mark");
@@ -151,7 +210,8 @@
         return hits;
       }
       if (hits.length === 1) {
-        window.location.href = resultHref(hits[0].row, hits[0].found.query);
+        var only = resultHref(hits[0].row, hits[0].found.query, hits[0].occ);
+        if (only) window.location.assign(only);
         return hits;
       }
       setPanel(true);

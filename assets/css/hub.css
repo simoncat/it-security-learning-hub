@@ -945,6 +945,20 @@ caption { text-align: left; font-weight: 700; color: var(--navy); margin-bottom:
 }
 .site-footer-inner { max-width: var(--max); margin: 0 auto; font-size: 0.92rem; }
 .site-footer a { margin-right: 0.8rem; }
+.progress-transfer {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
+  align-items: center;
+}
+.progress-transfer .fine {
+  flex: 1 1 100%;
+  margin: 0 0 0.15rem;
+  color: var(--muted);
+}
 
 .item,
 article[id],
