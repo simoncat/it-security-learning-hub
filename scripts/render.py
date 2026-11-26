@@ -26,6 +26,7 @@ from pages_new import (
     core4_index,
     current_staff_page,
     decision_page,
+    glossary_page,
     gov_page,
     home_page,
     need_index,
@@ -60,6 +61,7 @@ TOP = [
     ("core3/index.html", "Q&A"),
     ("core4/index.html", "Source"),
     ("app-c-matrix.html", "App C"),
+    ("glossary.html", "Glossary"),
     ("about.html", "About"),
 ]
 
@@ -394,6 +396,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     <div class="site-footer-inner">
       <p>{esc(DISCLAIMER)}</p>
       <nav aria-label="Footer">
+        <a href="{href("glossary.html")}">Glossary</a>
         <a href="{href("about.html")}">About and versions</a>
         <a href="{href("governance.html")}">Content governance</a>
         <a href="{href("start/new-joiners.html")}">New joiners</a>
@@ -1207,6 +1210,14 @@ def main():
             read_guide(),
             json_for_script(catalogue()),
         ),
+    )
+    emit(
+        "glossary.html",
+        "Glossary",
+        "P-GLOSSARY",
+        home + [("glossary.html", "Glossary")],
+        "S17 §4 · G3 §4 · Hub map",
+        lambda: glossary_page(href, esc),
     )
     emit("about.html", "About", "P-ABOUT", home + [("about.html", "About")], "S17 v8.2; G3 v10.2", about_main)
     emit("governance.html", "Governance", "P-GOV", home + [("governance.html", "Governance")], "Hub map §7", gov_main)
