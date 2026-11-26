@@ -4,7 +4,7 @@
   "description": "Static HKSARG IT Security Learning Hub for Cloudflare Workers static assets.",
   "scripts": {
     "deploy": "wrangler deploy",
-    "preview": "wrangler versions upload"
+    "preview": "wrangler preview"
   },
   "devDependencies": {
     "wrangler": "^4.50.0"
