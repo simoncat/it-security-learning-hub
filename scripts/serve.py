@@ -30,6 +30,18 @@ NOT_FOUND = b"""<!DOCTYPE html>
 class HubHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header("Cache-Control", "no-cache")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "DENY")
+        self.send_header("Referrer-Policy", "no-referrer")
+        self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
+        self.send_header(
+            "Content-Security-Policy",
+            "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
+            "form-action 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
+            "font-src 'self'; connect-src 'self'; upgrade-insecure-requests",
+        )
+        # Reduce cross-origin read risk for static assets during local/pen-test serving.
+        self.send_header("Cross-Origin-Resource-Policy", "same-origin")
         super().end_headers()
 
     def list_directory(self, path):

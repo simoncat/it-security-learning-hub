@@ -2,14 +2,24 @@
   var CTX = "hksarg-hub:context";
   var TICK_PREFIX = "hksarg-hub:ticks:";
   var GAP_KEY = "hksarg-hub:gap-table";
+  var MAX_FIND = 200;
+  var MAX_FROM = 500;
+  var MAX_LABEL = 90;
 
   function readJson(key, fallback) {
     try {
       var raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : fallback;
+      if (!raw || raw.length > 200000) return fallback;
+      var parsed = JSON.parse(raw);
+      return parsed == null ? fallback : parsed;
     } catch (err) {
       return fallback;
     }
+  }
+
+  function allow(value, pattern) {
+    var text = String(value || "");
+    return pattern.test(text) ? text : "";
   }
 
   (function dropTrackParam() {
@@ -23,11 +33,11 @@
   function qs() {
     var params = new URLSearchParams(location.search);
     return {
-      role: params.get("role") || "",
-      sdlc: params.get("sdlc") || "",
-      need: params.get("need") || "",
-      tier: params.get("tier") || "",
-      mod: params.get("mod") || ""
+      role: allow(params.get("role"), /^[1-5]$/),
+      sdlc: allow(params.get("sdlc"), /^0[1-9]$/),
+      need: allow(params.get("need"), /^[a-z][a-z0-9_-]{0,31}$/),
+      tier: allow(params.get("tier"), /^[123]$/),
+      mod: allow(params.get("mod"), /^(shall|should|may)$/)
     };
   }
 
@@ -58,10 +68,34 @@
     return !!href && href.indexOf("core4/") !== -1;
   }
 
+  function safeInternalHref(href) {
+    if (!href) return "";
+    var value = String(href).trim();
+    if (!value || value.length > MAX_FROM) return "";
+    if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value) || value.indexOf("//") === 0) return "";
+    if (value.indexOf("\\") !== -1 || /%2e%2e/i.test(value)) return "";
+    try {
+      var url = new URL(value, location.href);
+      if (url.protocol !== "http:" && url.protocol !== "https:" && url.protocol !== "file:") return "";
+      if (url.username || url.password) return "";
+      if (!/\.html$/i.test(url.pathname)) return "";
+      if (url.protocol === "file:") {
+        // file:// origins vary by browser; keep a same-folder relative target only.
+        if (/^(?:\.\/|\.\.\/|[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+\.html(?:[?#].*)?$/.test(value) ||
+            /^\/(?:[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+\.html(?:[?#].*)?$/.test(value)) {
+          return value;
+        }
+        return "";
+      }
+      if (url.origin !== location.origin) return "";
+      return url.pathname + url.search + url.hash;
+    } catch (err) {
+      return "";
+    }
+  }
+
   function safeReturn(href) {
-    if (!href || href.indexOf("://") !== -1 || href.indexOf("\\") !== -1 || href.indexOf("..") !== -1) return "";
-    if (!/\.html([?#]|$)/.test(href)) return "";
-    return href;
+    return safeInternalHref(href);
   }
 
   function placeLabel(item) {
@@ -98,10 +132,9 @@
   });
 
   document.querySelectorAll("form.launcher").forEach(function (form) {
-    if (role) {
-      var roleInput = form.querySelector('input[name="role"][value="' + role + '"]');
-      if (roleInput) roleInput.checked = true;
-    }
+    if (!role) return;
+    var roleInput = form.querySelector('input[name="role"][value="' + role + '"]');
+    if (roleInput) roleInput.checked = true;
   });
 
   var banner = document.querySelector("[data-context-banner]");
@@ -225,13 +258,38 @@
     gapBody.innerHTML = "";
     rows.forEach(addGapRow);
   }
+  function plainText(value) {
+    return String(value == null ? "" : value).replace(/\s+/g, " ").trim().slice(0, 2000);
+  }
+
+  function bindGapCell(cell) {
+    cell.contentEditable = "true";
+    cell.addEventListener("input", function () {
+      if (cell.querySelector("*")) cell.textContent = cell.textContent || "";
+      saveGap();
+    });
+    cell.addEventListener("paste", function (event) {
+      event.preventDefault();
+      var text = "";
+      try {
+        text = (event.clipboardData || window.clipboardData).getData("text/plain") || "";
+      } catch (err) {}
+      text = plainText(text);
+      if (document.queryCommandSupported && document.queryCommandSupported("insertText")) {
+        document.execCommand("insertText", false, text);
+      } else {
+        cell.textContent = (cell.textContent || "") + text;
+      }
+      saveGap();
+    });
+  }
+
   function addGapRow(values) {
     var row = document.createElement("tr");
     for (var i = 0; i < 5; i += 1) {
       var cell = document.createElement("td");
-      cell.contentEditable = "true";
-      cell.textContent = values && values[i] ? values[i] : "";
-      cell.addEventListener("input", saveGap);
+      cell.textContent = values && values[i] ? plainText(values[i]) : "";
+      bindGapCell(cell);
       row.appendChild(cell);
     }
     gapBody.appendChild(row);
@@ -242,12 +300,13 @@
   if (gapBody) {
     var existing = readJson(GAP_KEY, null);
     function bindExisting() {
-      gapBody.querySelectorAll("td").forEach(function (cell) {
-        cell.addEventListener("input", saveGap);
-      });
+      gapBody.querySelectorAll("td").forEach(bindGapCell);
     }
-    if (existing && existing.length) writeGap(existing);
-    else if (!gapBody.querySelector("tr")) {
+    if (Array.isArray(existing) && existing.length) {
+      writeGap(existing.filter(Array.isArray).map(function (row) {
+        return Array.isArray(row) ? row.slice(0, 5).map(plainText) : [];
+      }).slice(0, 100));
+    } else if (!gapBody.querySelector("tr")) {
       addGapRow(); addGapRow(); addGapRow(); addGapRow();
     } else {
       bindExisting();
@@ -329,7 +388,11 @@
   var fromParams = new URLSearchParams(location.search);
   var fromHref = safeReturn(fromParams.get("from") || "");
   if (fromHref) {
-    var fromLabel = (fromParams.get("fromLabel") || "where you were").replace(/\s+/g, " ").trim();
+    var fromLabel = (fromParams.get("fromLabel") || "where you were")
+      .replace(/[\u0000-\u001f\u007f]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, MAX_LABEL) || "where you were";
     var back = document.createElement("a");
     back.className = "return-float no-print";
     back.href = fromHref;
@@ -362,7 +425,13 @@
   var launcherNode = document.getElementById("launcher-data");
   var launcherRoot = document.getElementById("launcher-results");
   if (launcherNode && launcherRoot) {
-    var catalogue = JSON.parse(launcherNode.textContent);
+    var catalogue = [];
+    try {
+      var parsedCatalogue = JSON.parse(launcherNode.textContent);
+      if (Array.isArray(parsedCatalogue)) catalogue = parsedCatalogue;
+    } catch (err) {
+      catalogue = [];
+    }
     var cssHref = document.querySelector('link[rel="stylesheet"]').getAttribute("href") || "";
     var prefix = cssHref.replace(/assets\/css\/hub\.css.*$/, "");
     var form = document.getElementById("staff-launcher");
@@ -422,8 +491,10 @@
           kindLabel.className = "result-kind";
           kindLabel.textContent = row.mod ? row.mod : kind;
           var link = document.createElement("a");
-          link.href = prefix + row.href;
-          link.textContent = row.title;
+          var target = safeInternalHref(prefix + String(row.href || ""));
+          if (!target) return;
+          link.href = target;
+          link.textContent = String(row.title || "");
           item.appendChild(kindLabel);
           item.appendChild(link);
           if (row.detail) {
@@ -439,8 +510,10 @@
 
   (function highlightFind() {
     var params = new URLSearchParams(location.search);
-    var query = (params.get("find") || "").replace(/\s+/g, " ").trim();
+    var query = (params.get("find") || "").replace(/\s+/g, " ").trim().slice(0, MAX_FIND);
     if (query.length < 2) return;
+    var focusOcc = parseInt(params.get("n") || "1", 10);
+    if (!isFinite(focusOcc) || focusOcc < 1) focusOcc = 1;
     var root = document.querySelector(".policy-text");
     if (!root) return;
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -468,40 +541,60 @@
       map.push(i);
     }
     var needle = query.toLowerCase();
-    var at = -1;
-    var length = needle.length;
+    var ranges = [];
     if (query.indexOf(" ") === -1) {
       var escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      var match = new RegExp("(^|[^A-Za-z0-9/.])(" + escaped + ")(?![A-Za-z0-9/.])", "i").exec(norm);
-      if (!match) return;
-      at = match.index + match[1].length;
-      length = match[2].length;
+      var re = new RegExp("(^|[^A-Za-z0-9/.])(" + escaped + ")(?![A-Za-z0-9/.])", "gi");
+      var match;
+      while ((match = re.exec(norm)) !== null) {
+        ranges.push({
+          at: match.index + match[1].length,
+          length: match[2].length
+        });
+        if (!match[0].length) re.lastIndex += 1;
+      }
     } else {
-      at = norm.toLowerCase().indexOf(needle);
-      if (at < 0) return;
+      var from = 0;
+      var lower = norm.toLowerCase();
+      while (from <= lower.length - needle.length) {
+        var at = lower.indexOf(needle, from);
+        if (at < 0) break;
+        ranges.push({ at: at, length: needle.length });
+        from = at + Math.max(1, needle.length);
+      }
     }
-    if (at + length - 1 >= map.length) return;
-    var rawStart = map[at];
-    var rawEnd = map[at + length - 1] + 1;
-    var first = null;
-    nodes.forEach(function (item) {
-      var nodeStart = item.start;
-      var nodeEnd = nodeStart + item.node.nodeValue.length;
-      if (nodeEnd <= rawStart || nodeStart >= rawEnd) return;
-      var localStart = Math.max(0, rawStart - nodeStart);
-      var localEnd = Math.min(item.node.nodeValue.length, rawEnd - nodeStart);
-      if (localStart >= localEnd) return;
-      var range = document.createRange();
-      range.setStart(item.node, localStart);
-      range.setEnd(item.node, localEnd);
-      var mark = document.createElement("mark");
-      mark.className = "find-hit";
-      range.surroundContents(mark);
-      if (!first) first = mark;
-    });
-    if (!first) return;
-    first.id = "find-hit";
-    window.setTimeout(function () { first.scrollIntoView({ block: "center" }); }, 0);
+    if (!ranges.length) return;
+    var marks = [];
+    for (var r = ranges.length - 1; r >= 0; r -= 1) {
+      var span = ranges[r];
+      if (span.at + span.length - 1 >= map.length) continue;
+      var rawStart = map[span.at];
+      var rawEnd = map[span.at + span.length - 1] + 1;
+      var created = [];
+      nodes.forEach(function (item) {
+        if (!item.node.parentNode) return;
+        var nodeStart = item.start;
+        var nodeEnd = nodeStart + item.node.nodeValue.length;
+        if (nodeEnd <= rawStart || nodeStart >= rawEnd) return;
+        var localStart = Math.max(0, rawStart - nodeStart);
+        var localEnd = Math.min(item.node.nodeValue.length, rawEnd - nodeStart);
+        if (localStart >= localEnd) return;
+        try {
+          var range = document.createRange();
+          range.setStart(item.node, localStart);
+          range.setEnd(item.node, localEnd);
+          var mark = document.createElement("mark");
+          mark.className = "find-hit";
+          range.surroundContents(mark);
+          created.push(mark);
+        } catch (err) {}
+      });
+      if (created.length) marks.unshift(created[0]);
+    }
+    if (!marks.length) return;
+    var focus = marks[Math.min(focusOcc, marks.length) - 1] || marks[0];
+    focus.id = "find-hit";
+    window.setTimeout(function () { focus.scrollIntoView({ block: "center" }); }, 0);
   })();
 
   if (location.hash) {
@@ -515,4 +608,158 @@
       window.setTimeout(function () { landed.classList.remove("is-return-target"); }, 2600);
     }
   }
+
+  (function progressTransfer() {
+    var FORMAT = "hksarg-hub-progress";
+    var VERSION = 1;
+    var MAX_PAYLOAD = 500000;
+    var importInput = document.querySelector("[data-progress-import]");
+
+    function isProgressKey(key) {
+      return key === GAP_KEY || (key && key.indexOf(TICK_PREFIX) === 0);
+    }
+
+    function collectProgress() {
+      var items = {};
+      for (var i = 0; i < localStorage.length; i += 1) {
+        var key = localStorage.key(i);
+        if (!isProgressKey(key)) continue;
+        var raw = localStorage.getItem(key);
+        if (raw == null) continue;
+        if (raw.length > 200000) continue;
+        try {
+          items[key] = JSON.parse(raw);
+        } catch (err) {
+          items[key] = raw;
+        }
+      }
+      return items;
+    }
+
+    function stampName() {
+      var now = new Date();
+      var y = now.getFullYear();
+      var m = String(now.getMonth() + 1).padStart(2, "0");
+      var d = String(now.getDate()).padStart(2, "0");
+      return "hub-progress-" + y + m + d + ".json";
+    }
+
+    function exportProgress() {
+      var payload = {
+        format: FORMAT,
+        version: VERSION,
+        exportedAt: new Date().toISOString(),
+        items: collectProgress()
+      };
+      var text = JSON.stringify(payload, null, 2);
+      if (text.length > MAX_PAYLOAD) {
+        window.alert("Progress is too large to export from this browser.");
+        return;
+      }
+      var blob = new Blob([text], { type: "application/json;charset=utf-8" });
+      var link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = stampName();
+      link.click();
+      window.setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+    }
+
+    function clearProgressKeys() {
+      var doomed = [];
+      for (var i = 0; i < localStorage.length; i += 1) {
+        var key = localStorage.key(i);
+        if (isProgressKey(key)) doomed.push(key);
+      }
+      doomed.forEach(function (key) {
+        try { localStorage.removeItem(key); } catch (err) {}
+      });
+    }
+
+    function normalizeItemValue(value) {
+      if (typeof value === "string") {
+        if (value.length > 200000) return null;
+        JSON.parse(value);
+        return value;
+      }
+      var text = JSON.stringify(value);
+      if (!text || text.length > 200000) return null;
+      return text;
+    }
+
+    function applyImport(payload) {
+      if (!payload || typeof payload !== "object") throw new Error("bad payload");
+      if (payload.format !== FORMAT || payload.version !== VERSION) throw new Error("bad format");
+      if (!payload.items || typeof payload.items !== "object" || Array.isArray(payload.items)) {
+        throw new Error("bad items");
+      }
+      var keys = Object.keys(payload.items);
+      if (keys.length > 500) throw new Error("too many keys");
+      var prepared = {};
+      var total = 0;
+      keys.forEach(function (key) {
+        if (!isProgressKey(key)) throw new Error("bad key");
+        if (key.indexOf(TICK_PREFIX) === 0 && key.length > 120) throw new Error("bad key");
+        var stored = normalizeItemValue(payload.items[key]);
+        if (stored == null) throw new Error("bad value");
+        prepared[key] = stored;
+        total += key.length + stored.length;
+      });
+      if (total > MAX_PAYLOAD) throw new Error("too large");
+      clearProgressKeys();
+      Object.keys(prepared).forEach(function (key) {
+        localStorage.setItem(key, prepared[key]);
+      });
+    }
+
+    document.querySelectorAll("[data-action='export-progress']").forEach(function (button) {
+      button.addEventListener("click", function () {
+        try {
+          exportProgress();
+        } catch (err) {
+          window.alert("Could not export progress from this browser.");
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-action='import-progress']").forEach(function (button) {
+      button.addEventListener("click", function () {
+        if (!importInput) return;
+        var ok = window.confirm(
+          "Importing will clear and replace the optional progress stored in this browser. Continue?"
+        );
+        if (!ok) return;
+        importInput.value = "";
+        importInput.click();
+      });
+    });
+
+    if (importInput) {
+      importInput.addEventListener("change", function () {
+        var file = importInput.files && importInput.files[0];
+        if (!file) return;
+        if (file.size > MAX_PAYLOAD) {
+          window.alert("That file is too large to import.");
+          importInput.value = "";
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () {
+          try {
+            var payload = JSON.parse(String(reader.result || ""));
+            applyImport(payload);
+            location.reload();
+          } catch (err) {
+            window.alert("Could not import that file. Progress in this browser was not changed.");
+          } finally {
+            importInput.value = "";
+          }
+        };
+        reader.onerror = function () {
+          window.alert("Could not read that file. Progress in this browser was not changed.");
+          importInput.value = "";
+        };
+        reader.readAsText(file);
+      });
+    }
+  })();
 })();

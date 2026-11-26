@@ -98,6 +98,18 @@ def esc(value):
     )
 
 
+def json_for_script(value):
+    """Serialize JSON for embedding in HTML/JS without breaking out of a script tag."""
+    return (
+        json.dumps(value, ensure_ascii=False)
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
 def href(target):
     current_dir = Path(CURRENT).parent
     origin = Path(".") if str(current_dir) == "." else current_dir
@@ -281,8 +293,13 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=22"
+    css = href("assets/css/hub.css") + "?v=26"
     js = href("assets/js/hub.js")
+    csp = (
+        "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
+        "form-action 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
+        "font-src 'self'; connect-src 'self'; upgrade-insecure-requests"
+    )
     top_links = []
     for target, label in TOP:
         target_path = target.split("#")[0]
@@ -305,13 +322,14 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
             crumb_bits.append(f'<li><a href="{href(target)}">{esc(label)}</a></li>')
     home = href("index.html")
     search_root = "" if home == "index.html" else home[: -len("index.html")]
-    scripts = f'<script src="{js}?v=5"></script>'
+    scripts = f'<script src="{js}?v=11"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
-    scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=8"></script>'
+    scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=10"></script>'
     for extra in extra_scripts or []:
         if extra in ("assets/js/source-search-data.js", "assets/js/source-search.js"):
             continue
-        scripts += f'\n<script src="{href(extra)}?v=5"></script>'
+        ver = "6" if extra.endswith("quiz.js") else "5"
+        scripts += f'\n<script src="{href(extra)}?v={ver}"></script>'
     icon = (
         "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
         "%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E"
@@ -323,6 +341,9 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="{esc(csp)}">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light">
   <title>{esc(title)} · HKSARG IT Security Learning Hub</title>
   <meta name="description" content="{esc(title)}. Static learning aid for S17 v8.2 and G3 v10.2.">
   <link rel="icon" href="{icon}">
@@ -377,6 +398,12 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
         <a href="{href("governance.html")}">Content governance</a>
         <a href="{href("start/new-joiners.html")}">New joiners</a>
       </nav>
+      <div class="progress-transfer no-print">
+        <p class="fine">Optional ticks and gap notes stay in this browser. Not a sign-off.</p>
+        <button type="button" class="btn btn-ghost" data-action="export-progress">Export Progress</button>
+        <button type="button" class="btn btn-ghost" data-action="import-progress">Import Progress</button>
+        <input type="file" accept="application/json,.json" data-progress-import hidden>
+      </div>
     </div>
   </footer>
   {scripts}
@@ -652,7 +679,7 @@ def quiz_index():
 
 
 def quiz_page(quiz):
-    payload = json.dumps({"questions": quiz["questions"]}, ensure_ascii=False).replace("<", "\\u003c")
+    payload = json_for_script({"questions": quiz["questions"]})
     return f"""
 <h1>{esc(quiz["title"])}</h1>
 <p>{esc(quiz["intro"])}</p>
@@ -991,8 +1018,8 @@ def write_source_index(sections):
                 "href": f"core4/{key}/s{section['id']}.html",
                 "text": text,
             })
-    payload = json.dumps(rows, ensure_ascii=False).replace("<", "\\u003c")
-    equivalents = json.dumps(EQUIVALENTS, ensure_ascii=False).replace("<", "\\u003c")
+    payload = json_for_script(rows)
+    equivalents = json_for_script(EQUIVALENTS)
     path = HUB / "assets" / "js" / "source-search-data.js"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
@@ -1178,7 +1205,7 @@ def main():
             esc,
             legend_html(),
             read_guide(),
-            json.dumps(catalogue(), ensure_ascii=False).replace("<", "\\u003c"),
+            json_for_script(catalogue()),
         ),
     )
     emit("about.html", "About", "P-ABOUT", home + [("about.html", "About")], "S17 v8.2; G3 v10.2", about_main)
