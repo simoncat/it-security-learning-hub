@@ -3,6 +3,7 @@
 
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -295,7 +296,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=26"
+    css = href("assets/css/hub.css") + "?v=27"
     js = href("assets/js/hub.js")
     csp = (
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
@@ -1388,6 +1389,7 @@ def main():
     quiz_dir = data_dir / "quizzes"
     qa_dir.mkdir(parents=True, exist_ok=True)
     quiz_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(ROOT / "data" / "infosec-glossary.csv", data_dir / "infosec-glossary.csv")
     (data_dir / "paths.json").write_text(json.dumps(soften_obj(paths_payload()), ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "quizzes.json").write_text(json.dumps(QUIZZES, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "decision-aids.json").write_text(
@@ -1417,6 +1419,24 @@ def main():
         rel = path.relative_to(HUB).as_posix()
         if rel not in written:
             path.unlink()
+
+    # Workers not_found_handling uses 404.html; write after orphan cleanup.
+    (HUB / "404.html").write_text(
+        """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Not found</title>
+</head>
+<body>
+  <p>This address is not a page.</p>
+  <p><a href="/">Home</a></p>
+</body>
+</html>
+""",
+        encoding="utf-8",
+    )
 
     found = collect_ids()
     dupes = sorted({item for item in found if found.count(item) > 1})

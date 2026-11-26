@@ -1,6 +1,10 @@
 """Page bodies and side navigation for the four-core hub."""
 
+import csv
 import re
+import string
+from collections import defaultdict
+from pathlib import Path
 
 from content_decisions import NEEDS, PAGES, all_cards, cards_sorted
 from content_qa import PACKS
@@ -8,6 +12,9 @@ from content_quizzes import QUIZZES
 from content_sdlc import STAGES
 from content_static import CHEATS, WALKS
 from search_glossary import EQUIVALENTS
+
+INFOSEC_GLOSSARY_CSV = Path(__file__).resolve().parents[1] / "data" / "infosec-glossary.csv"
+INFOSEC_GLOSSARY_SOURCE = "https://www.infosec.gov.hk/en/useful-resources/glossary"
 
 ROLES = [
     ("1", "Elevated end user"),
@@ -92,6 +99,16 @@ def side_groups(rel):
             ("spine.html#layer-1", "Layer 1 · CIA"),
             ("spine.html#layer-2", "Layer 2 · Policy stack"),
             ("spine.html#layer-3", "Layer 3 · SDLC"),
+        ])]
+    if rel == "glossary.html":
+        return [("On this page", [
+            ("glossary.html#infosec", "Official InfoSec glossary"),
+            ("glossary.html#modality", "Shall, Should, May"),
+            ("glossary.html#policy-stack", "Policy stack"),
+            ("glossary.html#cia-tiers", "CIA and tiers"),
+            ("glossary.html#roles", "Roles and contacts"),
+            ("glossary.html#hub-words", "Hub words"),
+            ("glossary.html#abbreviations", "Search abbreviations"),
         ])]
     return [("On this hub", [
         ("index.html", "Home"),
@@ -790,6 +807,47 @@ def sdlc_page(h, esc, stage, items_html, legend, guide):
 """
 
 
+def load_infosec_glossary():
+    """Load official infosec.gov.hk glossary rows (term, definition), wording unchanged."""
+    with INFOSEC_GLOSSARY_CSV.open(encoding="utf-8-sig", newline="") as handle:
+        return [(row["名詞"], row["解釋"]) for row in csv.DictReader(handle)]
+
+
+def infosec_glossary_html(h, esc):
+    rows = load_infosec_glossary()
+    by_letter = defaultdict(list)
+    for term, definition in rows:
+        letter = term[0].upper() if term else "#"
+        by_letter[letter].append((term, definition))
+    letter_links = []
+    sections = []
+    for letter in string.ascii_uppercase:
+        if letter not in by_letter:
+            continue
+        letter_links.append(f'<a href="#infosec-{letter.lower()}">{letter}</a>')
+        body_rows = []
+        for term, definition in by_letter[letter]:
+            body_rows.append(
+                f"<tr><th scope=\"row\">{esc(term)}</th><td>{esc(definition)}</td></tr>"
+            )
+        sections.append(
+            f'<h3 id="infosec-{letter.lower()}">{letter}</h3>\n'
+            f"<table>\n"
+            f"  <thead><tr><th>Term</th><th>Official definition</th></tr></thead>\n"
+            f"  <tbody>\n    {''.join(body_rows)}\n  </tbody>\n"
+            f"</table>"
+        )
+    jump = " · ".join(letter_links)
+    csv_href = h("assets/data/infosec-glossary.csv")
+    return f"""
+<h2 id="infosec">Official InfoSec glossary</h2>
+<p>English terms and definitions published by the Hong Kong Government information security portal. Wording below matches the official glossary exactly ({len(rows)} terms).</p>
+<p class="fine">Source: <a href="{INFOSEC_GLOSSARY_SOURCE}" rel="noopener noreferrer">infosec.gov.hk Glossary</a>. Download the same list as <a href="{csv_href}">CSV</a>.</p>
+<p class="letter-jump" aria-label="Jump to letter">{jump}</p>
+{''.join(sections)}
+"""
+
+
 def glossary_page(h, esc):
     abbrev_rows = []
     for group in EQUIVALENTS:
@@ -800,9 +858,12 @@ def glossary_page(h, esc):
             f"<th scope=\"row\">{esc(primary)}</th>"
             f"<td>{others if others else '—'}</td></tr>"
         )
+    official = infosec_glossary_html(h, esc)
     return f"""
 <h1>Glossary</h1>
-<p class="lede">Short meanings used across this hub. Authoritative wording stays in S17, G3, the Security Regulations, and your B/D policy. Source search also treats listed abbreviations and their full names as the same query.</p>
+<p class="lede">Official InfoSec.gov.hk definitions for common information security terms, plus short meanings used across this hub. S17, G3, the Security Regulations, and your B/D policy remain authoritative for compliance. Source search also treats listed abbreviations and their full names as the same query.</p>
+
+{official}
 
 <h2 id="modality">Shall, Should, May, and Appendix C</h2>
 <table>
