@@ -841,8 +841,8 @@ def infosec_glossary_html(h, esc):
     csv_href = h("assets/data/infosec-glossary.csv")
     return f"""
 <h2 id="infosec">Official InfoSec glossary</h2>
-<p>English terms and definitions published by the Hong Kong Government information security portal. Wording below matches the official glossary exactly ({len(rows)} terms).</p>
-<p class="fine">Source: <a href="{INFOSEC_GLOSSARY_SOURCE}" rel="noopener noreferrer">infosec.gov.hk Glossary</a>. Download the same list as <a href="{csv_href}">CSV</a>.</p>
+<p>English terms from the Hong Kong Government information security portal that also appear in S17 or G3 wording used in this hub. Definitions match the official glossary exactly ({len(rows)} terms).</p>
+<p class="fine">Source: <a href="{INFOSEC_GLOSSARY_SOURCE}" rel="noopener noreferrer">infosec.gov.hk Glossary</a>. Download this hub list as <a href="{csv_href}">CSV</a>.</p>
 <p class="letter-jump" aria-label="Jump to letter">{jump}</p>
 {''.join(sections)}
 """
@@ -861,7 +861,7 @@ def glossary_page(h, esc):
     official = infosec_glossary_html(h, esc)
     return f"""
 <h1>Glossary</h1>
-<p class="lede">Official InfoSec.gov.hk definitions for common information security terms, plus short meanings used across this hub. S17, G3, the Security Regulations, and your B/D policy remain authoritative for compliance. Source search also treats listed abbreviations and their full names as the same query.</p>
+<p class="lede">Official InfoSec.gov.hk definitions for terms that appear in S17 or G3, plus short meanings used across this hub. S17, G3, the Security Regulations, and your B/D policy remain authoritative for compliance. Source search also treats listed abbreviations and their full names as the same query.</p>
 
 {official}
 
