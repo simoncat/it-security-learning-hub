@@ -20,6 +20,11 @@
     "id": "P-START-CURRENT"
   },
   {
+    "href": "glossary.html",
+    "title": "Glossary",
+    "id": "P-GLOSSARY"
+  },
+  {
     "href": "about.html",
     "title": "About",
     "id": "P-ABOUT"
