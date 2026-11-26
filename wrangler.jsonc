@@ -1,0 +1,12 @@
+{
+  // Static hub: serve generated hub/ on Workers Builds + Previews.
+  "name": "it-security-learning-hub",
+  "compatibility_date": "2026-11-25",
+  "preview_urls": true,
+  "assets": {
+    "directory": "./hub",
+    "not_found_handling": "404-page"
+  },
+  // Required for `npx wrangler preview` (Workers Builds preview command).
+  "previews": {}
+}

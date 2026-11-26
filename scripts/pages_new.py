@@ -1,12 +1,20 @@
 """Page bodies and side navigation for the four-core hub."""
 
+import csv
 import re
+import string
+from collections import defaultdict
+from pathlib import Path
 
 from content_decisions import NEEDS, PAGES, all_cards, cards_sorted
 from content_qa import PACKS
 from content_quizzes import QUIZZES
 from content_sdlc import STAGES
 from content_static import CHEATS, WALKS
+from search_glossary import EQUIVALENTS
+
+INFOSEC_GLOSSARY_CSV = Path(__file__).resolve().parents[1] / "data" / "infosec-glossary.csv"
+INFOSEC_GLOSSARY_SOURCE = "https://www.infosec.gov.hk/en/useful-resources/glossary"
 
 ROLES = [
     ("1", "Elevated end user"),
@@ -92,6 +100,16 @@ def side_groups(rel):
             ("spine.html#layer-2", "Layer 2 · Policy stack"),
             ("spine.html#layer-3", "Layer 3 · SDLC"),
         ])]
+    if rel == "glossary.html":
+        return [("On this page", [
+            ("glossary.html#infosec", "Official InfoSec glossary"),
+            ("glossary.html#modality", "Shall, Should, May"),
+            ("glossary.html#policy-stack", "Policy stack"),
+            ("glossary.html#cia-tiers", "CIA and tiers"),
+            ("glossary.html#roles", "Roles and contacts"),
+            ("glossary.html#hub-words", "Hub words"),
+            ("glossary.html#abbreviations", "Search abbreviations"),
+        ])]
     return [("On this hub", [
         ("index.html", "Home"),
         ("spine.html", "Overview"),
@@ -105,6 +123,7 @@ def side_groups(rel):
         ("gap-template.html", "Gap template"),
         ("cheatsheets/index.html", "Cheat sheets"),
         ("walkthroughs/index.html", "Walkthroughs"),
+        ("glossary.html", "Glossary"),
         ("governance.html", "Governance"),
     ])]
 
@@ -785,6 +804,140 @@ def sdlc_page(h, esc, stage, items_html, legend, guide):
 <div data-checklist>{items_html}</div>
 <p>{aid_links}</p>
 <p>{" · ".join(prev_next)} · <a href="{h("cheatsheets/sdlc.html")}">SDLC cheat sheet</a> · <a href="{h("core4/s17/s16.html")}">S17 §16</a> · <a href="{h("core4/g3/s16.html")}">G3 §16</a></p>
+"""
+
+
+def load_infosec_glossary():
+    """Load official infosec.gov.hk glossary rows (term, definition), wording unchanged."""
+    with INFOSEC_GLOSSARY_CSV.open(encoding="utf-8-sig", newline="") as handle:
+        return [(row["名詞"], row["解釋"]) for row in csv.DictReader(handle)]
+
+
+def infosec_glossary_html(h, esc):
+    rows = load_infosec_glossary()
+    by_letter = defaultdict(list)
+    for term, definition in rows:
+        letter = term[0].upper() if term else "#"
+        by_letter[letter].append((term, definition))
+    letter_links = []
+    sections = []
+    for letter in string.ascii_uppercase:
+        if letter not in by_letter:
+            continue
+        letter_links.append(f'<a href="#infosec-{letter.lower()}">{letter}</a>')
+        body_rows = []
+        for term, definition in by_letter[letter]:
+            body_rows.append(
+                f"<tr><th scope=\"row\">{esc(term)}</th><td>{esc(definition)}</td></tr>"
+            )
+        sections.append(
+            f'<h3 id="infosec-{letter.lower()}">{letter}</h3>\n'
+            f"<table>\n"
+            f"  <thead><tr><th>Term</th><th>Official definition</th></tr></thead>\n"
+            f"  <tbody>\n    {''.join(body_rows)}\n  </tbody>\n"
+            f"</table>"
+        )
+    jump = " · ".join(letter_links)
+    csv_href = h("assets/data/infosec-glossary.csv")
+    return f"""
+<h2 id="infosec">Official InfoSec glossary</h2>
+<p>English terms from the Hong Kong Government information security portal that also appear in S17 or G3 wording used in this hub. Definitions match the official glossary exactly ({len(rows)} terms).</p>
+<p class="fine">Source: <a href="{INFOSEC_GLOSSARY_SOURCE}" rel="noopener noreferrer">infosec.gov.hk Glossary</a>. Download this hub list as <a href="{csv_href}">CSV</a>.</p>
+<p class="letter-jump" aria-label="Jump to letter">{jump}</p>
+{''.join(sections)}
+"""
+
+
+def glossary_page(h, esc):
+    abbrev_rows = []
+    for group in EQUIVALENTS:
+        primary = group[0]
+        others = ", ".join(esc(item) for item in group[1:])
+        abbrev_rows.append(
+            f"<tr id=\"g-{esc(primary).lower().replace('/', '-').replace('.', '-')}\">"
+            f"<th scope=\"row\">{esc(primary)}</th>"
+            f"<td>{others if others else '—'}</td></tr>"
+        )
+    official = infosec_glossary_html(h, esc)
+    return f"""
+<h1>Glossary</h1>
+<p class="lede">Official InfoSec.gov.hk definitions for terms that appear in S17 or G3, plus short meanings used across this hub. S17, G3, the Security Regulations, and your B/D policy remain authoritative for compliance. Source search also treats listed abbreviations and their full names as the same query.</p>
+
+{official}
+
+<h2 id="modality">Shall, Should, May, and Appendix C</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Shall</th><td>Mandatory. You must do it. Keep records that show the control is met.</td></tr>
+    <tr><th scope="row">Should</th><td>Best practice. Implement whenever possible. If you defer it, know why.</td></tr>
+    <tr><th scope="row">May</th><td>Desirable best practice. Useful guidance, not a substitute for Shall.</td></tr>
+    <tr><th scope="row">Appendix C / App C</th><td>Extra controls for Tier 2 and Tier 3 systems. Tier 3 includes every Tier 2 Appendix C control. Baseline S17 and G3 still apply underneath.</td></tr>
+  </tbody>
+</table>
+<p><a href="{h("core1/modality.html")}">Decision aids for modality</a> · <a href="{h("app-c-matrix.html")}">Appendix C matrix</a></p>
+
+<h2 id="policy-stack">Policy stack</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">SR / Security Regulations</th><td>Government-wide security rules that sit above S17 and G3 for classified protection and related duties.</td></tr>
+    <tr><th scope="row">S17 / Baseline IT Security Policy</th><td>The baseline policy for HKSARG information systems. Version in this hub: v8.2.</td></tr>
+    <tr><th scope="row">G3 / IT Security Guidelines</th><td>Implementation guidance that pairs with S17 section by section. Version in this hub: v10.2.</td></tr>
+    <tr><th scope="row">Practice guides</th><td>Theme guidance that supports S17 and G3. Use the guide your B/D names; do not invent a control from a guide alone.</td></tr>
+    <tr><th scope="row">Departmental policy</th><td>Local B/D rules and procedures. They may be stricter. They do not weaken a Shall.</td></tr>
+  </tbody>
+</table>
+<p><a href="{h("core1/policy-stack.html")}">Policy stack aids</a> · <a href="{h("core4/index.html")}">Source lookup</a></p>
+
+<h2 id="cia-tiers">CIA and system tiers</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Confidentiality</th><td>Only authorised persons and systems may know or gain access to the information.</td></tr>
+    <tr><th scope="row">Integrity</th><td>Only authorised persons and systems may change the information, configuration, or code, and unauthorised change is detectable.</td></tr>
+    <tr><th scope="row">Availability</th><td>Service availability: authorised users can use the service when they need it. Backup, capacity, continuity, and contingency support that outcome.</td></tr>
+    <tr><th scope="row">Tier 1</th><td>Ordinary baseline. S17 and G3 apply. Appendix C does not.</td></tr>
+    <tr><th scope="row">Tier 2</th><td>A system whose failure or disruption would seriously affect government operations, or could cause public turmoil or catastrophe. Baseline plus Appendix C.</td></tr>
+    <tr><th scope="row">Tier 3</th><td>A Tier 2 system tied directly to an essential service. Takes every Tier 2 Appendix C control, then the Tier 3-only rows.</td></tr>
+  </tbody>
+</table>
+<p><a href="{h("core1/cia.html")}">CIA aids</a> · <a href="{h("core1/tier-appc.html")}">Tier and Appendix C aids</a></p>
+
+<h2 id="roles">Roles and contacts</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">DITSO</th><td>Departmental IT Security Officer. Appointed by the Head of the B/D to steer IT security.</td></tr>
+    <tr><th scope="row">IT security management unit</th><td>The unit that carries day-to-day IT security work for the B/D.</td></tr>
+    <tr><th scope="row">Information owner</th><td>The person accountable for the information and for classifying and approving access to it.</td></tr>
+    <tr><th scope="row">ISIRT</th><td>Information Security Incident Response Team for the B/D.</td></tr>
+    <tr><th scope="row">GIRO</th><td>Government Information Security Incident Response Office.</td></tr>
+    <tr><th scope="row">GovCERT.HK</th><td>Government Computer Emergency Response Team Hong Kong.</td></tr>
+  </tbody>
+</table>
+<p><a href="{h("core1/accountability.html")}">Accountability aids</a> · <a href="{h("core1/org-structure.html")}">Organisation aids</a></p>
+
+<h2 id="hub-words">Words this hub uses</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Decision aid</th><td>A one-glance answer with relevance, applicability, modality, and a section-level cite. It is not a substitute for the source text.</td></tr>
+    <tr><th scope="row">Source lookup</th><td>Section pages that show original S17 and G3 wording. Search matches abbreviations and full names together.</td></tr>
+    <tr><th scope="row">Optional tick</th><td>A private self-progress mark stored only in this browser. Not evidence and not a signature.</td></tr>
+    <tr><th scope="row">B/D</th><td>Bureau or department. Plural forms and “bureaux and departments” are treated as the same idea in source search.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="abbreviations">Abbreviations used in source search</h2>
+<p>When you search S17 and G3 wording, each row is searched as one group.</p>
+<table>
+  <thead><tr><th>Form</th><th>Also searched</th></tr></thead>
+  <tbody>
+    {''.join(abbrev_rows)}
+  </tbody>
+</table>
+<p class="fine">Learning aid only. Prefer the official PDF when a definition must be exact.</p>
 """
 
 

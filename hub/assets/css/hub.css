@@ -595,6 +595,16 @@ html[data-role] .role-card.is-selected { opacity: 1; outline: 2px solid var(--na
   padding: 0.7rem 0.85rem;
 }
 
+.letter-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin: 0.4rem 0 1rem;
+  font-weight: 650;
+}
+.letter-jump a { text-decoration: none; }
+.letter-jump a:hover, .letter-jump a:focus-visible { text-decoration: underline; }
+
 table { width: 100%; border-collapse: collapse; background: #fff; margin: 0.6rem 0 1rem; }
 th, td { border: 1px solid var(--line); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
 th { background: var(--navy); color: #fff; font-weight: 650; }
