@@ -1,0 +1,12 @@
+{
+  "name": "it-security-learning-hub",
+  "private": true,
+  "description": "Static HKSARG IT Security Learning Hub for Cloudflare Workers static assets.",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "preview": "wrangler versions upload"
+  },
+  "devDependencies": {
+    "wrangler": "^4.50.0"
+  }
+}

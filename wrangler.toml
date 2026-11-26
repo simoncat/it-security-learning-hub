@@ -1,0 +1,7 @@
+# Cloudflare Workers: serve the generated static hub.
+name = "it-security-learning-hub"
+compatibility_date = "2026-11-25"
+
+[assets]
+directory = "./hub"
+not_found_handling = "404-page"
