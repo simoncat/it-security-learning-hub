@@ -1,0 +1,16 @@
+# HTML and non-fingerprinted files: revalidate on every F5 / navigation.
+/
+  Cache-Control: no-cache
+
+/*
+  Cache-Control: no-cache
+
+# Fingerprinted CSS/JS (?v=content-hash): long-lived browser cache.
+/assets/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+# Soft-reload stamp must stay revalidate-only (not under /assets immutable).
+/build-id.txt
+  ! Cache-Control
+  Cache-Control: no-cache
