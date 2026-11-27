@@ -70,6 +70,8 @@ CORE_SCRIPTS = (
 
 # Content-hash cache for one render run. Cleared at the start of main().
 _ASSET_HASH: dict[str, str] = {}
+# Render-wide stamp embedded in HTML and written to hub/build-id.txt.
+BUILD_ID = ""
 
 
 def asset_version(rel: str) -> str:
@@ -88,6 +90,43 @@ def asset_version(rel: str) -> str:
 def versioned_asset(rel: str) -> str:
     """Href to a hub asset with a content-hash query string."""
     return f"{href(rel)}?v={asset_version(rel)}"
+
+
+def compute_build_id() -> str:
+    """Stamp that changes whenever any versioned hub asset bytes change."""
+    digest = hashlib.sha256()
+    for rel in ("assets/css/hub.css", *CORE_SCRIPTS, "assets/js/quiz.js"):
+        digest.update(rel.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update((HUB / rel).read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()[:12]
+
+
+def write_cache_control_files(build_id: str) -> None:
+    """Workers `_headers` + `build-id.txt` for HTML revalidation / soft reload."""
+    (HUB / "build-id.txt").write_text(build_id + "\n", encoding="utf-8")
+    # GitHub Pages ignores this file; Cloudflare Workers Assets applies it.
+    (HUB / "_headers").write_text(
+        """# HTML and non-fingerprinted files: revalidate on every F5 / navigation.
+/
+  Cache-Control: no-cache
+
+/*
+  Cache-Control: no-cache
+
+# Fingerprinted CSS/JS (?v=content-hash): long-lived browser cache.
+/assets/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+# Soft-reload stamp must stay revalidate-only (not under /assets immutable).
+/build-id.txt
+  ! Cache-Control
+  Cache-Control: no-cache
+""",
+        encoding="utf-8",
+    )
 
 
 TOP = [
@@ -393,7 +432,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
   <link rel="icon" href="{icon}">
   <link rel="stylesheet" href="{css}">
 </head>
-<body data-page-id="{esc(page_id)}" data-page="{esc(page_id)}" data-source-sections="{esc(source)}" data-last-reviewed="{REVIEWED}" data-owner-role="Hub Content Owner" data-glossary-page="{href("glossary.html")}" data-search-root="{esc(search_root)}">
+<body data-page-id="{esc(page_id)}" data-page="{esc(page_id)}" data-hub-build="{esc(BUILD_ID)}" data-source-sections="{esc(source)}" data-last-reviewed="{REVIEWED}" data-owner-role="Hub Content Owner" data-glossary-page="{href("glossary.html")}" data-search-root="{esc(search_root)}">
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast">
     <div class="mast-inner">
@@ -1441,7 +1480,10 @@ def main():
     write_glossary_terms_data()
     write_hub_search_index(sections)
     # Hash after generated *.js data files are on disk so ?v= matches final bytes.
+    global BUILD_ID
     _ASSET_HASH.clear()
+    BUILD_ID = compute_build_id()
+    write_cache_control_files(BUILD_ID)
     copy_notice = (
         "The section text is from the named official document, April 2025, issued by the Digital Policy Office. "
         "This copy is not for sale."
@@ -1734,7 +1776,15 @@ def main():
                 raise SystemExit(f"Non-hash asset version on {rel}: ?v={match.group(1)}")
     tracked = ["assets/css/hub.css", *CORE_SCRIPTS, "assets/js/quiz.js"]
     versions = ", ".join(f"{Path(rel).name}={asset_version(rel)}" for rel in tracked)
+    if not (HUB / "build-id.txt").is_file() or not (HUB / "_headers").is_file():
+        raise SystemExit("build-id.txt or _headers missing after render")
+    if (HUB / "build-id.txt").read_text(encoding="utf-8").strip() != BUILD_ID:
+        raise SystemExit("build-id.txt does not match BUILD_ID")
+    sample = (HUB / "index.html").read_text(encoding="utf-8")
+    if f'data-hub-build="{BUILD_ID}"' not in sample:
+        raise SystemExit("index.html missing data-hub-build stamp")
     print(f"Wrote {len(pages)} pages.")
+    print(f"Build id: {BUILD_ID}")
     print(f"Asset versions: {versions}")
 
 

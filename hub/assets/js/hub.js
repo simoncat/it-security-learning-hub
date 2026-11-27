@@ -30,6 +30,34 @@
     history.replaceState(null, "", location.pathname + (query ? "?" + query : "") + location.hash);
   })();
 
+  // Soft-reload when HTML is stuck in a CDN/browser cache with old ?v= asset links.
+  // Fetches build-id.txt with cache:no-store; on mismatch, navigates with ?_hub=<id>.
+  (function refreshIfStaleBuild() {
+    var body = document.body;
+    if (!body) return;
+    var local = body.getAttribute("data-hub-build") || "";
+    if (!/^[0-9a-f]{12}$/.test(local)) return;
+    var params = new URLSearchParams(location.search);
+    if (params.get("_hub") === local) {
+      params.delete("_hub");
+      var cleaned = params.toString();
+      history.replaceState(null, "", location.pathname + (cleaned ? "?" + cleaned : "") + location.hash);
+      return;
+    }
+    var root = body.getAttribute("data-search-root") || "";
+    fetch(root + "build-id.txt?_=" + Date.now(), { cache: "no-store" })
+      .then(function (res) { return res.ok ? res.text() : ""; })
+      .then(function (remote) {
+        remote = String(remote || "").trim();
+        if (!/^[0-9a-f]{12}$/.test(remote) || remote === local) return;
+        var next = new URL(location.href);
+        if (next.searchParams.get("_hub") === remote) return;
+        next.searchParams.set("_hub", remote);
+        location.replace(next.toString());
+      })
+      .catch(function () {});
+  })();
+
   function qs() {
     var params = new URLSearchParams(location.search);
     return {
