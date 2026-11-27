@@ -888,7 +888,7 @@
         '<h2 id="saved-cart-title">Saved clauses</h2>' +
         '<button type="button" class="btn btn-ghost" data-cart-close>Close</button>' +
       '</div>' +
-      '<p class="fine">Saved passages stay in this browser. On a source page, highlight a word or sentence and right-click to add it with its clause. Drag a handle, or use Up and Down, to reorder.</p>' +
+      '<p class="fine">Saved passages stay in this browser. On a source page, highlight a word or sentence and choose Add to cart. Drag a handle, or use Up and Down, to reorder.</p>' +
       '<p class="visually-hidden" data-cart-status aria-live="polite"></p>' +
       '<p class="saved-cart-empty" data-cart-empty>Nothing saved yet. Save a search result, or highlight source text and right-click.</p>' +
       '<ol class="saved-cart-list" data-cart-list></ol>' +
@@ -1539,8 +1539,94 @@
     if (!policy || !pageIdentity() || document.querySelector(".cart-select-hint")) return;
     var hint = document.createElement("p");
     hint.className = "fine cart-select-hint no-print";
-    hint.textContent = "Highlight a word or sentence in this section, then right-click to add it to the cart with its clause.";
+    hint.textContent = "Highlight a word or sentence in this section, then choose Add to cart. The clause is saved with those words highlighted.";
     policy.parentNode.insertBefore(hint, policy);
+  }
+
+  var addFloat = null;
+  var pendingHighlight = null;
+  var skipAddClick = false;
+  var addFloatTimer = 0;
+
+  function syncAddFloat() {
+    if (!addFloat) return;
+    var item = selectedPassage();
+    pendingHighlight = item;
+    if (!item) {
+      addFloat.classList.remove("is-ready");
+      addFloat.textContent = "Add to cart";
+      addFloat.setAttribute("aria-label", "Highlight a word or sentence in the source text, then add that clause to the cart");
+      return;
+    }
+    var saved = indexOf(item.id) >= 0;
+    addFloat.classList.toggle("is-ready", !saved);
+    addFloat.textContent = saved ? "In cart" : "Add to cart";
+    addFloat.setAttribute("aria-label", saved
+      ? "This highlight is already in the cart"
+      : "Add the highlighted text with clause " + (item.clause || "text") + " to the cart");
+  }
+
+  function commitHighlight() {
+    var item = pendingHighlight || selectedPassage();
+    if (!item) {
+      if (!addFloat) return;
+      addFloat.textContent = "Highlight text first";
+      window.clearTimeout(addFloatTimer);
+      addFloatTimer = window.setTimeout(syncAddFloat, 1400);
+      return;
+    }
+    if (add(item)) openPanel();
+    syncAddFloat();
+  }
+
+  function bindAddFloat() {
+    var policy = document.querySelector(".policy-text");
+    if (!policy || !pageIdentity() || document.querySelector(".cart-add-float")) return;
+    addFloat = document.createElement("button");
+    addFloat.type = "button";
+    addFloat.className = "cart-add-float no-print";
+    addFloat.hidden = true;
+    addFloat.textContent = "Add to cart";
+    document.body.appendChild(addFloat);
+    syncAddFloat();
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        var visible = false;
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) visible = true;
+        });
+        addFloat.hidden = !visible;
+      }, { threshold: 0 });
+      observer.observe(policy);
+    } else {
+      addFloat.hidden = false;
+    }
+    document.addEventListener("selectionchange", syncAddFloat);
+    addFloat.addEventListener("pointerdown", function (event) {
+      if (event.button !== 0) return;
+      event.preventDefault();
+      pendingHighlight = selectedPassage();
+    });
+    addFloat.addEventListener("pointerup", function (event) {
+      if (event.button !== 0) return;
+      var rect = addFloat.getBoundingClientRect();
+      var inside = event.clientX >= rect.left && event.clientX <= rect.right &&
+        event.clientY >= rect.top && event.clientY <= rect.bottom;
+      if (!inside) return;
+      skipAddClick = true;
+      commitHighlight();
+      window.setTimeout(function () { skipAddClick = false; }, 0);
+    });
+    addFloat.addEventListener("pointercancel", function () {
+      skipAddClick = true;
+    });
+    addFloat.addEventListener("click", function () {
+      if (skipAddClick) {
+        skipAddClick = false;
+        return;
+      }
+      commitHighlight();
+    });
   }
 
   importBtn.addEventListener("click", function () {
@@ -1597,6 +1683,7 @@
     if (!suspendMenuDismiss) hideSelectMenu();
   });
   bindSourceHint();
+  bindAddFloat();
 
   toggle.addEventListener("click", function () {
     if (panel.hidden) openPanel();
@@ -1610,7 +1697,7 @@
   });
   document.addEventListener("pointerdown", function (event) {
     if (panel.hidden || root.contains(event.target)) return;
-    if (event.target.closest && event.target.closest("[data-cart-save], .source-search, .topnav-search-panel, .cart-select-menu")) return;
+    if (event.target.closest && event.target.closest("[data-cart-save], .source-search, .topnav-search-panel, .cart-select-menu, .cart-add-float")) return;
     panel.hidden = true;
     syncChrome();
   });

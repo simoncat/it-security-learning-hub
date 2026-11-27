@@ -296,7 +296,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=28"
+    css = href("assets/css/hub.css") + "?v=29"
     js = href("assets/js/hub.js")
     csp = (
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
@@ -325,7 +325,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
             crumb_bits.append(f'<li><a href="{href(target)}">{esc(label)}</a></li>')
     home = href("index.html")
     search_root = "" if home == "index.html" else home[: -len("index.html")]
-    scripts = f'<script src="{js}?v=12"></script>'
+    scripts = f'<script src="{js}?v=13"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=11"></script>'
     for extra in extra_scripts or []:
