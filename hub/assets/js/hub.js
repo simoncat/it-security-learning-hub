@@ -888,7 +888,7 @@
         '<h2 id="saved-cart-title">Saved clauses</h2>' +
         '<button type="button" class="btn btn-ghost" data-cart-close>Close</button>' +
       '</div>' +
-      '<p class="fine">Saved passages stay in this browser. On a source page, select words with the cursor and choose the Add button beside them. Drag a handle, or use Up and Down, to reorder.</p>' +
+      '<p class="fine">Saved passages stay in this browser. On a source page, select words with the cursor and choose Highlight and add to cart. Drag a handle, or use Up and Down, to reorder.</p>' +
       '<p class="visually-hidden" data-cart-status aria-live="polite"></p>' +
       '<p class="saved-cart-empty" data-cart-empty>Nothing saved yet. Save a search result, or highlight source text and right-click.</p>' +
       '<ol class="saved-cart-list" data-cart-list></ol>' +
@@ -1547,7 +1547,7 @@
     if (!policy || !pageIdentity() || document.querySelector(".cart-select-hint")) return;
     var hint = document.createElement("p");
     hint.className = "fine cart-select-hint no-print";
-    hint.textContent = "Select words or a sentence with the cursor. A small Add button appears beside the selection and saves the clause with those words highlighted.";
+    hint.textContent = "Select words or a sentence with the cursor. Highlight and add to cart appears beside the selection and saves the clause with those words highlighted.";
     policy.parentNode.insertBefore(hint, policy);
   }
 
@@ -1558,15 +1558,21 @@
   var addFloatPlaceQueued = false;
   var ADD_FLOAT_LABEL = "Highlight and add to cart";
 
+  function paintAddFloatLabel() {
+    if (!addFloat) return;
+    addFloat.replaceChildren();
+    addFloat.append("Highlight and", document.createElement("br"), "add to cart");
+  }
+
   function syncAddFloat() {
     if (!addFloat) return;
     var item = selectedPassage();
     pendingHighlight = item;
+    paintAddFloatLabel();
     if (!item) {
       addFloat.hidden = true;
       addFloat.classList.remove("is-ready");
       addFloat.classList.remove("is-following");
-      addFloat.textContent = ADD_FLOAT_LABEL;
       addFloat.setAttribute("aria-label", "Select words in the source with the cursor, then add that clause to the cart");
       return;
     }
@@ -1574,10 +1580,9 @@
     addFloat.hidden = false;
     addFloat.classList.toggle("is-ready", !saved);
     addFloat.classList.add("is-following");
-    addFloat.textContent = saved ? "Saved" : "Add";
-    addFloat.setAttribute("title", saved ? "Already in the cart" : ADD_FLOAT_LABEL);
+    addFloat.setAttribute("title", ADD_FLOAT_LABEL);
     addFloat.setAttribute("aria-label", saved
-      ? "This highlight is already in the cart"
+      ? "Highlight and add to cart. This highlight is already in the cart"
       : "Highlight and add to cart, clause " + (item.clause || "text"));
     queuePlaceAddFloat();
   }
@@ -1740,7 +1745,7 @@
     addFloat.type = "button";
     addFloat.className = "cart-add-float no-print";
     addFloat.hidden = true;
-    addFloat.textContent = ADD_FLOAT_LABEL;
+    paintAddFloatLabel();
     document.body.appendChild(addFloat);
     syncAddFloat();
     document.addEventListener("selectionchange", syncAddFloat);
