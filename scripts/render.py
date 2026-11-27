@@ -482,7 +482,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
         <a href="{href("governance.html")}">Content governance</a>
         <a href="{href("start/new-joiners.html")}">New joiners</a>
       </nav>
-      <p class="progress-transfer-note fine no-print">Optional ticks and gap notes stay in this browser. Use <strong>Export progress</strong> in the top bar to download or import JSON. Not a sign-off.</p>
+      <p class="progress-transfer-note fine no-print">Optional ticks, gap notes, and quiz scores stay in this browser. Use <strong>Export progress</strong> in the top bar to download or import JSON. Not a sign-off.</p>
     </div>
   </footer>
   <div id="hub-progress-modal" class="hub-progress-modal" hidden>
@@ -501,12 +501,12 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
             <button type="button" class="btn btn-ghost" data-progress-select-none>Clear</button>
           </div>
           <div class="hub-progress-choices" data-progress-choices></div>
-          <p class="hub-progress-empty fine" data-progress-empty hidden>No optional ticks or gap notes are stored in this browser yet.</p>
+          <p class="hub-progress-empty fine" data-progress-empty hidden>No optional ticks, gap notes, or quiz results are stored in this browser yet.</p>
           <button type="button" class="btn btn-primary" data-progress-download>Download JSON</button>
         </section>
         <section class="hub-progress-section hub-progress-import" aria-labelledby="hub-progress-import-heading">
           <h3 id="hub-progress-import-heading">Import progress</h3>
-          <p class="fine">Importing replaces the optional ticks and gap notes stored in this browser.</p>
+          <p class="fine">Importing replaces the optional ticks, gap notes, and quiz results stored in this browser.</p>
           <div class="hub-progress-import-row">
             <input type="file" accept="application/json,.json" data-progress-import>
             <button type="button" class="btn btn-ghost" data-progress-import-run>Import file</button>
@@ -805,7 +805,7 @@ def quiz_index():
         )
     return f"""
 <h1>Self-check quizzes</h1>
-<p>Pick your answers and check your score to reveal detailed rationales. Reset anytime to try again. This quiz runs entirely in your browser—no score or attempt data is submitted or stored.</p>
+<p>Pick your answers and check your score to reveal detailed rationales. Reset anytime to try again. Scores stay in this browser only (nothing is submitted) and can be included when you use <strong>Export progress</strong>.</p>
 <div class="card-grid">{''.join(cards)}</div>
 """
 

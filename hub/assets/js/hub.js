@@ -2,6 +2,7 @@
   var CTX = "hksarg-hub:context";
   var TICK_PREFIX = "hksarg-hub:ticks:";
   var GAP_KEY = "hksarg-hub:gap-table";
+  var QUIZ_PREFIX = "hksarg-hub:quiz:";
   var MAX_FIND = 200;
   var MAX_FROM = 500;
   var MAX_LABEL = 90;
@@ -642,7 +643,8 @@
 
   (function progressTransfer() {
     var FORMAT = "hksarg-hub-progress";
-    var SCHEMA_VERSION = 1;
+    var SCHEMA_VERSION = 2;
+    var SUPPORTED_SCHEMA = { 1: true, 2: true };
     var MAX_PAYLOAD = 500000;
     var modal = document.getElementById("hub-progress-modal");
     var dialog = modal ? modal.querySelector("[data-progress-dialog]") : null;
@@ -652,7 +654,9 @@
     var lastFocus = null;
 
     function isProgressKey(key) {
-      return key === GAP_KEY || (key && key.indexOf(TICK_PREFIX) === 0);
+      return key === GAP_KEY
+        || (key && key.indexOf(TICK_PREFIX) === 0)
+        || (key && key.indexOf(QUIZ_PREFIX) === 0);
     }
 
     function collectProgress() {
@@ -692,6 +696,15 @@
       return pages;
     }
 
+    function quizResultsFromItems(items) {
+      var quizzes = {};
+      Object.keys(items).forEach(function (key) {
+        if (key.indexOf(QUIZ_PREFIX) !== 0) return;
+        quizzes[key.slice(QUIZ_PREFIX.length)] = items[key];
+      });
+      return quizzes;
+    }
+
     function itemsFromPayload(payload) {
       if (payload.items && typeof payload.items === "object" && !Array.isArray(payload.items)) {
         return payload.items;
@@ -706,6 +719,13 @@
       }
       if (Object.prototype.hasOwnProperty.call(payload, "gapTable") && payload.gapTable != null) {
         items[GAP_KEY] = payload.gapTable;
+      }
+      var quizzes = payload.quizResults;
+      if (quizzes && typeof quizzes === "object" && !Array.isArray(quizzes)) {
+        Object.keys(quizzes).forEach(function (quizId) {
+          if (!/^[A-Za-z0-9._:-]{1,80}$/.test(quizId)) throw new Error("bad quiz id");
+          items[QUIZ_PREFIX + quizId] = quizzes[quizId];
+        });
       }
       return items;
     }
@@ -755,6 +775,7 @@
         exportedAt: new Date().toISOString(),
         ticksByPage: ticksByPageFromItems(items),
         gapTable: Object.prototype.hasOwnProperty.call(items, GAP_KEY) ? items[GAP_KEY] : null,
+        quizResults: quizResultsFromItems(items),
         items: items
       };
       var text = JSON.stringify(payload, null, 2);
@@ -795,7 +816,8 @@
     function applyImport(payload) {
       if (!payload || typeof payload !== "object") throw new Error("bad payload");
       if (payload.format !== FORMAT) throw new Error("bad format");
-      if (payloadSchemaVersion(payload) !== SCHEMA_VERSION) throw new Error("bad schema");
+      var schema = payloadSchemaVersion(payload);
+      if (!SUPPORTED_SCHEMA[schema]) throw new Error("bad schema");
       var items = itemsFromPayload(payload);
       if (!items || typeof items !== "object" || Array.isArray(items)) {
         throw new Error("bad items");
@@ -807,6 +829,7 @@
       keys.forEach(function (key) {
         if (!isProgressKey(key)) throw new Error("bad key");
         if (key.indexOf(TICK_PREFIX) === 0 && key.length > 120) throw new Error("bad key");
+        if (key.indexOf(QUIZ_PREFIX) === 0 && key.length > 120) throw new Error("bad key");
         var stored = normalizeItemValue(items[key]);
         if (stored == null) throw new Error("bad value");
         prepared[key] = stored;
@@ -849,6 +872,16 @@
           var rows = Array.isArray(items[key]) ? items[key].length : 0;
           text.appendChild(document.createTextNode("Gap table notes"));
           detail.textContent = rows + " row" + (rows === 1 ? "" : "s") + " in this browser";
+        } else if (key.indexOf(QUIZ_PREFIX) === 0) {
+          var quizId = key.slice(QUIZ_PREFIX.length);
+          var quiz = items[key] && typeof items[key] === "object" ? items[key] : {};
+          var quizLabel = typeof quiz.title === "string" && quiz.title.trim()
+            ? quiz.title.trim()
+            : labelForPage(quizId);
+          var correct = typeof quiz.correct === "number" ? quiz.correct : "?";
+          var totalQ = typeof quiz.total === "number" ? quiz.total : "?";
+          text.appendChild(document.createTextNode("Quiz results · " + quizLabel));
+          detail.textContent = quizId + " · score " + correct + " of " + totalQ;
         } else {
           var pageId = key.slice(TICK_PREFIX.length);
           var n = countTicks(items[key]);
@@ -917,7 +950,7 @@
           return;
         }
         var ok = window.confirm(
-          "Importing will clear and replace the optional progress stored in this browser. Continue?"
+          "Importing will clear and replace the optional ticks, gap notes, and quiz results stored in this browser. Continue?"
         );
         if (!ok) return;
         if (file.size > MAX_PAYLOAD) {

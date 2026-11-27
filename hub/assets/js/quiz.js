@@ -3,6 +3,11 @@
   var root = document.getElementById("quiz-root");
   if (!dataNode || !root) return;
 
+  var pageId = String(document.body.getAttribute("data-page-id") || "").slice(0, 80);
+  if (!/^[A-Za-z0-9._:-]{1,80}$/.test(pageId)) pageId = "";
+  var QUIZ_PREFIX = "hksarg-hub:quiz:";
+  var quizKey = pageId ? QUIZ_PREFIX + pageId : "";
+
   var data = {};
   try {
     data = JSON.parse(dataNode.textContent) || {};
@@ -13,6 +18,39 @@
   var questions = Array.isArray(data.questions) ? data.questions : [];
   var selections = {};
   var allowedMod = { shall: true, should: true, may: true, appc: true };
+
+  function quizTitle() {
+    var heading = document.querySelector("main h1");
+    if (heading && heading.textContent) return String(heading.textContent).trim().slice(0, 160);
+    return String(document.title || pageId || "Quiz").replace(/\s*·.*$/, "").trim().slice(0, 160);
+  }
+
+  function readStored() {
+    if (!quizKey) return null;
+    try {
+      var raw = localStorage.getItem(quizKey);
+      if (!raw || raw.length > 200000) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+      return parsed;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function writeStored(record) {
+    if (!quizKey) return;
+    try {
+      localStorage.setItem(quizKey, JSON.stringify(record));
+    } catch (err) {}
+  }
+
+  function clearStored() {
+    if (!quizKey) return;
+    try {
+      localStorage.removeItem(quizKey);
+    } catch (err) {}
+  }
 
   questions.forEach(function (question) {
     if (!question || typeof question !== "object") return;
@@ -85,7 +123,7 @@
     scoreBox.textContent = "";
   }
 
-  scoreBtn.addEventListener("click", function () {
+  function applyScore(persist) {
     var correct = 0;
     var answered = 0;
     questions.forEach(function (question) {
@@ -112,11 +150,54 @@
     detail.textContent = "Answered " + answered + " of " + questions.length + ". Unanswered questions count as not correct. Nothing is submitted.";
     scoreBox.appendChild(title);
     scoreBox.appendChild(detail);
+
+    if (persist && quizKey) {
+      var cleanSelections = {};
+      Object.keys(selections).forEach(function (qid) {
+        var value = selections[qid];
+        if (typeof value !== "number" || !isFinite(value)) return;
+        cleanSelections[qid] = value;
+      });
+      writeStored({
+        quizId: pageId,
+        title: quizTitle(),
+        scoredAt: new Date().toISOString(),
+        correct: correct,
+        answered: answered,
+        total: questions.length,
+        selections: cleanSelections
+      });
+    }
+  }
+
+  function restoreFromStorage() {
+    var stored = readStored();
+    if (!stored) return;
+    var saved = stored.selections;
+    if (!saved || typeof saved !== "object" || Array.isArray(saved)) return;
+    Object.keys(saved).forEach(function (qid) {
+      var index = saved[qid];
+      if (typeof index !== "number" || !isFinite(index)) return;
+      var input = root.querySelector('input[name="' + qid + '"][value="' + String(index) + '"]');
+      if (!input) return;
+      input.checked = true;
+      selections[qid] = index;
+    });
+    if (Object.keys(selections).length || typeof stored.correct === "number") {
+      applyScore(false);
+    }
+  }
+
+  scoreBtn.addEventListener("click", function () {
+    applyScore(true);
   });
 
   resetBtn.addEventListener("click", function () {
     selections = {};
     root.querySelectorAll("input[type='radio']").forEach(function (input) { input.checked = false; });
     clearMarks();
+    clearStored();
   });
+
+  restoreFromStorage();
 })();
