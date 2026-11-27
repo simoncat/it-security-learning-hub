@@ -9,9 +9,9 @@
   <title>S17 §20 Compliance · HKSARG IT Security Learning Hub</title>
   <meta name="description" content="S17 §20 Compliance. Static learning aid for S17 v8.2 and G3 v10.2.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="../../assets/css/hub.css?v=4878d9d941">
+  <link rel="stylesheet" href="../../assets/css/hub.css?v=dc021ce5b1">
 </head>
-<body data-page-id="P-SRC-S17-20" data-page="P-SRC-S17-20" data-hub-build="02eba8752f5f" data-source-sections="S17 v8.2 §20" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner" data-glossary-page="../../glossary.html" data-search-root="../../">
+<body data-page-id="P-SRC-S17-20" data-page="P-SRC-S17-20" data-hub-build="9f4bbf82359e" data-source-sections="S17 v8.2 §20" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner" data-glossary-page="../../glossary.html" data-search-root="../../">
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast">
     <div class="mast-inner">
@@ -28,12 +28,17 @@
   <nav class="topnav" aria-label="Primary">
     <div class="topnav-inner">
       <div class="topnav-links"><a href="../../index.html">Home</a><a href="../../spine.html">Overview</a><a href="../../start/new-joiners.html">New joiners</a><a href="../../start/current-staff.html">Current staff</a><a href="../../core1/index.html">Aids</a><a href="../../core2/index.html">Quizzes</a><a href="../../core3/index.html">Q&amp;A</a><a href="../index.html" aria-current="page">Source</a><a href="../../app-c-matrix.html">App C</a><a href="../../glossary.html">Glossary</a><a href="../../about.html">About</a></div>
-      <div class="topnav-search no-print">
-        <button type="button" class="topnav-search-trigger" data-hub-search-open aria-haspopup="dialog" aria-controls="hub-search-modal">
-          <span class="topnav-search-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"></circle><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></span>
-          <span class="topnav-search-label">Search</span>
-          <kbd class="topnav-search-kbd" data-search-shortcut-hint aria-hidden="true">Ctrl+K</kbd>
+      <div class="topnav-actions no-print">
+        <button type="button" class="topnav-progress-trigger" data-progress-open aria-haspopup="dialog" aria-controls="hub-progress-modal">
+          Export progress
         </button>
+        <div class="topnav-search">
+          <button type="button" class="topnav-search-trigger" data-hub-search-open aria-haspopup="dialog" aria-controls="hub-search-modal">
+            <span class="topnav-search-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"></circle><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></span>
+            <span class="topnav-search-label">Search</span>
+            <kbd class="topnav-search-kbd" data-search-shortcut-hint aria-hidden="true">Ctrl+K</kbd>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
@@ -87,14 +92,39 @@
         <a href="../../governance.html">Content governance</a>
         <a href="../../start/new-joiners.html">New joiners</a>
       </nav>
-      <div class="progress-transfer no-print">
-        <p class="fine">Optional ticks and gap notes stay in this browser. Export downloads learning progress as JSON. Not a sign-off.</p>
-        <button type="button" class="btn btn-ghost" data-action="export-progress">Export Progress</button>
-        <button type="button" class="btn btn-ghost" data-action="import-progress">Import Progress</button>
-        <input type="file" accept="application/json,.json" data-progress-import hidden>
-      </div>
+      <p class="progress-transfer-note fine no-print">Optional ticks and gap notes stay in this browser. Use <strong>Export progress</strong> in the top bar to download or import JSON. Not a sign-off.</p>
     </div>
   </footer>
+  <div id="hub-progress-modal" class="hub-progress-modal" hidden>
+    <div class="hub-progress-backdrop" data-progress-close tabindex="-1"></div>
+    <div class="hub-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="hub-progress-title" data-progress-dialog>
+      <header class="hub-progress-header">
+        <h2 id="hub-progress-title">Export progress</h2>
+        <button type="button" class="hub-progress-close" data-progress-close aria-label="Close">×</button>
+      </header>
+      <div class="hub-progress-body">
+        <section class="hub-progress-section" aria-labelledby="hub-progress-export-heading">
+          <h3 id="hub-progress-export-heading">Choose what to download</h3>
+          <p class="fine">Only items stored in this browser are listed. Not a sign-off.</p>
+          <div class="hub-progress-toolbar">
+            <button type="button" class="btn btn-ghost" data-progress-select-all>Select all</button>
+            <button type="button" class="btn btn-ghost" data-progress-select-none>Clear</button>
+          </div>
+          <div class="hub-progress-choices" data-progress-choices></div>
+          <p class="hub-progress-empty fine" data-progress-empty hidden>No optional ticks or gap notes are stored in this browser yet.</p>
+          <button type="button" class="btn btn-primary" data-progress-download>Download JSON</button>
+        </section>
+        <section class="hub-progress-section hub-progress-import" aria-labelledby="hub-progress-import-heading">
+          <h3 id="hub-progress-import-heading">Import progress</h3>
+          <p class="fine">Importing replaces the optional ticks and gap notes stored in this browser.</p>
+          <div class="hub-progress-import-row">
+            <input type="file" accept="application/json,.json" data-progress-import>
+            <button type="button" class="btn btn-ghost" data-progress-import-run>Import file</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
   <div id="hub-search-modal" class="hub-search-modal" hidden>
     <div class="hub-search-backdrop" data-hub-search-close tabindex="-1"></div>
     <div class="hub-search-dialog" role="dialog" aria-modal="true" aria-labelledby="hub-search-title" data-hub-search-dialog>
@@ -118,7 +148,7 @@
       </div>
     </div>
   </div>
-  <script src="../../assets/js/hub.js?v=9bad88a86b"></script>
+  <script src="../../assets/js/hub.js?v=68edfa705c"></script>
 <script src="../../assets/js/hub-search-data.js?v=7fd6b0fcb3"></script>
 <script src="../../assets/js/hub-search.js?v=7b2f4ec58e"></script>
 <script src="../../assets/js/source-search-data.js?v=99f5ed8594"></script>

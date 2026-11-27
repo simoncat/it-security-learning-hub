@@ -449,12 +449,17 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
   <nav class="topnav" aria-label="Primary">
     <div class="topnav-inner">
       <div class="topnav-links">{''.join(top_links)}</div>
-      <div class="topnav-search no-print">
-        <button type="button" class="topnav-search-trigger" data-hub-search-open aria-haspopup="dialog" aria-controls="hub-search-modal">
-          <span class="topnav-search-icon" aria-hidden="true">{search_icon}</span>
-          <span class="topnav-search-label">Search</span>
-          <kbd class="topnav-search-kbd" data-search-shortcut-hint aria-hidden="true">Ctrl+K</kbd>
+      <div class="topnav-actions no-print">
+        <button type="button" class="topnav-progress-trigger" data-progress-open aria-haspopup="dialog" aria-controls="hub-progress-modal">
+          Export progress
         </button>
+        <div class="topnav-search">
+          <button type="button" class="topnav-search-trigger" data-hub-search-open aria-haspopup="dialog" aria-controls="hub-search-modal">
+            <span class="topnav-search-icon" aria-hidden="true">{search_icon}</span>
+            <span class="topnav-search-label">Search</span>
+            <kbd class="topnav-search-kbd" data-search-shortcut-hint aria-hidden="true">Ctrl+K</kbd>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
@@ -477,14 +482,39 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
         <a href="{href("governance.html")}">Content governance</a>
         <a href="{href("start/new-joiners.html")}">New joiners</a>
       </nav>
-      <div class="progress-transfer no-print">
-        <p class="fine">Optional ticks and gap notes stay in this browser. Export downloads learning progress as JSON. Not a sign-off.</p>
-        <button type="button" class="btn btn-ghost" data-action="export-progress">Export Progress</button>
-        <button type="button" class="btn btn-ghost" data-action="import-progress">Import Progress</button>
-        <input type="file" accept="application/json,.json" data-progress-import hidden>
-      </div>
+      <p class="progress-transfer-note fine no-print">Optional ticks and gap notes stay in this browser. Use <strong>Export progress</strong> in the top bar to download or import JSON. Not a sign-off.</p>
     </div>
   </footer>
+  <div id="hub-progress-modal" class="hub-progress-modal" hidden>
+    <div class="hub-progress-backdrop" data-progress-close tabindex="-1"></div>
+    <div class="hub-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="hub-progress-title" data-progress-dialog>
+      <header class="hub-progress-header">
+        <h2 id="hub-progress-title">Export progress</h2>
+        <button type="button" class="hub-progress-close" data-progress-close aria-label="Close">×</button>
+      </header>
+      <div class="hub-progress-body">
+        <section class="hub-progress-section" aria-labelledby="hub-progress-export-heading">
+          <h3 id="hub-progress-export-heading">Choose what to download</h3>
+          <p class="fine">Only items stored in this browser are listed. Not a sign-off.</p>
+          <div class="hub-progress-toolbar">
+            <button type="button" class="btn btn-ghost" data-progress-select-all>Select all</button>
+            <button type="button" class="btn btn-ghost" data-progress-select-none>Clear</button>
+          </div>
+          <div class="hub-progress-choices" data-progress-choices></div>
+          <p class="hub-progress-empty fine" data-progress-empty hidden>No optional ticks or gap notes are stored in this browser yet.</p>
+          <button type="button" class="btn btn-primary" data-progress-download>Download JSON</button>
+        </section>
+        <section class="hub-progress-section hub-progress-import" aria-labelledby="hub-progress-import-heading">
+          <h3 id="hub-progress-import-heading">Import progress</h3>
+          <p class="fine">Importing replaces the optional ticks and gap notes stored in this browser.</p>
+          <div class="hub-progress-import-row">
+            <input type="file" accept="application/json,.json" data-progress-import>
+            <button type="button" class="btn btn-ghost" data-progress-import-run>Import file</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
   <div id="hub-search-modal" class="hub-search-modal" hidden>
     <div class="hub-search-backdrop" data-hub-search-close tabindex="-1"></div>
     <div class="hub-search-dialog" role="dialog" aria-modal="true" aria-labelledby="hub-search-title" data-hub-search-dialog>

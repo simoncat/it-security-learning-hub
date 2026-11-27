@@ -644,7 +644,12 @@
     var FORMAT = "hksarg-hub-progress";
     var SCHEMA_VERSION = 1;
     var MAX_PAYLOAD = 500000;
-    var importInput = document.querySelector("[data-progress-import]");
+    var modal = document.getElementById("hub-progress-modal");
+    var dialog = modal ? modal.querySelector("[data-progress-dialog]") : null;
+    var choices = modal ? modal.querySelector("[data-progress-choices]") : null;
+    var emptyNote = modal ? modal.querySelector("[data-progress-empty]") : null;
+    var importInput = modal ? modal.querySelector("[data-progress-import]") : null;
+    var lastFocus = null;
 
     function isProgressKey(key) {
       return key === GAP_KEY || (key && key.indexOf(TICK_PREFIX) === 0);
@@ -665,6 +670,17 @@
         }
       }
       return items;
+    }
+
+    function countTicks(value) {
+      if (!value || typeof value !== "object" || Array.isArray(value)) return 0;
+      return Object.keys(value).length;
+    }
+
+    function labelForPage(pageId) {
+      return String(pageId || "")
+        .replace(/^P-/, "")
+        .replace(/-/g, " ");
     }
 
     function ticksByPageFromItems(items) {
@@ -713,8 +729,23 @@
       return "learning-progress-" + y + m + d + "-" + hh + mm + ss + ".json";
     }
 
-    function exportProgress() {
-      var items = collectProgress();
+    function selectedItems() {
+      if (!choices) return {};
+      var all = collectProgress();
+      var items = {};
+      choices.querySelectorAll("input[data-progress-item]:checked").forEach(function (box) {
+        var key = box.getAttribute("data-progress-item");
+        if (!key || !Object.prototype.hasOwnProperty.call(all, key)) return;
+        items[key] = all[key];
+      });
+      return items;
+    }
+
+    function exportProgress(items) {
+      if (!items || !Object.keys(items).length) {
+        window.alert("Choose at least one item to download.");
+        return;
+      }
       var payload = {
         format: FORMAT,
         schemaVersion: SCHEMA_VERSION,
@@ -788,35 +819,109 @@
       });
     }
 
-    document.querySelectorAll("[data-action='export-progress']").forEach(function (button) {
-      button.addEventListener("click", function () {
+    function setChoiceChecked(value) {
+      if (!choices) return;
+      choices.querySelectorAll("input[data-progress-item]").forEach(function (box) {
+        box.checked = value;
+      });
+    }
+
+    function renderChoices() {
+      if (!choices || !emptyNote) return;
+      var items = collectProgress();
+      var keys = Object.keys(items).sort();
+      choices.innerHTML = "";
+      if (!keys.length) {
+        emptyNote.hidden = false;
+        return;
+      }
+      emptyNote.hidden = true;
+      keys.forEach(function (key) {
+        var label = document.createElement("label");
+        label.className = "hub-progress-choice";
+        var input = document.createElement("input");
+        input.type = "checkbox";
+        input.setAttribute("data-progress-item", key);
+        input.checked = true;
+        var text = document.createElement("span");
+        var detail = document.createElement("small");
+        if (key === GAP_KEY) {
+          var rows = Array.isArray(items[key]) ? items[key].length : 0;
+          text.appendChild(document.createTextNode("Gap table notes"));
+          detail.textContent = rows + " row" + (rows === 1 ? "" : "s") + " in this browser";
+        } else {
+          var pageId = key.slice(TICK_PREFIX.length);
+          var n = countTicks(items[key]);
+          text.appendChild(document.createTextNode("Optional ticks · " + labelForPage(pageId)));
+          detail.textContent = pageId + " · " + n + " tick" + (n === 1 ? "" : "s");
+        }
+        text.appendChild(detail);
+        label.appendChild(input);
+        label.appendChild(text);
+        choices.appendChild(label);
+      });
+    }
+
+    function openModal() {
+      if (!modal || !dialog) return;
+      lastFocus = document.activeElement;
+      renderChoices();
+      modal.hidden = false;
+      document.documentElement.classList.add("hub-progress-open");
+      var first = dialog.querySelector("button, input, [href]");
+      if (first) first.focus();
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.hidden = true;
+      document.documentElement.classList.remove("hub-progress-open");
+      if (lastFocus && typeof lastFocus.focus === "function") {
+        try { lastFocus.focus(); } catch (err) {}
+      }
+    }
+
+    document.querySelectorAll("[data-progress-open]").forEach(function (button) {
+      button.addEventListener("click", openModal);
+    });
+    document.querySelectorAll("[data-progress-close]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (!modal || modal.hidden) return;
+      closeModal();
+    });
+
+    var selectAll = modal ? modal.querySelector("[data-progress-select-all]") : null;
+    var selectNone = modal ? modal.querySelector("[data-progress-select-none]") : null;
+    var downloadBtn = modal ? modal.querySelector("[data-progress-download]") : null;
+    var importRun = modal ? modal.querySelector("[data-progress-import-run]") : null;
+
+    if (selectAll) selectAll.addEventListener("click", function () { setChoiceChecked(true); });
+    if (selectNone) selectNone.addEventListener("click", function () { setChoiceChecked(false); });
+    if (downloadBtn) {
+      downloadBtn.addEventListener("click", function () {
         try {
-          exportProgress();
+          exportProgress(selectedItems());
         } catch (err) {
           window.alert("Could not export progress from this browser.");
         }
       });
-    });
-
-    document.querySelectorAll("[data-action='import-progress']").forEach(function (button) {
-      button.addEventListener("click", function () {
-        if (!importInput) return;
+    }
+    if (importRun && importInput) {
+      importRun.addEventListener("click", function () {
+        var file = importInput.files && importInput.files[0];
+        if (!file) {
+          window.alert("Choose a learning-progress JSON file first.");
+          return;
+        }
         var ok = window.confirm(
           "Importing will clear and replace the optional progress stored in this browser. Continue?"
         );
         if (!ok) return;
-        importInput.value = "";
-        importInput.click();
-      });
-    });
-
-    if (importInput) {
-      importInput.addEventListener("change", function () {
-        var file = importInput.files && importInput.files[0];
-        if (!file) return;
         if (file.size > MAX_PAYLOAD) {
           window.alert("That file is too large to import.");
-          importInput.value = "";
           return;
         }
         var reader = new FileReader();
@@ -827,13 +932,10 @@
             location.reload();
           } catch (err) {
             window.alert("Could not import that file. Progress in this browser was not changed.");
-          } finally {
-            importInput.value = "";
           }
         };
         reader.onerror = function () {
           window.alert("Could not read that file. Progress in this browser was not changed.");
-          importInput.value = "";
         };
         reader.readAsText(file);
       });
