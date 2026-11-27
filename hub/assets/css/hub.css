@@ -169,19 +169,21 @@ a:hover { text-decoration: none; }
   margin: 0;
   padding: 0.4rem 0.7rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--navy);
+  border: 1px solid rgba(12, 90, 52, 0.55);
+  background: linear-gradient(180deg, #22a86a 0%, #157a45 52%, #0f5f36 100%);
+  color: #f4fff8;
   font: inherit;
   font-weight: 650;
   font-size: 0.92rem;
   cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 .topnav-progress-trigger:hover {
-  background: var(--soft);
+  background: linear-gradient(180deg, #2bbf78 0%, #189352 52%, #127a43 100%);
+  border-color: rgba(12, 90, 52, 0.7);
 }
 .topnav-progress-trigger:focus-visible {
-  outline: 3px solid var(--focus);
+  outline: 3px solid #86efac;
   outline-offset: 2px;
 }
 .topnav-search-trigger {
