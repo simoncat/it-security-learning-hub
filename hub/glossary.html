@@ -9,9 +9,9 @@
   <title>Glossary · HKSARG IT Security Learning Hub</title>
   <meta name="description" content="Glossary. Static learning aid for S17 v8.2 and G3 v10.2.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/hub.css?v=30">
+  <link rel="stylesheet" href="assets/css/hub.css?v=32">
 </head>
-<body data-page-id="P-GLOSSARY" data-page="P-GLOSSARY" data-source-sections="S17 §4 · G3 §4 · Hub map" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner" data-glossary-page="glossary.html">
+<body data-page-id="P-GLOSSARY" data-page="P-GLOSSARY" data-source-sections="S17 §4 · G3 §4 · Hub map" data-last-reviewed="2026-10-26" data-owner-role="Hub Content Owner" data-glossary-page="glossary.html" data-search-root="">
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast">
     <div class="mast-inner">
@@ -29,16 +29,11 @@
     <div class="topnav-inner">
       <div class="topnav-links"><a href="index.html">Home</a><a href="spine.html">Overview</a><a href="start/new-joiners.html">New joiners</a><a href="start/current-staff.html">Current staff</a><a href="core1/index.html">Aids</a><a href="core2/index.html">Quizzes</a><a href="core3/index.html">Q&amp;A</a><a href="core4/index.html">Source</a><a href="app-c-matrix.html">App C</a><a href="glossary.html" aria-current="page">Glossary</a><a href="about.html">About</a></div>
       <div class="topnav-search no-print">
-        <form class="source-search source-search-header" role="search" data-source-search data-root="" action="core4/index.html" method="get">
-          <label for="header-source-query">
-            <span class="visually-hidden">Search the wording in S17 and G3</span>
-            <input id="header-source-query" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="Search S17 / G3">
-          </label>
-        </form>
-        <div class="topnav-search-panel" data-source-search-panel hidden>
-          <p class="fine" data-source-search-status aria-live="polite"></p>
-          <ul class="result-list" data-source-search-results></ul>
-        </div>
+        <button type="button" class="topnav-search-trigger" data-hub-search-open aria-haspopup="dialog" aria-controls="hub-search-modal">
+          <span class="topnav-search-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"></circle><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></span>
+          <span class="topnav-search-label">Search</span>
+          <kbd class="topnav-search-kbd" data-search-shortcut-hint aria-hidden="true">Ctrl+K</kbd>
+        </button>
       </div>
     </div>
   </nav>
@@ -222,9 +217,34 @@
       </div>
     </div>
   </footer>
+  <div id="hub-search-modal" class="hub-search-modal" hidden>
+    <div class="hub-search-backdrop" data-hub-search-close tabindex="-1"></div>
+    <div class="hub-search-dialog" role="dialog" aria-modal="true" aria-labelledby="hub-search-title" data-hub-search-dialog>
+      <div class="hub-search-bar">
+        <span class="hub-search-bar-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"></circle><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></span>
+        <input id="hub-search-input" class="hub-search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search aids, quizzes, Q&amp;A, source, glossary…" data-hub-search-input aria-controls="hub-search-results">
+        <button type="button" class="hub-search-clear" data-hub-search-clear hidden aria-label="Clear search">×</button>
+        <kbd class="hub-search-esc" aria-hidden="true">Esc</kbd>
+      </div>
+      <div id="hub-search-results" class="hub-search-body" data-hub-search-body tabindex="-1">
+        <h2 id="hub-search-title" class="hub-search-lead">Search decision aids, quizzes, Q&amp;A, source sections, and glossary terms</h2>
+        <p class="hub-search-try-label">Try searching for</p>
+        <div class="hub-search-try" data-hub-search-suggestions></div>
+      </div>
+      <div class="hub-search-footer">
+        <p class="hub-search-hints">
+          <kbd aria-hidden="true">↑</kbd><kbd aria-hidden="true">↓</kbd> navigate
+          <kbd aria-hidden="true">↵</kbd> open
+        </p>
+        <a class="hub-search-full" href="core4/index.html" data-hub-search-full>Full site search</a>
+      </div>
+    </div>
+  </div>
   <script src="assets/js/hub.js?v=11"></script>
+<script src="assets/js/hub-search-data.js?v=1"></script>
+<script src="assets/js/hub-search.js?v=1"></script>
 <script src="assets/js/source-search-data.js?v=5"></script>
-<script src="assets/js/source-search.js?v=10"></script>
+<script src="assets/js/source-search.js?v=12"></script>
 <script src="assets/js/glossary-terms-data.js?v=1"></script>
 <script src="assets/js/glossary-terms.js?v=1"></script>
 </body>

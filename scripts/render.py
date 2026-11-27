@@ -31,6 +31,7 @@ from pages_new import (
     glossary_term_id,
     gov_page,
     home_page,
+    hub_glossary_terms,
     load_infosec_glossary,
     need_index,
     new_joiners_page,
@@ -298,7 +299,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=30"
+    css = href("assets/css/hub.css") + "?v=32"
     js = href("assets/js/hub.js")
     csp = (
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
@@ -327,13 +328,18 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
             crumb_bits.append(f'<li><a href="{href(target)}">{esc(label)}</a></li>')
     home = href("index.html")
     search_root = "" if home == "index.html" else home[: -len("index.html")]
+    full_search_href = href("core4/index.html")
     scripts = f'<script src="{js}?v=11"></script>'
+    scripts += f'\n<script src="{href("assets/js/hub-search-data.js")}?v=1"></script>'
+    scripts += f'\n<script src="{href("assets/js/hub-search.js")}?v=1"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
-    scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=10"></script>'
+    scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=12"></script>'
     scripts += f'\n<script src="{href("assets/js/glossary-terms-data.js")}?v=1"></script>'
     scripts += f'\n<script src="{href("assets/js/glossary-terms.js")}?v=1"></script>'
     for extra in extra_scripts or []:
         if extra in (
+            "assets/js/hub-search-data.js",
+            "assets/js/hub-search.js",
             "assets/js/source-search-data.js",
             "assets/js/source-search.js",
             "assets/js/glossary-terms-data.js",
@@ -348,6 +354,12 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
         "%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='white' "
         "font-family='Arial' font-weight='700'%3EGS%3C/text%3E%3C/svg%3E"
     )
+    search_icon = (
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true">'
+        '<circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"></circle>'
+        '<path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>'
+        "</svg>"
+    )
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -361,7 +373,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
   <link rel="icon" href="{icon}">
   <link rel="stylesheet" href="{css}">
 </head>
-<body data-page-id="{esc(page_id)}" data-page="{esc(page_id)}" data-source-sections="{esc(source)}" data-last-reviewed="{REVIEWED}" data-owner-role="Hub Content Owner" data-glossary-page="{href("glossary.html")}">
+<body data-page-id="{esc(page_id)}" data-page="{esc(page_id)}" data-source-sections="{esc(source)}" data-last-reviewed="{REVIEWED}" data-owner-role="Hub Content Owner" data-glossary-page="{href("glossary.html")}" data-search-root="{esc(search_root)}">
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast">
     <div class="mast-inner">
@@ -379,16 +391,11 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     <div class="topnav-inner">
       <div class="topnav-links">{''.join(top_links)}</div>
       <div class="topnav-search no-print">
-        <form class="source-search source-search-header" role="search" data-source-search data-root="{search_root}" action="{href("core4/index.html")}" method="get">
-          <label for="header-source-query">
-            <span class="visually-hidden">Search the wording in S17 and G3</span>
-            <input id="header-source-query" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="Search S17 / G3">
-          </label>
-        </form>
-        <div class="topnav-search-panel" data-source-search-panel hidden>
-          <p class="fine" data-source-search-status aria-live="polite"></p>
-          <ul class="result-list" data-source-search-results></ul>
-        </div>
+        <button type="button" class="topnav-search-trigger" data-hub-search-open aria-haspopup="dialog" aria-controls="hub-search-modal">
+          <span class="topnav-search-icon" aria-hidden="true">{search_icon}</span>
+          <span class="topnav-search-label">Search</span>
+          <kbd class="topnav-search-kbd" data-search-shortcut-hint aria-hidden="true">Ctrl+K</kbd>
+        </button>
       </div>
     </div>
   </nav>
@@ -419,6 +426,29 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
       </div>
     </div>
   </footer>
+  <div id="hub-search-modal" class="hub-search-modal" hidden>
+    <div class="hub-search-backdrop" data-hub-search-close tabindex="-1"></div>
+    <div class="hub-search-dialog" role="dialog" aria-modal="true" aria-labelledby="hub-search-title" data-hub-search-dialog>
+      <div class="hub-search-bar">
+        <span class="hub-search-bar-icon" aria-hidden="true">{search_icon}</span>
+        <input id="hub-search-input" class="hub-search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search aids, quizzes, Q&amp;A, source, glossary…" data-hub-search-input aria-controls="hub-search-results">
+        <button type="button" class="hub-search-clear" data-hub-search-clear hidden aria-label="Clear search">×</button>
+        <kbd class="hub-search-esc" aria-hidden="true">Esc</kbd>
+      </div>
+      <div id="hub-search-results" class="hub-search-body" data-hub-search-body tabindex="-1">
+        <h2 id="hub-search-title" class="hub-search-lead">Search decision aids, quizzes, Q&amp;A, source sections, and glossary terms</h2>
+        <p class="hub-search-try-label">Try searching for</p>
+        <div class="hub-search-try" data-hub-search-suggestions></div>
+      </div>
+      <div class="hub-search-footer">
+        <p class="hub-search-hints">
+          <kbd aria-hidden="true">↑</kbd><kbd aria-hidden="true">↓</kbd> navigate
+          <kbd aria-hidden="true">↵</kbd> open
+        </p>
+        <a class="hub-search-full" href="{full_search_href}" data-hub-search-full>Full site search</a>
+      </div>
+    </div>
+  </div>
   {scripts}
 </body>
 </html>
@@ -1059,6 +1089,197 @@ def write_glossary_terms_data():
     )
 
 
+def write_hub_search_index(sections):
+    """Emit categorised hub pages and source sections for the search modal."""
+    rows = []
+
+    def add(category, badge, badge_kind, title, href_path, text, meta=""):
+        rows.append({
+            "category": category,
+            "badge": badge,
+            "badgeKind": badge_kind,
+            "title": title,
+            "href": href_path,
+            "meta": meta,
+            "text": " ".join(str(text or "").split()),
+        })
+
+    for page in PAGES:
+        card_text = " ".join(
+            " ".join([
+                card.get("title", ""),
+                card.get("one_glance_answer", ""),
+                card.get("implementation_guidance", ""),
+            ])
+            for card in page.get("cards", [])
+        )
+        add(
+            "Decision aids",
+            "Aid",
+            "aid",
+            page["title"],
+            page["file"],
+            f"{page.get('intro', '')} {card_text}",
+            page.get("source", ""),
+        )
+
+    for quiz in QUIZZES:
+        q_text = " ".join(
+            " ".join([q.get("prompt", ""), q.get("rationale", "")] + list(q.get("choices", [])))
+            for q in quiz.get("questions", [])
+        )
+        add(
+            "Quizzes",
+            "Quiz",
+            "quiz",
+            quiz["title"],
+            quiz["file"],
+            f"{quiz.get('intro', '')} {q_text}",
+            quiz.get("source", ""),
+        )
+
+    for pack in PACKS:
+        items_text = " ".join(
+            " ".join([item.get("question", ""), item.get("answer", "")])
+            for item in pack.get("items", [])
+        )
+        add(
+            "Q&A",
+            "Q&A",
+            "qa",
+            pack["title"],
+            pack["file"],
+            items_text,
+            pack.get("source", ""),
+        )
+
+    for section in sections:
+        for doc, key in (("S17", "s17"), ("G3", "g3")):
+            blocks = section[key]
+            if section["id"] == "02" and key == "g3":
+                blocks = [block for block in blocks if not (isinstance(block, list) and block and block[0] == "note")]
+            text = " ".join(part for part in (block_text(block) for block in blocks) if part)
+            add(
+                "Source",
+                doc,
+                "source",
+                f"{doc} §{int(section['number'])} — {section['title']}",
+                f"core4/{key}/s{section['id']}.html",
+                text,
+                f"{doc} §{int(section['number'])}",
+            )
+
+    for term, definition in load_infosec_glossary():
+        add(
+            "Glossary",
+            "Glossary",
+            "glossary",
+            term,
+            f"glossary.html#{glossary_term_id(term)}",
+            definition,
+            "Official InfoSec",
+        )
+    for term, meaning in hub_glossary_terms():
+        add(
+            "Glossary",
+            "Glossary",
+            "glossary",
+            term,
+            f"glossary.html#{glossary_term_id(term)}",
+            meaning,
+            "This hub",
+        )
+
+    for cheat in CHEATS:
+        block_bits = []
+        for block in cheat.get("blocks", []):
+            if not isinstance(block, dict):
+                continue
+            if block.get("text"):
+                block_bits.append(str(block["text"]))
+            for row in block.get("rows", []) or []:
+                block_bits.extend(str(cell) for cell in row)
+            for step in block.get("steps", []) or []:
+                if isinstance(step, (list, tuple)):
+                    block_bits.extend(str(part) for part in step)
+                elif isinstance(step, dict):
+                    block_bits.append(str(step.get("text", "")))
+        add(
+            "Cheat sheets",
+            "Sheet",
+            "sheet",
+            cheat["title"],
+            cheat["file"],
+            f"{cheat.get('source', '')} {' '.join(block_bits)}",
+            cheat.get("source", ""),
+        )
+
+    for walk in WALKS:
+        step_text = " ".join(
+            " ".join([step.get("title", ""), step.get("text", "")])
+            for step in walk.get("steps", [])
+        )
+        add(
+            "Walkthroughs",
+            "Walk",
+            "walk",
+            walk["title"],
+            walk["file"],
+            step_text,
+            walk.get("source", ""),
+        )
+
+    for stage in STAGES:
+        add(
+            "Paths",
+            "Path",
+            "path",
+            f"{stage['code']} · {stage['name']}",
+            stage["file"],
+            f"{stage.get('blurb', '')} {stage.get('themes', '')}",
+            stage.get("source", "System lifecycle"),
+        )
+
+    for rel, title, text in (
+        ("index.html", "Home", "HKSARG IT Security Learning Hub entry point"),
+        ("spine.html", "Policy and System Lifecycle Overview", "CIA policy stack SDLC overview"),
+        ("start/new-joiners.html", "New joiners", "Fundamentals path for new joiners"),
+        ("start/current-staff.html", "Current staff", "Filter by role system lifecycle and need"),
+        ("core1/index.html", "Decision aids", "One-glance answers with a policy cite"),
+        ("core2/index.html", "Quizzes", "Self-checks with a rationale for each answer"),
+        ("core3/index.html", "Q&A", "Enquiry-style answers"),
+        ("core4/index.html", "Source lookup", "S17 and G3 section wording"),
+        ("app-c-matrix.html", "Appendix C matrix", "Tier 2 and Tier 3 extra controls"),
+        ("glossary.html", "Glossary", "Official InfoSec and hub terms A to Z"),
+        ("about.html", "About this hub", "Versions accessibility and purpose"),
+        ("governance.html", "Governance and updates", "How the hub is maintained"),
+        ("path/foundation.html", "Fundamentals path", "New joiner fundamentals checklist"),
+        ("path/apply.html", "Apply and close gaps", "Gap closing path"),
+        ("cheatsheets/index.html", "Cheat sheets", "Short reference sheets"),
+        ("walkthroughs/index.html", "Walkthroughs", "Role and SDLC walkthroughs"),
+    ):
+        add("Hub pages", "Page", "page", title, rel, text, "")
+
+    for role in ROLES:
+        add(
+            "Paths",
+            "Path",
+            "path",
+            role["title"],
+            f"path/role-{role['n']}.html",
+            role.get("walk", "") or role.get("title", ""),
+            f"Role {role['n']}",
+        )
+
+    path = HUB / "assets" / "js" / "hub-search-data.js"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "window.HUB_SEARCH_INDEX = " + json_for_script(rows) + ";\n"
+        "window.HUB_SEARCH_EQUIVALENTS = " + json_for_script(EQUIVALENTS) + ";\n",
+        encoding="utf-8",
+    )
+
+
 def sections_main():
     payload = json.loads((Path(__file__).resolve().parent / "policy_sections.json").read_text(encoding="utf-8"))
     notice = (
@@ -1198,6 +1419,7 @@ def main():
     sections = json.loads((Path(__file__).resolve().parent / "policy_sections.json").read_text(encoding="utf-8"))
     write_source_index(sections)
     write_glossary_terms_data()
+    write_hub_search_index(sections)
     copy_notice = (
         "The section text is from the named official document, April 2025, issued by the Digital Policy Office. "
         "This copy is not for sale."
