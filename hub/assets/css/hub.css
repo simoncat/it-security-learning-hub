@@ -605,6 +605,49 @@ html[data-role] .role-card.is-selected { opacity: 1; outline: 2px solid var(--na
 .letter-jump a { text-decoration: none; }
 .letter-jump a:hover, .letter-jump a:focus-visible { text-decoration: underline; }
 
+.glossary-term {
+  font: inherit;
+  font-weight: 700;
+  color: var(--blue);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dotted var(--blue);
+  padding: 0;
+  margin: 0;
+  cursor: help;
+  display: inline;
+  line-height: inherit;
+}
+.glossary-term:hover,
+.glossary-term:focus-visible {
+  color: var(--blue-d);
+  border-bottom-style: solid;
+}
+.glossary-term-pop {
+  position: absolute;
+  z-index: 40;
+  max-width: 22.5rem;
+  padding: 0.75rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+.glossary-term-pop-term {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.glossary-term-pop-def {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+}
+.glossary-term-pop a {
+  font-weight: 650;
+  font-size: 0.92rem;
+}
+
 table { width: 100%; border-collapse: collapse; background: #fff; margin: 0.6rem 0 1rem; }
 th, td { border: 1px solid var(--line); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
 th { background: var(--navy); color: #fff; font-weight: 650; }

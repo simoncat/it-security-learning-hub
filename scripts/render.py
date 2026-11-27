@@ -28,8 +28,10 @@ from pages_new import (
     current_staff_page,
     decision_page,
     glossary_page,
+    glossary_term_id,
     gov_page,
     home_page,
+    load_infosec_glossary,
     need_index,
     new_joiners_page,
     qa_page,
@@ -296,7 +298,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=27"
+    css = href("assets/css/hub.css") + "?v=28"
     js = href("assets/js/hub.js")
     csp = (
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
@@ -328,8 +330,15 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     scripts = f'<script src="{js}?v=11"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=10"></script>'
+    scripts += f'\n<script src="{href("assets/js/glossary-terms-data.js")}?v=1"></script>'
+    scripts += f'\n<script src="{href("assets/js/glossary-terms.js")}?v=1"></script>'
     for extra in extra_scripts or []:
-        if extra in ("assets/js/source-search-data.js", "assets/js/source-search.js"):
+        if extra in (
+            "assets/js/source-search-data.js",
+            "assets/js/source-search.js",
+            "assets/js/glossary-terms-data.js",
+            "assets/js/glossary-terms.js",
+        ):
             continue
         ver = "6" if extra.endswith("quiz.js") else "5"
         scripts += f'\n<script src="{href(extra)}?v={ver}"></script>'
@@ -352,7 +361,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
   <link rel="icon" href="{icon}">
   <link rel="stylesheet" href="{css}">
 </head>
-<body data-page-id="{esc(page_id)}" data-page="{esc(page_id)}" data-source-sections="{esc(source)}" data-last-reviewed="{REVIEWED}" data-owner-role="Hub Content Owner">
+<body data-page-id="{esc(page_id)}" data-page="{esc(page_id)}" data-source-sections="{esc(source)}" data-last-reviewed="{REVIEWED}" data-owner-role="Hub Content Owner" data-glossary-page="{href("glossary.html")}">
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast">
     <div class="mast-inner">
@@ -1033,6 +1042,23 @@ def write_source_index(sections):
     )
 
 
+def write_glossary_terms_data():
+    """Emit official glossary terms for client-side highlighting on hub pages."""
+    terms = []
+    for term, definition in load_infosec_glossary():
+        terms.append({
+            "term": term,
+            "definition": definition,
+            "id": glossary_term_id(term),
+        })
+    path = HUB / "assets" / "js" / "glossary-terms-data.js"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "window.GLOSSARY_TERMS = " + json_for_script(terms) + ";\n",
+        encoding="utf-8",
+    )
+
+
 def sections_main():
     payload = json.loads((Path(__file__).resolve().parent / "policy_sections.json").read_text(encoding="utf-8"))
     notice = (
@@ -1171,6 +1197,7 @@ def main():
     pages = []
     sections = json.loads((Path(__file__).resolve().parent / "policy_sections.json").read_text(encoding="utf-8"))
     write_source_index(sections)
+    write_glossary_terms_data()
     copy_notice = (
         "The section text is from the named official document, April 2025, issued by the Digital Policy Office. "
         "This copy is not for sale."

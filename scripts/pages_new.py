@@ -813,6 +813,12 @@ def load_infosec_glossary():
         return [(row["名詞"], row["解釋"]) for row in csv.DictReader(handle)]
 
 
+def glossary_term_id(term):
+    """Stable fragment id for an official glossary term."""
+    slug = re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-")
+    return f"gt-{slug}" if slug else "gt-term"
+
+
 def infosec_glossary_html(h, esc):
     rows = load_infosec_glossary()
     by_letter = defaultdict(list)
@@ -827,8 +833,11 @@ def infosec_glossary_html(h, esc):
         letter_links.append(f'<a href="#infosec-{letter.lower()}">{letter}</a>')
         body_rows = []
         for term, definition in by_letter[letter]:
+            term_id = glossary_term_id(term)
             body_rows.append(
-                f"<tr><th scope=\"row\">{esc(term)}</th><td>{esc(definition)}</td></tr>"
+                f"<tr id=\"{esc(term_id)}\">"
+                f"<th scope=\"row\">{esc(term)}</th>"
+                f"<td>{esc(definition)}</td></tr>"
             )
         sections.append(
             f'<h3 id="infosec-{letter.lower()}">{letter}</h3>\n'
