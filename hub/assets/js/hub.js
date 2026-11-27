@@ -888,7 +888,7 @@
         '<h2 id="saved-cart-title">Saved clauses</h2>' +
         '<button type="button" class="btn btn-ghost" data-cart-close>Close</button>' +
       '</div>' +
-      '<p class="fine">Saved passages stay in this browser. On a source page, select words with the cursor and choose Highlight and add to cart. Drag a handle, or use Up and Down, to reorder.</p>' +
+      '<p class="fine">Saved passages stay in this browser. On a source page, select words with the cursor and choose the Add button beside them. Drag a handle, or use Up and Down, to reorder.</p>' +
       '<p class="visually-hidden" data-cart-status aria-live="polite"></p>' +
       '<p class="saved-cart-empty" data-cart-empty>Nothing saved yet. Save a search result, or highlight source text and right-click.</p>' +
       '<ol class="saved-cart-list" data-cart-list></ol>' +
@@ -901,7 +901,11 @@
       '<p class="fine saved-cart-export-note">Print opens the browser dialog. Choose Save as PDF there. Import CSV reads a file this cart exported.</p>' +
     '</section>' +
     '<button type="button" class="saved-cart-toggle" aria-expanded="false" aria-controls="saved-cart-panel">' +
-      '<span>Cart</span><span class="saved-cart-count" data-cart-count>0</span>' +
+      '<svg class="saved-cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+        '<rect x="5" y="3.5" width="14" height="17" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+        '<path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 3.5v2.4M12 3.5v2.4M15 3.5v2.4M8.2 11h7.6M8.2 14.2h7.6M8.2 17.4h4.6"/>' +
+      '</svg>' +
+      '<span class="saved-cart-count" data-cart-count>0</span>' +
     '</button>';
   document.body.appendChild(root);
 
@@ -1543,7 +1547,7 @@
     if (!policy || !pageIdentity() || document.querySelector(".cart-select-hint")) return;
     var hint = document.createElement("p");
     hint.className = "fine cart-select-hint no-print";
-    hint.textContent = "Select words or a sentence with the cursor, then choose Highlight and add to cart. The clause is saved with those words highlighted.";
+    hint.textContent = "Select words or a sentence with the cursor. A small Add button appears beside the selection and saves the clause with those words highlighted.";
     policy.parentNode.insertBefore(hint, policy);
   }
 
@@ -1559,20 +1563,22 @@
     var item = selectedPassage();
     pendingHighlight = item;
     if (!item) {
+      addFloat.hidden = true;
       addFloat.classList.remove("is-ready");
       addFloat.classList.remove("is-following");
       addFloat.textContent = ADD_FLOAT_LABEL;
       addFloat.setAttribute("aria-label", "Select words in the source with the cursor, then add that clause to the cart");
-      queuePlaceAddFloat();
       return;
     }
     var saved = indexOf(item.id) >= 0;
+    addFloat.hidden = false;
     addFloat.classList.toggle("is-ready", !saved);
     addFloat.classList.add("is-following");
-    addFloat.textContent = saved ? "In cart" : ADD_FLOAT_LABEL;
+    addFloat.textContent = saved ? "Saved" : "Add";
+    addFloat.setAttribute("title", saved ? "Already in the cart" : ADD_FLOAT_LABEL);
     addFloat.setAttribute("aria-label", saved
       ? "This highlight is already in the cart"
-      : "Add the selected words with clause " + (item.clause || "text") + " to the cart");
+      : "Highlight and add to cart, clause " + (item.clause || "text"));
     queuePlaceAddFloat();
   }
 
@@ -1614,8 +1620,14 @@
 
   function placeAddFloat() {
     if (!addFloat) return;
-    var gap = 16;
-    var margin = 12;
+    var anchor = pendingHighlight ? selectionAnchor() : null;
+    if (!anchor) {
+      addFloat.hidden = true;
+      return;
+    }
+    addFloat.hidden = false;
+    var gap = 8;
+    var margin = 8;
     var width = addFloat.offsetWidth;
     var height = addFloat.offsetHeight;
     if (!width || !height) return;
@@ -1636,28 +1648,33 @@
       };
     }
     var obstacles = obstacleRects();
-    var anchor = pendingHighlight ? selectionAnchor() : null;
-    var clearTop = window.innerHeight;
-    for (var n = 0; n < obstacles.length; n += 1) {
-      if (obstacles[n].top < clearTop) clearTop = obstacles[n].top;
+    var block = null;
+    var words = null;
+    var sel = window.getSelection();
+    if (sel && sel.rangeCount) {
+      var startEl = elementOf(sel.getRangeAt(0).startContainer);
+      var para = startEl && startEl.closest ? startEl.closest("p") : null;
+      var wordEl = startEl && startEl.closest ? (startEl.closest(".clause-body") || para) : null;
+      if (para) block = para.getBoundingClientRect();
+      if (wordEl) words = wordEl.getBoundingClientRect();
     }
-    var raised = { x: margin, y: clearTop - height - 16 };
-    var corner = { x: margin, y: window.innerHeight - height - margin };
+    var midY = anchor.top + (anchor.height - height) / 2;
     var candidates = [];
-    if (anchor) {
-      candidates.push({ x: anchor.left, y: anchor.top - height - gap });
-      candidates.push({ x: anchor.left, y: anchor.bottom + gap });
-      candidates.push({ x: anchor.right + gap, y: anchor.top });
-      candidates.push({ x: anchor.left - width - gap, y: anchor.top });
+    if (words && words.left - width - gap >= margin) {
+      candidates.push({ x: words.left - width - gap, y: midY });
     }
-    if (window.innerWidth <= 900) {
-      candidates.push(raised);
-      candidates.push(corner);
-    } else {
-      candidates.push(corner);
-      candidates.push(raised);
+    if (block && block.left - width - gap >= margin) {
+      candidates.push({ x: block.left - width - gap, y: midY });
     }
-    candidates.push({ x: margin, y: margin });
+    if (words && words.right + width + gap <= window.innerWidth - margin) {
+      candidates.push({ x: words.right + gap, y: midY });
+    }
+    if (block) {
+      candidates.push({ x: block.left, y: block.bottom + gap });
+      candidates.push({ x: block.left, y: block.top - height - gap });
+    }
+    candidates.push({ x: anchor.left, y: anchor.bottom + gap });
+    candidates.push({ x: anchor.left, y: anchor.top - height - gap });
     var chosen = null;
     for (var i = 0; i < candidates.length; i += 1) {
       var point = clamp(candidates[i].x, candidates[i].y);
@@ -1666,7 +1683,8 @@
       for (var j = 0; j < obstacles.length; j += 1) {
         if (rectsOverlap(box, obstacles[j], gap)) blocked = true;
       }
-      if (!blocked && anchor && rectsOverlap(box, anchor, 4)) blocked = true;
+      if (!blocked && words && rectsOverlap(box, words, 2)) blocked = true;
+      if (!blocked && anchor && rectsOverlap(box, anchor, 2)) blocked = true;
       if (!blocked) {
         chosen = point;
         break;
@@ -1708,11 +1726,7 @@
     var item = pendingHighlight || selectedPassage();
     if (!item) {
       if (!addFloat) return;
-      addFloat.textContent = "Select words first";
-      addFloat.classList.remove("is-ready");
-      window.clearTimeout(addFloatTimer);
-      addFloatTimer = window.setTimeout(syncAddFloat, 1400);
-      queuePlaceAddFloat();
+      addFloat.hidden = true;
       return;
     }
     if (add(item)) openPanel();
@@ -1725,6 +1739,7 @@
     addFloat = document.createElement("button");
     addFloat.type = "button";
     addFloat.className = "cart-add-float no-print";
+    addFloat.hidden = true;
     addFloat.textContent = ADD_FLOAT_LABEL;
     document.body.appendChild(addFloat);
     syncAddFloat();
