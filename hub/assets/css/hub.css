@@ -667,6 +667,28 @@ body[data-glossary-page] tbody tr:hover th {
 body[data-glossary-page] tbody tr:hover td {
   background: #eef7f9;
 }
+body[data-glossary-page] .glossary-def {
+  margin: 0 0 0.45rem;
+}
+body[data-glossary-page] .glossary-def:last-child {
+  margin-bottom: 0;
+}
+body[data-glossary-page] .glossary-source {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 0.3rem;
+  background: linear-gradient(160deg, #d7eef2 0%, #c5e4eb 100%);
+  color: #0f3d56;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  vertical-align: baseline;
+}
+body[data-glossary-page] .glossary-search-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
 
 .glossary-term {
   font: inherit;
