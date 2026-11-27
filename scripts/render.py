@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate the static hub. Readers open hub/index.html; they do not run this."""
 
+import hashlib
 import json
 import re
 import shutil
@@ -54,6 +55,40 @@ DISCLAIMER = (
     "Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies."
 )
 CURRENT = "index.html"
+
+# Scripts every page loads. Extra per-page scripts (e.g. quiz.js) still go through
+# versioned_asset(), so their ?v= hash updates whenever the file bytes change.
+CORE_SCRIPTS = (
+    "assets/js/hub.js",
+    "assets/js/hub-search-data.js",
+    "assets/js/hub-search.js",
+    "assets/js/source-search-data.js",
+    "assets/js/source-search.js",
+    "assets/js/glossary-terms-data.js",
+    "assets/js/glossary-terms.js",
+)
+
+# Content-hash cache for one render run. Cleared at the start of main().
+_ASSET_HASH: dict[str, str] = {}
+
+
+def asset_version(rel: str) -> str:
+    """Short sha256 of hub/<rel>. Used as ?v= so browsers fetch when the file changes."""
+    cached = _ASSET_HASH.get(rel)
+    if cached is not None:
+        return cached
+    path = HUB / rel
+    if not path.is_file():
+        raise FileNotFoundError(f"Cannot version missing hub asset: {rel}")
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()[:10]
+    _ASSET_HASH[rel] = digest
+    return digest
+
+
+def versioned_asset(rel: str) -> str:
+    """Href to a hub asset with a content-hash query string."""
+    return f"{href(rel)}?v={asset_version(rel)}"
+
 
 TOP = [
     ("index.html", "Home"),
@@ -299,8 +334,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=35"
-    js = href("assets/js/hub.js")
+    css = versioned_asset("assets/css/hub.css")
     csp = (
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
         "form-action 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
@@ -329,25 +363,11 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     home = href("index.html")
     search_root = "" if home == "index.html" else home[: -len("index.html")]
     full_search_href = href("core4/index.html")
-    scripts = f'<script src="{js}?v=18"></script>'
-    scripts += f'\n<script src="{href("assets/js/hub-search-data.js")}?v=2"></script>'
-    scripts += f'\n<script src="{href("assets/js/hub-search.js")}?v=2"></script>'
-    scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
-    scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=13"></script>'
-    scripts += f'\n<script src="{href("assets/js/glossary-terms-data.js")}?v=1"></script>'
-    scripts += f'\n<script src="{href("assets/js/glossary-terms.js")}?v=1"></script>'
+    script_rels = list(CORE_SCRIPTS)
     for extra in extra_scripts or []:
-        if extra in (
-            "assets/js/hub-search-data.js",
-            "assets/js/hub-search.js",
-            "assets/js/source-search-data.js",
-            "assets/js/source-search.js",
-            "assets/js/glossary-terms-data.js",
-            "assets/js/glossary-terms.js",
-        ):
-            continue
-        ver = "6" if extra.endswith("quiz.js") else "5"
-        scripts += f'\n<script src="{href(extra)}?v={ver}"></script>'
+        if extra not in script_rels:
+            script_rels.append(extra)
+    scripts = "\n".join(f'<script src="{versioned_asset(path)}"></script>' for path in script_rels)
     icon = (
         "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
         "%3Crect width='32' height='32' rx='6' fill='%230e2744'/%3E"
@@ -1420,6 +1440,8 @@ def main():
     write_source_index(sections)
     write_glossary_terms_data()
     write_hub_search_index(sections)
+    # Hash after generated *.js data files are on disk so ?v= matches final bytes.
+    _ASSET_HASH.clear()
     copy_notice = (
         "The section text is from the named official document, April 2025, issued by the Digital Policy Office. "
         "This copy is not for sale."
@@ -1707,7 +1729,13 @@ def main():
             raise SystemExit(f"Banner, disclaimer, or page id missing on {rel}")
         if "cdn" in body.lower() or "fonts.googleapis" in body:
             raise SystemExit(f"External font or CDN in {rel}")
+        for match in re.finditer(r'assets/(?:css|js)/[^"\']+\?v=([0-9a-f]+)', body):
+            if len(match.group(1)) != 10:
+                raise SystemExit(f"Non-hash asset version on {rel}: ?v={match.group(1)}")
+    tracked = ["assets/css/hub.css", *CORE_SCRIPTS, "assets/js/quiz.js"]
+    versions = ", ".join(f"{Path(rel).name}={asset_version(rel)}" for rel in tracked)
     print(f"Wrote {len(pages)} pages.")
+    print(f"Asset versions: {versions}")
 
 
 if __name__ == "__main__":
