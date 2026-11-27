@@ -299,7 +299,7 @@ def shell(rel, title, page_id, crumbs, source, main, scripts):
 def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     global CURRENT
     CURRENT = rel
-    css = href("assets/css/hub.css") + "?v=33"
+    css = href("assets/css/hub.css") + "?v=34"
     js = href("assets/js/hub.js")
     csp = (
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
@@ -330,8 +330,8 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     search_root = "" if home == "index.html" else home[: -len("index.html")]
     full_search_href = href("core4/index.html")
     scripts = f'<script src="{js}?v=11"></script>'
-    scripts += f'\n<script src="{href("assets/js/hub-search-data.js")}?v=1"></script>'
-    scripts += f'\n<script src="{href("assets/js/hub-search.js")}?v=1"></script>'
+    scripts += f'\n<script src="{href("assets/js/hub-search-data.js")}?v=2"></script>'
+    scripts += f'\n<script src="{href("assets/js/hub-search.js")}?v=2"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search.js")}?v=12"></script>'
     scripts += f'\n<script src="{href("assets/js/glossary-terms-data.js")}?v=1"></script>'
