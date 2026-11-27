@@ -41,6 +41,11 @@ body {
   line-height: 1.55;
 }
 
+/* TEMPORARY (ISLH-7 cache-bust probe) — remove after Snow verifies preview. */
+body[data-page-id="P-HOME"] {
+  background: #dc2626;
+}
+
 img { max-width: 100%; }
 
 a { color: var(--blue-d); }
