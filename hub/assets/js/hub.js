@@ -642,7 +642,7 @@
 
   (function progressTransfer() {
     var FORMAT = "hksarg-hub-progress";
-    var VERSION = 1;
+    var SCHEMA_VERSION = 1;
     var MAX_PAYLOAD = 500000;
     var importInput = document.querySelector("[data-progress-import]");
 
@@ -667,20 +667,64 @@
       return items;
     }
 
+    function ticksByPageFromItems(items) {
+      var pages = {};
+      Object.keys(items).forEach(function (key) {
+        if (key.indexOf(TICK_PREFIX) !== 0) return;
+        pages[key.slice(TICK_PREFIX.length)] = items[key];
+      });
+      return pages;
+    }
+
+    function itemsFromPayload(payload) {
+      if (payload.items && typeof payload.items === "object" && !Array.isArray(payload.items)) {
+        return payload.items;
+      }
+      var items = {};
+      var ticks = payload.ticksByPage;
+      if (ticks && typeof ticks === "object" && !Array.isArray(ticks)) {
+        Object.keys(ticks).forEach(function (pageId) {
+          if (!/^[A-Za-z0-9._:-]{1,80}$/.test(pageId)) throw new Error("bad page id");
+          items[TICK_PREFIX + pageId] = ticks[pageId];
+        });
+      }
+      if (Object.prototype.hasOwnProperty.call(payload, "gapTable") && payload.gapTable != null) {
+        items[GAP_KEY] = payload.gapTable;
+      }
+      return items;
+    }
+
+    function payloadSchemaVersion(payload) {
+      if (!payload || typeof payload !== "object") return null;
+      if (typeof payload.schemaVersion === "number") return payload.schemaVersion;
+      // Older exports used "version" before schemaVersion.
+      if (typeof payload.version === "number") return payload.version;
+      return null;
+    }
+
     function stampName() {
       var now = new Date();
       var y = now.getFullYear();
       var m = String(now.getMonth() + 1).padStart(2, "0");
       var d = String(now.getDate()).padStart(2, "0");
-      return "hub-progress-" + y + m + d + ".json";
+      var hh = String(now.getHours()).padStart(2, "0");
+      var mm = String(now.getMinutes()).padStart(2, "0");
+      var ss = String(now.getSeconds()).padStart(2, "0");
+      return "learning-progress-" + y + m + d + "-" + hh + mm + ss + ".json";
     }
 
     function exportProgress() {
+      var items = collectProgress();
       var payload = {
         format: FORMAT,
-        version: VERSION,
+        schemaVersion: SCHEMA_VERSION,
+        // Kept for older import tooling that only checked "version".
+        version: SCHEMA_VERSION,
+        kind: "learning-progress",
         exportedAt: new Date().toISOString(),
-        items: collectProgress()
+        ticksByPage: ticksByPageFromItems(items),
+        gapTable: Object.prototype.hasOwnProperty.call(items, GAP_KEY) ? items[GAP_KEY] : null,
+        items: items
       };
       var text = JSON.stringify(payload, null, 2);
       if (text.length > MAX_PAYLOAD) {
@@ -719,18 +763,20 @@
 
     function applyImport(payload) {
       if (!payload || typeof payload !== "object") throw new Error("bad payload");
-      if (payload.format !== FORMAT || payload.version !== VERSION) throw new Error("bad format");
-      if (!payload.items || typeof payload.items !== "object" || Array.isArray(payload.items)) {
+      if (payload.format !== FORMAT) throw new Error("bad format");
+      if (payloadSchemaVersion(payload) !== SCHEMA_VERSION) throw new Error("bad schema");
+      var items = itemsFromPayload(payload);
+      if (!items || typeof items !== "object" || Array.isArray(items)) {
         throw new Error("bad items");
       }
-      var keys = Object.keys(payload.items);
+      var keys = Object.keys(items);
       if (keys.length > 500) throw new Error("too many keys");
       var prepared = {};
       var total = 0;
       keys.forEach(function (key) {
         if (!isProgressKey(key)) throw new Error("bad key");
         if (key.indexOf(TICK_PREFIX) === 0 && key.length > 120) throw new Error("bad key");
-        var stored = normalizeItemValue(payload.items[key]);
+        var stored = normalizeItemValue(items[key]);
         if (stored == null) throw new Error("bad value");
         prepared[key] = stored;
         total += key.length + stored.length;

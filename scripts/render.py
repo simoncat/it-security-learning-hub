@@ -478,7 +478,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
         <a href="{href("start/new-joiners.html")}">New joiners</a>
       </nav>
       <div class="progress-transfer no-print">
-        <p class="fine">Optional ticks and gap notes stay in this browser. Not a sign-off.</p>
+        <p class="fine">Optional ticks and gap notes stay in this browser. Export downloads learning progress as JSON. Not a sign-off.</p>
         <button type="button" class="btn btn-ghost" data-action="export-progress">Export Progress</button>
         <button type="button" class="btn btn-ghost" data-action="import-progress">Import Progress</button>
         <input type="file" accept="application/json,.json" data-progress-import hidden>
