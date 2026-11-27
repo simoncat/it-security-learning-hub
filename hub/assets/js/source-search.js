@@ -301,8 +301,34 @@
 
   document.addEventListener("hub-cart-change", refreshCartButtons);
 
+  function isMacPlatform() {
+    var platform = navigator.platform || "";
+    var ua = navigator.userAgent || "";
+    return /Mac|iPhone|iPad|iPod/.test(platform) || /Mac OS X/.test(ua);
+  }
+
+  function bindHeaderSearchShortcut() {
+    var headerInput = document.querySelector("#header-source-query");
+    if (!headerInput) return;
+    var hint = document.querySelector("[data-search-shortcut-hint]");
+    if (hint) hint.textContent = isMacPlatform() ? "⌘K" : "Ctrl+K";
+    document.addEventListener("keydown", function (event) {
+      var key = String(event.key || "").toLowerCase();
+      if (key !== "k") return;
+      if (!(event.metaKey || event.ctrlKey) || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      try {
+        headerInput.focus({ preventScroll: false });
+      } catch (err) {
+        headerInput.focus();
+      }
+      if (typeof headerInput.select === "function") headerInput.select();
+    });
+  }
+
   function start() {
     document.querySelectorAll("[data-source-search]").forEach(bindForm);
+    bindHeaderSearchShortcut();
     var initial = (new URLSearchParams(location.search).get("q") || "").trim();
     if (!initial) return;
     var preferred =
@@ -331,6 +357,7 @@
     if (tries < 100) return;
     window.clearInterval(timer);
     document.querySelectorAll("[data-source-search]").forEach(bindForm);
+    bindHeaderSearchShortcut();
     document.querySelectorAll("[data-source-search-status]").forEach(function (el) {
       if (!el.textContent) el.textContent = "Search index did not load. Open Source and try again.";
     });
