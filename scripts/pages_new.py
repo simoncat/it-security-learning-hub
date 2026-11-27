@@ -849,7 +849,7 @@ def infosec_glossary_html(h, esc):
             f"  <tbody>\n    {''.join(body_rows)}\n  </tbody>\n"
             f"</table>"
         )
-    jump = " · ".join(letter_links)
+    jump = " ".join(letter_links)
     csv_href = h("assets/data/infosec-glossary.csv")
     return f"""
 <h2 id="infosec">Official InfoSec glossary</h2>
