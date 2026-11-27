@@ -106,7 +106,10 @@ def side_groups(rel):
             ("glossary.html#modality", "Shall, Should, May"),
             ("glossary.html#policy-stack", "Policy stack"),
             ("glossary.html#cia-tiers", "CIA and tiers"),
-            ("glossary.html#roles", "Roles and contacts"),
+            ("glossary.html#classification", "Classification labels"),
+            ("glossary.html#roles", "Roles and bodies"),
+            ("glossary.html#principles", "Principles and approaches"),
+            ("glossary.html#ops-terms", "Operations terms"),
             ("glossary.html#hub-words", "Hub words"),
             ("glossary.html#abbreviations", "Search abbreviations"),
         ])]
@@ -813,6 +816,12 @@ def load_infosec_glossary():
         return [(row["名詞"], row["解釋"]) for row in csv.DictReader(handle)]
 
 
+def glossary_term_id(term):
+    """Stable fragment id for an official glossary term."""
+    slug = re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-")
+    return f"gt-{slug}" if slug else "gt-term"
+
+
 def infosec_glossary_html(h, esc):
     rows = load_infosec_glossary()
     by_letter = defaultdict(list)
@@ -827,8 +836,11 @@ def infosec_glossary_html(h, esc):
         letter_links.append(f'<a href="#infosec-{letter.lower()}">{letter}</a>')
         body_rows = []
         for term, definition in by_letter[letter]:
+            term_id = glossary_term_id(term)
             body_rows.append(
-                f"<tr><th scope=\"row\">{esc(term)}</th><td>{esc(definition)}</td></tr>"
+                f"<tr id=\"{esc(term_id)}\">"
+                f"<th scope=\"row\">{esc(term)}</th>"
+                f"<td>{esc(definition)}</td></tr>"
             )
         sections.append(
             f'<h3 id="infosec-{letter.lower()}">{letter}</h3>\n'
@@ -861,7 +873,7 @@ def glossary_page(h, esc):
     official = infosec_glossary_html(h, esc)
     return f"""
 <h1>Glossary</h1>
-<p class="lede">Official InfoSec.gov.hk definitions for terms that appear in S17 or G3, plus short meanings used across this hub. S17, G3, the Security Regulations, and your B/D policy remain authoritative for compliance. Source search also treats listed abbreviations and their full names as the same query.</p>
+<p class="lede">Official InfoSec.gov.hk definitions for terms that appear in S17 or G3, plus short meanings used across this hub for policy, roles, classification, and common practice wording. S17, G3, the Security Regulations, and your B/D policy remain authoritative for compliance. Source search also treats listed abbreviations and their full names as the same query.</p>
 
 {official}
 
@@ -881,11 +893,13 @@ def glossary_page(h, esc):
 <table>
   <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
   <tbody>
-    <tr><th scope="row">SR / Security Regulations</th><td>Government-wide security rules that sit above S17 and G3 for classified protection and related duties.</td></tr>
-    <tr><th scope="row">S17 / Baseline IT Security Policy</th><td>The baseline policy for HKSARG information systems. Version in this hub: v8.2.</td></tr>
+    <tr><th scope="row">Security Regulations</th><td>Government-wide security rules (often abbreviated SR) that sit above S17 and G3 for classified protection and related duties. Authoritative labels and handling rules for classified information live here.</td></tr>
+    <tr><th scope="row">S17 / Baseline IT Security Policy</th><td>The baseline policy for HKSARG information systems. Version in this hub: v8.2. Issued with G3 by the Digital Policy Office.</td></tr>
     <tr><th scope="row">G3 / IT Security Guidelines</th><td>Implementation guidance that pairs with S17 section by section. Version in this hub: v10.2.</td></tr>
-    <tr><th scope="row">Practice guides</th><td>Theme guidance that supports S17 and G3. Use the guide your B/D names; do not invent a control from a guide alone.</td></tr>
-    <tr><th scope="row">Departmental policy</th><td>Local B/D rules and procedures. They may be stricter. They do not weaken a Shall.</td></tr>
+    <tr><th scope="row">Digital Policy Office (DPO)</th><td>The office that issues S17 and G3 and supports central IT security governance (including roles on ISMC, ITSWG, and GIRO).</td></tr>
+    <tr><th scope="row">Personal Data (Privacy) Ordinance (PDPO)</th><td>Hong Kong ordinance that governs personal data privacy. S17/G3 require personal data in government systems to be handled in compliance with the PDPO.</td></tr>
+    <tr><th scope="row">Practice guides</th><td>Theme guidance that supports S17 and G3. Use the guide your B/D names; inventing a control from a guide alone is not enough.</td></tr>
+    <tr><th scope="row">Departmental policy</th><td>Local B/D rules and procedures. They may be stricter. They leave every Shall intact.</td></tr>
   </tbody>
 </table>
 <p><a href="{h("core1/policy-stack.html")}">Policy stack aids</a> · <a href="{h("core4/index.html")}">Source lookup</a></p>
@@ -897,26 +911,78 @@ def glossary_page(h, esc):
     <tr><th scope="row">Confidentiality</th><td>Only authorised persons and systems may know or gain access to the information.</td></tr>
     <tr><th scope="row">Integrity</th><td>Only authorised persons and systems may change the information, configuration, or code, and unauthorised change is detectable.</td></tr>
     <tr><th scope="row">Availability</th><td>Service availability: authorised users can use the service when they need it. Backup, capacity, continuity, and contingency support that outcome.</td></tr>
-    <tr><th scope="row">Tier 1</th><td>Ordinary baseline. S17 and G3 apply. Appendix C does not.</td></tr>
-    <tr><th scope="row">Tier 2</th><td>A system whose failure or disruption would seriously affect government operations, or could cause public turmoil or catastrophe. Baseline plus Appendix C.</td></tr>
-    <tr><th scope="row">Tier 3</th><td>A Tier 2 system tied directly to an essential service. Takes every Tier 2 Appendix C control, then the Tier 3-only rows.</td></tr>
+    <tr><th scope="row">Classified Protection</th><td>Matching security measures to the classification and tier of the system and information (S17/G3 §7), so Tier 2 and Tier 3 systems take the Appendix C controls on top of the baseline.</td></tr>
+    <tr><th scope="row">Tier 1 Information Systems</th><td>Ordinary baseline systems. S17 and G3 apply. Appendix C does not.</td></tr>
+    <tr><th scope="row">Tier 2 Information Systems</th><td>Systems whose failure or disruption would seriously affect government operations, or could cause public turmoil or catastrophe. Baseline plus Appendix C.</td></tr>
+    <tr><th scope="row">Tier 3 Information Systems</th><td>Tier 2 systems tied directly to an essential service. They take every Tier 2 Appendix C control, then the Tier 3-only rows.</td></tr>
   </tbody>
 </table>
 <p><a href="{h("core1/cia.html")}">CIA aids</a> · <a href="{h("core1/tier-appc.html")}">Tier and Appendix C aids</a></p>
 
-<h2 id="roles">Roles and contacts</h2>
+<h2 id="classification">Classification labels</h2>
+<p>These labels come from the Security Regulations. This hub only reminds you of the names; handling rules stay in the SR and your B/D instructions.</p>
 <table>
   <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
   <tbody>
-    <tr><th scope="row">DITSO</th><td>Departmental IT Security Officer. Appointed by the Head of the B/D to steer IT security.</td></tr>
-    <tr><th scope="row">IT security management unit</th><td>The unit that carries day-to-day IT security work for the B/D.</td></tr>
+    <tr><th scope="row">TOP SECRET</th><td>Highest Security Regulations classification used for information whose unauthorised disclosure would cause exceptionally grave damage. Handling follows the SR and your B/D instructions.</td></tr>
+    <tr><th scope="row">SECRET</th><td>Security Regulations classification for information whose unauthorised disclosure would cause serious damage. Handling follows the SR and your B/D instructions.</td></tr>
+    <tr><th scope="row">CONFIDENTIAL</th><td>Security Regulations classification for information whose unauthorised disclosure would cause damage. S17/G3 set extra technical controls (for example cryptography) for CONFIDENTIAL and above.</td></tr>
+    <tr><th scope="row">RESTRICTED</th><td>Security Regulations classification for information that needs protection though the impact is lower than CONFIDENTIAL. Many S17/G3 controls call out RESTRICTED or above explicitly.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="roles">Roles and bodies</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Departmental IT Security Officer (DITSO)</th><td>Officer at D3 or above appointed by the Head of the B/D to steer IT security and remain accountable for the B/D’s IT security posture (S17/G3 §5).</td></tr>
+    <tr><th scope="row">Departmental Security Officer (DSO)</th><td>Officer designated by the Head of the B/D for departmental security duties. The DSO may also be the DITSO; otherwise the DITSO works with the DSO on IT security.</td></tr>
+    <tr><th scope="row">IT security management unit</th><td>The unit that reports to the DITSO and carries day-to-day IT security work for the B/D.</td></tr>
     <tr><th scope="row">Information owner</th><td>The person accountable for the information and for classifying and approving access to it.</td></tr>
-    <tr><th scope="row">ISIRT</th><td>Information Security Incident Response Team for the B/D.</td></tr>
-    <tr><th scope="row">GIRO</th><td>Government Information Security Incident Response Office.</td></tr>
-    <tr><th scope="row">GovCERT.HK</th><td>Government Computer Emergency Response Team Hong Kong.</td></tr>
+    <tr><th scope="row">Information Security Incident Response Team (ISIRT)</th><td>The B/D team that coordinates handling of information security incidents inside that B/D. Every B/D shall establish an ISIRT.</td></tr>
+    <tr><th scope="row">ISIRT Commander</th><td>Senior officer designated by the Head of the B/D to lead the ISIRT, appoint core members, and work with GIRO on incident reporting.</td></tr>
+    <tr><th scope="row">Government Information Security Incident Response Office (GIRO)</th><td>Central body that coordinates and supports B/D ISIRTs across government. The GIRO Standing Office is its executive arm.</td></tr>
+    <tr><th scope="row">GovCERT.HK</th><td>Government Computer Emergency Response Team Hong Kong. Works with GIRO on government incidents and with the wider CERT community on threat information and practice.</td></tr>
+    <tr><th scope="row">Information Security Management Committee (ISMC)</th><td>Central committee that oversees IT security across government and guides B/Ds through the ITSWG (S17/G3 §5).</td></tr>
+    <tr><th scope="row">IT Security Working Group (ITSWG)</th><td>Executive arm of the ISMC for promulgating and monitoring compliance with government IT security regulations, policies, and guidelines.</td></tr>
   </tbody>
 </table>
 <p><a href="{h("core1/accountability.html")}">Accountability aids</a> · <a href="{h("core1/org-structure.html")}">Organisation aids</a></p>
+
+<h2 id="principles">Principles and approaches</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Security by Design</th><td>Build security requirements into every stage of the system development lifecycle so protection is designed in rather than added late (S17/G3 §6).</td></tr>
+    <tr><th scope="row">Risk-based Approach</th><td>Identify, prioritise, and treat security risks in a consistent way, and set controls according to classified protection and business need (S17/G3 §6–§7).</td></tr>
+    <tr><th scope="row">Risk Register</th><td>A living record of IT security risks used to manage and communicate risk under the B/D’s risk management framework (G3 §7).</td></tr>
+    <tr><th scope="row">Shared Responsibility Model</th><td>Clear split of security duties between a cloud (or similar) service provider and the B/D as customer, so each party knows what it must protect.</td></tr>
+    <tr><th scope="row">Prevent, Detect, Respond and Recover</th><td>The four lines of defence in S17/G3 §6: stop incidents where you can, spot them quickly, contain damage, and restore systems and data.</td></tr>
+    <tr><th scope="row">Resilience</th><td>Ability of crucial information systems to withstand major disruption, limit damage, and recover quickly (S17/G3 §6).</td></tr>
+    <tr><th scope="row">Privacy Impact Assessment (PIA)</th><td>Assessment of how a system or change affects personal data privacy, completed and followed up alongside security risk assessment where personal data is involved.</td></tr>
+    <tr><th scope="row">Need-to-know</th><td>Grant access to sensitive or security-relevant information only when the person has a clear duty need and proper authorisation (often from the DITSO).</td></tr>
+    <tr><th scope="row">Least Privilege</th><td>Give users and components only the access they need for the task. Same idea as the official “Least Privilege Principle” entry above.</td></tr>
+    <tr><th scope="row">Segregation of Duties</th><td>Split conflicting duties so one person cannot complete a sensitive process alone. See also the official glossary entry above.</td></tr>
+    <tr><th scope="row">Zero Trust</th><td>Design stance that verifies every access request and limits trust by default, instead of assuming an internal network is safe. Use it where your B/D architecture and guides call for it.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="ops-terms">Operations and monitoring terms</h2>
+<table>
+  <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Hardening</th><td>Tightening system and service configuration to reduce attack surface, using least privilege and related baselines. See also the official glossary entry above.</td></tr>
+    <tr><th scope="row">Configuration baseline</th><td>Approved secure settings for a system or component that operations maintain and check against.</td></tr>
+    <tr><th scope="row">Supply-chain risk</th><td>Risk from suppliers and components in hardware or software (including software bills of materials and dependency information) that can affect security of government systems.</td></tr>
+    <tr><th scope="row">SIEM</th><td>Security information and event management. A class of monitoring that correlates multiple sources; Appendix C expects Tier 3 systems to have 24×7 SIEM-class monitoring.</td></tr>
+    <tr><th scope="row">EDR</th><td>Endpoint detection and response. Tools that monitor endpoints to detect and support response to malicious activity (named among detection options in G3).</td></tr>
+    <tr><th scope="row">XDR</th><td>Extended detection and response. Broader correlation across endpoints, network, identity, and cloud signals than EDR alone.</td></tr>
+    <tr><th scope="row">DLP</th><td>Data loss prevention. Controls that reduce unauthorised exfiltration or leakage of sensitive information. Related practice-guide themes sit under ITG InfoStation.</td></tr>
+    <tr><th scope="row">IoCs</th><td>Indicators of compromise. Observable signs (such as hashes, addresses, or patterns) that a system or account may have been compromised.</td></tr>
+    <tr><th scope="row">TTPs</th><td>Tactics, techniques, and procedures. How adversaries operate, used to recognise and describe attack behaviour beyond single indicators.</td></tr>
+    <tr><th scope="row">MITRE ATT&amp;CK</th><td>A public knowledge base of adversary tactics and techniques used to describe and analyse attack behaviour. Learning aid only; your B/D names the frameworks it adopts.</td></tr>
+  </tbody>
+</table>
 
 <h2 id="hub-words">Words this hub uses</h2>
 <table>
