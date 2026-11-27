@@ -1449,11 +1449,13 @@
   function pageIdentity() {
     var path = "";
     try { path = decodeURIComponent(location.pathname); } catch (err) { path = location.pathname; }
-    path = String(path || "").replace(/\\/g, "/");
-    var match = path.match(/(core4\/(s17|g3)\/(?:index|appendix-c|s(\d{2}))\.html)$/i);
+    path = String(path || "").replace(/\\/g, "/").replace(/\/+$/, "");
+    var match = path.match(/(core4\/(s17|g3)\/(?:index|appendix-c|s(\d{2})))(?:\.html)?$/i);
     if (!match) return null;
+    var href = match[1].toLowerCase();
+    if (!/\.html$/i.test(href)) href += ".html";
     return {
-      href: match[1].toLowerCase(),
+      href: href,
       doc: match[2].toLowerCase() === "g3" ? "G3" : "S17",
       number: match[3] ? String(parseInt(match[3], 10)) : ""
     };
@@ -1585,22 +1587,9 @@
     addFloat = document.createElement("button");
     addFloat.type = "button";
     addFloat.className = "cart-add-float no-print";
-    addFloat.hidden = true;
     addFloat.textContent = "Add to cart";
     document.body.appendChild(addFloat);
     syncAddFloat();
-    if ("IntersectionObserver" in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        var visible = false;
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) visible = true;
-        });
-        addFloat.hidden = !visible;
-      }, { threshold: 0 });
-      observer.observe(policy);
-    } else {
-      addFloat.hidden = false;
-    }
     document.addEventListener("selectionchange", syncAddFloat);
     addFloat.addEventListener("pointerdown", function (event) {
       if (event.button !== 0) return;
