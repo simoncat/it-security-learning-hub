@@ -888,7 +888,7 @@
         '<h2 id="saved-cart-title">Saved clauses</h2>' +
         '<button type="button" class="btn btn-ghost" data-cart-close>Close</button>' +
       '</div>' +
-      '<p class="fine">Saved passages stay in this browser. On a source page, highlight a word or sentence and choose Add to cart. Drag a handle, or use Up and Down, to reorder.</p>' +
+      '<p class="fine">Saved passages stay in this browser. On a source page, select words with the cursor and choose Highlight and add to cart. Drag a handle, or use Up and Down, to reorder.</p>' +
       '<p class="visually-hidden" data-cart-status aria-live="polite"></p>' +
       '<p class="saved-cart-empty" data-cart-empty>Nothing saved yet. Save a search result, or highlight source text and right-click.</p>' +
       '<ol class="saved-cart-list" data-cart-list></ol>' +
@@ -1128,6 +1128,7 @@
     panel.hidden = false;
     syncChrome();
     closeBtn.focus();
+    queuePlaceAddFloat();
   }
 
   function closePanel() {
@@ -1135,6 +1136,7 @@
     panel.hidden = true;
     syncChrome();
     toggle.focus();
+    queuePlaceAddFloat();
   }
 
   function add(raw) {
@@ -1541,7 +1543,7 @@
     if (!policy || !pageIdentity() || document.querySelector(".cart-select-hint")) return;
     var hint = document.createElement("p");
     hint.className = "fine cart-select-hint no-print";
-    hint.textContent = "Highlight a word or sentence in this section, then choose Add to cart. The clause is saved with those words highlighted.";
+    hint.textContent = "Select words or a sentence with the cursor, then choose Highlight and add to cart. The clause is saved with those words highlighted.";
     policy.parentNode.insertBefore(hint, policy);
   }
 
@@ -1549,6 +1551,8 @@
   var pendingHighlight = null;
   var skipAddClick = false;
   var addFloatTimer = 0;
+  var addFloatPlaceQueued = false;
+  var ADD_FLOAT_LABEL = "Highlight and add to cart";
 
   function syncAddFloat() {
     if (!addFloat) return;
@@ -1556,25 +1560,159 @@
     pendingHighlight = item;
     if (!item) {
       addFloat.classList.remove("is-ready");
-      addFloat.textContent = "Add to cart";
-      addFloat.setAttribute("aria-label", "Highlight a word or sentence in the source text, then add that clause to the cart");
+      addFloat.classList.remove("is-following");
+      addFloat.textContent = ADD_FLOAT_LABEL;
+      addFloat.setAttribute("aria-label", "Select words in the source with the cursor, then add that clause to the cart");
+      queuePlaceAddFloat();
       return;
     }
     var saved = indexOf(item.id) >= 0;
     addFloat.classList.toggle("is-ready", !saved);
-    addFloat.textContent = saved ? "In cart" : "Add to cart";
+    addFloat.classList.add("is-following");
+    addFloat.textContent = saved ? "In cart" : ADD_FLOAT_LABEL;
     addFloat.setAttribute("aria-label", saved
       ? "This highlight is already in the cart"
-      : "Add the highlighted text with clause " + (item.clause || "text") + " to the cart");
+      : "Add the selected words with clause " + (item.clause || "text") + " to the cart");
+    queuePlaceAddFloat();
+  }
+
+  function obstacleRects() {
+    var rects = [];
+    var cart = document.querySelector(".saved-cart");
+    if (cart) {
+      var cartToggle = cart.querySelector(".saved-cart-toggle");
+      var cartPanel = cart.querySelector(".saved-cart-panel");
+      if (cartToggle) rects.push(cartToggle.getBoundingClientRect());
+      if (cartPanel && !cartPanel.hidden) rects.push(cartPanel.getBoundingClientRect());
+    }
+    var back = document.querySelector(".return-float");
+    if (back) rects.push(back.getBoundingClientRect());
+    return rects;
+  }
+
+  function rectsOverlap(a, b, gap) {
+    return a.left < b.right + gap && a.right > b.left - gap &&
+      a.top < b.bottom + gap && a.bottom > b.top - gap;
+  }
+
+  function selectionAnchor() {
+    var policy = document.querySelector(".policy-text");
+    var sel = window.getSelection();
+    if (!policy || !sel || !sel.rangeCount || sel.isCollapsed) return null;
+    var range = sel.getRangeAt(0);
+    if (!policy.contains(range.startContainer) || !policy.contains(range.endContainer)) return null;
+    var list = range.getClientRects();
+    var viewTop = 8;
+    var viewBottom = window.innerHeight - 8;
+    for (var i = 0; i < list.length; i += 1) {
+      var rect = list[i];
+      if (rect.width < 1 && rect.height < 1) continue;
+      if (rect.bottom > viewTop && rect.top < viewBottom) return rect;
+    }
+    return null;
+  }
+
+  function placeAddFloat() {
+    if (!addFloat) return;
+    var gap = 16;
+    var margin = 12;
+    var width = addFloat.offsetWidth;
+    var height = addFloat.offsetHeight;
+    if (!width || !height) return;
+    var maxX = Math.max(margin, window.innerWidth - width - margin);
+    var maxY = Math.max(margin, window.innerHeight - height - margin);
+    function clamp(x, y) {
+      return {
+        x: Math.max(margin, Math.min(x, maxX)),
+        y: Math.max(margin, Math.min(y, maxY))
+      };
+    }
+    function boxOf(point) {
+      return {
+        left: point.x,
+        top: point.y,
+        right: point.x + width,
+        bottom: point.y + height
+      };
+    }
+    var obstacles = obstacleRects();
+    var anchor = pendingHighlight ? selectionAnchor() : null;
+    var clearTop = window.innerHeight;
+    for (var n = 0; n < obstacles.length; n += 1) {
+      if (obstacles[n].top < clearTop) clearTop = obstacles[n].top;
+    }
+    var raised = { x: margin, y: clearTop - height - 16 };
+    var corner = { x: margin, y: window.innerHeight - height - margin };
+    var candidates = [];
+    if (anchor) {
+      candidates.push({ x: anchor.left, y: anchor.top - height - gap });
+      candidates.push({ x: anchor.left, y: anchor.bottom + gap });
+      candidates.push({ x: anchor.right + gap, y: anchor.top });
+      candidates.push({ x: anchor.left - width - gap, y: anchor.top });
+    }
+    if (window.innerWidth <= 900) {
+      candidates.push(raised);
+      candidates.push(corner);
+    } else {
+      candidates.push(corner);
+      candidates.push(raised);
+    }
+    candidates.push({ x: margin, y: margin });
+    var chosen = null;
+    for (var i = 0; i < candidates.length; i += 1) {
+      var point = clamp(candidates[i].x, candidates[i].y);
+      var box = boxOf(point);
+      var blocked = false;
+      for (var j = 0; j < obstacles.length; j += 1) {
+        if (rectsOverlap(box, obstacles[j], gap)) blocked = true;
+      }
+      if (!blocked && anchor && rectsOverlap(box, anchor, 4)) blocked = true;
+      if (!blocked) {
+        chosen = point;
+        break;
+      }
+    }
+    if (!chosen) {
+      var y = window.innerHeight - height - margin;
+      for (var step = 0; step < 14; step += 1) {
+        var fallback = clamp(margin, y);
+        var fallbackBox = boxOf(fallback);
+        var hit = null;
+        for (var k = 0; k < obstacles.length; k += 1) {
+          if (rectsOverlap(fallbackBox, obstacles[k], gap)) hit = obstacles[k];
+        }
+        if (!hit) {
+          chosen = fallback;
+          break;
+        }
+        y = hit.top - height - gap;
+      }
+    }
+    if (!chosen) chosen = clamp(margin, margin);
+    addFloat.style.left = Math.round(chosen.x) + "px";
+    addFloat.style.top = Math.round(chosen.y) + "px";
+    addFloat.style.right = "auto";
+    addFloat.style.bottom = "auto";
+  }
+
+  function queuePlaceAddFloat() {
+    if (!addFloat || addFloatPlaceQueued) return;
+    addFloatPlaceQueued = true;
+    window.requestAnimationFrame(function () {
+      addFloatPlaceQueued = false;
+      placeAddFloat();
+    });
   }
 
   function commitHighlight() {
     var item = pendingHighlight || selectedPassage();
     if (!item) {
       if (!addFloat) return;
-      addFloat.textContent = "Highlight text first";
+      addFloat.textContent = "Select words first";
+      addFloat.classList.remove("is-ready");
       window.clearTimeout(addFloatTimer);
       addFloatTimer = window.setTimeout(syncAddFloat, 1400);
+      queuePlaceAddFloat();
       return;
     }
     if (add(item)) openPanel();
@@ -1587,10 +1725,12 @@
     addFloat = document.createElement("button");
     addFloat.type = "button";
     addFloat.className = "cart-add-float no-print";
-    addFloat.textContent = "Add to cart";
+    addFloat.textContent = ADD_FLOAT_LABEL;
     document.body.appendChild(addFloat);
     syncAddFloat();
     document.addEventListener("selectionchange", syncAddFloat);
+    window.addEventListener("scroll", queuePlaceAddFloat, true);
+    window.addEventListener("resize", queuePlaceAddFloat);
     addFloat.addEventListener("pointerdown", function (event) {
       if (event.button !== 0) return;
       event.preventDefault();
