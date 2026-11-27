@@ -938,7 +938,6 @@ def glossary_page(h, esc):
     <tr><th scope="row">Departmental IT Security Officer (DITSO)</th><td>Officer at D3 or above appointed by the Head of the B/D to steer IT security and remain accountable for the B/D’s IT security posture (S17/G3 §5).</td></tr>
     <tr><th scope="row">Departmental Security Officer (DSO)</th><td>Officer designated by the Head of the B/D for departmental security duties. The DSO may also be the DITSO; otherwise the DITSO works with the DSO on IT security.</td></tr>
     <tr><th scope="row">IT security management unit</th><td>The unit that reports to the DITSO and carries day-to-day IT security work for the B/D.</td></tr>
-    <tr><th scope="row">Information owner</th><td>The person accountable for the information and for classifying and approving access to it.</td></tr>
     <tr><th scope="row">Information Security Incident Response Team (ISIRT)</th><td>The B/D team that coordinates handling of information security incidents inside that B/D. Every B/D shall establish an ISIRT.</td></tr>
     <tr><th scope="row">ISIRT Commander</th><td>Senior officer designated by the Head of the B/D to lead the ISIRT, appoint core members, and work with GIRO on incident reporting.</td></tr>
     <tr><th scope="row">Government Information Security Incident Response Office (GIRO)</th><td>Central body that coordinates and supports B/D ISIRTs across government. The GIRO Standing Office is its executive arm.</td></tr>
@@ -961,8 +960,6 @@ def glossary_page(h, esc):
     <tr><th scope="row">Resilience</th><td>Ability of crucial information systems to withstand major disruption, limit damage, and recover quickly (S17/G3 §6).</td></tr>
     <tr><th scope="row">Privacy Impact Assessment (PIA)</th><td>Assessment of how a system or change affects personal data privacy, completed and followed up alongside security risk assessment where personal data is involved.</td></tr>
     <tr><th scope="row">Need-to-know basis</th><td>Grant data access rights, and disclose security-sensitive system or incident information, only to people who need it for their duties and who have proper authorisation (for system information that may compromise security, that authorisation is from the DITSO). Used throughout S17/G3 for access control, network documentation, source code, outsourcing, and incident handling.</td></tr>
-    <tr><th scope="row">Least Privilege</th><td>Give users and components only the access they need for the task. Same idea as the official “Least Privilege Principle” entry above.</td></tr>
-    <tr><th scope="row">Segregation of Duties</th><td>Split conflicting duties so one person cannot complete a sensitive process alone. See also the official glossary entry above.</td></tr>
     <tr><th scope="row">Zero Trust</th><td>Design stance that verifies every access request and limits trust by default, instead of assuming an internal network is safe. Use it where your B/D architecture and guides call for it.</td></tr>
   </tbody>
 </table>
@@ -971,7 +968,6 @@ def glossary_page(h, esc):
 <table>
   <thead><tr><th>Term</th><th>Meaning in this hub</th></tr></thead>
   <tbody>
-    <tr><th scope="row">Hardening</th><td>Tightening system and service configuration to reduce attack surface, using least privilege and related baselines. See also the official glossary entry above.</td></tr>
     <tr><th scope="row">Configuration baseline</th><td>Approved secure settings for a system or component that operations maintain and check against.</td></tr>
     <tr><th scope="row">Supply-chain risk</th><td>Risk from suppliers and components in hardware or software (including software bills of materials and dependency information) that can affect security of government systems.</td></tr>
     <tr><th scope="row">SIEM</th><td>Security information and event management. A class of monitoring that correlates multiple sources; Appendix C expects Tier 3 systems to have 24×7 SIEM-class monitoring.</td></tr>
