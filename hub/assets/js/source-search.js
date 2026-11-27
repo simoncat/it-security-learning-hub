@@ -193,9 +193,37 @@
           note.textContent = "Matched “" + hit.found.query + "” for " + hit.via + ".";
           link.append(note);
         }
+        item.className = "source-result";
         item.append(link);
+        if (window.HubCart) {
+          var record = {
+            href: hit.row.href,
+            find: hit.found.query,
+            n: hit.occ > 1 ? String(hit.occ) : "",
+            title: title.textContent,
+            snippet: parts.before + parts.mid + parts.after,
+            query: parsed.q,
+            doc: hit.row.doc,
+            number: String(hit.row.number || "")
+          };
+          var cartId = window.HubCart.key(record);
+          if (cartId) {
+            var save = document.createElement("button");
+            save.type = "button";
+            save.className = "btn btn-ghost source-save";
+            save.setAttribute("data-cart-save", "");
+            save.setAttribute("data-cart-id", cartId);
+            save.setAttribute("data-cart-title", record.title);
+            save.addEventListener("click", function () {
+              if (window.HubCart.has(cartId)) window.HubCart.remove(cartId);
+              else window.HubCart.add(record);
+            });
+            item.append(save);
+          }
+        }
         list.append(item);
       });
+      document.dispatchEvent(new Event("hub-cart-change"));
       setPanel(true);
       return hits;
     }
@@ -258,6 +286,20 @@
 
     form._sourceSearchRun = runSearch;
   }
+
+  function refreshCartButtons() {
+    if (!window.HubCart) return;
+    document.querySelectorAll("[data-cart-save]").forEach(function (button) {
+      var id = button.getAttribute("data-cart-id") || "";
+      var saved = window.HubCart.has(id);
+      var title = button.getAttribute("data-cart-title") || "result";
+      button.textContent = saved ? "Remove" : "Save";
+      button.setAttribute("aria-pressed", saved ? "true" : "false");
+      button.setAttribute("aria-label", (saved ? "Remove " : "Save ") + title + (saved ? " from the cart" : " to the cart"));
+    });
+  }
+
+  document.addEventListener("hub-cart-change", refreshCartButtons);
 
   function start() {
     document.querySelectorAll("[data-source-search]").forEach(bindForm);

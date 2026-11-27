@@ -763,3 +763,867 @@
     }
   })();
 })();
+
+
+(function () {
+  var KEY = "hksarg-hub:saved-cart";
+  var MAX_ITEMS = 80;
+  var HREF_OK = /^core4\/(?:s17|g3)\/(?:index|appendix-c|s\d{2})\.html$/;
+  var items = [];
+
+  function cleanText(value, max) {
+    return String(value == null ? "" : value)
+      .replace(/[\u0000-\u001f\u007f]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, max);
+  }
+
+  function cleanItem(raw) {
+    if (!raw || typeof raw !== "object") return null;
+    var href = String(raw.href || "");
+    if (!HREF_OK.test(href)) return null;
+    var find = cleanText(raw.find, 200);
+    var query = cleanText(raw.query, 200);
+    var title = cleanText(raw.title, 180);
+    var snippet = cleanText(raw.snippet, 700);
+    var clauseText = cleanText(raw.clauseText, 1500);
+    var clause = cleanText(raw.clause, 24);
+    if (clause && !/^[0-9A-Za-z().]+$/.test(clause)) clause = "";
+    var anchor = String(raw.anchor || "");
+    if (!/^[A-Za-z0-9_-]{1,64}$/.test(anchor)) anchor = "";
+    var docRaw = cleanText(raw.doc, 8).toUpperCase();
+    var doc = docRaw === "G3" ? "G3" : (docRaw === "S17" ? "S17" : "");
+    if (!doc || !title) return null;
+    var number = cleanText(raw.number, 8);
+    if (number && !/^\d{1,2}$/.test(number)) number = "";
+    var n = String(raw.n || "");
+    if (n && !/^\d{1,3}$/.test(n)) n = "";
+    return {
+      id: [
+        href,
+        find.toLowerCase(),
+        n,
+        clause.toLowerCase(),
+        anchor,
+        String(snippet.length)
+      ].join("\u001f"),
+      href: href,
+      find: find,
+      n: n,
+      title: title,
+      snippet: snippet,
+      query: query,
+      clause: clause,
+      clauseText: clauseText,
+      anchor: anchor,
+      doc: doc,
+      number: number
+    };
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw || raw.length > 500000) return [];
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      var out = [];
+      var seen = {};
+      parsed.slice(0, MAX_ITEMS).forEach(function (row) {
+        var item = cleanItem(row);
+        if (!item || seen[item.id]) return;
+        seen[item.id] = true;
+        out.push(item);
+      });
+      return out;
+    } catch (err) {
+      return [];
+    }
+  }
+
+  function persist() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(items));
+    } catch (err) {}
+  }
+
+  function hubRoot() {
+    var script = document.querySelector("script[src*='assets/js/hub.js']");
+    if (!script) return "";
+    var src = script.getAttribute("src") || "";
+    var at = src.indexOf("assets/js/hub.js");
+    return at >= 0 ? src.slice(0, at) : "";
+  }
+
+  function itemUrl(item) {
+    var url = hubRoot() + item.href;
+    var params = [];
+    if (item.find) params.push("find=" + encodeURIComponent(item.find));
+    if (item.n) params.push("n=" + encodeURIComponent(item.n));
+    if (params.length) url += "?" + params.join("&");
+    if (item.anchor) url += "#" + item.anchor;
+    return url;
+  }
+
+  function absoluteUrl(item) {
+    try {
+      return new URL(itemUrl(item), location.href).href;
+    } catch (err) {
+      return itemUrl(item);
+    }
+  }
+
+  items = load();
+
+  var root = document.createElement("div");
+  root.className = "saved-cart no-print";
+  root.innerHTML =
+    '<section class="saved-cart-panel" id="saved-cart-panel" hidden aria-labelledby="saved-cart-title">' +
+      '<div class="saved-cart-print-head">' +
+        '<h1>Saved clauses</h1>' +
+        '<p>HKSARG IT Security Learning Hub. Learning aid only. Authoritative text remains S17, G3, Security Regulations, and B/D local policies.</p>' +
+      '</div>' +
+      '<div class="saved-cart-head">' +
+        '<h2 id="saved-cart-title">Saved clauses</h2>' +
+        '<button type="button" class="btn btn-ghost" data-cart-close>Close</button>' +
+      '</div>' +
+      '<p class="fine">Saved passages stay in this browser. On a source page, highlight a word or sentence and right-click to add it with its clause. Drag a handle, or use Up and Down, to reorder.</p>' +
+      '<p class="visually-hidden" data-cart-status aria-live="polite"></p>' +
+      '<p class="saved-cart-empty" data-cart-empty>Nothing saved yet. Save a search result, or highlight source text and right-click.</p>' +
+      '<ol class="saved-cart-list" data-cart-list></ol>' +
+      '<div class="saved-cart-actions">' +
+        '<button type="button" class="btn btn-primary" data-cart-pdf>Print PDF</button>' +
+        '<button type="button" class="btn btn-ghost" data-cart-csv>Download CSV</button>' +
+        '<button type="button" class="btn btn-ghost" data-cart-import>Import CSV</button>' +
+      '</div>' +
+      '<input type="file" accept=".csv,text/csv" data-cart-import-file hidden>' +
+      '<p class="fine saved-cart-export-note">Print opens the browser dialog. Choose Save as PDF there. Import CSV reads a file this cart exported.</p>' +
+    '</section>' +
+    '<button type="button" class="saved-cart-toggle" aria-expanded="false" aria-controls="saved-cart-panel">' +
+      '<span>Cart</span><span class="saved-cart-count" data-cart-count>0</span>' +
+    '</button>';
+  document.body.appendChild(root);
+
+  var selectMenu = document.createElement("div");
+  selectMenu.className = "cart-select-menu no-print";
+  selectMenu.hidden = true;
+  selectMenu.setAttribute("role", "menu");
+  selectMenu.innerHTML =
+    '<button type="button" class="btn btn-primary" role="menuitem" data-cart-add-selection>Add highlight to cart</button>' +
+    '<p class="fine" data-cart-selection-note></p>';
+  document.body.appendChild(selectMenu);
+
+  var panel = root.querySelector(".saved-cart-panel");
+  var toggle = root.querySelector(".saved-cart-toggle");
+  var list = root.querySelector("[data-cart-list]");
+  var empty = root.querySelector("[data-cart-empty]");
+  var count = root.querySelector("[data-cart-count]");
+  var status = root.querySelector("[data-cart-status]");
+  var closeBtn = root.querySelector("[data-cart-close]");
+  var pdfBtn = root.querySelector("[data-cart-pdf]");
+  var csvBtn = root.querySelector("[data-cart-csv]");
+  var importBtn = root.querySelector("[data-cart-import]");
+  var importInput = root.querySelector("[data-cart-import-file]");
+  var selectAdd = selectMenu.querySelector("[data-cart-add-selection]");
+  var selectNote = selectMenu.querySelector("[data-cart-selection-note]");
+  var dragFrom = -1;
+  var pendingSelection = null;
+  var suspendMenuDismiss = false;
+
+  function indexOf(id) {
+    for (var i = 0; i < items.length; i += 1) {
+      if (items[i].id === id) return i;
+    }
+    return -1;
+  }
+
+  function announce(text) {
+    status.textContent = "";
+    window.setTimeout(function () { status.textContent = text; }, 30);
+  }
+
+  function changed() {
+    document.dispatchEvent(new Event("hub-cart-change"));
+  }
+
+  function syncChrome() {
+    count.textContent = String(items.length);
+    var noun = items.length === 1 ? "item" : "items";
+    var action = panel.hidden ? "Show" : "Hide";
+    toggle.setAttribute("aria-expanded", panel.hidden ? "false" : "true");
+    toggle.setAttribute("aria-label", action + " saved clauses cart, " + items.length + " " + noun);
+    pdfBtn.disabled = items.length === 0;
+    csvBtn.disabled = items.length === 0;
+    empty.hidden = items.length !== 0;
+  }
+
+  function focusRow(index) {
+    var row = list.querySelector('[data-cart-index="' + index + '"]');
+    if (!row) return;
+    var target = row.querySelector(".saved-cart-up:not(:disabled)") ||
+      row.querySelector(".saved-cart-down:not(:disabled)") ||
+      row.querySelector(".saved-cart-remove");
+    if (target) target.focus();
+  }
+
+  function move(from, to) {
+    if (from < 0 || to < 0 || from >= items.length || to >= items.length || from === to) return;
+    var next = items.slice();
+    var row = next.splice(from, 1)[0];
+    next.splice(to, 0, row);
+    items = next;
+    persist();
+    render();
+    changed();
+    announce("Moved “" + row.title + "” to position " + (to + 1) + " of " + items.length + ".");
+    focusRow(to);
+  }
+
+  function highlightText(parent, text, needles) {
+    var source = String(text || "");
+    var ranges = [];
+    needles.forEach(function (needle) {
+      var key = String(needle || "").trim();
+      if (key.length < 2) return;
+      var lower = source.toLowerCase();
+      var look = key.toLowerCase();
+      var from = 0;
+      while (from <= lower.length - look.length) {
+        var at = lower.indexOf(look, from);
+        if (at < 0) break;
+        ranges.push([at, at + key.length]);
+        from = at + look.length;
+      }
+    });
+    ranges.sort(function (a, b) { return a[0] - b[0] || b[1] - a[1]; });
+    var merged = [];
+    ranges.forEach(function (range) {
+      var last = merged[merged.length - 1];
+      if (!last || range[0] > last[1]) merged.push([range[0], range[1]]);
+      else if (range[1] > last[1]) last[1] = range[1];
+    });
+    var cursor = 0;
+    merged.forEach(function (range) {
+      if (range[0] > cursor) parent.appendChild(document.createTextNode(source.slice(cursor, range[0])));
+      var mark = document.createElement("mark");
+      mark.className = "find-hit";
+      mark.textContent = source.slice(range[0], range[1]);
+      parent.appendChild(mark);
+      cursor = range[1];
+    });
+    if (cursor < source.length) parent.appendChild(document.createTextNode(source.slice(cursor)));
+  }
+
+  function render() {
+    list.replaceChildren();
+    items.forEach(function (item, index) {
+      var li = document.createElement("li");
+      li.className = "saved-cart-item";
+      li.setAttribute("data-cart-index", String(index));
+
+      var handle = document.createElement("button");
+      handle.type = "button";
+      handle.className = "saved-cart-handle";
+      handle.draggable = true;
+      handle.setAttribute("aria-label", "Drag to reorder “" + item.title + "”");
+      handle.textContent = "↕";
+
+      var body = document.createElement("div");
+      body.className = "saved-cart-body";
+      var kicker = document.createElement("p");
+      kicker.className = "saved-cart-kicker";
+      kicker.textContent = String(index + 1) + ". " + item.doc +
+        (item.number ? " §" + item.number : "") +
+        (item.clause ? " · " + item.clause : "");
+      var link = document.createElement("a");
+      link.href = itemUrl(item);
+      highlightText(link, item.title, [item.find, item.query]);
+      body.appendChild(kicker);
+      body.appendChild(link);
+      var samePassage = item.clauseText &&
+        item.clauseText.toLowerCase() === String(item.snippet || "").toLowerCase();
+      if (item.snippet && !samePassage) {
+        var snippet = document.createElement("p");
+        snippet.className = item.clauseText ? "saved-cart-snippet is-quote" : "saved-cart-snippet";
+        highlightText(snippet, item.snippet, [item.find, item.query]);
+        body.appendChild(snippet);
+      }
+      if (item.clauseText) {
+        var clause = document.createElement("p");
+        clause.className = "saved-cart-clause";
+        var label = document.createElement("span");
+        label.className = "saved-cart-clause-label";
+        label.textContent = "Clause" + (item.clause ? " " + item.clause : "") + ": ";
+        clause.appendChild(label);
+        highlightText(clause, item.clauseText, [item.find, item.query]);
+        body.appendChild(clause);
+      }
+
+      var actions = document.createElement("div");
+      actions.className = "saved-cart-item-actions";
+      var up = document.createElement("button");
+      up.type = "button";
+      up.className = "btn btn-ghost saved-cart-up";
+      up.textContent = "Up";
+      up.disabled = index === 0;
+      up.setAttribute("aria-label", "Move “" + item.title + "” up");
+      var down = document.createElement("button");
+      down.type = "button";
+      down.className = "btn btn-ghost saved-cart-down";
+      down.textContent = "Down";
+      down.disabled = index === items.length - 1;
+      down.setAttribute("aria-label", "Move “" + item.title + "” down");
+      var remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "btn btn-ghost saved-cart-remove";
+      remove.textContent = "Remove";
+      remove.setAttribute("aria-label", "Remove “" + item.title + "”");
+      actions.append(up, down, remove);
+
+      up.addEventListener("click", function () { move(index, index - 1); });
+      down.addEventListener("click", function () { move(index, index + 1); });
+      remove.addEventListener("click", function () {
+        var title = item.title;
+        items = items.filter(function (row) { return row.id !== item.id; });
+        persist();
+        render();
+        changed();
+        announce("Removed “" + title + "”.");
+        if (!items.length) closeBtn.focus();
+        else focusRow(Math.min(index, items.length - 1));
+      });
+
+      handle.addEventListener("dragstart", function (event) {
+        dragFrom = index;
+        if (event.dataTransfer) {
+          event.dataTransfer.effectAllowed = "move";
+          try { event.dataTransfer.setData("text/plain", String(index)); } catch (err) {}
+        }
+        li.classList.add("is-dragging");
+      });
+      handle.addEventListener("dragend", function () {
+        li.classList.remove("is-dragging");
+        dragFrom = -1;
+      });
+      li.addEventListener("dragover", function (event) {
+        if (dragFrom < 0) return;
+        event.preventDefault();
+        if (event.dataTransfer) event.dataTransfer.dropEffect = "move";
+      });
+      li.addEventListener("drop", function (event) {
+        event.preventDefault();
+        var from = dragFrom;
+        dragFrom = -1;
+        move(from, index);
+      });
+
+      li.append(handle, body, actions);
+      list.appendChild(li);
+    });
+    syncChrome();
+  }
+
+  function openPanel() {
+    panel.hidden = false;
+    syncChrome();
+    closeBtn.focus();
+  }
+
+  function closePanel() {
+    if (panel.hidden) return;
+    panel.hidden = true;
+    syncChrome();
+    toggle.focus();
+  }
+
+  function add(raw) {
+    var item = cleanItem(raw);
+    if (!item) return false;
+    if (indexOf(item.id) >= 0) {
+      announce("“" + item.title + "” is already in the cart.");
+      return false;
+    }
+    if (items.length >= MAX_ITEMS) {
+      window.alert("The cart holds " + MAX_ITEMS + " results. Remove one before saving another.");
+      return false;
+    }
+    items.push(item);
+    persist();
+    render();
+    changed();
+    announce("Saved “" + item.title + "”.");
+    return true;
+  }
+
+  function remove(id) {
+    var at = indexOf(id);
+    if (at < 0) return false;
+    var title = items[at].title;
+    items.splice(at, 1);
+    persist();
+    render();
+    changed();
+    announce("Removed “" + title + "”.");
+    return true;
+  }
+
+  function csvCell(value) {
+    var text = String(value == null ? "" : value);
+    if (/^[=+\-@\t\r]/.test(text)) text = "'" + text;
+    return '"' + text.replace(/"/g, '""') + '"';
+  }
+
+  function downloadCsv() {
+    if (!items.length) return;
+    var header = ["Order", "Document", "Section", "Clause", "Title", "Highlight", "Snippet", "Clause text", "Search", "Link"];
+    var lines = [header.map(csvCell).join(",")];
+    items.forEach(function (item, index) {
+      lines.push([
+        String(index + 1),
+        item.doc,
+        item.number ? "§" + item.number : "",
+        item.clause || "",
+        item.title,
+        item.find,
+        item.snippet,
+        item.clauseText || "",
+        item.query,
+        absoluteUrl(item)
+      ].map(csvCell).join(","));
+    });
+    var now = new Date();
+    var stamp = now.getFullYear() +
+      String(now.getMonth() + 1).padStart(2, "0") +
+      String(now.getDate()).padStart(2, "0");
+    var blob = new Blob(["\uFEFF" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "hub-saved-clauses-" + stamp + ".csv";
+    link.click();
+    window.setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+  }
+
+  function printPdf() {
+    if (!items.length) return;
+    var wasHidden = panel.hidden;
+    panel.hidden = false;
+    document.body.classList.add("is-cart-print");
+    function cleanup() {
+      document.body.classList.remove("is-cart-print");
+      panel.hidden = wasHidden;
+      syncChrome();
+      window.removeEventListener("afterprint", cleanup);
+    }
+    window.addEventListener("afterprint", cleanup);
+    window.print();
+  }
+
+  function parseCsv(text) {
+    var source = String(text || "").replace(/^\uFEFF/, "");
+    var rows = [];
+    var row = [];
+    var cell = "";
+    var quoted = false;
+    for (var i = 0; i < source.length; i += 1) {
+      var ch = source.charAt(i);
+      if (quoted) {
+        if (ch === '"') {
+          if (source.charAt(i + 1) === '"') {
+            cell += '"';
+            i += 1;
+          } else {
+            quoted = false;
+          }
+        } else {
+          cell += ch;
+        }
+      } else if (ch === '"') {
+        quoted = true;
+      } else if (ch === ",") {
+        row.push(cell);
+        cell = "";
+      } else if (ch === "\n") {
+        row.push(cell);
+        rows.push(row);
+        row = [];
+        cell = "";
+      } else if (ch !== "\r") {
+        cell += ch;
+      }
+    }
+    if (cell.length || row.length) {
+      row.push(cell);
+      rows.push(row);
+    }
+    return rows.filter(function (entry) {
+      return entry.some(function (value) { return String(value || "").trim() !== ""; });
+    });
+  }
+
+  function csvValue(map, row, names) {
+    for (var i = 0; i < names.length; i += 1) {
+      var at = map[names[i]];
+      if (at == null || at >= row.length) continue;
+      return row[at];
+    }
+    return "";
+  }
+
+  function unguardCsv(value) {
+    var text = String(value == null ? "" : value).trim();
+    if (text.charAt(0) === "'" && /^[=+\-@]/.test(text.charAt(1))) return text.slice(1);
+    return text;
+  }
+
+  function sectionNumber(value) {
+    var match = String(value || "").match(/(\d{1,2})/);
+    return match ? String(parseInt(match[1], 10)) : "";
+  }
+
+  function fromCsvLink(link) {
+    var text = unguardCsv(link);
+    if (!text) return null;
+    try {
+      var url = new URL(text, location.href);
+      var path = decodeURIComponent(url.pathname).replace(/\\/g, "/");
+      var match = path.match(/(core4\/(?:s17|g3)\/(?:index|appendix-c|s(\d{2}))\.html)$/i);
+      if (!match) return null;
+      var hash = (url.hash || "").replace(/^#/, "");
+      try { hash = decodeURIComponent(hash); } catch (err) {}
+      return {
+        href: match[1].toLowerCase(),
+        find: url.searchParams.get("find") || "",
+        n: url.searchParams.get("n") || "",
+        anchor: hash,
+        number: match[2] ? String(parseInt(match[2], 10)) : "",
+        doc: /\/g3\//i.test(match[1]) ? "G3" : "S17"
+      };
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function importCsvText(text) {
+    var rows = parseCsv(text);
+    if (rows.length < 2) return { added: 0, duplicate: 0, skipped: 0, empty: true };
+    var map = {};
+    rows[0].forEach(function (header, index) {
+      map[String(header || "").trim().toLowerCase()] = index;
+    });
+    var known = ["document", "doc", "title", "link", "snippet", "highlight", "section", "clause", "clause text", "search"];
+    var recognized = known.some(function (name) { return map[name] != null; });
+    if (!recognized) throw new Error("header");
+    var added = 0;
+    var duplicate = 0;
+    var skipped = 0;
+    rows.slice(1).forEach(function (row) {
+      var linked = fromCsvLink(csvValue(map, row, ["link"]));
+      var highlight = unguardCsv(csvValue(map, row, ["highlight"]));
+      var search = unguardCsv(csvValue(map, row, ["search"]));
+      var snippet = unguardCsv(csvValue(map, row, ["snippet"]));
+      var clause = unguardCsv(csvValue(map, row, ["clause"]));
+      var clauseText = unguardCsv(csvValue(map, row, ["clause text", "clausetext"]));
+      var title = unguardCsv(csvValue(map, row, ["title"]));
+      var doc = unguardCsv(csvValue(map, row, ["document", "doc"]));
+      var number = sectionNumber(csvValue(map, row, ["section"]));
+      if (linked) {
+        doc = linked.doc;
+        number = linked.number || number;
+      }
+      if (!title) {
+        title = [doc, number ? "§" + number : "", clause].filter(Boolean).join(" ");
+      }
+      var item = cleanItem({
+        href: linked ? linked.href : "",
+        find: highlight || (linked && linked.find) || search,
+        n: linked ? linked.n : "",
+        anchor: linked ? linked.anchor : "",
+        title: title,
+        snippet: snippet || highlight || clauseText,
+        query: search,
+        clause: clause,
+        clauseText: clauseText,
+        doc: doc,
+        number: number
+      });
+      if (!item) {
+        skipped += 1;
+        return;
+      }
+      if (indexOf(item.id) >= 0) {
+        duplicate += 1;
+        return;
+      }
+      if (items.length >= MAX_ITEMS) {
+        skipped += 1;
+        return;
+      }
+      items.push(item);
+      added += 1;
+    });
+    if (added) {
+      persist();
+      render();
+      changed();
+    }
+    return { added: added, duplicate: duplicate, skipped: skipped, empty: false };
+  }
+
+  function reportImport(result) {
+    if (result.empty) {
+      window.alert("That CSV has no clauses to import. The cart was not changed.");
+      return;
+    }
+    var parts = [];
+    if (result.added) {
+      parts.push("Imported " + result.added + (result.added === 1 ? " clause." : " clauses."));
+    }
+    if (result.duplicate) {
+      parts.push(result.duplicate + (result.duplicate === 1 ? " was" : " were") + " already in the cart.");
+    }
+    if (result.skipped) {
+      parts.push(result.skipped + (result.skipped === 1 ? " row was" : " rows were") + " skipped.");
+    }
+    if (!parts.length) parts.push("Nothing in that CSV could be added. The cart was not changed.");
+    if (result.added) openPanel();
+    window.alert(parts.join(" "));
+  }
+
+  function plainText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function elementOf(node) {
+    if (!node) return null;
+    return node.nodeType === 1 ? node : node.parentElement;
+  }
+
+  function directChild(el, className) {
+    if (!el || !el.children) return null;
+    for (var i = 0; i < el.children.length; i += 1) {
+      if (el.children[i].classList.contains(className)) return el.children[i];
+    }
+    return null;
+  }
+
+  function clauseNoOf(el) {
+    if (!el) return "";
+    var no = directChild(el, "clause-no");
+    if (no) {
+      var text = plainText(no.textContent).replace(/\.$/, "");
+      if (!text || text === "•" || text === "-" || text === "–") return "";
+      return /^[0-9A-Za-z().]+$/.test(text) ? text : "";
+    }
+    if (el.classList.contains("policy-h")) {
+      var match = plainText(el.textContent).match(/^(\d+(?:\.\d+)*)\b/);
+      return match ? match[1] : "";
+    }
+    return "";
+  }
+
+  function clauseTextOf(el) {
+    if (!el) return "";
+    var body = directChild(el, "clause-body");
+    return plainText((body || el).textContent);
+  }
+
+  function previousPassage(el) {
+    var prev = el ? el.previousElementSibling : null;
+    while (prev) {
+      if (prev.classList.contains("policy-clause") || prev.classList.contains("policy-h")) return prev;
+      prev = prev.previousElementSibling;
+    }
+    return null;
+  }
+
+  function anchorOf(el, policy) {
+    var cur = el;
+    while (cur && cur !== policy) {
+      if (cur.id && /^[A-Za-z0-9_-]{1,64}$/.test(cur.id)) return cur.id;
+      cur = cur.previousElementSibling;
+    }
+    return "";
+  }
+
+  function pageIdentity() {
+    var path = "";
+    try { path = decodeURIComponent(location.pathname); } catch (err) { path = location.pathname; }
+    path = String(path || "").replace(/\\/g, "/");
+    var match = path.match(/(core4\/(s17|g3)\/(?:index|appendix-c|s(\d{2}))\.html)$/i);
+    if (!match) return null;
+    return {
+      href: match[1].toLowerCase(),
+      doc: match[2].toLowerCase() === "g3" ? "G3" : "S17",
+      number: match[3] ? String(parseInt(match[3], 10)) : ""
+    };
+  }
+
+  function passageFor(block, policy) {
+    var own = clauseNoOf(block);
+    var number = own;
+    var previous = previousPassage(block);
+    var guard = 0;
+    while (!number && previous && guard < 12) {
+      number = clauseNoOf(previous);
+      if (number) break;
+      previous = previousPassage(previous);
+      guard += 1;
+    }
+    var anchor = anchorOf(block, policy);
+    if (!anchor && previous) anchor = anchorOf(previous, policy);
+    return {
+      number: own || number,
+      text: clauseTextOf(block),
+      anchor: anchor
+    };
+  }
+
+  function selectedPassage() {
+    var policy = document.querySelector(".policy-text");
+    var page = pageIdentity();
+    if (!policy || !page) return null;
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.isCollapsed) return null;
+    var range = sel.getRangeAt(0);
+    if (!policy.contains(range.startContainer) || !policy.contains(range.endContainer)) return null;
+    var text = plainText(sel.toString());
+    if (text.length < 2) return null;
+    var startEl = elementOf(range.startContainer);
+    var block = startEl && startEl.closest ? startEl.closest("p") : null;
+    if (!block || !policy.contains(block)) return null;
+    var passage = passageFor(block, policy);
+    if (!passage.text) return null;
+    var title = passage.number ? passage.number + " — " + passage.text : passage.text;
+    return cleanItem({
+      href: page.href,
+      find: text,
+      title: title,
+      snippet: text,
+      clause: passage.number,
+      clauseText: passage.text,
+      anchor: passage.anchor,
+      doc: page.doc,
+      number: page.number
+    });
+  }
+
+  function hideSelectMenu() {
+    selectMenu.hidden = true;
+    pendingSelection = null;
+  }
+
+  function showSelectMenu(event, item) {
+    pendingSelection = item;
+    var saved = indexOf(item.id) >= 0;
+    selectAdd.textContent = saved ? "Already in the cart" : "Add highlight to cart";
+    selectAdd.disabled = saved;
+    selectNote.textContent = item.clause
+      ? "Saves the highlight with clause " + item.clause + "."
+      : "Saves the highlight with this passage.";
+    selectMenu.hidden = false;
+    selectMenu.style.left = "0px";
+    selectMenu.style.top = "0px";
+    var rect = selectMenu.getBoundingClientRect();
+    var x = Math.max(8, Math.min(event.clientX, window.innerWidth - rect.width - 8));
+    var y = Math.max(8, Math.min(event.clientY, window.innerHeight - rect.height - 8));
+    selectMenu.style.left = x + "px";
+    selectMenu.style.top = y + "px";
+    suspendMenuDismiss = true;
+    try { selectAdd.focus({ preventScroll: true }); } catch (err) { selectAdd.focus(); }
+    window.setTimeout(function () { suspendMenuDismiss = false; }, 200);
+  }
+
+  function bindSourceHint() {
+    var policy = document.querySelector(".policy-text");
+    if (!policy || !pageIdentity() || document.querySelector(".cart-select-hint")) return;
+    var hint = document.createElement("p");
+    hint.className = "fine cart-select-hint no-print";
+    hint.textContent = "Highlight a word or sentence in this section, then right-click to add it to the cart with its clause.";
+    policy.parentNode.insertBefore(hint, policy);
+  }
+
+  importBtn.addEventListener("click", function () {
+    importInput.click();
+  });
+  importInput.addEventListener("change", function () {
+    var file = importInput.files && importInput.files[0];
+    importInput.value = "";
+    if (!file) return;
+    if (file.size > 500000) {
+      window.alert("That file is too large to import. The cart was not changed.");
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        reportImport(importCsvText(String(reader.result || "")));
+      } catch (err) {
+        window.alert("Could not import that CSV. The cart was not changed.");
+      }
+    };
+    reader.onerror = function () {
+      window.alert("Could not read that file. The cart was not changed.");
+    };
+    reader.readAsText(file);
+  });
+  selectAdd.addEventListener("click", function () {
+    var item = pendingSelection;
+    hideSelectMenu();
+    if (!item) return;
+    if (add(item)) openPanel();
+  });
+  document.addEventListener("contextmenu", function (event) {
+    if (selectMenu.contains(event.target)) return;
+    var item = selectedPassage();
+    if (!item) {
+      hideSelectMenu();
+      return;
+    }
+    event.preventDefault();
+    showSelectMenu(event, item);
+  });
+  document.addEventListener("pointerdown", function (event) {
+    if (selectMenu.hidden || selectMenu.contains(event.target)) return;
+    hideSelectMenu();
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !selectMenu.hidden) hideSelectMenu();
+  });
+  window.addEventListener("scroll", function () {
+    if (!suspendMenuDismiss) hideSelectMenu();
+  }, true);
+  window.addEventListener("resize", function () {
+    if (!suspendMenuDismiss) hideSelectMenu();
+  });
+  bindSourceHint();
+
+  toggle.addEventListener("click", function () {
+    if (panel.hidden) openPanel();
+    else closePanel();
+  });
+  closeBtn.addEventListener("click", closePanel);
+  pdfBtn.addEventListener("click", printPdf);
+  csvBtn.addEventListener("click", downloadCsv);
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !panel.hidden && selectMenu.hidden) closePanel();
+  });
+  document.addEventListener("pointerdown", function (event) {
+    if (panel.hidden || root.contains(event.target)) return;
+    if (event.target.closest && event.target.closest("[data-cart-save], .source-search, .topnav-search-panel, .cart-select-menu")) return;
+    panel.hidden = true;
+    syncChrome();
+  });
+
+  window.HubCart = {
+    key: function (raw) {
+      var item = cleanItem(raw);
+      return item ? item.id : "";
+    },
+    has: function (id) { return indexOf(id) >= 0; },
+    add: add,
+    remove: remove
+  };
+
+  render();
+})();
