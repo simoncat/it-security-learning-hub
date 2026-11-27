@@ -348,12 +348,15 @@
     var sectionFilter = document.getElementById("appc-section");
     function applyMatrix() {
       var mode = document.querySelector("[data-tier-filter][aria-pressed='true']");
-      var tier = mode ? mode.getAttribute("data-tier-filter") : "all";
+      // Tier 3 includes every Tier 2 Appendix C control, then Tier 3-only rows.
+      var tier = mode ? mode.getAttribute("data-tier-filter") : "3";
       var section = sectionFilter ? sectionFilter.value : "all";
       matrix.querySelectorAll("tbody tr").forEach(function (row) {
         var show = true;
-        if (tier === "2" && row.getAttribute("data-tier2") !== "1") show = false;
-        if (tier === "3" && row.getAttribute("data-tier3") !== "1") show = false;
+        var hasTier2 = row.getAttribute("data-tier2") === "1";
+        var hasTier3 = row.getAttribute("data-tier3") === "1";
+        if (tier === "2" && !hasTier2) show = false;
+        if (tier === "3" && !(hasTier2 || hasTier3)) show = false;
         if (section !== "all" && row.getAttribute("data-section") !== section) show = false;
         row.classList.toggle("is-hidden", !show);
       });

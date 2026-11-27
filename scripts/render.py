@@ -329,7 +329,7 @@ def write_page(rel, title, page_id, crumbs, source, main, extra_scripts=None):
     home = href("index.html")
     search_root = "" if home == "index.html" else home[: -len("index.html")]
     full_search_href = href("core4/index.html")
-    scripts = f'<script src="{js}?v=18"></script>'
+    scripts = f'<script src="{js}?v=19"></script>'
     scripts += f'\n<script src="{href("assets/js/hub-search-data.js")}?v=2"></script>'
     scripts += f'\n<script src="{href("assets/js/hub-search.js")}?v=2"></script>'
     scripts += f'\n<script src="{href("assets/js/source-search-data.js")}?v=5"></script>'
@@ -750,9 +750,8 @@ def matrix_main():
 <p class="lede" id="inheritance">Tier 3 includes Tier 2. Every Tier 2 Appendix C control also applies to Tier 3. Then add the Tier 3-only column. Always verify the row against the official G3 Appendix C text.</p>
 <div class="callout">This is a learning map, not a reproduction of the appendix. Baseline S17/G3 still applies to Tier 1, and it still applies underneath Tier 2 and Tier 3.</div>
 <div class="toolbar no-print">
-  <button type="button" class="btn btn-ghost" data-tier-filter="all" aria-pressed="true">All rows</button>
-  <button type="button" class="btn btn-ghost" data-tier-filter="2" aria-pressed="false">Tier 2 controls (also on Tier 3)</button>
-  <button type="button" class="btn btn-ghost" data-tier-filter="3" aria-pressed="false">Tier 3 only</button>
+  <button type="button" class="btn btn-ghost" data-tier-filter="2" aria-pressed="false">Tier 2 controls</button>
+  <button type="button" class="btn btn-ghost" data-tier-filter="3" aria-pressed="true">Tier 3 controls (In addition to Tier 2 controls)</button>
   <label for="appc-section">Section</label>
   <select id="appc-section">{''.join(options)}</select>
   <button type="button" class="btn btn-primary" data-action="print">Print this matrix</button>
