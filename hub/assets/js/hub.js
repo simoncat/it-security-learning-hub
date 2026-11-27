@@ -1551,6 +1551,37 @@
     policy.parentNode.insertBefore(hint, policy);
   }
 
+  var GUIDE_KEY = "hksarg-hub:source-cart-guide";
+
+  function bindSourceGuide() {
+    var policy = document.querySelector(".policy-text");
+    var sidenav = document.querySelector(".shell > .sidenav");
+    if (!policy || !pageIdentity() || !sidenav || document.querySelector(".source-rail")) return;
+    var rail = document.createElement("div");
+    rail.className = "source-rail";
+    sidenav.parentNode.insertBefore(rail, sidenav);
+    rail.appendChild(sidenav);
+    var dismissed = false;
+    try { dismissed = localStorage.getItem(GUIDE_KEY) === "closed"; } catch (err) {}
+    if (dismissed) return;
+    var guide = document.createElement("aside");
+    guide.className = "source-cart-guide no-print";
+    guide.setAttribute("role", "note");
+    var text = document.createElement("p");
+    text.textContent = "Highlight words in the source with the cursor, then click Highlight and add to cart. The clause is kept in the notepad for later reference.";
+    var close = document.createElement("button");
+    close.type = "button";
+    close.className = "source-cart-guide-close";
+    close.setAttribute("aria-label", "Close reminder");
+    close.textContent = "\u00d7";
+    close.addEventListener("click", function () {
+      try { localStorage.setItem(GUIDE_KEY, "closed"); } catch (err) {}
+      guide.remove();
+    });
+    guide.append(text, close);
+    rail.appendChild(guide);
+  }
+
   var addFloat = null;
   var pendingHighlight = null;
   var skipAddClick = false;
@@ -1558,9 +1589,14 @@
   var addFloatPlaceQueued = false;
   var ADD_FLOAT_LABEL = "Highlight and add to cart";
 
-  function paintAddFloatLabel() {
+  function paintAddFloatLabel(added) {
     if (!addFloat) return;
+    addFloat.classList.toggle("is-added", !!added);
     addFloat.replaceChildren();
+    if (added) {
+      addFloat.textContent = "Added";
+      return;
+    }
     addFloat.append("Highlight and", document.createElement("br"), "add to cart");
   }
 
@@ -1568,36 +1604,63 @@
     if (!addFloat) return;
     var item = selectedPassage();
     pendingHighlight = item;
-    paintAddFloatLabel();
     if (!item) {
+      paintAddFloatLabel(false);
       addFloat.hidden = true;
       addFloat.classList.remove("is-ready");
       addFloat.classList.remove("is-following");
+      addFloat.setAttribute("aria-pressed", "false");
       addFloat.setAttribute("aria-label", "Select words in the source with the cursor, then add that clause to the cart");
       return;
     }
     var saved = indexOf(item.id) >= 0;
+    paintAddFloatLabel(saved);
     addFloat.hidden = false;
     addFloat.classList.toggle("is-ready", !saved);
     addFloat.classList.add("is-following");
-    addFloat.setAttribute("title", ADD_FLOAT_LABEL);
+    addFloat.setAttribute("aria-pressed", saved ? "true" : "false");
+    addFloat.setAttribute("title", saved ? "Added" : ADD_FLOAT_LABEL);
     addFloat.setAttribute("aria-label", saved
-      ? "Highlight and add to cart. This highlight is already in the cart"
+      ? "Added to the cart, clause " + (item.clause || "text")
       : "Highlight and add to cart, clause " + (item.clause || "text"));
     queuePlaceAddFloat();
+  }
+
+  function playAdded() {
+    function kick(el, cls) {
+      if (!el) return;
+      el.classList.remove(cls);
+      void el.offsetWidth;
+      el.classList.add(cls);
+    }
+    kick(addFloat, "is-pop");
+    kick(toggle, "is-bump");
+    if (!toggle) return;
+    var reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (err) {}
+    if (reduce) return;
+    var pop = document.createElement("span");
+    pop.className = "saved-cart-pop";
+    pop.setAttribute("aria-hidden", "true");
+    pop.textContent = "+1";
+    toggle.appendChild(pop);
+    window.setTimeout(function () {
+      if (pop.parentNode) pop.parentNode.removeChild(pop);
+    }, 800);
   }
 
   function obstacleRects() {
     var rects = [];
     var cart = document.querySelector(".saved-cart");
     if (cart) {
-      var cartToggle = cart.querySelector(".saved-cart-toggle");
+      rects.push(cart.getBoundingClientRect());
       var cartPanel = cart.querySelector(".saved-cart-panel");
-      if (cartToggle) rects.push(cartToggle.getBoundingClientRect());
       if (cartPanel && !cartPanel.hidden) rects.push(cartPanel.getBoundingClientRect());
     }
     var back = document.querySelector(".return-float");
     if (back) rects.push(back.getBoundingClientRect());
+    var guide = document.querySelector(".source-cart-guide");
+    if (guide) rects.push(guide.getBoundingClientRect());
     return rects;
   }
 
@@ -1652,66 +1715,64 @@
         bottom: point.y + height
       };
     }
-    var obstacles = obstacleRects();
-    var block = null;
-    var words = null;
-    var sel = window.getSelection();
-    if (sel && sel.rangeCount) {
-      var startEl = elementOf(sel.getRangeAt(0).startContainer);
-      var para = startEl && startEl.closest ? startEl.closest("p") : null;
-      var wordEl = startEl && startEl.closest ? (startEl.closest(".clause-body") || para) : null;
-      if (para) block = para.getBoundingClientRect();
-      if (wordEl) words = wordEl.getBoundingClientRect();
+    var policy = document.querySelector(".policy-text");
+    var policyBox = policy ? policy.getBoundingClientRect() : null;
+    var textBoxes = [];
+    if (policy) {
+      var blocks = policy.querySelectorAll("p");
+      for (var b = 0; b < blocks.length; b += 1) textBoxes.push(blocks[b].getBoundingClientRect());
     }
+    textBoxes.push(anchor);
+    var obstacles = obstacleRects();
+    var sideRoom = false;
+    if (policyBox) {
+      sideRoom = policyBox.left - margin >= width + gap ||
+        window.innerWidth - margin - policyBox.right >= width + gap;
+    }
+    if (sideRoom && policyBox) obstacles.push(policyBox);
+    else obstacles = obstacles.concat(textBoxes);
+    var chrome = document.querySelectorAll(".mast, .topnav, .version, .crumb, .sidenav");
+    for (var h = 0; h < chrome.length; h += 1) obstacles.push(chrome[h].getBoundingClientRect());
     var midY = anchor.top + (anchor.height - height) / 2;
     var candidates = [];
-    if (words && words.left - width - gap >= margin) {
-      candidates.push({ x: words.left - width - gap, y: midY });
+    if (policyBox) {
+      candidates.push({ x: policyBox.left - width - gap, y: midY });
+      candidates.push({ x: policyBox.right + gap, y: midY });
     }
-    if (block && block.left - width - gap >= margin) {
-      candidates.push({ x: block.left - width - gap, y: midY });
-    }
-    if (words && words.right + width + gap <= window.innerWidth - margin) {
-      candidates.push({ x: words.right + gap, y: midY });
-    }
-    if (block) {
-      candidates.push({ x: block.left, y: block.bottom + gap });
-      candidates.push({ x: block.left, y: block.top - height - gap });
-    }
-    candidates.push({ x: anchor.left, y: anchor.bottom + gap });
-    candidates.push({ x: anchor.left, y: anchor.top - height - gap });
-    var chosen = null;
-    for (var i = 0; i < candidates.length; i += 1) {
-      var point = clamp(candidates[i].x, candidates[i].y);
+    candidates.push({ x: anchor.left - width - gap, y: midY });
+    candidates.push({ x: anchor.right + gap, y: midY });
+    candidates.push({ x: margin, y: midY });
+    function clearOf(point) {
       var box = boxOf(point);
-      var blocked = false;
-      for (var j = 0; j < obstacles.length; j += 1) {
-        if (rectsOverlap(box, obstacles[j], gap)) blocked = true;
+      for (var i = 0; i < obstacles.length; i += 1) {
+        if (rectsOverlap(box, obstacles[i], 4)) return false;
       }
-      if (!blocked && words && rectsOverlap(box, words, 2)) blocked = true;
-      if (!blocked && anchor && rectsOverlap(box, anchor, 2)) blocked = true;
-      if (!blocked) {
-        chosen = point;
-        break;
-      }
+      return true;
     }
-    if (!chosen) {
-      var y = window.innerHeight - height - margin;
-      for (var step = 0; step < 14; step += 1) {
-        var fallback = clamp(margin, y);
-        var fallbackBox = boxOf(fallback);
-        var hit = null;
-        for (var k = 0; k < obstacles.length; k += 1) {
-          if (rectsOverlap(fallbackBox, obstacles[k], gap)) hit = obstacles[k];
-        }
-        if (!hit) {
-          chosen = fallback;
+    var chosen = null;
+    for (var c = 0; c < candidates.length; c += 1) {
+      var base = candidates[c];
+      for (var step = 0; step < 28; step += 1) {
+        var dy = step === 0 ? 0 : (step % 2 ? 1 : -1) * Math.ceil(step / 2) * 14;
+        var point = clamp(base.x, base.y + dy);
+        if (clearOf(point)) {
+          chosen = point;
           break;
         }
-        y = hit.top - height - gap;
       }
+      if (chosen) break;
     }
-    if (!chosen) chosen = clamp(margin, margin);
+    if (!chosen) {
+      var park = clamp(margin, maxY);
+      var cartBox = document.querySelector(".saved-cart");
+      if (cartBox && rectsOverlap(boxOf(park), cartBox.getBoundingClientRect(), gap)) {
+        park = clamp(margin, cartBox.getBoundingClientRect().top - height - gap);
+      }
+      if (rectsOverlap(boxOf(park), anchor, 2)) {
+        park = clamp(margin, anchor.top - height - gap);
+      }
+      chosen = park;
+    }
     addFloat.style.left = Math.round(chosen.x) + "px";
     addFloat.style.top = Math.round(chosen.y) + "px";
     addFloat.style.right = "auto";
@@ -1734,7 +1795,8 @@
       addFloat.hidden = true;
       return;
     }
-    if (add(item)) openPanel();
+    var added = add(item);
+    if (added || indexOf(item.id) >= 0) playAdded();
     syncAddFloat();
   }
 
@@ -1745,7 +1807,7 @@
     addFloat.type = "button";
     addFloat.className = "cart-add-float no-print";
     addFloat.hidden = true;
-    paintAddFloatLabel();
+    paintAddFloatLabel(false);
     document.body.appendChild(addFloat);
     syncAddFloat();
     document.addEventListener("selectionchange", syncAddFloat);
@@ -1832,6 +1894,7 @@
     if (!suspendMenuDismiss) hideSelectMenu();
   });
   bindSourceHint();
+  bindSourceGuide();
   bindAddFloat();
 
   toggle.addEventListener("click", function () {
